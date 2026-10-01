@@ -36,7 +36,7 @@ const stats = [
 ---
 
 <section id="inicio" class="relative overflow-hidden bg-dark-navy">
-  <!-- Banner con foto real de fondo (visible) -->
+  <!-- Banner con foto real de fondo - máxima visibilidad -->
   <div class="absolute inset-0" aria-hidden="true">
     <picture>
       <source srcset="/images/gallery/recarga-gas-aire-acondicionado-automotriz-domicilio-santiago-2.webp" type="image/webp" />
@@ -46,16 +46,16 @@ const stats = [
         width="900"
         height="1200"
         fetchpriority="high"
-        class="w-full h-full object-cover opacity-70"
+        class="w-full h-full object-cover"
       />
     </picture>
-    <!-- Overlay gradiente más suave para que la foto se vea pero el texto siga legible -->
-    <div class="absolute inset-0 bg-gradient-to-br from-dark-navy/90 via-dark-navy/70 to-dark-navy/40"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-dark-navy/90 via-transparent to-dark-navy/40"></div>
+    <!-- Solo oscurecemos la parte izquierda (donde está el texto) y un degradado inferior -->
+    <div class="absolute inset-0 bg-gradient-to-r from-dark-navy via-dark-navy/80 to-transparent lg:via-dark-navy/60"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-dark-navy/85 via-dark-navy/20 to-transparent"></div>
   </div>
-  <!-- Glow overlays -->
-  <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-cyan/20 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
-  <div class="absolute -top-24 right-0 w-80 h-80 bg-accent-orange/15 rounded-full blur-3xl" aria-hidden="true"></div>
+  <!-- Glow overlays sutiles -->
+  <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl" aria-hidden="true"></div>
+  <div class="absolute -top-24 right-0 w-80 h-80 bg-accent-orange/10 rounded-full blur-3xl" aria-hidden="true"></div>
 
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 lg:pt-32 pb-16 lg:pb-24">
     <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
