@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00BCD4"/>
+      <stop offset="100%" stop-color="#00838F"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <!-- Air conditioning / snowflake -->
+  <g transform="translate(200 150)" fill="#fff">
+    <circle r="20" fill="rgba(255,255,255,0.15)"/>
+    <g stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none">
+      <line x1="0" y1="-50" x2="0" y2="50"/>
+      <line x1="-43" y1="-25" x2="43" y2="25"/>
+      <line x1="-43" y1="25" x2="43" y2="-25"/>
+      <line x1="-50" y1="0" x2="50" y2="0"/>
+      <line x1="-25" y1="-43" x2="25" y2="43"/>
+      <line x1="-25" y1="43" x2="25" y2="-43"/>
+    </g>
+    <circle r="8" fill="#fff"/>
+  </g>
+  <text x="200" y="260" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">Recarga R134a</text>
+</svg>

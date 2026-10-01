@@ -1,0 +1,145 @@
+---
+/**
+ * FaqSection.astro
+ * Acordeón FAQ semántico e interactivo con Vanilla JS.
+ * Las preguntas/respuestas están sincronizadas con el Schema.org FAQPage del Layout.
+ */
+
+const faqs = [
+  {
+    question: '¿Cuánto demora la recarga de gas aire acondicionado a domicilio en Santiago?',
+    answer: 'Nuestro tiempo de respuesta en la Región Metropolitana es de 60 a 90 minutos. El procedimiento de recarga en sí toma entre 30 y 45 minutos, incluyendo diagnóstico previo, vacío del sistema y carga precisa por peso del gas refrigerante R134a. El tiempo total puede variar ligeramente según el tráfico y la comuna de origen.',
+  },
+  {
+    question: '¿Qué precio tiene la recarga de gas automotriz a domicilio?',
+    answer: 'El valor inicial es de $35.000 CLP e incluye diagnóstico, vacío y carga del gas refrigerante R134a. El precio final puede variar según el vehículo y si se detectan fugas que requieran reparación adicional, las cuales siempre se cotizan antes de realizarse. Para vehículos que requieren gas R1234yf (modelos posteriores a 2017), el valor se ajusta según especificación del fabricante.',
+  },
+  {
+    question: '¿Qué comunas de Santiago cubren con el servicio a domicilio?',
+    answer: 'Cubrimos las 52 comunas de la Región Metropolitana, incluyendo Santiago Centro, Las Condes, Providencia, Vitacura, Ñuñoa, Maipú, La Florida, Puente Alto, San Bernardo, Pudahuel, Quilicura, entre otras. Puedes verificar tu comuna con nuestro buscador en la sección Cobertura RM más arriba en esta misma página.',
+  },
+  {
+    question: '¿Qué tipos de gas refrigerante utilizan?',
+    answer: 'Trabajamos principalmente con gas refrigerante R134a, el estándar para la mayoría de vehículos. Para modelos posteriores a 2017 que usan R1234yf (más ecológico y con menor potencial de calentamiento atmosférico), también contamos con el equipo certificado para realizar la carga según especificación del fabricante. Ambos gases cumplen con normativa chilena y SAG.',
+  },
+  {
+    question: '¿Ofrecen boleta o factura electrónica?',
+    answer: 'Sí. Emitimos boleta electrónica y factura electrónica afecta o exenta según corresponda, válidas en el SII al instante. Aceptamos efectivo, transferencia bancaria y pagos con tarjeta vía Transbank (Webpay) directamente en el lugar del servicio. Si necesitas factura a nombre de una empresa, indícanos el RUT y razón social al momento de agendar.',
+  },
+  {
+    question: '¿La recarga de gas incluye garantía?',
+    answer: 'Sí. Toda recarga realizada por GlobalPro Automotriz incluye 90 días de garantía. Si dentro de ese período el aire acondicionado deja de enfriar por causa del servicio prestado, regresamos sin costo adicional a reponer la carga o reparar el problema detectado. La garantía no cubre daños por factores externos como colisiones, fallas del compresor preexistentes o manipulación posterior del sistema.',
+  },
+  {
+    question: '¿Cómo sé si mi aire acondicionado automotriz necesita recarga?',
+    answer: 'Los síntomas más comunes son: el aire no enfría como antes, tarda más de lo normal en enfriar, el compresor hace ruidos al activarse o se escuchan ciclos cortos de encendido/apagado. Si presentas cualquiera de estos síntomas, te recomendamos agendar una revisión a domicilio. Un sistema con poco gas forza al compresor a trabajar más, lo que puede dañarlo y derivar en una reparación mucho más costosa.',
+  },
+];
+---
+
+<section id="faq" class="bg-bg-alt py-20 lg:py-28">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 lg:mb-14" data-reveal>
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-orange/10 text-accent-orange text-sm font-semibold mb-4">
+        <span class="h-1.5 w-1.5 rounded-full bg-accent-orange"></span>
+        Preguntas Frecuentes
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-dark tracking-tight">
+        Resolvemos tus <span class="bg-gradient-to-r from-primary-cyan to-primary-teal bg-clip-text text-transparent">Dudas</span>
+      </h2>
+      <p class="mt-5 text-lg text-text-muted leading-relaxed">
+        Las preguntas más frecuentes de nuestros clientes sobre recarga de gas aire acondicionado automotriz a domicilio en Santiago.
+      </p>
+    </div>
+
+    <div class="space-y-3" data-reveal>
+      {faqs.map((faq, index) => (
+        <div class="bg-white rounded-xl-card border border-border-light overflow-hidden shadow-card">
+          <h3>
+            <button
+              type="button"
+              class="faq-trigger w-full flex items-center justify-between gap-4 px-5 lg:px-6 py-5 text-left hover:bg-bg-alt/50 transition-colors"
+              aria-expanded="false"
+              aria-controls={`faq-panel-${index}`}
+              id={`faq-trigger-${index}`}
+            >
+              <span class="text-base lg:text-lg font-bold text-ink-dark leading-snug">{faq.question}</span>
+              <span class="flex-shrink-0 h-8 w-8 rounded-full bg-primary-cyan/10 border border-primary-cyan/20 flex items-center justify-center text-primary-teal transition-transform duration-300">
+                <svg class="w-5 h-5 faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </span>
+            </button>
+          </h3>
+          <div
+            id={`faq-panel-${index}`}
+            role="region"
+            aria-labelledby={`faq-trigger-${index}`}
+            class="faq-panel hidden px-5 lg:px-6 pb-5"
+          >
+            <p class="text-text-muted leading-relaxed text-sm lg:text-base">{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA inferior -->
+    <div class="mt-10 lg:mt-12 text-center p-6 lg:p-8 rounded-2xl-card bg-gradient-to-br from-dark-navy to-dark-navy-alt border border-white/10" data-reveal>
+      <h3 class="text-xl lg:text-2xl font-bold text-white">¿Tienes otra pregunta?</h3>
+      <p class="mt-2 text-white/70 text-sm lg:text-base">Nuestro equipo responde en menos de 5 minutos por WhatsApp.</p>
+      <a
+        href="https://wa.me/56987654321?text=Hola%20GlobalPro%20👋,%20tengo%20una%20pregunta%20sobre%20el%20servicio%20de%20recarga%20de%20gas%20a%20domicilio."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-whatsapp-green text-white font-semibold text-sm hover:scale-105 active:scale-95 transition-transform"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.473-.607z"/>
+        </svg>
+        Preguntar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // --- Acordeón FAQ accesible ---
+  const triggers = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
+  const panels = document.querySelectorAll<HTMLElement>('.faq-panel');
+
+  triggers.forEach((trigger, index) => {
+    trigger.addEventListener('click', () => {
+      const panel = panels[index];
+      const icon = trigger.querySelector('.faq-icon');
+      const isOpen = !panel.classList.contains('hidden');
+
+      // Cerrar todos los demás (comportamiento acordeón)
+      panels.forEach((p, i) => {
+        if (i !== index) {
+          p.classList.add('hidden');
+          triggers[i].setAttribute('aria-expanded', 'false');
+          triggers[i].querySelector('.faq-icon')?.style.setProperty('transform', 'rotate(0deg)');
+        }
+      });
+
+      // Toggle actual
+      if (isOpen) {
+        panel.classList.add('hidden');
+        trigger.setAttribute('aria-expanded', 'false');
+        icon?.style.setProperty('transform', 'rotate(0deg)');
+      } else {
+        panel.classList.remove('hidden');
+        trigger.setAttribute('aria-expanded', 'true');
+        icon?.style.setProperty('transform', 'rotate(180deg)');
+      }
+    });
+
+    // Soporte teclado
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        trigger.click();
+      }
+    });
+  });
+</script>

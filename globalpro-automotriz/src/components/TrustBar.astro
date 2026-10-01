@@ -1,0 +1,57 @@
+---
+/**
+ * TrustBar.astro
+ * Barra horizontal oscura con puntos clave de confianza:
+ * Técnicos Certificados · Boleta/Factura electrónica · Medios de pago.
+ */
+
+const trustItems = [
+  {
+    title: 'Técnicos Certificados',
+    desc: 'Mecánicos con formación SAG y más de 10 años de experiencia',
+    icon: 'badge',
+  },
+  {
+    title: 'Boleta y Factura Electrónica',
+    desc: 'Documentos tributarios válidos en el SII al instante',
+    icon: 'document',
+  },
+  {
+    title: 'Todos los Medios de Pago',
+    desc: 'Efectivo · Transferencia · Transbank (Webpay)',
+    icon: 'wallet',
+  },
+  {
+    title: 'Garantía Escrita 90 días',
+    desc: 'Si algo falla por nuestro servicio, regresamos sin costo',
+    icon: 'shield',
+  },
+];
+
+const iconMap: Record<string, string> = {
+  badge: 'M12 2l3 1.5L18 2l3 3v3l-1.5 1.5L21 11v3l-3 3-3-1.5L12 17l-3 1.5L6 17l-3-3v-3l1.5-1.5L3 5V2l3 0 3 1.5L12 2zm0 4a6 6 0 100 12 6 6 0 000-12zm-1 9l-3-3 1.4-1.4L11 12.2 14.6 8.6 16 10l-5 5z',
+  document: 'M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 7V3.5L18.5 9H13z',
+  wallet: 'M21 7H3a1 1 0 00-1 1v8a3 3 0 003 3h14a3 3 0 003-3V8a1 1 0 00-1-1zm-3 8a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM5 5h14a1 1 0 011 1v1H4V6a1 1 0 011-1z',
+  shield: 'M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3zm-1 13l5-5-1.4-1.4L11 12.2 7.4 8.6 6 10l5 5z',
+};
+---
+
+<section class="bg-dark-navy border-t border-white/5">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-8">
+      {trustItems.map((item) => (
+        <div class="flex items-start gap-3 group" data-reveal>
+          <div class="flex-shrink-0 h-11 w-11 rounded-xl bg-gradient-to-br from-primary-cyan/20 to-primary-teal/20 border border-primary-cyan/30 flex items-center justify-center group-hover:border-primary-cyan transition-colors">
+            <svg class="w-5 h-5 text-primary-cyan" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d={iconMap[item.icon]}/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-white font-semibold text-sm leading-tight">{item.title}</h3>
+            <p class="text-white/55 text-xs mt-1 leading-snug">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

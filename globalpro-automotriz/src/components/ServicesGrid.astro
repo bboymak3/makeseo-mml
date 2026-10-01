@@ -1,0 +1,159 @@
+---
+/**
+ * ServicesGrid.astro
+ * Grid de tarjetas de servicios con bordes redondeados (18px),
+ * barra superior animada en hover con gradiente cyan-naranja,
+ * badges tipo tag y enlaces rápidos a cotización.
+ */
+
+const WHATSAPP_NUMBER = '56987654321';
+
+const services = [
+  {
+    id: 'servicio-r134a',
+    name: 'Recarga Gas R134a',
+    tag: 'Más solicitado',
+    description: 'Carga precisa por peso de gas refrigerante R134a de alta pureza. Incluye diagnóstico previo del sistema, vacío completo para eliminar humedad y carga según especificación del fabricante del vehículo.',
+    includes: ['Diagnóstico previo sin costo', 'Vacío del sistema 30 min', 'Carga por peso (gramos)', 'Prueba de rendimiento'],
+    price: '$35.000',
+    duration: '45 min',
+    image: '/images/services/recarga-r134a.svg',
+    whatsappMsg: 'Hola GlobalPro 👋, necesito Recarga de Gas R134a. ¿Me ayudan?',
+  },
+  {
+    id: 'servicio-fugas',
+    name: 'Detección de Fugas UV',
+    tag: 'Diagnóstico',
+    description: 'Inyección de tinta UV fluorescente en el sistema y barrido con lámpara ultravioleta profesional para localizar fugas invisibles a simple vista en mangueras, compresor, condensador y válvulas.',
+    includes: ['Tinta UV certificada', 'Lámpara LED 365nm', 'Informe de fugas detectadas', 'Cotización de reparación'],
+    price: '$25.000',
+    duration: '30 min',
+    image: '/images/services/deteccion-fugas-uv.svg',
+    whatsappMsg: 'Hola GlobalPro 👋, mi aire acondicionado no enfría. Quiero Detección de Fugas UV.',
+  },
+  {
+    id: 'servicio-filtro',
+    name: 'Cambio de Filtro Cabina',
+    tag: 'Mantención',
+    description: 'Reemplazo del filtro de aire de cabina por uno nuevo de carbón activado. Elimina olores, polvo, polen y partículas que afectan la calidad del aire que respiras dentro del vehículo.',
+    includes: ['Filtro de carbón activado', 'Limpieza de conductos', 'Desinfección del sistema', 'Recomendaciones de uso'],
+    price: '$18.000',
+    duration: '20 min',
+    image: '/images/services/cambio-filtro-cabina.svg',
+    whatsappMsg: 'Hola GlobalPro 👋, quiero Cambio de Filtro de Cabina con carbón activado.',
+  },
+  {
+    id: 'servicio-compresor',
+    name: 'Diagnóstico de Compresor',
+    tag: 'Especializado',
+    description: 'Diagnóstico avanzado del compresor del aire acondicionado usando scanner OBD2 y multímetro. Verificamos embrague, presión de aceite, sensor de presión y circuito eléctrico del compresor.',
+    includes: ['Scanner OBD2 completo', 'Test eléctrico del embrague', 'Verificación de presiones', 'Informe técnico detallado'],
+    price: '$30.000',
+    duration: '40 min',
+    image: '/images/services/diagnostico-compresor.svg',
+    whatsappMsg: 'Hola GlobalPro 👋, necesito Diagnóstico de Compresor de A/C.',
+  },
+];
+---
+
+<section id="servicios" class="bg-white py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Header de sección -->
+    <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-16" data-reveal>
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-teal text-sm font-semibold mb-4">
+        <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan"></span>
+        Nuestros Servicios
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-dark tracking-tight">
+        Soluciones Automotrices a Domicilio en <span class="bg-gradient-to-r from-primary-cyan to-primary-teal bg-clip-text text-transparent">Santiago RM</span>
+      </h2>
+      <p class="mt-5 text-lg text-text-muted leading-relaxed">
+        Cobertura total en la Región Metropolitana con equipo profesional y técnicos certificados. Todos los servicios incluyen diagnóstico, boleta o factura electrónica y garantía escrita.
+      </p>
+    </div>
+
+    <!-- Grid de servicios -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7">
+      {services.map((service) => (
+        <article
+          id={service.id}
+          class="group relative bg-white rounded-xl-card border border-border-light overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 flex flex-col scroll-mt-28"
+          data-reveal
+        >
+          <!-- Barra superior animada en hover -->
+          <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary-cyan via-primary-teal to-accent-orange scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+
+          <!-- Imagen del servicio -->
+          <div class="relative aspect-[4/3] bg-gradient-to-br from-bg-alt to-border-light overflow-hidden">
+            <img
+              src={service.image}
+              alt={`${service.name} a domicilio en Santiago RM - GlobalPro Automotriz`}
+              width="400"
+              height="300"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onerror="this.style.display='none'; this.parentElement.classList.add('flex','items-center','justify-center'); this.parentElement.innerHTML='<div class=&quot;text-6xl&quot;>🔧</div>'"
+            />
+            <!-- Badge tipo tag -->
+            <span class="absolute top-3 left-3 inline-flex items-center px-2.5 py-1 rounded-full bg-dark-navy/85 backdrop-blur-sm text-white text-[11px] font-semibold uppercase tracking-wide">
+              {service.tag}
+            </span>
+          </div>
+
+          <!-- Cuerpo de la tarjeta -->
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-ink-dark leading-tight">{service.name}</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">{service.description}</p>
+
+            <!-- Includes -->
+            <ul class="mt-4 space-y-1.5 flex-1">
+              {service.includes.map((inc) => (
+                <li class="flex items-start gap-2 text-xs text-ink-dark">
+                  <svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-primary-teal" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>{inc}</span>
+                </li>
+              ))}
+            </ul>
+
+            <!-- Footer precio + CTA -->
+            <div class="mt-5 pt-4 border-t border-border-light">
+              <div class="flex items-baseline justify-between mb-3">
+                <div>
+                  <span class="text-2xl font-extrabold text-accent-orange">{service.price}</span>
+                  <span class="text-xs text-text-muted ml-1">CLP</span>
+                </div>
+                <span class="text-xs text-text-muted flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  {service.duration}
+                </span>
+              </div>
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(service.whatsappMsg)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-full bg-dark-navy text-white text-sm font-semibold hover:bg-accent-orange transition-colors"
+                aria-label={`Cotizar ${service.name} por WhatsApp`}
+              >
+                Cotizar
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.473-.607z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Nota inferior -->
+    <p class="mt-10 text-center text-sm text-text-muted">
+      ¿Tu vehículo no aparece en la lista? Atendemos todas las marcas y modelos.
+      <a href="#cobertura" class="text-primary-teal font-semibold hover:underline">Ver cobertura de comunas →</a>
+    </p>
+  </div>
+</section>

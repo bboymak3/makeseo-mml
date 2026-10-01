@@ -1,0 +1,216 @@
+---
+/**
+ * Footer.astro
+ * Footer completo con datos fiscales, enlaces legales y listado SEO de comunas atendidas.
+ */
+
+const year = new Date().getFullYear();
+
+const navLinks = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#proceso', label: 'Proceso' },
+  { href: '#cobertura', label: 'Cobertura RM' },
+  { href: '#precios', label: 'Precios' },
+  { href: '#faq', label: 'Preguntas Frecuentes' },
+];
+
+const serviceLinks = [
+  { href: '#servicio-r134a', label: 'Recarga Gas R134a' },
+  { href: '#servicio-fugas', label: 'Detección de Fugas UV' },
+  { href: '#servicio-filtro', label: 'Cambio de Filtro Cabina' },
+  { href: '#servicio-compresor', label: 'Diagnóstico de Compresor' },
+];
+
+const legalLinks = [
+  { href: '/privacidad', label: 'Política de Privacidad' },
+  { href: '/terminos', label: 'Términos y Condiciones' },
+  { href: '/garantia', label: 'Política de Garantía' },
+  { href: '/cookies', label: 'Política de Cookies' },
+];
+
+// Listado SEO de comunas atendidas (refuerza Geo-SEO)
+const comunasSEO = [
+  'Santiago Centro', 'Las Condes', 'Providencia', 'Vitacura', 'Lo Barnechea',
+  'Ñuñoa', 'La Reina', 'Macul', 'Peñalolén', 'La Florida', 'Maipú', 'Pudahuel',
+  'Quilicura', 'Huechuraba', 'Conchalí', 'Independencia', 'Recoleta',
+  'Estación Central', 'Quinta Normal', 'Cerro Navia', 'Lo Prado', 'Renca',
+  'San Miguel', 'San Joaquín', 'La Cisterna', 'La Granja', 'San Ramón',
+  'La Pintana', 'Puente Alto', 'San Bernardo', 'Calera de Tango', 'Buin',
+  'Padre Hurtado', 'Peñaflor', 'Talagante', 'El Monte', 'Lampa', 'Colina',
+  'Tiltil', 'Curacaví', 'María Pinto', 'Melipilla', 'Pirque', 'San José de Maipo',
+  'Cerrillos', 'Lo Espejo', 'Pedro Aguirre Cerda', 'Paine', 'San Pedro',
+  'Alhué', 'Isla de Maipo',
+];
+
+const WHATSAPP_NUMBER = '56987654321';
+const WHATSAPP_MSG = encodeURIComponent('Hola GlobalPro 👋, vi su web y necesito información.');
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
+const PHONE_DISPLAY = '+56 9 8765 4321';
+const PHONE_INTL = '+56987654321';
+---
+
+<footer class="bg-dark-navy border-t border-white/10">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-12">
+      <!-- Columna 1: Marca + contacto -->
+      <div class="lg:col-span-4">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M5 11l1.5-4.5A3 3 0 019.4 4h5.2a3 3 0 012.9 2.5L19 11h.5a1.5 1.5 0 011.5 1.5v5a1.5 1.5 0 01-1.5 1.5H18a1 1 0 01-1-1v-1H7v1a1 1 0 01-1 1H4.5A1.5 1.5 0 013 17.5v-5A1.5 1.5 0 014.5 11H5z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="block text-white font-extrabold text-lg leading-none">GlobalPro</span>
+            <span class="block text-primary-cyan text-xs font-medium">Automotriz · Mecánico 24/7</span>
+          </div>
+        </div>
+        <p class="text-white/60 text-sm leading-relaxed mb-5">
+          Servicio automotriz a domicilio especializado en recarga de gas aire acondicionado automotriz en toda la Región Metropolitana de Santiago, Chile. Técnicos certificados, equipo profesional y garantía escrita.
+        </p>
+
+        <!-- Datos de contacto -->
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a href={`tel:${PHONE_INTL}`} class="flex items-center gap-3 text-white/80 hover:text-white transition-colors">
+              <svg class="w-4 h-4 text-primary-cyan" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.62 10.79a15.46 15.46 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/>
+              </svg>
+              {PHONE_DISPLAY}
+            </a>
+          </li>
+          <li>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-white/80 hover:text-white transition-colors">
+              <svg class="w-4 h-4 text-whatsapp-green" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/>
+              </svg>
+              WhatsApp 24/7
+            </a>
+          </li>
+          <li class="flex items-center gap-3 text-white/80">
+            <svg class="w-4 h-4 text-primary-cyan" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+            </svg>
+            Av. Providencia 1208, Santiago, RM
+          </li>
+          <li class="flex items-center gap-3 text-white/80">
+            <svg class="w-4 h-4 text-primary-cyan" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 10V6h-2v7h6v-2h-4z"/>
+            </svg>
+            Lun-Vie 08:00-22:00 · Sáb-Dom 09:00-21:00
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 2: Navegación -->
+      <div class="lg:col-span-2">
+        <h3 class="text-white font-bold text-sm uppercase tracking-wide mb-4">Navegación</h3>
+        <ul class="space-y-2.5">
+          {navLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/60 hover:text-primary-cyan transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Columna 3: Servicios -->
+      <div class="lg:col-span-3">
+        <h3 class="text-white font-bold text-sm uppercase tracking-wide mb-4">Servicios</h3>
+        <ul class="space-y-2.5">
+          {serviceLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/60 hover:text-primary-cyan transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <h3 class="text-white font-bold text-sm uppercase tracking-wide mt-6 mb-4">Legal</h3>
+        <ul class="space-y-2.5">
+          {legalLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/60 hover:text-primary-cyan transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Columna 4: Datos fiscales -->
+      <div class="lg:col-span-3">
+        <h3 class="text-white font-bold text-sm uppercase tracking-wide mb-4">Datos Fiscales</h3>
+        <div class="bg-white/5 border border-white/10 rounded-xl-card p-4 text-sm text-white/70 space-y-2">
+          <div>
+            <span class="text-white/50">Razón Social:</span>
+            <span class="block text-white font-medium">GlobalPro Automotriz SpA</span>
+          </div>
+          <div>
+            <span class="text-white/50">RUT:</span>
+            <span class="block text-white font-medium">77.123.456-7</span>
+          </div>
+          <div>
+            <span class="text-white/50">Giro:</span>
+            <span class="block text-white font-medium">Servicios de mantención automotriz</span>
+          </div>
+          <div>
+            <span class="text-white/50">Email:</span>
+            <a href="mailto:contacto@globalproautomotriz.cl" class="block text-primary-cyan hover:underline">contacto@globalproautomotriz.cl</a>
+          </div>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="mt-5 flex items-center gap-3">
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="h-9 w-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-whatsapp-green/20 hover:border-whatsapp-green/40 transition-colors">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="h-9 w-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary-cyan/20 hover:border-primary-cyan/40 transition-colors">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="h-9 w-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary-cyan/20 hover:border-primary-cyan/40 transition-colors">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque SEO: listado de comunas atendidas -->
+    <div class="mt-12 lg:mt-16 pt-8 border-t border-white/10">
+      <h3 class="text-white/80 font-semibold text-sm mb-3">
+        Cobertura de servicio a domicilio en la Región Metropolitana:
+      </h3>
+      <p class="text-white/40 text-xs leading-relaxed">
+        Atendemos recarga de gas aire acondicionado automotriz a domicilio en:
+        {comunasSEO.map((comuna, i) => (
+          <span>{comuna}{i < comunasSEO.length - 1 ? ', ' : '.'}</span>
+        ))}
+      </p>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-white/50 text-xs text-center md:text-left">
+        © {year} GlobalPro Automotriz SpA · Todos los derechos reservados · Hecho con Astro en Santiago, Chile 🇨🇱
+      </p>
+      <div class="flex items-center gap-4 text-xs text-white/40">
+        <span class="flex items-center gap-1.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-whatsapp-green"></span>
+          Sistema operativo
+        </span>
+        <span>·</span>
+        <span>Última actualización: {new Date().toLocaleDateString('es-CL', { day: '2-digit', month: '2-digit', year: 'numeric' })}</span>
+      </div>
+    </div>
+  </div>
+</footer>

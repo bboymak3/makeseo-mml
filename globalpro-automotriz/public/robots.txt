@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap principal (reemplaza con tu dominio real)
+Sitemap: https://globalproautomotriz.cl/sitemap-index.xml

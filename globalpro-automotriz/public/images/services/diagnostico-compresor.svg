@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1020"/>
+      <stop offset="100%" stop-color="#121a33"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <!-- Compressor/gear icon -->
+  <g transform="translate(200 140)" fill="none" stroke="#00BCD4" stroke-width="3">
+    <circle r="45" fill="rgba(0,188,212,0.1)"/>
+    <circle r="20"/>
+    <!-- Teeth -->
+    <g stroke-linecap="round">
+      <line x1="0" y1="-55" x2="0" y2="-45"/>
+      <line x1="0" y1="55" x2="0" y2="45"/>
+      <line x1="-55" y1="0" x2="-45" y2="0"/>
+      <line x1="55" y1="0" x2="45" y2="0"/>
+      <line x1="-39" y1="-39" x2="-32" y2="-32"/>
+      <line x1="39" y1="39" x2="32" y2="32"/>
+      <line x1="-39" y1="39" x2="-32" y2="32"/>
+      <line x1="39" y1="-39" x2="32" y2="-32"/>
+    </g>
+    <!-- Center dot -->
+    <circle r="6" fill="#ff6b00" stroke="none"/>
+  </g>
+  <text x="200" y="260" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">Diagnóstico Compresor</text>
+</svg>

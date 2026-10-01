@@ -1,0 +1,361 @@
+---
+/**
+ * Layout.astro
+ * Layout raíz de GlobalPro Automotriz.
+ * Incluye: metadatos SEO completos, Geo-tags Chile/RM, Open Graph,
+ * Twitter Cards, canonical y Schema.org JSON-LD (AutoRepair + Service + FAQPage).
+ */
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const SITE_URL = 'https://globalproautomotriz.cl';
+const PHONE_DISPLAY = '+56 9 8765 4321';
+const PHONE_INTL = '+56987654321';
+const WHATSAPP_NUMBER = '56987654321';
+const WHATSAPP_MSG = encodeURIComponent(
+  'Hola GlobalPro 👋, necesito recarga de gas aire acondicionado automotriz a domicilio en Santiago. ¿Me ayudas?'
+);
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
+
+const {
+  title = 'Recarga de Gas Aire Acondicionado a Domicilio en Santiago | GlobalPro',
+  description = 'Recarga de gas R134a a domicilio en Santiago RM desde $35.000. Llegamos en 60-90 min, técnicos certificados, 52 comunas cubiertas. Boleta/factura electrónica. Reserva por WhatsApp.',
+  canonical = SITE_URL,
+} = Astro.props;
+
+// --- Schema.org JSON-LD: AutomotiveBusiness + Service + FAQPage ---
+const automotiveBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['AutomotiveBusiness', 'AutoRepair'],
+  '@id': `${SITE_URL}/#business`,
+  name: 'GlobalPro Automotriz / Mecánico 24/7',
+  alternateName: 'Mecánico 24/7',
+  description:
+    'Servicio automotriz a domicilio en Santiago de Chile. Recarga de gas aire acondicionado automotriz (R134a), detección de fugas UV, cambio de filtro de cabina y diagnóstico de compresor. Atención en 60-90 minutos en toda la Región Metropolitana.',
+  url: SITE_URL,
+  telephone: PHONE_INTL,
+  image: `${SITE_URL}/images/og/og-image.svg`,
+  logo: `${SITE_URL}/favicon.svg`,
+  priceRange: '$$',
+  currenciesAccepted: 'CLP',
+  paymentAccepted: 'Efectivo, Transferencia, Transbank, Tarjeta de crédito/débito',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Av. Providencia 1208',
+    addressLocality: 'Santiago',
+    addressRegion: 'Región Metropolitana',
+    postalCode: '7500000',
+    addressCountry: 'CL',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -33.4372,
+    longitude: -70.6506,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Santiago Centro' },
+    { '@type': 'City', name: 'Las Condes' },
+    { '@type': 'City', name: 'Providencia' },
+    { '@type': 'City', name: 'Vitacura' },
+    { '@type': 'City', name: 'Lo Barnechea' },
+    { '@type': 'City', name: 'Ñuñoa' },
+    { '@type': 'City', name: 'La Reina' },
+    { '@type': 'City', name: 'Macul' },
+    { '@type': 'City', name: 'Peñalolén' },
+    { '@type': 'City', name: 'La Florida' },
+    { '@type': 'City', name: 'Maipú' },
+    { '@type': 'City', name: 'Pudahuel' },
+    { '@type': 'City', name: 'Quilicura' },
+    { '@type': 'City', name: 'Huechuraba' },
+    { '@type': 'City', name: 'Conchalí' },
+    { '@type': 'City', name: 'Independencia' },
+    { '@type': 'City', name: 'Recoleta' },
+    { '@type': 'City', name: 'Estación Central' },
+    { '@type': 'City', name: 'Quinta Normal' },
+    { '@type': 'City', name: 'Cerro Navia' },
+    { '@type': 'City', name: 'Lo Prado' },
+    { '@type': 'City', name: 'Renca' },
+    { '@type': 'City', name: 'San Miguel' },
+    { '@type': 'City', name: 'San Joaquín' },
+    { '@type': 'City', name: 'La Cisterna' },
+    { '@type': 'City', name: 'La Granja' },
+    { '@type': 'City', name: 'San Ramón' },
+    { '@type': 'City', name: 'La Pintana' },
+    { '@type': 'City', name: 'Puente Alto' },
+    { '@type': 'City', name: 'San Bernardo' },
+    { '@type': 'City', name: 'Calera de Tango' },
+    { '@type': 'City', name: 'Buin' },
+    { '@type': 'City', name: 'Padre Hurtado' },
+    { '@type': 'City', name: 'Peñaflor' },
+    { '@type': 'City', name: 'Talagante' },
+    { '@type': 'City', name: 'El Monte' },
+    { '@type': 'City', name: 'Lampa' },
+    { '@type': 'City', name: 'Colina' },
+    { '@type': 'City', name: 'Tiltil' },
+    { '@type': 'City', name: 'Curacaví' },
+    { '@type': 'City', name: 'María Pinto' },
+    { '@type': 'City', name: 'Melipilla' },
+    { '@type': 'City', name: 'Pirque' },
+    { '@type': 'City', name: 'San José de Maipo' },
+  ],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '22:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday', 'Sunday'],
+      opens: '09:00',
+      closes: '21:00',
+    },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '327',
+    bestRating: '5',
+    worstRating: '1',
+  },
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Recarga de Gas Aire Acondicionado Automotriz',
+  provider: { '@id': `${SITE_URL}/#business` },
+  areaServed: { '@type': 'AdministrativeArea', name: 'Región Metropolitana de Santiago, Chile' },
+  description:
+    'Recarga de gas refrigerante R134a para aire acondicionado automotriz a domicilio en Santiago y toda la Región Metropolitana. Incluye diagnóstico previo, vacío y carga precisa por peso.',
+  offers: {
+    '@type': 'Offer',
+    price: '35000',
+    priceCurrency: 'CLP',
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      price: '35000',
+      priceCurrency: 'CLP',
+      minPrice: '35000',
+      valueAddedTaxIncluded: false,
+    },
+    availability: 'https://schema.org/InStock',
+    url: `${SITE_URL}/#precios`,
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Cuánto demora la recarga de gas aire acondicionado a domicilio en Santiago?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nuestro tiempo de respuesta en la Región Metropolitana es de 60 a 90 minutos. El procedimiento de recarga en sí toma entre 30 y 45 minutos, incluyendo diagnóstico previo, vacío del sistema y carga precisa por peso del gas refrigerante R134a.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué precio tiene la recarga de gas automotriz a domicilio?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'El valor inicial es de $35.000 CLP e incluye diagnóstico, vacío y carga del gas refrigerante R134a. El precio final puede variar según el vehículo y si se detectan fugas que requieran reparación adicional, las cuales siempre se cotizan antes de realizarse.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué comunas de Santiago cubren con el servicio a domicilio?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Cubrimos las 52 comunas de la Región Metropolitana, incluyendo Santiago Centro, Las Condes, Providencia, Vitacura, Ñuñoa, Maipú, La Florida, Puente Alto, San Bernardo, Pudahuel, Quilicura, entre otras. Puedes verificar tu comuna con nuestro buscador en la sección Cobertura RM.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué tipos de gas refrigerante utilizan?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Trabajamos principalmente con gas refrigerante R134a, el estándar para la mayoría de vehículos. Para modelos posteriores a 2017 que usan R1234yf, también contamos con el equipo certificado para realizar la carga según especificación del fabricante.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Ofrecen boleta o factura electrónica?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Emitimos boleta electrónica y factura electrónica afecta o exenta según corresponda. Aceptamos efectivo, transferencia bancaria y pagos con tarjeta vía Transbank (Webpay) directamente en el lugar del servicio.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿La recarga de gas incluye garantía?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Toda recarga realizada por GlobalPro Automotriz incluye 90 días de garantía. Si dentro de ese período el aire acondicionado deja de enfriar por causa del servicio prestado, regresamos sin costo adicional a reponer la carga o reparar el problema detectado.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cómo sé si mi aire acondicionado automotriz necesita recarga?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Los síntomas más comunes son: el aire no enfría como antes, tarda más de lo normal en enfriar, el compresor hace ruidos al activarse o se escuchan ciclos cortos de encendido/apagado. Si presentas cualquiera de estos síntomas, te recomendamos agendar una revisión a domicilio.',
+      },
+    },
+  ],
+};
+
+// Lista de schemas para inyectar
+const schemas = [automotiveBusinessSchema, serviceSchema, faqSchema];
+---
+
+<!doctype html>
+<html lang="es-CL" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="recarga gas aire acondicionado automotriz, recarga r134a domicilio santiago, aire acondicionado auto domicilio, mecánico a domicilio RM, servicio automotriz santiago, recarga aire acondicionado auto chile, detección fugas uv automotriz, globalpro automotriz" />
+    <meta name="author" content="GlobalPro Automotriz" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#0b1020" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Geo Tags (Chile / Región Metropolitana) -->
+    <meta name="geo.region" content="CL-RM" />
+    <meta name="geo.placename" content="Santiago" />
+    <meta name="geo.position" content="-33.4372;-70.6506" />
+    <meta name="ICBM" content="-33.4372, -70.6506" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${SITE_URL}/images/og/og-image.svg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Recarga de Gas Aire Acondicionado Automotriz a Domicilio en Santiago - GlobalPro" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content="GlobalPro Automotriz" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${SITE_URL}/images/og/og-image.svg`} />
+    <meta name="twitter:image:alt" content="Recarga de Gas Aire Acondicionado Automotriz a Domicilio en Santiago - GlobalPro" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Fonts: Poppins (preconnect + display=swap para mejor rendimiento) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org JSON-LD -->
+    {
+      schemas.map((schema) => (
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      ))
+    }
+
+    <!-- Estilos globales críticos inline (mejora FCP) -->
+    <style is:global>
+      :root {
+        --color-primary-cyan: #00bcd4;
+        --color-primary-teal: #00838f;
+        --color-accent-orange: #ff6b00;
+        --color-dark-navy: #0b1020;
+      }
+      html {
+        scroll-behavior: smooth;
+        /* compensar navbar fijo al hacer clic en anclas */
+        scroll-padding-top: 90px;
+      }
+      body {
+        font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+        background-color: #ffffff;
+        color: #1a1a1a;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+      /* Reserva espacio para la barra fija inferior en mobile */
+      @media (max-width: 768px) {
+        body {
+          padding-bottom: 72px;
+        }
+      }
+      /* Scrollbar dark theme para secciones oscuras */
+      ::-webkit-scrollbar { width: 10px; height: 10px; }
+      ::-webkit-scrollbar-track { background: #0b1020; }
+      ::-webkit-scrollbar-thumb { background: #00838f; border-radius: 5px; }
+      ::-webkit-scrollbar-thumb:hover { background: #00bcd4; }
+      /* Focus visible accesible */
+      :focus-visible {
+        outline: 2px solid #00bcd4;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+      /* Animación reveal on scroll (controlada por JS IntersectionObserver) */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        [data-reveal] { opacity: 1; transform: none; transition: none; }
+        .animate-pulse-slow, .animate-float, .animate-glow-pulse {
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+
+    <!-- Script global: IntersectionObserver para reveal on scroll -->
+    <script>
+      // Reveal on scroll (progresivo y accesible)
+      const reveals = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window && reveals.length) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+        );
+        reveals.forEach((el) => io.observe(el));
+      } else {
+        reveals.forEach((el) => el.classList.add('is-visible'));
+      }
+    </script>
+  </body>
+</html>

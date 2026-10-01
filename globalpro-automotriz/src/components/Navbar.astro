@@ -1,0 +1,267 @@
+---
+/**
+ * Navbar.astro
+ * Navegación sticky con backdrop-blur, dropdown de Servicios, CTA WhatsApp
+ * y menú móvil hamburguesa controlado por Vanilla JS.
+ */
+
+const WHATSAPP_NUMBER = '56987654321';
+const WHATSAPP_MSG = encodeURIComponent(
+  'Hola GlobalPro 👋, quiero agendar recarga de gas aire acondicionado a domicilio.'
+);
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
+const PHONE_DISPLAY = '+56 9 8765 4321';
+const PHONE_INTL = '+56987654321';
+
+const navLinks = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#proceso', label: 'Proceso' },
+  { href: '#cobertura', label: 'Cobertura RM' },
+  { href: '#precios', label: 'Precios' },
+  { href: '#faq', label: 'Preguntas' },
+];
+
+const services = [
+  { href: '#servicio-r134a', label: 'Recarga Gas R134a', desc: 'Carga precisa por peso' },
+  { href: '#servicio-fugas', label: 'Detección de Fugas UV', desc: 'Tinta UV + lámpara' },
+  { href: '#servicio-filtro', label: 'Cambio de Filtro Cabina', desc: 'Aire limpio interior' },
+  { href: '#servicio-compresor', label: 'Diagnóstico de Compresor', desc: 'Scanner OBD2' },
+];
+---
+
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-dark-navy/80 border-b border-white/10"
+>
+  <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Navegación principal">
+    <div class="flex h-16 lg:h-20 items-center justify-between">
+      <!-- Logo -->
+      <a href="#inicio" class="flex items-center gap-2 group" aria-label="GlobalPro Automotriz - Inicio">
+        <div class="h-9 w-9 lg:h-10 lg:w-10 rounded-xl bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center shadow-glow-cyan group-hover:shadow-glow-orange transition-shadow">
+          <svg class="w-5 h-5 lg:w-6 lg:h-6 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M5 11l1.5-4.5A3 3 0 019.4 4h5.2a3 3 0 012.9 2.5L19 11h.5a1.5 1.5 0 011.5 1.5v5a1.5 1.5 0 01-1.5 1.5H18a1 1 0 01-1-1v-1H7v1a1 1 0 01-1 1H4.5A1.5 1.5 0 013 17.5v-5A1.5 1.5 0 014.5 11H5zm2.1 0h9.8l-1-3a1 1 0 00-1-.7H9.1a1 1 0 00-1 .7l-1 3zM6.5 15a1 1 0 100-2 1 1 0 000 2zm11 0a1 1 0 100-2 1 1 0 000 2z"/>
+          </svg>
+        </div>
+        <div class="leading-none">
+          <span class="block text-white font-extrabold text-base lg:text-lg tracking-tight">GlobalPro</span>
+          <span class="block text-primary-cyan text-[10px] lg:text-xs font-medium">Automotriz · 24/7</span>
+        </div>
+      </a>
+
+      <!-- Links desktop -->
+      <div class="hidden lg:flex items-center gap-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+          >
+            {link.label}
+          </a>
+        ))}
+
+        <!-- Dropdown Servicios -->
+        <div class="relative group">
+          <button
+            type="button"
+            class="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+            aria-expanded="false"
+            aria-haspopup="true"
+            data-dropdown-trigger
+          >
+            Servicios
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div
+            class="invisible opacity-0 translate-y-2 absolute left-1/2 -translate-x-1/2 top-full mt-2 w-80 bg-dark-navy-alt border border-white/10 rounded-xl-card shadow-2xl p-2 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0"
+            role="menu"
+            data-dropdown-menu
+          >
+            {services.map((s) => (
+              <a
+                href={s.href}
+                class="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group/item"
+                role="menuitem"
+              >
+                <span class="mt-0.5 h-8 w-8 flex-shrink-0 rounded-lg bg-gradient-to-br from-primary-cyan/20 to-accent-orange/20 border border-primary-cyan/30 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-primary-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="block text-sm font-semibold text-white">{s.label}</span>
+                  <span class="block text-xs text-white/60">{s.desc}</span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA desktop -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a
+          href={`tel:${PHONE_INTL}`}
+          class="flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium transition-colors"
+          aria-label={`Llamar al ${PHONE_DISPLAY}`}
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.62 10.79a15.46 15.46 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/>
+          </svg>
+          {PHONE_DISPLAY}
+        </a>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-whatsapp-green text-white text-sm font-semibold shadow-glow-orange hover:scale-105 active:scale-95 transition-transform"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.473-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/>
+          </svg>
+          Reservar por WhatsApp
+        </a>
+      </div>
+
+      <!-- Botón hamburguesa mobile -->
+      <button
+        type="button"
+        id="mobile-menu-button"
+        class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition-colors"
+        aria-label="Abrir menú"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" id="menu-open-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg class="w-6 h-6 hidden" id="menu-close-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menú mobile -->
+    <div
+      id="mobile-menu"
+      class="lg:hidden hidden border-t border-white/10 bg-dark-navy-alt/95 backdrop-blur-lg"
+    >
+      <div class="px-4 py-4 space-y-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors"
+            data-mobile-link
+          >
+            {link.label}
+          </a>
+        ))}
+
+        <!-- Acordeón Servicios mobile -->
+        <div>
+          <button
+            type="button"
+            class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors"
+            aria-expanded="false"
+            data-mobile-services-trigger
+          >
+            Servicios
+            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="hidden pl-4 space-y-1" data-mobile-services-menu>
+            {services.map((s) => (
+              <a
+                href={s.href}
+                class="block px-3 py-2 rounded-lg text-white/70 hover:text-white hover:bg-white/5 text-sm transition-colors"
+                data-mobile-link
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-3 flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-whatsapp-green text-white text-sm font-semibold"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.473-.607z"/>
+          </svg>
+          Reservar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // --- Navbar: sombra dinámica al hacer scroll ---
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => {
+    if (window.scrollY > 20) {
+      navbar?.classList.add('shadow-2xl', 'bg-dark-navy/95');
+      navbar?.classList.remove('bg-dark-navy/80');
+    } else {
+      navbar?.classList.remove('shadow-2xl', 'bg-dark-navy/95');
+      navbar?.classList.add('bg-dark-navy/80');
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // --- Menú móvil hamburguesa ---
+  const mobileButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openIcon = document.getElementById('menu-open-icon');
+  const closeIcon = document.getElementById('menu-close-icon');
+
+  const toggleMenu = (force?: boolean) => {
+    const willOpen = force ?? mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden', !willOpen);
+    openIcon?.classList.toggle('hidden', willOpen);
+    closeIcon?.classList.toggle('hidden', !willOpen);
+    mobileButton?.setAttribute('aria-expanded', String(willOpen));
+    document.body.style.overflow = willOpen ? 'hidden' : '';
+  };
+
+  mobileButton?.addEventListener('click', () => toggleMenu());
+
+  // Cerrar al hacer clic en un link del menú
+  document.querySelectorAll('[data-mobile-link]').forEach((link) => {
+    link.addEventListener('click', () => toggleMenu(false));
+  });
+
+  // Cerrar con tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu?.classList.contains('hidden')) {
+      toggleMenu(false);
+    }
+  });
+
+  // --- Acordeón Servicios en mobile ---
+  const servicesTrigger = document.querySelector('[data-mobile-services-trigger]');
+  const servicesMenu = document.querySelector('[data-mobile-services-menu]');
+  servicesTrigger?.addEventListener('click', () => {
+    const isHidden = servicesMenu?.classList.contains('hidden');
+    servicesMenu?.classList.toggle('hidden', !isHidden);
+    servicesTrigger.setAttribute('aria-expanded', String(isHidden));
+    const svg = servicesTrigger.querySelector('svg');
+    svg?.style.setProperty('transform', isHidden ? 'rotate(180deg)' : 'rotate(0deg)');
+  });
+
+  // --- Cerrar dropdown desktop al hacer clic fuera ---
+  document.addEventListener('click', (e) => {
+    const trigger = document.querySelector('[data-dropdown-trigger]');
+    const menu = document.querySelector('[data-dropdown-menu]');
+    if (!trigger || !menu) return;
+    if (!trigger.contains(e.target as Node) && !menu.contains(e.target as Node)) {
+      // dropdown se maneja con hover de Tailwind, no requiere JS adicional
+    }
+  });
+</script>

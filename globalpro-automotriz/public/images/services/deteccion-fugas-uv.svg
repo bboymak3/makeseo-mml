@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6b00"/>
+      <stop offset="100%" stop-color="#ff8c33"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <!-- UV lamp + drop -->
+  <g transform="translate(200 140)" fill="#fff">
+    <!-- Drop -->
+    <path d="M0 -40 C-20 -10 -25 10 -10 25 C5 40 25 30 25 10 C25 -5 15 -25 0 -40Z" fill="rgba(255,255,255,0.9)"/>
+    <!-- UV rays -->
+    <g stroke="#ffeb3b" stroke-width="2" stroke-linecap="round" fill="none">
+      <line x1="-50" y1="-30" x2="-30" y2="-15"/>
+      <line x1="50" y1="-30" x2="30" y2="-15"/>
+      <line x1="-55" y1="0" x2="-30" y2="0"/>
+      <line x1="55" y1="0" x2="30" y2="0"/>
+      <line x1="-50" y1="30" x2="-30" y2="15"/>
+      <line x1="50" y1="30" x2="30" y2="15"/>
+    </g>
+  </g>
+  <text x="200" y="260" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">Detección UV</text>
+</svg>
