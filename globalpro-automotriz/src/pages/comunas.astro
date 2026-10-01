@@ -1,10 +1,11 @@
 ---
 /**
  * src/pages/comunas.astro
- * Landing hub con todas las comunas + mapa interactivo ampliado.
+ * Landing hub con todas las comunas + mapa interactivo ampliado (zoom/pan + ficha).
  */
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import ComunaMap from '../components/ComunaMap.astro';
 import FloatingActions from '../components/FloatingActions.astro';
 import Footer from '../components/Footer.astro';
 import { comunas } from '../data/comunas.ts';
@@ -12,31 +13,15 @@ import { comunas } from '../data/comunas.ts';
 const WHATSAPP_NUMBER = '56987654321';
 
 const title = 'Comunas Atendidas en la Región Metropolitana | GlobalPro Automotriz';
-const description = 'Listado completo de las 52 comunas de la Región Metropolitana donde GlobalPro ofrece recarga de gas aire acondicionado automotriz a domicilio. Mapa interactivo, búsqueda en tiempo real y enlace a landing SEO dedicada por comuna.';
+const description = 'Listado completo de las 52 comunas de la Región Metropolitana donde GlobalPro ofrece recarga de gas aire acondicionado automotriz a domicilio. Mapa interactivo con zoom, búsqueda en tiempo real y enlace a landing SEO dedicada por comuna.';
 
-// Agrupar por zona
-const zonas = ['Centro', 'Oriente', 'Norte', 'Sur', 'Suroriente', 'Poniente', 'Surponiente', 'Rural'];
+const zonas = ['Centro','Oriente','Norte','Sur','Suroriente','Poniente','Surponiente','Rural'];
 const comunasPorZona = zonas.map(z => ({ zona: z, items: comunas.filter(c => c.zona === z) }));
 
-// Bounding box RM
-const minLat = -34.10, maxLat = -33.05;
-const minLng = -71.30, maxLng = -70.30;
-const mapW = 1000, mapH = 700;
-const project = (lat: number, lng: number) => {
-  const x = ((lng - minLng) / (maxLng - minLng)) * mapW;
-  const y = ((maxLat - lat) / (maxLat - minLat)) * mapH;
-  return { x: Math.round(x), y: Math.round(y) };
-};
-
 const zonaColors: Record<string, string> = {
-  Centro: '#00BCD4',
-  Oriente: '#00838F',
-  Norte: '#ff6b00',
-  Sur: '#ff8c33',
-  Suroriente: '#25D366',
-  Poniente: '#5b6475',
-  Surponiente: '#9c27b0',
-  Rural: '#795548',
+  Centro: '#00BCD4', Oriente: '#00838F', Norte: '#ff6b00',
+  Sur: '#ff8c33', Suroriente: '#25D366', Poniente: '#5b6475',
+  Surponiente: '#9c27b0', Rural: '#795548',
 };
 ---
 
@@ -58,7 +43,7 @@ const zonaColors: Record<string, string> = {
           Las <span class="bg-gradient-to-r from-primary-cyan to-accent-orange bg-clip-text text-transparent">52 Comunas</span> de la Región Metropolitana
         </h1>
         <p class="mt-6 text-lg lg:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-          Llegamos a toda la Región Metropolitana de Santiago en <strong class="text-primary-cyan font-semibold">60-90 minutos</strong>. Haz clic en cualquier comuna del mapa o de la lista para ver su landing SEO dedicada con detalles, tiempo de respuesta y FAQ específico.
+          Llegamos a toda la Región Metropolitana de Santiago en <strong class="text-primary-cyan font-semibold">60-90 minutos</strong>. Explora el mapa interactivo abajo: haz clic para resaltar una comuna, doble clic para ver su ficha y desde ahí accede a su landing SEO dedicada.
         </p>
 
         <!-- Stats -->
@@ -83,147 +68,12 @@ const zonaColors: Record<string, string> = {
       </div>
     </section>
 
-    <!-- Mapa interactivo ampliado -->
-    <section class="bg-dark-navy bg-hero-radial py-16 lg:py-20">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-10" data-reveal>
-          <h2 class="text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-            Mapa <span class="bg-gradient-to-r from-primary-cyan to-accent-orange bg-clip-text text-transparent">Interactivo</span> de Comunas
-          </h2>
-          <p class="mt-4 text-white/70 max-w-2xl mx-auto">Haz clic en cualquier marker para ir a la landing SEO de esa comuna.</p>
-        </div>
-
-        <div class="grid lg:grid-cols-12 gap-6" data-reveal>
-          <!-- Mapa SVG ampliado -->
-          <div class="lg:col-span-8">
-            <div class="relative bg-dark-navy-alt/60 backdrop-blur-sm border border-white/10 rounded-2xl-card p-4">
-              <!-- Buscador sobre el mapa -->
-              <div class="relative mb-3">
-                <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                </svg>
-                <input
-                  type="text"
-                  id="comuna-map-search"
-                  placeholder="Buscar comuna en el mapa..."
-                  autocomplete="off"
-                  class="w-full pl-9 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary-cyan"
-                  aria-label="Buscar comuna en el mapa"
-                />
-              </div>
-
-              <svg viewBox={`0 0 ${mapW} ${mapH}`} class="w-full h-auto" role="img" aria-label="Mapa interactivo de las 52 comunas de la Región Metropolitana">
-                <defs>
-                  <pattern id="gridComunas" width="50" height="50" patternUnits="userSpaceOnUse">
-                    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(0, 188, 212, 0.08)" stroke-width="1"/>
-                  </pattern>
-                  <radialGradient id="glowComunas" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#00BCD4" stop-opacity="0.15"/>
-                    <stop offset="100%" stop-color="#00BCD4" stop-opacity="0"/>
-                  </radialGradient>
-                </defs>
-                <rect width={mapW} height={mapH} fill="url(#gridComunas)"/>
-                <rect width={mapW} height={mapH} fill="url(#glowComunas)"/>
-
-                <!-- Decoración río/autopistas -->
-                <path d="M 120 350 Q 350 330, 600 370 T 900 400" stroke="rgba(0, 188, 212, 0.2)" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
-                <path d="M 470 50 L 470 680" stroke="rgba(255, 107, 0, 0.15)" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
-
-                <!-- Markers -->
-                {comunas.map((comuna) => {
-                  const { x, y } = project(comuna.lat, comuna.lng);
-                  const color = zonaColors[comuna.zona] || '#00BCD4';
-                  return (
-                    <a href={`/comuna/${comuna.slug}`} class="comuna-marker-link" data-comuna-slug={comuna.slug} data-comuna-nombre={comuna.nombre}>
-                      <g transform={`translate(${x} ${y})`} class="comuna-marker" style="--marker-color: {color}">
-                        <circle r="14" fill={color} fill-opacity="0.15" class="marker-pulse"/>
-                        <circle r="6" fill={color} stroke="#0b1020" stroke-width="2" class="marker-core"/>
-                        <text x="0" y="-16" text-anchor="middle" font-size="11" font-weight="600" fill="rgba(255,255,255,0.7)" class="marker-label pointer-events-none">{comuna.nombre}</text>
-                      </g>
-                    </a>
-                  );
-                })}
-
-                <!-- Brújula -->
-                <g transform="translate(50 50)">
-                  <circle r="26" fill="rgba(11, 16, 32, 0.7)" stroke="rgba(0, 188, 212, 0.4)" stroke-width="1"/>
-                  <text x="0" y="-7" text-anchor="middle" font-size="12" font-weight="700" fill="#00BCD4">N</text>
-                  <path d="M 0 -17 L -5 -3 L 0 -7 L 5 -3 Z" fill="#ff6b00"/>
-                  <text x="0" y="17" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.5)">S</text>
-                </g>
-
-                <!-- Leyenda por zona -->
-                <g transform="translate(40 540)">
-                  <rect x="0" y="0" width="240" height="140" rx="10" fill="rgba(11, 16, 32, 0.85)" stroke="rgba(0, 188, 212, 0.3)"/>
-                  <text x="14" y="20" font-size="11" font-weight="700" fill="rgba(255,255,255,0.85)">ZONAS DE COBERTURA</text>
-                  {zonas.map((z, i) => {
-                    const col = i % 2;
-                    const row = Math.floor(i / 2);
-                    return (
-                      <g transform={`translate(${14 + col * 110} ${38 + row * 22})`}>
-                        <circle r="5" fill={zonaColors[z]}/>
-                        <text x="10" y="4" font-size="10" fill="rgba(255,255,255,0.75)">{z} ({comunas.filter(c => c.zona === z).length})</text>
-                      </g>
-                    );
-                  })}
-                </g>
-              </svg>
-              <p class="mt-3 text-center text-xs text-white/40">Mapa referencial · Click en cualquier marker para abrir la landing de la comuna</p>
-            </div>
-          </div>
-
-          <!-- Panel lateral: lista filtrada -->
-          <div class="lg:col-span-4">
-            <div class="bg-dark-navy-alt/60 backdrop-blur-sm border border-white/10 rounded-2xl-card p-5 sticky top-24">
-              <h3 class="text-white font-bold text-lg mb-4 flex items-center justify-between">
-                <span>Todas las comunas</span>
-                <span class="text-sm text-white/60 font-normal">{comunas.length} total</span>
-              </h3>
-
-              <div class="relative mb-3">
-                <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                </svg>
-                <input
-                  type="text"
-                  id="comuna-list-search"
-                  placeholder="Filtrar lista..."
-                  autocomplete="off"
-                  class="w-full pl-9 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary-cyan"
-                  aria-label="Filtrar lista de comunas"
-                />
-              </div>
-
-              <div id="comuna-list-box" class="max-h-[600px] overflow-y-auto pr-1 space-y-1">
-                {comunas.map((comuna) => (
-                  <a
-                    href={`/comuna/${comuna.slug}`}
-                    class="comuna-list-item flex items-center justify-between gap-2 px-3 py-2.5 rounded-lg text-left text-sm text-white/80 hover:bg-primary-cyan/15 hover:text-white transition-colors group"
-                    data-comuna-slug={comuna.slug}
-                    data-comuna-nombre={comuna.nombre}
-                  >
-                    <span class="flex items-center gap-2">
-                      <span class="h-2 w-2 rounded-full" style={`background: ${zonaColors[comuna.zona] || '#00BCD4'}`}></span>
-                      {comuna.nombre}
-                    </span>
-                    <span class="flex items-center gap-1.5 text-[10px] text-white/40 group-hover:text-primary-cyan">
-                      {comuna.tiempoRespuesta}
-                      <svg class="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                      </svg>
-                    </span>
-                  </a>
-                ))}
-              </div>
-
-              <div id="comuna-no-results" class="hidden text-center py-6 text-white/50 text-sm">
-                Ninguna comuna coincide con tu búsqueda.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Mapa interactivo ampliado (con zoom/pan + ficha) -->
+    <ComunaMap
+      variant="full"
+      title="Mapa Interactivo RM"
+      subtitle="1 click = resaltar comuna · Doble click = ver ficha con botón 'Ir a comuna' · Arrastra para moverte · Scroll o botones +/− para zoom"
+    />
 
     <!-- Listado por zona -->
     <section class="bg-white py-16 lg:py-24">
@@ -283,58 +133,3 @@ const zonaColors: Record<string, string> = {
   <Footer />
   <FloatingActions />
 </Layout>
-
-<style>
-  .comuna-marker-link { cursor: pointer; outline: none; }
-  .comuna-marker .marker-pulse { animation: markerPulseBig 2.5s ease-in-out infinite; transform-origin: center; }
-  .comuna-marker:hover .marker-core,
-  .comuna-marker-link:focus-visible .marker-core { r: 9; filter: drop-shadow(0 0 8px var(--marker-color)); }
-  .comuna-marker:hover .marker-label,
-  .comuna-marker-link:focus-visible .marker-label { fill: #ffffff; font-size: 13px; font-weight: 700; }
-  @keyframes markerPulseBig {
-    0%, 100% { opacity: 0.5; r: 14; }
-    50% { opacity: 0.15; r: 22; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .comuna-marker .marker-pulse { animation: none; }
-  }
-</style>
-
-<script>
-  // Buscador del mapa (filtra markers + lista a la vez)
-  const mapSearch = document.getElementById('comuna-map-search');
-  const listSearch = document.getElementById('comuna-list-search');
-  const listItems = document.querySelectorAll('.comuna-list-item');
-  const markers = document.querySelectorAll('.comuna-marker-link');
-  const noResults = document.getElementById('comuna-no-results');
-  const listBox = document.getElementById('comuna-list-box');
-
-  const filter = (query) => {
-    const q = query.toLowerCase().trim();
-    let visibleCount = 0;
-    listItems.forEach(item => {
-      const nombre = (item.dataset.comunaNombre || '').toLowerCase();
-      const slug = (item.dataset.comunaSlug || '').toLowerCase();
-      const match = q === '' || nombre.includes(q) || slug.includes(q);
-      item.style.display = match ? '' : 'none';
-      if (match) visibleCount++;
-    });
-    markers.forEach(m => {
-      const nombre = (m.dataset.comunaNombre || '').toLowerCase();
-      m.style.opacity = q === '' || nombre.includes(q) ? '1' : '0.25';
-    });
-    if (noResults) noResults.classList.toggle('hidden', visibleCount > 0);
-    if (listBox) listBox.classList.toggle('hidden', visibleCount === 0);
-  };
-
-  mapSearch?.addEventListener('input', (e) => {
-    const v = (e.target as HTMLInputElement).value;
-    if (listSearch) (listSearch as HTMLInputElement).value = v;
-    filter(v);
-  });
-  listSearch?.addEventListener('input', (e) => {
-    const v = (e.target as HTMLInputElement).value;
-    if (mapSearch) (mapSearch as HTMLInputElement).value = v;
-    filter(v);
-  });
-</script>

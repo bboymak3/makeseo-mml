@@ -7,7 +7,7 @@ import ServicesGrid from '../components/ServicesGrid.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
 import PricingSection from '../components/PricingSection.astro';
 import CoverageMap from '../components/CoverageMap.astro';
-import InteractiveMap from '../components/InteractiveMap.astro';
+import ComunaMap from '../components/ComunaMap.astro';
 import Gallery from '../components/Gallery.astro';
 import FaqSection from '../components/FaqSection.astro';
 import FloatingActions from '../components/FloatingActions.astro';
@@ -23,7 +23,11 @@ import Footer from '../components/Footer.astro';
     <ProcessSteps />
     <PricingSection />
     <CoverageMap />
-    <InteractiveMap />
+    <ComunaMap
+      variant="compact"
+      title="Mapa Interactivo de Cobertura"
+      subtitle="1 click = resaltar comuna · Doble click = ver ficha · Arrastra para moverte · Scroll para zoom"
+    />
     <Gallery
       variant="compact"
       title="Mira Nuestro Trabajo"
