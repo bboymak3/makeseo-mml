@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Gallery from '../components/Gallery.astro';
+import FloatingActions from '../components/FloatingActions.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Galería de Trabajos | Recarga de Gas A/C Automotriz a Domicilio - GlobalPro';
+const description = 'Fotos reales de nuestro trabajo de recarga de gas aire acondicionado automotriz a domicilio en Santiago RM: recarga R134a, detección de fugas UV, diagnóstico de compresor y mantención.';
+---
+
+<Layout title={title} description={description} canonical="/galeria">
+  <Navbar />
+
+  <main class="pt-20">
+    <section class="bg-dark-navy bg-hero-radial py-16 lg:py-24 relative overflow-hidden">
+      <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-cyan/20 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-cyan text-sm font-semibold mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan"></span>
+          Galería
+        </span>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          Nuestros <span class="bg-gradient-to-r from-primary-cyan to-accent-orange bg-clip-text text-transparent">Trabajos</span>
+        </h1>
+        <p class="mt-5 text-lg text-white/70 max-w-2xl mx-auto">{description}</p>
+      </div>
+    </section>
+
+    <Gallery
+      variant="full"
+      title="Fotos de Servicios Realizados"
+      subtitle="Mira ejemplos de recarga de gas aire acondicionado automotriz, detección de fugas UV, cambio de filtro de cabina y diagnóstico de compresor realizados por nuestro equipo en distintas comunas de Santiago RM."
+    />
+  </main>
+
+  <Footer />
+  <FloatingActions />
+</Layout>

@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import FloatingActions from '../components/FloatingActions.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Política de Privacidad | GlobalPro Automotriz';
+const description = 'Política de privacidad y protección de datos personales de GlobalPro Automotriz. Cumplimiento de Ley 19.628 de Protección de Datos Personales en Chile.';
+const lastUpdate = '1 de octubre de 2026';
+---
+
+<Layout title={title} description={description} canonical="/privacidad">
+  <Navbar />
+
+  <main class="pt-20">
+    <section class="bg-dark-navy bg-hero-radial py-16 lg:py-20 relative overflow-hidden">
+      <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-cyan/20 rounded-full blur-3xl" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-cyan text-sm font-semibold mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan"></span>
+          Legal
+        </span>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          Política de <span class="bg-gradient-to-r from-primary-cyan to-primary-teal bg-clip-text text-transparent">Privacidad</span>
+        </h1>
+        <p class="mt-4 text-white/60 text-sm">Última actualización: {lastUpdate}</p>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 lg:py-24">
+      <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 prose prose-lg max-w-none">
+        <h2 class="text-2xl font-bold text-ink-dark mt-0 mb-4">1. Introducción</h2>
+        <p class="text-text-muted leading-relaxed mb-6">
+          GlobalPro Automotriz SpA, RUT 77.123.456-7, con domicilio en Av. Providencia 1208, Santiago, Chile (en adelante "GlobalPro" o "nosotros"), respeta tu privacidad y se compromete a proteger tus datos personales en cumplimiento de la <strong>Ley 19.628 sobre Protección de la Vida Privada</strong> y demás normativas chilenas aplicables.
+        </p>
+        <p class="text-text-muted leading-relaxed mb-6">
+          Esta Política describe cómo recopilamos, usamos, almacenamos, compartimos y protegemos la información personal que nos proporcionas cuando utilizas nuestro sitio web <a href="/" class="text-primary-teal hover:underline">globalproautomotriz.cl</a> y nuestros servicios de recarga de gas aire acondicionado automotriz a domicilio en la Región Metropolitana.
+        </p>
+
+        <h2 class="text-2xl font-bold text-ink-dark mt-10 mb-4">2. Datos que Recopilamos</h2>
+        <p class="text-text-muted leading-relaxed mb-4">Recopilamos los siguientes datos personales:</p>
+        <ul class="list-disc list-inside text-text-muted space-y-2 mb-6">
+          <li><strong>Datos de contacto:</strong> nombre, apellido, teléfono, email y dirección.</li>
+          <li><strong>Datos del vehículo:</strong> marca, modelo, año y patente (para diagnóstico del servicio).</li>
+          <li><strong>Datos de pago:</strong> forma de pago elegida (no almacenamos datos de tarjetas de crédito; procesados vía Transbank).</li>
+          <li><strong>Datos de navegación:</strong> dirección IP, tipo de navegador, páginas visitadas (vía analytics anónimo).</li>
+          <li><strong>Comunicaciones:</strong> mensajes de WhatsApp, llamadas y emails que intercambies con nosotros.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-ink-dark mt-10 mb-4">3. Finalidad del Tratamiento</h2>
+        <p class="text-text-muted leading-relaxed mb-4">Usamos tus datos personales exclusivamente para:</p>
+        <ul class="list-disc list-inside text-text-muted space-y-2 mb-6">
+          <li>Coordinar y prestar el servicio automotriz a domicilio solicitado.</li>
+          <li>Confirmar cobertura en tu comuna y darte un precio final.</li>
+          <li>Emitir boleta o factura electrónica válida en el SII.</li>
+          <li>Enviar recordatorios de mantención preventiva (cada 6-12 meses).</li>
+          <li>Atender consultas, reclamos y solicitudes de garantía.</li>
+          <li>Cumplir obligaciones legales y tributarias.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-ink-dark mt-10 mb-4">4. Base Legal</h2>
+        <p class="text-text-muted leading-relaxed mb-6">
+          Tratamos tus datos sobre la base de tu <strong>consentimiento explícito</strong> (Ley 19.628, art. 4), otorgado al momento de contactarnos por WhatsApp, formulario o teléfono. Puedes retirar tu consentimiento en cualquier momento escribiéndonos a <a href="mailto:contacto@globalproautomotriz.cl" class="text-primary-teal hover:underline">contacto@globalproautomotriz.cl</a>.
+        </p>
+
+        <h2 class="text-2xl font-bold text-ink-dark mt-10 mb-4">5. Compartición de Datos</h2>
+        <p class="text-text-muted leading-relaxed mb-4">No vendemos ni arrendamos tus datos personales. Compartimos información solo con:</p>
+        <ul class="list-disc list-inside text-text-muted space-y-2 mb-6">
+          <li><strong>Transbank:</strong> procesamiento de pagos con tarjeta (Webpay).</li>
+          <li><strong>SII:</strong> emisión de documentos tributarios electrónicos.</li>
+          <li><strong>Bancos:</strong> acreditación de transferencias.</li>
+          <li><strong>Proveedores de software:</strong> WhatsApp Business, Google Workspace, sistemas de gestión interna.</li>
+          <li><strong>Autoridades competentes:</strong> cuando lo exija la ley o resolución judicial.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-ink-dark mt-10 mb-4">6. Cookies y Tecnologías Similares</h2>
+        <p class="text-text-muted leading-relaxed mb-6">
+          Utilizamos cookies esenciales para el funcionamiento del sitio (sesión, preferencias) y cookies analíticas anónimas para mejorar nuestro servicio. No utilizamos cookies de publicidad ni tracking de terceros. Puedes desactivar las cookies desde la configuración de tu navegador, aunque algunas funcionalidades podrían no operar correctamente.
+        </p>
+
+        <h2 class="text-2xl font-bold text-ink-dark mt-10 mb-4">7. Almacenamiento y Seguridad</h2>
+        <p class="text-text-muted leading-relaxed mb-6">
+          Tus datos se almacenan en servidores ubicados en Chile y Estados Unidos (proveedores con cláusulas contractuales adecuadas). Aplicamos medidas técnicas y organizativas razonables: cifrado TLS en tránsito, cifrado AES-256 en reposo, control de acceso por roles, copias de seguridad diarias y auditoría trimestral. Conservamos tus datos mientras dure la relación comercial y hasta 10 años después para cumplimiento tributario.
+        </p>
+
+        <h2 class="text-2xl font-bold text-ink-dark mt-10 mb-4">8. Tus Derechos (ARCO)</h2>
+        <p class="text-text-muted leading-relaxed mb-4">Como titular de los datos tienes derecho a:</p>
+        <ul class="list-disc list-inside text-text-muted space-y-2 mb-6">
+          <li><strong>Acceso:</strong> saber qué datos tenemos sobre ti.</li>
+          <li><strong>Rectificación:</strong> corregir datos inexactos o desactualizados.</li>
+          <li><strong>Cancelación:</strong> solicitar la eliminación de tus datos.</li>
+          <li><strong>Oposición:</strong> oponerte al tratamiento para fines específicos.</li>
+          <li><strong>Portabilidad:</strong> recibir tus datos en formato estructurado.</li>
+        </ul>
+        <p class="text-text-muted leading-relaxed mb-6">
+          Para ejercer estos derechos, escríbenos a <a href="mailto:contacto@globalproautomotriz.cl" class="text-primary-teal hover:underline">contacto@globalproautomotriz.cl</a> con asunto "Derechos ARCO". Respondemos en un máximo de 10 días hábiles.
+        </p>
+
+        <h2 class="text-2xl font-bold text-ink-dark mt-10 mb-4">9. Menores de Edad</h2>
+        <p class="text-text-muted leading-relaxed mb-6">
+          Nuestros servicios están dirigidos a personas mayores de 18 años. No recopilamos conscientemente datos de menores. Si detectamos que un menor nos ha proporcionado datos, los eliminamos de inmediato.
+        </p>
+
+        <h2 class="text-2xl font-bold text-ink-dark mt-10 mb-4">10. Cambios a esta Política</h2>
+        <p class="text-text-muted leading-relaxed mb-6">
+          Podemos actualizar esta Política en cualquier momento. Te notificaremos cambios materiales por email o WhatsApp al menos 30 días antes de su entrada en vigor. La fecha de última actualización aparece al inicio de este documento.
+        </p>
+
+        <h2 class="text-2xl font-bold text-ink-dark mt-10 mb-4">11. Contacto</h2>
+        <p class="text-text-muted leading-relaxed mb-6">
+          Para cualquier consulta sobre esta Política de Privacidad o el tratamiento de tus datos personales, contáctanos:
+        </p>
+        <div class="bg-bg-alt border border-border-light rounded-xl-card p-6 mb-6">
+          <p class="text-ink-dark"><strong>Encargado de Protección de Datos</strong></p>
+          <p class="text-text-muted">GlobalPro Automotriz SpA</p>
+          <p class="text-text-muted">Av. Providencia 1208, Santiago, Chile</p>
+          <p class="text-text-muted">Email: <a href="mailto:contacto@globalproautomotriz.cl" class="text-primary-teal hover:underline">contacto@globalproautomotriz.cl</a></p>
+          <p class="text-text-muted">Teléfono: +56 9 8765 4321</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingActions />
+</Layout>

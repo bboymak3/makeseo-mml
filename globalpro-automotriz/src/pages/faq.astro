@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import FloatingActions from '../components/FloatingActions.astro';
+import Footer from '../components/Footer.astro';
+
+const faqs = [
+  { category: 'Servicio y Cobertura', items: [
+    { q: '¿Cuánto demora la recarga de gas aire acondicionado a domicilio en Santiago?', a: 'Nuestro tiempo de respuesta en la Región Metropolitana es de 60 a 90 minutos. El procedimiento de recarga en sí toma entre 30 y 45 minutos, incluyendo diagnóstico previo, vacío del sistema y carga precisa por peso del gas refrigerante R134a.' },
+    { q: '¿Qué comunas de Santiago cubren con el servicio a domicilio?', a: 'Cubrimos las 52 comunas de la Región Metropolitana, incluyendo Santiago Centro, Las Condes, Providencia, Vitacura, Ñuñoa, Maipú, La Florida, Puente Alto, San Bernardo, Pudahuel, Quilicura. Puedes verificar tu comuna en la sección Cobertura RM o usar nuestro mapa interactivo.' },
+    { q: '¿Atienden los fines de semana y festivos?', a: 'Sí, atendemos de lunes a viernes de 08:00 a 22:00 horas, y sábados, domingos y festivos de 09:00 a 21:00 horas. Para urgencias fuera de horario, escríbenos por WhatsApp.' },
+    { q: '¿Necesito estar presente durante el servicio?', a: 'Sí, recomendamos que el dueño del vehículo esté presente al menos al inicio y al final. Necesitamos acceso al vehículo, las llaves y un espacio seguro para trabajar.' },
+    { q: '¿Pueden atender en estacionamientos de edificios o condominios?', a: 'Sí, atendemos en estacionamientos subterráneos, edificios, condominios y oficinas. Solo necesitamos permiso de ingreso del administrador o conserje y un espacio donde el vehículo pueda quedar detenido 30-45 minutos.' },
+  ]},
+  { category: 'Precios y Pagos', items: [
+    { q: '¿Qué precio tiene la recarga de gas automotriz a domicilio?', a: 'El valor inicial es de $35.000 CLP e incluye diagnóstico, vacío y carga del gas refrigerante R134a. El precio final puede variar según el vehículo y si se detectan fugas que requieran reparación adicional, las cuales siempre se cotizan antes de realizarse.' },
+    { q: '¿Qué medios de pago aceptan?', a: 'Aceptamos efectivo, transferencia bancaria y pagos con tarjeta vía Transbank (Webpay) directamente en el lugar del servicio. Para empresas ofrecemos factura electrónica a 30 días previa evaluación crediticia.' },
+    { q: '¿El traslado tiene costo adicional?', a: 'No. El traslado dentro de la Región Metropolitana está incluido en el precio del servicio. En comunas rurales alejadas (San Pedro, Alhué, María Pinto) podría aplicar un recargo que siempre se informa antes de agendar.' },
+    { q: '¿Ofrecen boleta o factura electrónica?', a: 'Sí. Emitimos boleta electrónica y factura electrónica afecta o exenta según corresponda, válidas en el SII al instante. Si necesitas factura a nombre de empresa, indícanos el RUT y razón social al momento de agendar.' },
+  ]},
+  { category: 'Técnico y Garantía', items: [
+    { q: '¿Qué tipos de gas refrigerante utilizan?', a: 'Trabajamos principalmente con gas refrigerante R134a, el estándar para la mayoría de vehículos. Para modelos posteriores a 2017 que usan R1234yf (más ecológico), también contamos con el equipo certificado. Ambos gases cumplen con normativa chilena y SAG.' },
+    { q: '¿La recarga de gas incluye garantía?', a: 'Sí. Toda recarga realizada por GlobalPro Automotriz incluye 90 días de garantía. Si dentro de ese período el aire acondicionado deja de enfriar por causa del servicio prestado, regresamos sin costo adicional. La garantía no cubre daños por factores externos como colisiones, fallas del compresor preexistentes o manipulación posterior.' },
+    { q: '¿Cómo sé si mi aire acondicionado automotriz necesita recarga?', a: 'Los síntomas más comunes son: el aire no enfría como antes, tarda más de lo normal en enfriar, el compresor hace ruidos al activarse o se escuchan ciclos cortos de encendido/apagado. Si presentas cualquiera de estos síntomas, te recomendamos agendar una revisión a domicilio.' },
+    { q: '¿Cuánto gas necesita mi vehículo?', a: 'La cantidad varía según el modelo y capacidad del sistema (entre 400 y 800 gramos para autos particulares). Nosotros cargamos por peso con balanza calibrada, siguiendo la especificación exacta del fabricante que aparece en el manual o en la etiqueta bajo el capó.' },
+    { q: '¿La recarga de gas soluciona cualquier problema del aire acondicionado?', a: 'No. La recarga solo funciona si el sistema está sellado correctamente. Si hay fugas, el gas se escapará nuevamente. Por eso siempre iniciamos con un diagnóstico previo. Si detectamos fugas, te informamos y cotizamos la reparación antes de proceder con la recarga.' },
+    { q: '¿Hacen detección de fugas?', a: 'Sí, ofrecemos detección de fugas con tinta UV fluorescente y lámpara ultravioleta profesional ($25.000 CLP). Es altamente recomendable si el sistema perdió gas rápidamente y sospechas que hay una fuga en mangueras, compresor o condensador.' },
+  ]},
+  { category: 'Reserva y Cancelación', items: [
+    { q: '¿Cómo reservo el servicio?', a: 'Puedes reservar de tres formas: (1) Escribiéndonos por WhatsApp, (2) Llamándonos al +56 9 8765 4321, o (3) Completando el formulario de contacto. Recomendamos WhatsApp por la rapidez de respuesta (promedio 4 minutos).' },
+    { q: '¿Con cuánta anticipación debo reservar?', a: 'Para comunas céntricas y oriente de Santiago, normalmente podemos atenderte el mismo día si contactas antes de las 18:00 hrs. Para comunas rurales o alejadas, recomendable agendar con 24 horas de anticipación.' },
+    { q: '¿Puedo cancelar o reagendar?', a: 'Sí, puedes cancelar o reagendar sin costo hasta 2 horas antes de la hora agendada. Si el técnico ya está en camino, podría aplicar un cargo por traslado.' },
+  ]},
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.flatMap(cat => cat.items.map(item => ({
+    '@type': 'Question', name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  }))),
+};
+
+const title = 'Preguntas Frecuentes | Recarga de Gas A/C Automotriz a Domicilio en Santiago - GlobalPro';
+const description = 'Resolvemos todas tus dudas sobre recarga de gas aire acondicionado automotriz a domicilio en Santiago RM: tiempos, precios, cobertura, garantía y medios de pago.';
+---
+
+<Layout title={title} description={description} canonical="/faq">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="" />
+  <Navbar />
+
+  <main class="pt-20">
+    <section class="bg-dark-navy bg-hero-radial py-16 lg:py-24 relative overflow-hidden">
+      <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-cyan/20 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-orange/10 text-accent-orange-light text-sm font-semibold mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent-orange"></span>
+          Centro de Ayuda
+        </span>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          Preguntas <span class="bg-gradient-to-r from-primary-cyan to-accent-orange bg-clip-text text-transparent">Frecuentes</span>
+        </h1>
+        <p class="mt-5 text-lg text-white/70 max-w-2xl mx-auto">{description}</p>
+      </div>
+    </section>
+
+    <section class="bg-bg-alt py-16 lg:py-24">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-12">
+        {faqs.map((cat) => (
+          <div>
+            <h2 class="text-2xl lg:text-3xl font-extrabold text-ink-dark mb-6 flex items-center gap-3">
+              <span class="h-8 w-1.5 rounded-full bg-gradient-to-b from-primary-cyan to-primary-teal"></span>
+              {cat.category}
+            </h2>
+            <div class="space-y-3">
+              {cat.items.map((faq, index) => (
+                <div class="bg-white rounded-xl-card border border-border-light overflow-hidden shadow-card">
+                  <h3>
+                    <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 px-5 lg:px-6 py-5 text-left hover:bg-bg-alt/50 transition-colors" aria-expanded="false">
+                      <span class="text-base lg:text-lg font-bold text-ink-dark leading-snug">{faq.q}</span>
+                      <span class="flex-shrink-0 h-8 w-8 rounded-full bg-primary-cyan/10 border border-primary-cyan/20 flex items-center justify-center text-primary-teal">
+                        <svg class="w-5 h-5 faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                      </span>
+                    </button>
+                  </h3>
+                  <div class="faq-panel hidden px-5 lg:px-6 pb-5">
+                    <p class="text-text-muted leading-relaxed">{faq.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div class="bg-gradient-to-br from-dark-navy to-dark-navy-alt rounded-2xl-card p-8 lg:p-10 text-center">
+          <h2 class="text-2xl font-bold text-white">¿No encuentras tu respuesta?</h2>
+          <p class="mt-3 text-white/70">Nuestro equipo responde en menos de 5 minutos por WhatsApp.</p>
+          <a href="https://wa.me/56987654321" target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-whatsapp-green text-white font-semibold hover:scale-105 transition-transform">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+            Preguntar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingActions />
+</Layout>
+
+<script>
+  const triggers = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
+  const panels = document.querySelectorAll<HTMLElement>('.faq-panel');
+  triggers.forEach((trigger, index) => {
+    trigger.addEventListener('click', () => {
+      const panel = panels[index];
+      const icon = trigger.querySelector('.faq-icon');
+      const isOpen = !panel.classList.contains('hidden');
+      panels.forEach((p, i) => {
+        if (i !== index) {
+          p.classList.add('hidden');
+          triggers[i].setAttribute('aria-expanded', 'false');
+          triggers[i].querySelector('.faq-icon')?.style.setProperty('transform', 'rotate(0deg)');
+        }
+      });
+      if (isOpen) {
+        panel.classList.add('hidden');
+        trigger.setAttribute('aria-expanded', 'false');
+        icon?.style.setProperty('transform', 'rotate(0deg)');
+      } else {
+        panel.classList.remove('hidden');
+        trigger.setAttribute('aria-expanded', 'true');
+        icon?.style.setProperty('transform', 'rotate(180deg)');
+      }
+    });
+  });
+</script>

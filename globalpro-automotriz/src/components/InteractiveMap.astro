@@ -1,0 +1,261 @@
+---
+/**
+ * InteractiveMap.astro
+ * Mapa interactivo de la Región Metropolitana con markers por comuna.
+ * SVG simplificado + lista lateral sincronizada.
+ */
+import { comunas } from '../data/comunas.ts';
+
+const WHATSAPP_NUMBER = '56987654321';
+
+// Bounding box aproximado de la RM
+const minLat = -34.10, maxLat = -33.05;
+const minLng = -71.30, maxLng = -70.30;
+const mapW = 800, mapH = 600;
+
+const project = (lat: number, lng: number) => {
+  const x = ((lng - minLng) / (maxLng - minLng)) * mapW;
+  const y = ((maxLat - lat) / (maxLat - minLat)) * mapH;
+  return { x: Math.round(x), y: Math.round(y) };
+};
+---
+
+<section id="mapa-interactivo" class="bg-dark-navy bg-hero-radial py-16 lg:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10" data-reveal>
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-orange/10 text-accent-orange-light text-sm font-semibold mb-4">
+        <span class="h-1.5 w-1.5 rounded-full bg-accent-orange"></span>
+        Mapa Interactivo
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+        Cobertura <span class="bg-gradient-to-r from-primary-cyan to-accent-orange bg-clip-text text-transparent">Visual</span> en la RM
+      </h2>
+      <p class="mt-4 text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+        Haz clic en cualquier comuna para ver detalles de cobertura, tiempo de respuesta y enlace a su landing dedicada.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-6 lg:gap-8">
+      <!-- Mapa SVG -->
+      <div class="lg:col-span-7" data-reveal>
+        <div class="relative bg-dark-navy-alt/60 backdrop-blur-sm border border-white/10 rounded-2xl-card p-4">
+          <svg viewBox={`0 0 ${mapW} ${mapH}`} class="w-full h-auto" role="img" aria-label="Mapa de comunas de la Región Metropolitana">
+            <!-- Grid de fondo -->
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0, 188, 212, 0.08)" stroke-width="1"/>
+              </pattern>
+              <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#00BCD4" stop-opacity="0.15"/>
+                <stop offset="100%" stop-color="#00BCD4" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width={mapW} height={mapH} fill="url(#grid)"/>
+            <rect width={mapW} height={mapH} fill="url(#glow)"/>
+
+            <!-- Línea equis representando río Mapocho y autopistas (decorativo) -->
+            <path d="M 100 300 Q 300 280, 500 320 T 720 350" stroke="rgba(0, 188, 212, 0.2)" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
+            <path d="M 380 50 L 380 580" stroke="rgba(255, 107, 0, 0.15)" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
+
+            <!-- Markers de comunas -->
+            {comunas.map((comuna) => {
+              const { x, y } = project(comuna.lat, comuna.lng);
+              return (
+                <g
+                  class="cursor-pointer comuna-marker"
+                  data-comuna-slug={comuna.slug}
+                  data-comuna-nombre={comuna.nombre}
+                  data-comuna-tiempo={comuna.tiempoRespuesta}
+                  transform={`translate(${x} ${y})`}
+                >
+                  <circle r="10" fill="rgba(0, 188, 212, 0.15)" class="marker-pulse"/>
+                  <circle r="5" fill="#00BCD4" stroke="#0b1020" stroke-width="1.5" class="marker-core"/>
+                  <text x="0" y="-12" text-anchor="middle" font-size="9" font-weight="600" fill="rgba(255,255,255,0.7)" class="marker-label pointer-events-none">{comuna.nombre}</text>
+                </g>
+              );
+            })}
+
+            <!-- Brújula -->
+            <g transform="translate(40 40)">
+              <circle r="22" fill="rgba(11, 16, 32, 0.7)" stroke="rgba(0, 188, 212, 0.4)" stroke-width="1"/>
+              <text x="0" y="-6" text-anchor="middle" font-size="10" font-weight="700" fill="#00BCD4">N</text>
+              <path d="M 0 -14 L -4 -2 L 0 -6 L 4 -2 Z" fill="#ff6b00"/>
+              <text x="0" y="14" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.5)">S</text>
+            </g>
+
+            <!-- Leyenda -->
+            <g transform="translate(600 540)">
+              <rect x="0" y="0" width="180" height="50" rx="8" fill="rgba(11, 16, 32, 0.7)" stroke="rgba(0, 188, 212, 0.3)"/>
+              <circle cx="20" cy="18" r="5" fill="#00BCD4"/>
+              <text x="32" y="22" font-size="10" fill="rgba(255,255,255,0.8)">Comuna atendida</text>
+              <text x="14" y="40" font-size="9" fill="rgba(255,255,255,0.6)">{comunas.length} comunas en cobertura RM</text>
+            </g>
+          </svg>
+
+          <p class="mt-3 text-center text-xs text-white/40">
+            Mapa referencial · Las posiciones son aproximadas
+          </p>
+        </div>
+      </div>
+
+      <!-- Panel lateral: detalle + lista -->
+      <div class="lg:col-span-5 space-y-4" data-reveal>
+        <!-- Card de detalle -->
+        <div id="comuna-detail" class="bg-dark-navy-alt/60 backdrop-blur-sm border border-white/10 rounded-2xl-card p-6">
+          <div class="flex items-start gap-3 mb-4">
+            <span class="flex-shrink-0 h-12 w-12 rounded-xl bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+              </svg>
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs text-primary-cyan font-semibold uppercase tracking-wide">Selecciona una comuna</p>
+              <h3 id="comuna-detail-name" class="text-xl font-bold text-white truncate">Haz clic en el mapa</h3>
+              <p id="comuna-detail-zona" class="text-sm text-white/60">o en la lista abajo</p>
+            </div>
+          </div>
+          <p id="comuna-detail-desc" class="text-sm text-white/70 leading-relaxed mb-4">
+            Elige una comuna del mapa o de la lista para ver detalles de cobertura, tiempo de respuesta estimado y enlace a su landing SEO específica.
+          </p>
+          <div class="grid grid-cols-2 gap-3 mb-4">
+            <div class="bg-white/5 border border-white/10 rounded-lg p-3">
+              <p class="text-[10px] text-white/50 uppercase">Tiempo respuesta</p>
+              <p id="comuna-detail-tiempo" class="text-sm font-bold text-accent-orange-light">—</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-lg p-3">
+              <p class="text-[10px] text-white/50 uppercase">Precio desde</p>
+              <p class="text-sm font-bold text-accent-orange-light">$35.000 CLP</p>
+            </div>
+          </div>
+          <a
+            id="comuna-detail-cta"
+            href="#cobertura"
+            class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-full bg-primary-cyan text-white text-sm font-semibold hover:bg-primary-teal transition-colors"
+          >
+            Ver landing de la comuna
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Buscador + lista -->
+        <div class="bg-dark-navy-alt/60 backdrop-blur-sm border border-white/10 rounded-2xl-card p-4">
+          <div class="relative mb-3">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <input
+              type="text"
+              id="map-search"
+              placeholder="Buscar comuna..."
+              autocomplete="off"
+              class="w-full pl-9 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary-cyan"
+              aria-label="Buscar comuna en el mapa"
+            />
+          </div>
+          <div id="map-comuna-list" class="max-h-72 overflow-y-auto pr-1 space-y-1">
+            {comunas.map((comuna) => (
+              <button
+                type="button"
+                class="map-list-item w-full flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-left text-sm text-white/80 hover:bg-primary-cyan/15 hover:text-white transition-colors"
+                data-comuna-slug={comuna.slug}
+              >
+                <span class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-primary-cyan"></span>
+                  {comuna.nombre}
+                </span>
+                <span class="text-[10px] text-white/50">{comuna.tiempoRespuesta}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .comuna-marker .marker-pulse {
+    animation: markerPulse 2.5s ease-in-out infinite;
+    transform-origin: center;
+  }
+  .comuna-marker:hover .marker-core,
+  .comuna-marker.is-active .marker-core {
+    fill: #ff6b00;
+    r: 7;
+  }
+  .comuna-marker:hover .marker-label,
+  .comuna-marker.is-active .marker-label {
+    fill: #ffffff;
+    font-size: 11px;
+  }
+  @keyframes markerPulse {
+    0%, 100% { opacity: 0.6; r: 10; }
+    50% { opacity: 0.2; r: 16; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .comuna-marker .marker-pulse { animation: none; }
+  }
+</style>
+
+<script define:vars={{ comunasData: comunas }}>
+  const detailName = document.getElementById('comuna-detail-name');
+  const detailZona = document.getElementById('comuna-detail-zona');
+  const detailDesc = document.getElementById('comuna-detail-desc');
+  const detailTiempo = document.getElementById('comuna-detail-tiempo');
+  const detailCta = document.getElementById('comuna-detail-cta');
+  const searchInput = document.getElementById('map-search');
+  const listItems = document.querySelectorAll('.map-list-item');
+  const markers = document.querySelectorAll('.comuna-marker');
+
+  const selectComuna = (slug) => {
+    const comuna = comunasData.find(c => c.slug === slug);
+    if (!comuna) return;
+
+    // Actualizar detalle
+    detailName.textContent = comuna.nombre;
+    detailZona.textContent = `Zona ${comuna.zona} · Región Metropolitana`;
+    detailDesc.textContent = comuna.descripcion;
+    detailTiempo.textContent = comuna.tiempoRespuesta;
+    detailCta.href = `/comuna/${comuna.slug}`;
+
+    // Resaltar marker activo
+    markers.forEach(m => m.classList.remove('is-active'));
+    const marker = document.querySelector(`.comuna-marker[data-comuna-slug="${slug}"]`);
+    marker?.classList.add('is-active');
+
+    // Resaltar item en lista
+    listItems.forEach(i => {
+      i.classList.toggle('bg-primary-cyan/15', i.dataset.comunaSlug === slug);
+      i.classList.toggle('text-white', i.dataset.comunaSlug === slug);
+    });
+  };
+
+  markers.forEach(marker => {
+    marker.addEventListener('click', () => selectComuna(marker.dataset.comunaSlug));
+    marker.setAttribute('tabindex', '0');
+    marker.setAttribute('role', 'button');
+    marker.setAttribute('aria-label', `Ver detalles de ${marker.dataset.comunaNombre}`);
+    marker.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectComuna(marker.dataset.comunaSlug);
+      }
+    });
+  });
+
+  listItems.forEach(item => {
+    item.addEventListener('click', () => selectComuna(item.dataset.comunaSlug));
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase().trim();
+    listItems.forEach(item => {
+      const slug = item.dataset.comunaSlug || '';
+      const text = item.textContent || '';
+      const match = q === '' || text.toLowerCase().includes(q) || slug.includes(q);
+      item.style.display = match ? '' : 'none';
+    });
+  });
+</script>

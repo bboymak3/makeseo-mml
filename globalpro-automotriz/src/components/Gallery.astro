@@ -1,0 +1,254 @@
+---
+/**
+ * Gallery.astro
+ * Galería reutilizable con las 7 fotos optimizadas del nicho.
+ * Soporta modo "compact" (4 fotos en index/comuna) y "full" (todas en /galeria).
+ * Lightbox Vanilla JS accesible.
+ */
+
+export interface Props {
+  variant?: 'compact' | 'full';
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  variant = 'full',
+  title = 'Galería de Servicios',
+  subtitle = 'Fotos reales de nuestro trabajo de recarga de gas aire acondicionado automotriz a domicilio en la Región Metropolitana.',
+} = Astro.props;
+
+const images = [
+  {
+    src: '/images/gallery/recarga-gas-aire-acondicionado-automotriz-domicilio-santiago-1.jpg',
+    webp: '/images/gallery/recarga-gas-aire-acondicionado-automotriz-domicilio-santiago-1.webp',
+    alt: 'Recarga de gas aire acondicionado automotriz a domicilio en Santiago RM - GlobalPro',
+    width: 900, height: 1200,
+    caption: 'Recarga de gas R134a a domicilio en Santiago Centro',
+  },
+  {
+    src: '/images/gallery/recarga-gas-aire-acondicionado-automotriz-domicilio-santiago-2.jpg',
+    webp: '/images/gallery/recarga-gas-aire-acondicionado-automotriz-domicilio-santiago-2.webp',
+    alt: 'Servicio de recarga de gas R134a automotriz a domicilio en Santiago de Chile',
+    width: 900, height: 1200,
+    caption: 'Proceso de carga por peso del gas refrigerante',
+  },
+  {
+    src: '/images/gallery/tecnico-recarga-gas-r134a-auto-domicilio-rm-3.jpg',
+    webp: '/images/gallery/tecnico-recarga-gas-r134a-auto-domicilio-rm-3.webp',
+    alt: 'Técnico certificado realizando recarga de gas R134a a automóvil a domicilio en RM',
+    width: 900, height: 1200,
+    caption: 'Técnico certificado trabajando en domicilio del cliente',
+  },
+  {
+    src: '/images/gallery/servicio-aire-acondicionado-vehicular-a-domicilio-santiago-4.jpg',
+    webp: '/images/gallery/servicio-aire-acondicionado-vehicular-a-domicilio-santiago-4.webp',
+    alt: 'Servicio de aire acondicionado vehicular a domicilio en Santiago de Chile',
+    width: 1200, height: 900,
+    caption: 'Equipo profesional de mantención de A/C vehicular',
+  },
+  {
+    src: '/images/gallery/deteccion-fugas-aire-acondicionado-auto-rm-5.jpg',
+    webp: '/images/gallery/deteccion-fugas-aire-acondicionado-auto-rm-5.webp',
+    alt: 'Detección de fugas de gas aire acondicionado automotriz con tinta UV en Región Metropolitana',
+    width: 900, height: 1200,
+    caption: 'Detección de fugas con lámpara UV y tinta fluorescente',
+  },
+  {
+    src: '/images/gallery/compresor-aire-acondicionado-automotriz-reparacion-6.jpg',
+    webp: '/images/gallery/compresor-aire-acondicionado-automotriz-reparacion-6.webp',
+    alt: 'Reparación y diagnóstico de compresor de aire acondicionado automotriz en Santiago',
+    width: 900, height: 1200,
+    caption: 'Diagnóstico avanzado de compresor con scanner OBD2',
+  },
+  {
+    src: '/images/gallery/mantencion-aire-acondicionado-vehicular-santiago-chile-7.jpg',
+    webp: '/images/gallery/mantencion-aire-acondicionado-vehicular-santiago-chile-7.webp',
+    alt: 'Mantención de aire acondicionado vehicular a domicilio en Santiago Chile',
+    width: 900, height: 1200,
+    caption: 'Mantención completa con garantía escrita de 90 días',
+  },
+];
+
+// En modo compact, mostramos solo las primeras 4
+const displayImages = variant === 'compact' ? images.slice(0, 4) : images;
+const gridClass = variant === 'compact'
+  ? 'grid-cols-2 lg:grid-cols-4'
+  : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
+---
+
+<section id="galeria" class="bg-bg-alt py-16 lg:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10 lg:mb-14" data-reveal>
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-teal text-sm font-semibold mb-4">
+        <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan"></span>
+        Galería
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-dark tracking-tight">
+        {title}
+      </h2>
+      <p class="mt-4 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">{subtitle}</p>
+    </div>
+
+    <div class:list={["grid gap-4 lg:gap-5", gridClass]} data-reveal>
+      {displayImages.map((img, index) => (
+        <figure
+          class="group relative overflow-hidden rounded-xl-card bg-dark-navy shadow-card hover:shadow-card-hover transition-shadow cursor-pointer"
+          data-lightbox-trigger
+          data-lightbox-index={index}
+        >
+          <picture>
+            <source srcset={img.webp} type="image/webp" />
+            <img
+              src={img.src}
+              alt={img.alt}
+              width={img.width}
+              height={img.height}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </picture>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-dark-navy/95 via-dark-navy/70 to-transparent p-4 pt-12">
+            <p class="text-white text-sm font-semibold leading-tight">{img.caption}</p>
+          </figcaption>
+
+          <!-- Icono zoom -->
+          <div class="absolute top-3 right-3 h-9 w-9 rounded-full bg-dark-navy/60 backdrop-blur-sm border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6M7 10h6"/>
+            </svg>
+          </div>
+        </figure>
+      ))}
+    </div>
+
+    {variant === 'compact' && (
+      <div class="mt-8 text-center">
+        <a href="/galeria" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-dark-navy text-white text-sm font-semibold hover:bg-accent-orange transition-colors">
+          Ver galería completa
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+    )}
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div
+  id="gallery-lightbox"
+  class="hidden fixed inset-0 z-[100] bg-dark-navy/95 backdrop-blur-md items-center justify-center p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Galería ampliada"
+>
+  <button
+    type="button"
+    id="lightbox-close"
+    class="absolute top-4 right-4 h-11 w-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-colors"
+    aria-label="Cerrar galería"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+
+  <button
+    type="button"
+    id="lightbox-prev"
+    class="absolute left-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-colors"
+    aria-label="Imagen anterior"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+    </svg>
+  </button>
+
+  <button
+    type="button"
+    id="lightbox-next"
+    class="absolute right-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-colors"
+    aria-label="Imagen siguiente"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+    </svg>
+  </button>
+
+  <figure class="max-w-5xl w-full max-h-[85vh] flex flex-col items-center" id="lightbox-figure">
+    <!-- imagen inyectada por JS -->
+  </figure>
+
+  <p class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/70 text-sm" id="lightbox-counter"></p>
+</div>
+
+<script define:vars={{ images: displayImages }}>
+  const lightbox = document.getElementById('gallery-lightbox');
+  const figure = document.getElementById('lightbox-figure');
+  const counter = document.getElementById('lightbox-counter');
+  const triggers = document.querySelectorAll('[data-lightbox-trigger]');
+  let currentIndex = 0;
+
+  const renderImage = (index) => {
+    const img = images[index];
+    figure.innerHTML = `
+      <picture>
+        <source srcset="${img.webp}" type="image/webp" />
+        <img src="${img.src}" alt="${img.alt}" class="max-h-[75vh] w-auto object-contain rounded-xl shadow-2xl" />
+      </picture>
+      <figcaption class="mt-4 text-center">
+        <p class="text-white text-base font-semibold">${img.caption}</p>
+        <p class="text-white/60 text-sm mt-1">${img.alt}</p>
+      </figcaption>
+    `;
+    counter.textContent = `${index + 1} / ${images.length}`;
+  };
+
+  const openLightbox = (index) => {
+    currentIndex = index;
+    renderImage(index);
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  };
+
+  const nextImage = () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    renderImage(currentIndex);
+  };
+
+  const prevImage = () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    renderImage(currentIndex);
+  };
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const index = parseInt(trigger.dataset.lightboxIndex || '0', 10);
+      openLightbox(index);
+    });
+  });
+
+  document.getElementById('lightbox-close')?.addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-next')?.addEventListener('click', nextImage);
+  document.getElementById('lightbox-prev')?.addEventListener('click', prevImage);
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+  });
+</script>
