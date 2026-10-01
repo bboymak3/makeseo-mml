@@ -152,6 +152,14 @@ const zonas = ['Centro','Oriente','Norte','Sur','Suroriente','Poniente','Surponi
     background: #0b1020 !important;
     font-family: 'Poppins', sans-serif !important;
   }
+  /* Invertir y teñir tiles OSM para combinar con dark-navy */
+  .osm-dark-tiles {
+    filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.7);
+  }
+  /* En pantallas con prefers-reduced-motion no afecta, pero aseguramos tile rendering suave */
+  .leaflet-tile {
+    will-change: auto;
+  }
   .leaflet-control-zoom a {
     background: rgba(11, 16, 32, 0.95) !important;
     color: #ffffff !important;
@@ -237,11 +245,13 @@ const zonas = ['Centro','Oriente','Norte','Sur','Suroriente','Poniente','Surponi
       preferCanvas: false,
     });
 
-    // Tiles oscuros CartoDB dark matter (sin etiquetas de marcas comerciales agresivas)
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
+    // Tiles de OpenStreetMap estándar (gratis, sin API key, sin límites duros)
+    // Se les aplica un filtro CSS para adaptarlos al tema oscuro
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      subdomains: 'abc',
       maxZoom: 19,
+      className: 'osm-dark-tiles',
     }).addTo(map);
 
     // Crear icono custom para cada comuna
