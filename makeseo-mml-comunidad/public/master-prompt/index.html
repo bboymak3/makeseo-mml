@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="es-VE" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1020" />
+
+  <title>Master Prompt MML · Landing SEO Local con Método Malla Local | Edward Valencia</title>
+  <meta name="description" content="Master prompt reproducible del Método Malla Local (MML) de Edward Valencia. Construye landings SEO Local con Astro, Tailwind, Leaflet y Cloudflare Pages. Con botón de copiar y paso a paso." />
+  <meta name="author" content="Edward Valencia" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Master Prompt MML · Landing SEO Local con Método Malla Local" />
+  <meta property="og:description" content="Playbook reproducible para construir landings SEO Local con Astro + Tailwind + Leaflet. Botón copiar + paso a paso." />
+  <meta property="og:locale" content="es_VE" />
+  <meta property="og:site_name" content="Edward Valencia | MML" />
+  <meta property="og:url" content="https://makeseo-mml.pages.dev/master-prompt" />
+  <meta property="og:image" content="https://i.ytimg.com/vi/MGcITnwpgCo/maxresdefault.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Master Prompt MML · Edward Valencia" />
+  <meta name="twitter:description" content="Playbook reproducible para construir landings SEO Local." />
+
+  <link rel="canonical" href="https://makeseo-mml.pages.dev/master-prompt" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-navy': '#0b1020',
+            'dark-navy-alt': '#121a33',
+            'primary-cyan': '#00BCD4',
+            'primary-teal': '#00838F',
+            'accent-orange': '#ff6b00',
+            'accent-orange-light': '#ff8c33',
+            'whatsapp-green': '#25D366',
+            'youtube-red': '#FF0000',
+          },
+          fontFamily: { sans: ['Inter', 'Poppins', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+          animation: {
+            'pulse-slow': 'pulseSlow 2.5s ease-in-out infinite',
+            'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            pulseSlow: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.85' } },
+            glowPulse: { '0%': { boxShadow: '0 0 20px rgba(0, 188, 212, 0.45)' }, '100%': { boxShadow: '0 0 38px rgba(0, 188, 212, 0.75)' } },
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- marked.js para renderizar markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+
+  <style>
+    html { scroll-padding-top: 90px; }
+    body { background-color: #0b1020; }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: #0b1020; }
+    ::-webkit-scrollbar-thumb { background: #00838f; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #00bcd4; }
+    :focus-visible { outline: 2px solid #00BCD4; outline-offset: 2px; }
+    [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; }
+      .animate-pulse-slow, .animate-glow-pulse { animation: none !important; }
+    }
+    .text-gradient-cyanteal { background: linear-gradient(135deg, #00BCD4, #00838F); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .text-gradient-orange { background: linear-gradient(135deg, #ff6b00, #ff8c33); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-radial { background-image: radial-gradient(circle at 30% 20%, rgba(0, 188, 212, 0.22), transparent 45%), radial-gradient(circle at 80% 0%, rgba(255, 107, 0, 0.18), transparent 35%); }
+    /* Markdown render */
+    .prompt-block h1, .prompt-block h2, .prompt-block h3 { color: #00BCD4; font-weight: 700; margin-top: 1.2em; margin-bottom: 0.4em; }
+    .prompt-block h1 { font-size: 1.5rem; }
+    .prompt-block h2 { font-size: 1.15rem; }
+    .prompt-block h3 { font-size: 1rem; }
+    .prompt-block code { background: rgba(0, 188, 212, 0.15); color: #00BCD4; padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.85em; }
+    .prompt-block pre { background: rgba(0, 0, 0, 0.4); padding: 1em; border-radius: 8px; overflow-x: auto; margin: 0.8em 0; border: 1px solid rgba(0, 188, 212, 0.2); }
+    .prompt-block pre code { background: transparent; color: #ff8c33; padding: 0; }
+    .prompt-block strong { color: #ff8c33; font-weight: 700; }
+    .prompt-block em { color: #ffffff; font-style: italic; }
+    .prompt-block ul, .prompt-block ol { padding-left: 1.4em; margin: 0.6em 0; }
+    .prompt-block li { margin: 0.3em 0; }
+    .prompt-block p { margin: 0.6em 0; }
+    .prompt-block a { color: #00BCD4; text-decoration: underline; }
+    .prompt-block hr { border: none; border-top: 1px solid rgba(0, 188, 212, 0.2); margin: 1.5em 0; }
+    .prompt-block blockquote { border-left: 3px solid #ff6b00; padding-left: 1em; color: rgba(255,255,255,0.7); margin: 1em 0; }
+    .prompt-block table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+    .prompt-block th, .prompt-block td { border: 1px solid rgba(0, 188, 212, 0.2); padding: 0.5em 0.8em; text-align: left; }
+    .prompt-block th { background: rgba(0, 188, 212, 0.1); color: #00BCD4; }
+  </style>
+</head>
+
+<body class="font-sans text-white antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-dark-navy/80 border-b border-white/10">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 lg:h-20 items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center shadow-[0_0_30px_rgba(0,188,212,0.45)]">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/>
+            </svg>
+          </div>
+          <div class="leading-none">
+            <span class="block text-white font-extrabold text-sm sm:text-base">Master Prompt MML</span>
+            <span class="block text-primary-cyan text-[10px] sm:text-xs font-medium tracking-widest">EDWARD VALENCIA · @MAKESEO</span>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#features" class="px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Características</a>
+          <a href="#pasos" class="px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Paso a paso</a>
+          <a href="#prompt" class="px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Ver prompt</a>
+        </div>
+        <a href="/" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium hover:bg-white/15 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span class="hidden sm:inline">Volver al inicio</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-dark-navy pt-28 pb-20 lg:pt-36 lg:pb-28">
+    <div class="absolute inset-0 hero-radial" aria-hidden="true"></div>
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-cyan/20 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+    <div class="absolute -top-24 right-0 w-80 h-80 bg-accent-orange/15 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-orange/15 border border-accent-orange/40 backdrop-blur-sm mb-6" data-reveal>
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-orange opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-orange"></span>
+        </span>
+        <span class="text-sm font-semibold text-accent-orange-light">Método Malla Local · 700+ líneas · Listo para producción</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-tight" data-reveal>
+        Master Prompt para<br />
+        <span class="text-gradient-cyanteal">Landings SEO Local</span><br />
+        con Método MML
+      </h1>
+
+      <p class="mt-6 text-lg lg:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed" data-reveal>
+        Playbook reproducible que captura todo el sistema <strong class="text-white">Método Malla Local (MML)</strong> de Edward Valencia — N landings por comuna/municipio, Schema.org JSON-LD, mapa Leaflet, PWA y deploy en Cloudflare Pages con $0 hosting.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center" data-reveal>
+        <a href="#prompt" class="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white font-bold text-base shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] hover:scale-105 active:scale-95 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Ver Master Prompt
+        </a>
+        <a href="#pasos" class="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold text-base hover:bg-white/15 hover:scale-105 active:scale-95 transition-all">
+          ¿Cómo usarlo?
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3 text-xs" data-reveal>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">Astro 4</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">Tailwind CSS</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">Leaflet + OSM</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">Schema.org</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">Cloudflare Pages</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">$0 Hosting</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="bg-white text-ink-dark py-20 lg:py-28" style="color: #1a1a1a;">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 lg:mb-16" data-reveal>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-teal text-sm font-semibold mb-4" style="color: #00838F;">
+          <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan" style="background: #00BCD4;"></span>
+          Qué incluye
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight" style="color: #1a1a1a;">
+          Todo el sistema <span class="text-gradient-cyanteal">MML en un prompt</span>
+        </h2>
+        <p class="mt-5 text-lg max-w-2xl mx-auto" style="color: #5b6475;">6 ejes clave que el master prompt cubre con detalle, ejemplos de código y lecciones aprendidas.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-reveal>
+        <div class="group relative rounded-2xl border p-6 hover:shadow-lg transition-all" style="background: #f5f7fb; border-color: #e6e9f0;">
+          <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-primary-cyan/15 to-accent-orange/15 border border-primary-cyan/30 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary-teal" style="color: #00838F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold" style="color: #1a1a1a;">Stack Serverless</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color: #5b6475;">Astro 4 + Tailwind + Vanilla JS + Leaflet + Cloudflare Pages. $0 hosting garantizado.</p>
+        </div>
+
+        <div class="group relative rounded-2xl border p-6 hover:shadow-lg transition-all" style="background: #f5f7fb; border-color: #e6e9f0;">
+          <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-primary-cyan/15 to-accent-orange/15 border border-primary-cyan/30 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary-teal" style="color: #00838F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold" style="color: #1a1a1a;">SEO Local Real</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color: #5b6475;">N landings dinámicas por comuna/municipio + Schema.org JSON-LD (LocalBusiness + Service + FAQ + Breadcrumb).</p>
+        </div>
+
+        <div class="group relative rounded-2xl border p-6 hover:shadow-lg transition-all" style="background: #f5f7fb; border-color: #e6e9f0;">
+          <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-primary-cyan/15 to-accent-orange/15 border border-primary-cyan/30 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary-teal" style="color: #00838F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold" style="color: #1a1a1a;">95+ PageSpeed</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color: #5b6475;">HTML estático, sin React/Vue, JS mínimo, imágenes WebP. Carga en menos de 1 segundo.</p>
+        </div>
+
+        <div class="group relative rounded-2xl border p-6 hover:shadow-lg transition-all" style="background: #f5f7fb; border-color: #e6e9f0;">
+          <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-primary-cyan/15 to-accent-orange/15 border border-primary-cyan/30 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary-teal" style="color: #00838F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold" style="color: #1a1a1a;">PWA Ready</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color: #5b6475;">Webmanifest + iconos 192/512 + apple-touch-icon. Instalable en móvil como app.</p>
+        </div>
+
+        <div class="group relative rounded-2xl border p-6 hover:shadow-lg transition-all" style="background: #f5f7fb; border-color: #e6e9f0;">
+          <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-primary-cyan/15 to-accent-orange/15 border border-primary-cyan/30 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary-teal" style="color: #00838F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 9m0 8V9"/></svg>
+          </div>
+          <h3 class="text-lg font-bold" style="color: #1a1a1a;">Mapa Performante</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color: #5b6475;">Leaflet + OpenStreetMap con filtro CSS dark. Sin lag, sin API key, sin costo.</p>
+        </div>
+
+        <div class="group relative rounded-2xl border p-6 hover:shadow-lg transition-all" style="background: #f5f7fb; border-color: #e6e9f0;">
+          <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-primary-cyan/15 to-accent-orange/15 border border-primary-cyan/30 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary-teal" style="color: #00838F;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold" style="color: #1a1a1a;">Seguridad</h3>
+          <p class="mt-2 text-sm leading-relaxed" style="color: #5b6475;">Buenas prácticas con tokens y secrets. Reglas claras para no exponer credenciales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASO A PASO -->
+  <section id="pasos" class="bg-dark-navy-alt py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-72 h-72 bg-primary-cyan/5 rounded-full blur-3xl" aria-hidden="true"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent-orange/5 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-reveal>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-orange/10 text-accent-orange text-sm font-semibold mb-4" style="color: #ff8c33;">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent-orange" style="background: #ff6b00;"></span>
+          Tutorial
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+          Cómo usar el<br />
+          <span class="text-gradient-orange">Master Prompt MML</span>
+        </h2>
+        <p class="mt-5 text-lg text-white/70 max-w-2xl mx-auto">8 pasos para ir desde cero hasta una landing MML deployada y optimizada.</p>
+      </div>
+
+      <div class="space-y-4" data-reveal>
+        <div class="relative bg-dark-navy/60 rounded-2xl border border-white/10 p-6 lg:p-7">
+          <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <div class="flex-shrink-0">
+              <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-orange to-accent-orange-light text-white font-extrabold text-xl flex items-center justify-center shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] border-2 border-white">01</div>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg lg:text-xl font-bold">Copia el Master Prompt</h3>
+              <p class="mt-2 text-sm lg:text-base text-white/70 leading-relaxed">Haz clic en el botón "Copiar prompt" abajo. El texto completo del master prompt se copiará a tu portapapeles.</p>
+              <a href="#prompt" class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-dark-navy text-sm font-semibold hover:bg-primary-cyan hover:text-white transition-colors" style="color: #0b1020;">
+                Copiar prompt
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative bg-dark-navy/60 rounded-2xl border border-white/10 p-6 lg:p-7">
+          <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <div class="flex-shrink-0"><div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-orange to-accent-orange-light text-white font-extrabold text-xl flex items-center justify-center shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] border-2 border-white">02</div></div>
+            <div class="flex-1">
+              <h3 class="text-lg lg:text-xl font-bold">Abre un nuevo chat con tu IA</h3>
+              <p class="mt-2 text-sm lg:text-base text-white/70 leading-relaxed">Inicia una nueva conversación con tu asistente IA (Claude, GPT, Gemini, etc.). Puedes hacerlo en cualquier plataforma de chat.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative bg-dark-navy/60 rounded-2xl border border-white/10 p-6 lg:p-7">
+          <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <div class="flex-shrink-0"><div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-orange to-accent-orange-light text-white font-extrabold text-xl flex items-center justify-center shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] border-2 border-white">03</div></div>
+            <div class="flex-1">
+              <h3 class="text-lg lg:text-xl font-bold">Pega el prompt y personaliza</h3>
+              <p class="mt-2 text-sm lg:text-base text-white/70 leading-relaxed">Pega el contenido del master prompt. Luego busca y reemplaza los placeholders entre {{LLAVES}} por los valores de tu proyecto: nicho, ciudad, ubicaciones, datos de contacto, colores de marca, etc.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative bg-dark-navy/60 rounded-2xl border border-white/10 p-6 lg:p-7">
+          <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <div class="flex-shrink-0"><div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-orange to-accent-orange-light text-white font-extrabold text-xl flex items-center justify-center shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] border-2 border-white">04</div></div>
+            <div class="flex-1">
+              <h3 class="text-lg lg:text-xl font-bold">Agrega tus tokens (opcional)</h3>
+              <p class="mt-2 text-sm lg:text-base text-white/70 leading-relaxed">Si quieres que la IA haga deploy automático, agrega al final del prompt: GH_TOKEN=tu_token, CF_TOKEN=tu_token, CF_ACCOUNT_ID=tu_id. NUNCA compartas tokens públicamente.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative bg-dark-navy/60 rounded-2xl border border-white/10 p-6 lg:p-7">
+          <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <div class="flex-shrink-0"><div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-orange to-accent-orange-light text-white font-extrabold text-xl flex items-center justify-center shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] border-2 border-white">05</div></div>
+            <div class="flex-1">
+              <h3 class="text-lg lg:text-xl font-bold">Envía y revisa el plan</h3>
+              <p class="mt-2 text-sm lg:text-base text-white/70 leading-relaxed">La IA generará un plan de trabajo. Revisa que coincida con lo que quieres: número de landings, colores, servicios, ubicaciones. Pide ajustes antes de que empiece a codear.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative bg-dark-navy/60 rounded-2xl border border-white/10 p-6 lg:p-7">
+          <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <div class="flex-shrink-0"><div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-orange to-accent-orange-light text-white font-extrabold text-xl flex items-center justify-center shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] border-2 border-white">06</div></div>
+            <div class="flex-1">
+              <h3 class="text-lg lg:text-xl font-bold">Itera con la IA</h3>
+              <p class="mt-2 text-sm lg:text-base text-white/70 leading-relaxed">Durante el desarrollo, pide cambios específicos. Evita frases vagas como "hazlo mejor". Sé concreto: "cambia la opacidad del banner del 30% al 100%" o "usa Leaflet en vez de SVG para el mapa".</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative bg-dark-navy/60 rounded-2xl border border-white/10 p-6 lg:p-7">
+          <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <div class="flex-shrink-0"><div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-orange to-accent-orange-light text-white font-extrabold text-xl flex items-center justify-center shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] border-2 border-white">07</div></div>
+            <div class="flex-1">
+              <h3 class="text-lg lg:text-xl font-bold">Verifica el resultado</h3>
+              <p class="mt-2 text-sm lg:text-base text-white/70 leading-relaxed">Una vez deployado, abre el sitio, prueba en móvil, corre PageSpeed Insights, valida los schemas en Google Rich Results Test, registra el sitemap en Search Console.</p>
+              <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-youtube-red text-white text-sm font-semibold hover:scale-105 transition-transform">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                Ver tutoriales en YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative bg-dark-navy/60 rounded-2xl border border-white/10 p-6 lg:p-7">
+          <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <div class="flex-shrink-0"><div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-orange to-accent-orange-light text-white font-extrabold text-xl flex items-center justify-center shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] border-2 border-white">08</div></div>
+            <div class="flex-1">
+              <h3 class="text-lg lg:text-xl font-bold">Únete a la comunidad MML</h3>
+              <p class="mt-2 text-sm lg:text-base text-white/70 leading-relaxed">Suscríbete al canal de YouTube de Edward Valencia y únete a la comunidad oficial de WhatsApp para recibir actualizaciones, prompts, plantillas y soporte.</p>
+              <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-whatsapp-green text-white text-sm font-semibold hover:scale-105 transition-transform">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+                Comunidad WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMPT COMPLETO -->
+  <section id="prompt" class="bg-dark-navy py-20 lg:py-28">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10" data-reveal>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-cyan text-sm font-semibold mb-4" style="color: #00BCD4;">
+          <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan" style="background: #00BCD4;"></span>
+          El Prompt
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+          Master Prompt MML<br />
+          <span class="text-gradient-cyanteal">Completo</span>
+        </h2>
+        <p class="mt-5 text-lg text-white/70 max-w-2xl mx-auto">Copia todo el contenido del bloque abajo. Pégalo en un nuevo chat con tu IA para construir landings SEO Local con el Método MML.</p>
+      </div>
+
+      <!-- Botones sticky -->
+      <div class="sticky top-20 z-10 flex flex-wrap items-center justify-center gap-3 mb-6 p-3 bg-dark-navy-alt/80 backdrop-blur-md rounded-2xl border border-white/10" data-reveal>
+        <button type="button" id="copy-btn" class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white font-bold text-sm shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] hover:scale-105 active:scale-95 transition-transform">
+          <svg class="w-5 h-5" id="copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          <span id="copy-btn-text">Copiar prompt</span>
+        </button>
+        <a href="/master-prompt.md" download="MASTER_PROMPT_MML.md" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-sm hover:bg-white/15 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Descargar .md
+        </a>
+        <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-youtube-red/15 border border-youtube-red/30 text-red-400 font-semibold text-sm hover:bg-youtube-red/25 transition-colors" style="color: #ff6b6b;">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Ver canal @makeseo
+        </a>
+      </div>
+
+      <!-- Feedback copiado -->
+      <div id="copy-feedback" class="hidden mb-4 p-3 rounded-xl bg-whatsapp-green/15 border border-whatsapp-green/40 text-whatsapp-green text-sm font-semibold text-center" style="color: #25D366;">
+        ✓ ¡Master Prompt MML copiado al portapapeles! Pégalo en tu nuevo chat.
+      </div>
+
+      <!-- Bloque prompt -->
+      <div class="relative" data-reveal>
+        <div class="absolute -inset-0.5 bg-gradient-to-br from-primary-cyan/30 to-accent-orange/30 rounded-2xl blur-md" aria-hidden="true"></div>
+        <div class="relative bg-dark-navy-alt border border-white/10 rounded-2xl overflow-hidden">
+          <div class="flex items-center justify-between px-4 py-3 bg-dark-navy border-b border-white/10">
+            <div class="flex items-center gap-2">
+              <span class="h-3 w-3 rounded-full bg-red-500/80"></span>
+              <span class="h-3 w-3 rounded-full bg-yellow-500/80"></span>
+              <span class="h-3 w-3 rounded-full bg-green-500/80"></span>
+              <span class="ml-3 text-white/60 text-xs font-mono">MASTER_PROMPT_MML.md</span>
+            </div>
+            <span class="text-white/40 text-xs font-mono hidden sm:inline">~29KB · 700+ líneas</span>
+          </div>
+          <article class="prompt-block p-5 lg:p-8 text-white/85 text-sm lg:text-[15px] leading-relaxed font-mono overflow-x-auto" id="prompt-content">
+            <p class="text-white/60">Cargando master prompt...</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="mt-8 text-center" data-reveal>
+        <button type="button" id="copy-btn-bottom" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white font-bold text-sm shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] hover:scale-105 active:scale-95 transition-transform">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Copiar prompt completo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-gradient-to-br from-dark-navy to-dark-navy-alt py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight" data-reveal>
+        Aprende el Método MML completo
+      </h2>
+      <p class="mt-4 text-white/70 max-w-2xl mx-auto" data-reveal>
+        Edward Valencia documenta todo el sistema en su canal de YouTube. Suscríbete y únete a la comunidad oficial de WhatsApp para recibir prompts, plantillas y soporte.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center" data-reveal>
+        <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-youtube-red text-white font-bold text-sm hover:scale-105 transition-transform">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Suscribirse a @makeseo
+        </a>
+        <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-whatsapp-green text-white font-bold text-sm hover:scale-105 transition-transform">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+          Comunidad WhatsApp
+        </a>
+        <a href="/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-bold text-sm hover:bg-white/15 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          Volver al inicio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark-navy border-t border-white/10 py-10">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/></svg>
+          </div>
+          <span class="text-white/80 text-sm font-medium">Master Prompt MML · Edward Valencia · @makeseo</span>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-white/60">
+          <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="hover:text-red-400 transition-colors">YouTube</a>
+          <span>·</span>
+          <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="hover:text-whatsapp-green transition-colors" style="color: rgba(255,255,255,0.6);">WhatsApp</a>
+          <span>·</span>
+          <a href="/" class="hover:text-primary-cyan transition-colors">Inicio</a>
+          <span>·</span>
+          <span>© <span id="current-year">2026</span></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botones flotantes -->
+  <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="fixed bottom-6 right-4 md:right-6 z-40 inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-whatsapp-green text-white shadow-[0_10px_30px_-6px_rgba(37,211,102,0.6)] hover:scale-110 active:scale-95 transition-transform">
+    <span class="absolute inset-0 rounded-full bg-whatsapp-green animate-ping opacity-20" aria-hidden="true"></span>
+    <svg class="relative w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+  </a>
+  <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="fixed bottom-6 left-4 md:left-6 z-40 inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-youtube-red text-white shadow-[0_10px_30px_-6px_rgba(255,0,0,0.5)] hover:scale-110 active:scale-95 transition-transform">
+    <span class="absolute inset-0 rounded-full bg-youtube-red animate-ping opacity-20" aria-hidden="true"></span>
+    <svg class="relative w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+  </a>
+
+  <script>
+    // Año footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Cargar el master-prompt.md y renderizarlo con marked
+    let promptText = '';
+    fetch('/master-prompt.md')
+      .then(r => r.text())
+      .then(text => {
+        promptText = text;
+        const html = marked.parse(text);
+        document.getElementById('prompt-content').innerHTML = html;
+      })
+      .catch(err => {
+        document.getElementById('prompt-content').innerHTML = '<p class="text-red-400">Error cargando el master prompt: ' + err.message + '</p>';
+      });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // Copiar al portapapeles
+    const copyToClipboard = async (btnId) => {
+      const btn = document.getElementById(btnId);
+      if (!btn) return;
+      const originalText = btn.querySelector('span')?.textContent || 'Copiar prompt';
+      // Esperar a que el prompt haya cargado
+      if (!promptText) {
+        const span = btn.querySelector('span');
+        if (span) span.textContent = 'Cargando...';
+        setTimeout(() => copyToClipboard(btnId), 500);
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(promptText);
+        const span = btn.querySelector('span');
+        if (span) span.textContent = '¡Copiado!';
+        btn.classList.add('bg-whatsapp-green');
+        btn.classList.remove('from-accent-orange', 'to-accent-orange-light');
+        btn.style.background = '#25D366';
+
+        const feedback = document.getElementById('copy-feedback');
+        if (feedback) {
+          feedback.classList.remove('hidden');
+          feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        setTimeout(() => {
+          if (span) span.textContent = originalText;
+          btn.classList.remove('bg-whatsapp-green');
+          btn.classList.add('from-accent-orange', 'to-accent-orange-light');
+          btn.style.background = '';
+          if (feedback) feedback.classList.add('hidden');
+        }, 2500);
+      } catch (err) {
+        const textarea = document.createElement('textarea');
+        textarea.value = promptText;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          const span = btn.querySelector('span');
+          if (span) span.textContent = '¡Copiado!';
+          setTimeout(() => { if (span) span.textContent = originalText; }, 2500);
+        } catch (e) {
+          alert('No se pudo copiar automáticamente. Descarga el .md');
+        }
+        document.body.removeChild(textarea);
+      }
+    };
+
+    document.getElementById('copy-btn')?.addEventListener('click', () => copyToClipboard('copy-btn'));
+    document.getElementById('copy-btn-bottom')?.addEventListener('click', () => copyToClipboard('copy-btn-bottom'));
+  </script>
+</body>
+</html>
