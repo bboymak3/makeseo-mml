@@ -1,0 +1,413 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { marked } from 'marked';
+import masterPrompt from '../data/master-prompt.md?raw';
+
+const githubRepo = 'https://github.com/bboymak3/globalpro-automotriz';
+const liveSite = 'https://globalproautomotriz.pages.dev';
+
+// Renderizar markdown a HTML para mostrar
+const promptHtml = marked.parse(masterPrompt);
+
+// Características del prompt
+const features = [
+  { icon: 'rocket', title: 'Stack Moderno', desc: 'Astro 4 + Tailwind + Vanilla JS + Leaflet' },
+  { icon: 'seo', title: 'SEO Local Real', desc: '52 landings dinámicas + Schema.org JSON-LD' },
+  { icon: 'speed', title: '95+ PageSpeed', desc: 'HTML estático, sin frameworks pesados' },
+  { icon: 'pwa', title: 'PWA Ready', desc: 'Webmanifest + iconos + offline ready' },
+  { icon: 'map', title: 'Mapa Performante', desc: 'Leaflet + OpenStreetMap + filtro CSS dark' },
+  { icon: 'security', title: 'Seguridad', desc: 'Buenas prácticas con tokens y secrets' },
+];
+
+// Pasos del tutorial
+const steps = [
+  {
+    n: '01',
+    title: 'Copia el Master Prompt',
+    desc: 'Haz clic en el botón "Copiar prompt" abajo. El texto completo del master prompt se copiará a tu portapapeles.',
+    cta: 'Copiar prompt',
+    href: '#prompt',
+  },
+  {
+    n: '02',
+    title: 'Abre un nuevo chat con tu IA',
+    desc: 'Inicia una nueva conversación con tu asistente IA (Claude, GPT, Gemini, etc.). Puedes hacerlo en cualquier plataforma de chat.',
+    cta: null,
+  },
+  {
+    n: '03',
+    title: 'Pega el prompt y personaliza',
+    desc: 'Pega el contenido del master prompt. Luego busca y reemplaza los placeholders entre {{LLAVES}} por los valores de tu proyecto: nicho, ciudad, comunas, datos de contacto, colores de marca, etc.',
+    cta: null,
+  },
+  {
+    n: '04',
+    title: 'Agrega tus tokens (opcional)',
+    desc: 'Si quieres que la IA haga deploy automático, agrega al final del prompt: GH_TOKEN=tu_token, CF_TOKEN=tu_token, CF_ACCOUNT_ID=tu_id. NUNCA compartas tokens públicamente.',
+    cta: null,
+  },
+  {
+    n: '05',
+    title: 'Envía y revisa el plan',
+    desc: 'La IA generará un plan de trabajo. Revisa que coincida con lo que quieres: número de landings, colores, servicios, comunas. Pide ajustes antes de que empiece a codear.',
+    cta: null,
+  },
+  {
+    n: '06',
+    title: 'Itera con la IA',
+    desc: 'Durante el desarrollo, pide cambios específicos. Evita frases vagas como "hazlo mejor". Sé concreto: "cambia la opacidad del banner del 30% al 100%" o "usa Leaflet en vez de SVG para el mapa".',
+    cta: null,
+  },
+  {
+    n: '07',
+    title: 'Verifica el resultado',
+    desc: 'Una vez deployado, abre el sitio, prueba en móvil, corre PageSpeed Insights, valida los schemas en Google Rich Results Test, registra el sitemap en Search Console.',
+    cta: 'Abrir sitio demo',
+    href: liveSite,
+  },
+  {
+    n: '08',
+    title: 'Estudia el repo de referencia',
+    desc: 'El repositorio de GitHub tiene todo el código fuente del proyecto que sirvió de base para este master prompt. Clónalo, míralo, aprende de los patrones usados.',
+    cta: 'Ver repo en GitHub',
+    href: githubRepo,
+  },
+];
+
+// Características iconos SVG
+const iconMap: Record<string, string> = {
+  rocket: 'M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2zM9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5',
+  seo: 'M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z',
+  speed: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
+  pwa: 'M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z',
+  map: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 9m0 8V9m0 8L9 7',
+  security: 'M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z',
+};
+---
+
+<Layout>
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-dark-navy/80 border-b border-white/10">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 lg:h-20 items-center justify-between">
+        <a href="#inicio" class="flex items-center gap-2">
+          <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center shadow-glow-cyan">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M5 11l1.5-4.5A3 3 0 019.4 4h5.2a3 3 0 012.9 2.5L19 11h.5a1.5 1.5 0 011.5 1.5v5a1.5 1.5 0 01-1.5 1.5H18a1 1 0 01-1-1v-1H7v1a1 1 0 01-1 1H4.5A1.5 1.5 0 013 17.5v-5A1.5 1.5 0 014.5 11H5z"/></svg>
+          </div>
+          <div class="leading-none">
+            <span class="block text-white font-extrabold text-base lg:text-lg">Master Prompt</span>
+            <span class="block text-primary-cyan text-[10px] lg:text-xs font-medium">GlobalPro · SEO Local</span>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#features" class="px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Características</a>
+          <a href="#pasos" class="px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Paso a paso</a>
+          <a href="#prompt" class="px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Ver prompt</a>
+        </div>
+        <a href={githubRepo} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium hover:bg-white/15 transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          <span class="hidden sm:inline">GitHub</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative overflow-hidden bg-dark-navy pt-28 pb-20 lg:pt-36 lg:pb-28">
+    <div class="absolute inset-0 bg-hero-radial" aria-hidden="true"></div>
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-cyan/20 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+    <div class="absolute -top-24 right-0 w-80 h-80 bg-accent-orange/15 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-orange/15 border border-accent-orange/40 backdrop-blur-sm mb-6" data-reveal>
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-orange opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-orange"></span>
+        </span>
+        <span class="text-sm font-semibold text-accent-orange-light">767 líneas · 29KB · Listo para producción</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.05] tracking-tight" data-reveal>
+        Master Prompt para<br />
+        <span class="bg-gradient-to-r from-primary-cyan to-primary-teal bg-clip-text text-transparent">Landings SEO Local</span><br />
+        de Servicios a Domicilio
+      </h1>
+
+      <p class="mt-6 text-lg lg:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed" data-reveal>
+        Playbook reproducible que captura todo lo aprendido construyendo la landing de <strong class="text-white">GlobalPro Automotriz</strong> — 56 páginas, 52 landings por comuna, Schema.org JSON-LD, mapa Leaflet, PWA y deploy en Cloudflare Pages.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center" data-reveal>
+        <a href="#prompt" class="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-gradient-orange text-white font-bold text-base shadow-glow-orange hover:scale-105 active:scale-95 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Ver Master Prompt
+        </a>
+        <a href="#pasos" class="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold text-base hover:bg-white/15 hover:scale-105 active:scale-95 transition-all">
+          ¿Cómo usarlo?
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3 text-xs" data-reveal>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">Astro 4</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">Tailwind CSS</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">Leaflet</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">Schema.org</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">Cloudflare Pages</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">PWA</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="bg-white py-20 lg:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 lg:mb-16" data-reveal>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-teal text-sm font-semibold mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan"></span>
+          Qué incluye
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-dark tracking-tight">
+          Todo lo que necesitas para<br />
+          <span class="bg-gradient-to-r from-primary-cyan to-primary-teal bg-clip-text text-transparent">replicar este proyecto</span>
+        </h2>
+        <p class="mt-5 text-lg text-text-muted max-w-2xl mx-auto">6 ejes clave que el master prompt cubre con detalle, ejemplos de código y lecciones aprendidas.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-reveal>
+        {features.map((f) => (
+          <div class="group relative bg-bg-alt rounded-xl-card border border-border-light p-6 hover:shadow-card hover:-translate-y-1 transition-all">
+            <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-primary-cyan/15 to-accent-orange/15 border border-primary-cyan/30 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-primary-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={iconMap[f.icon]}/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-ink-dark">{f.title}</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PASO A PASO -->
+  <section id="pasos" class="bg-bg-alt py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-72 h-72 bg-primary-cyan/5 rounded-full blur-3xl" aria-hidden="true"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent-orange/5 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-reveal>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-orange/10 text-accent-orange text-sm font-semibold mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent-orange"></span>
+          Tutorial
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-dark tracking-tight">
+          Cómo usar el<br />
+          <span class="bg-gradient-to-r from-accent-orange to-accent-orange-light bg-clip-text text-transparent">Master Prompt</span>
+        </h2>
+        <p class="mt-5 text-lg text-text-muted max-w-2xl mx-auto">8 pasos para ir desde cero hasta una landing deployada y optimizada.</p>
+      </div>
+
+      <div class="space-y-4" data-reveal>
+        {steps.map((step) => (
+          <div class="relative bg-white rounded-xl-card border border-border-light p-6 lg:p-7 shadow-card hover:shadow-card-hover transition-shadow">
+            <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+              <div class="flex-shrink-0">
+                <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-orange to-accent-orange-light text-white font-extrabold text-xl flex items-center justify-center shadow-glow-orange border-2 border-white">
+                  {step.n}
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg lg:text-xl font-bold text-ink-dark">{step.title}</h3>
+                <p class="mt-2 text-sm lg:text-base text-text-muted leading-relaxed">{step.desc}</p>
+                {step.cta && step.href && (
+                  <a href={step.href} target={step.href.startsWith('http') ? '_blank' : undefined} rel={step.href.startsWith('http') ? 'noopener noreferrer' : undefined} class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-navy text-white text-sm font-semibold hover:bg-accent-orange transition-colors">
+                    {step.cta}
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMPT COMPLETO -->
+  <section id="prompt" class="bg-dark-navy bg-hero-radial py-20 lg:py-28">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10" data-reveal>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-cyan text-sm font-semibold mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan"></span>
+          El Prompt
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          Master Prompt<br />
+          <span class="bg-gradient-to-r from-primary-cyan to-accent-orange bg-clip-text text-transparent">Completo</span>
+        </h2>
+        <p class="mt-5 text-lg text-white/70 max-w-2xl mx-auto">Copia todo el contenido del bloque abajo. Pégalo en un nuevo chat con tu IA para reproducir el mismo nivel de calidad.</p>
+      </div>
+
+      <!-- Botón copiar + acciones -->
+      <div class="sticky top-20 z-10 flex flex-wrap items-center justify-center gap-3 mb-6 p-3 bg-dark-navy-alt/80 backdrop-blur-md rounded-2xl border border-white/10" data-reveal>
+        <button
+          type="button"
+          id="copy-btn"
+          class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-orange text-white font-bold text-sm shadow-glow-orange hover:scale-105 active:scale-95 transition-transform"
+          aria-label="Copiar master prompt al portapapeles"
+        >
+          <svg class="w-5 h-5" id="copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          <span id="copy-btn-text">Copiar prompt</span>
+        </button>
+        <a
+          href="/master-prompt.md"
+          download="MASTER_PROMPT.md"
+          class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-sm hover:bg-white/15 transition-colors"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Descargar .md
+        </a>
+        <a
+          href={githubRepo}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-sm hover:bg-white/15 transition-colors"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          Ver repo
+        </a>
+      </div>
+
+      <!-- Aviso feedback de copiado -->
+      <div id="copy-feedback" class="hidden mb-4 p-3 rounded-xl bg-whatsapp-green/15 border border-whatsapp-green/40 text-whatsapp-green text-sm font-semibold text-center">
+        ✓ ¡Master Prompt copiado al portapapeles! Pégalo en tu nuevo chat.
+      </div>
+
+      <!-- Bloque con el prompt -->
+      <div class="relative" data-reveal>
+        <div class="absolute -inset-0.5 bg-gradient-to-br from-primary-cyan/30 to-accent-orange/30 rounded-2xl blur-md" aria-hidden="true"></div>
+        <div class="relative bg-dark-navy-alt border border-white/10 rounded-2xl overflow-hidden">
+          <!-- Header del bloque -->
+          <div class="flex items-center justify-between px-4 py-3 bg-dark-navy border-b border-white/10">
+            <div class="flex items-center gap-2">
+              <span class="h-3 w-3 rounded-full bg-red-500/80"></span>
+              <span class="h-3 w-3 rounded-full bg-yellow-500/80"></span>
+              <span class="h-3 w-3 rounded-full bg-green-500/80"></span>
+              <span class="ml-3 text-white/60 text-xs font-mono">MASTER_PROMPT.md</span>
+            </div>
+            <span class="text-white/40 text-xs font-mono hidden sm:inline">29KB · 767 líneas</span>
+          </div>
+          <!-- Contenido del prompt -->
+          <article class="prompt-block p-5 lg:p-8 text-white/85 text-sm lg:text-[15px] leading-relaxed font-mono overflow-x-auto" id="prompt-content" set:html={promptHtml}></article>
+        </div>
+      </div>
+
+      <!-- Botón copiar abajo también -->
+      <div class="mt-8 text-center" data-reveal>
+        <button
+          type="button"
+          id="copy-btn-bottom"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-orange text-white font-bold text-sm shadow-glow-orange hover:scale-105 active:scale-95 transition-transform"
+          aria-label="Copiar master prompt al portapapeles"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Copiar prompt completo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-gradient-to-br from-dark-navy to-dark-navy-alt py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-white tracking-tight" data-reveal>
+        Mira el proyecto real que inspiró este prompt
+      </h2>
+      <p class="mt-4 text-white/70 max-w-2xl mx-auto" data-reveal>
+        La landing de GlobalPro Automotriz está online con 56 páginas deployadas. Explórala, abre el código fuente, aprende de los patrones usados.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center" data-reveal>
+        <a href={liveSite} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-orange text-white font-bold text-sm shadow-glow-orange hover:scale-105 active:scale-95 transition-transform">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+          Ver sitio en producción
+        </a>
+        <a href={githubRepo} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-bold text-sm hover:bg-white/15 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          Ver código en GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark-navy border-t border-white/10 py-10">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M5 11l1.5-4.5A3 3 0 019.4 4h5.2a3 3 0 012.9 2.5L19 11h.5a1.5 1.5 0 011.5 1.5v5a1.5 1.5 0 01-1.5 1.5H18a1 1 0 01-1-1v-1H7v1a1 1 0 01-1 1H4.5A1.5 1.5 0 013 17.5v-5A1.5 1.5 0 014.5 11H5z"/></svg>
+          </div>
+          <span class="text-white/80 text-sm font-medium">Master Prompt · GlobalPro Automotriz</span>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-white/60">
+          <a href={githubRepo} target="_blank" rel="noopener noreferrer" class="hover:text-primary-cyan transition-colors">GitHub</a>
+          <span>·</span>
+          <a href={liveSite} target="_blank" rel="noopener noreferrer" class="hover:text-primary-cyan transition-colors">Sitio demo</a>
+          <span>·</span>
+          <span>© {new Date().getFullYear()}</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script para copiar al portapapeles -->
+  <script is:inline define:vars={{ promptText: masterPrompt }}>
+    const copyToClipboard = async (btnId) => {
+      const btn = document.getElementById(btnId);
+      if (!btn) return;
+      const originalText = btn.querySelector('span')?.textContent || 'Copiar prompt';
+      try {
+        await navigator.clipboard.writeText(promptText);
+        // Feedback visual
+        const span = btn.querySelector('span');
+        if (span) span.textContent = '¡Copiado!';
+        btn.classList.add('bg-whatsapp-green');
+        btn.classList.remove('bg-gradient-orange');
+
+        // Mostrar aviso
+        const feedback = document.getElementById('copy-feedback');
+        if (feedback) {
+          feedback.classList.remove('hidden');
+          feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Restaurar después de 2.5s
+        setTimeout(() => {
+          if (span) span.textContent = originalText;
+          btn.classList.remove('bg-whatsapp-green');
+          btn.classList.add('bg-gradient-orange');
+          if (feedback) feedback.classList.add('hidden');
+        }, 2500);
+      } catch (err) {
+        // Fallback para navegadores antiguos
+        const textarea = document.createElement('textarea');
+        textarea.value = promptText;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          const span = btn.querySelector('span');
+          if (span) span.textContent = '¡Copiado!';
+          setTimeout(() => { if (span) span.textContent = originalText; }, 2500);
+        } catch (e) {
+          alert('No se pudo copiar automáticamente. Selecciona el texto manualmente.');
+        }
+        document.body.removeChild(textarea);
+      }
+    };
+
+    document.getElementById('copy-btn')?.addEventListener('click', () => copyToClipboard('copy-btn'));
+    document.getElementById('copy-btn-bottom')?.addEventListener('click', () => copyToClipboard('copy-btn-bottom'));
+  </script>
+</Layout>

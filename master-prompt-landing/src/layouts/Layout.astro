@@ -1,0 +1,84 @@
+---
+const GITHUB_REPO = 'https://github.com/bboymak3/globalpro-automotriz';
+const LIVE_SITE = 'https://globalproautomotriz.pages.dev';
+---
+
+<!doctype html>
+<html lang="es-CL" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Master Prompt · Landing SEO Local de Servicios a Domicilio | GlobalPro Automotriz</title>
+    <meta name="description" content="Master prompt reproducible para construir landings SEO Local de servicios automotrices a domicilio con Astro, Tailwind CSS, Leaflet y Cloudflare Pages. Con botón de copiar y paso a paso." />
+    <meta name="theme-color" content="#0b1020" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Master Prompt · Landing SEO Local de Servicios a Domicilio" />
+    <meta property="og:description" content="Playbook reproducible para construir landings SEO Local con Astro + Tailwind + Leaflet. Botón copiar + paso a paso." />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:url" content="https://master-prompt-globalpro.pages.dev" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <style is:global>
+      html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+      body {
+        font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+        background-color: #0b1020;
+        color: #1a1a1a;
+        -webkit-font-smoothing: antialiased;
+      }
+      .font-mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+      ::-webkit-scrollbar { width: 10px; height: 10px; }
+      ::-webkit-scrollbar-track { background: #0b1020; }
+      ::-webkit-scrollbar-thumb { background: #00838f; border-radius: 5px; }
+      ::-webkit-scrollbar-thumb:hover { background: #00bcd4; }
+      :focus-visible { outline: 2px solid #00bcd4; outline-offset: 2px; border-radius: 4px; }
+      [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+      [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+      @media (prefers-reduced-motion: reduce) {
+        [data-reveal] { opacity: 1; transform: none; transition: none; }
+        .animate-pulse-slow, .animate-glow-pulse { animation: none !important; }
+      }
+      /* Syntax highlighting simple para el bloque de prompt */
+      .prompt-block h1, .prompt-block h2, .prompt-block h3 { color: #00BCD4; font-weight: 700; margin-top: 1.2em; margin-bottom: 0.4em; }
+      .prompt-block h1 { font-size: 1.5rem; }
+      .prompt-block h2 { font-size: 1.15rem; }
+      .prompt-block h3 { font-size: 1rem; }
+      .prompt-block code { background: rgba(0, 188, 212, 0.15); color: #00BCD4; padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.85em; }
+      .prompt-block pre { background: rgba(0, 0, 0, 0.4); padding: 1em; border-radius: 8px; overflow-x: auto; margin: 0.8em 0; border: 1px solid rgba(0, 188, 212, 0.2); }
+      .prompt-block pre code { background: transparent; color: #ff8c33; padding: 0; }
+      .prompt-block strong { color: #ff8c33; font-weight: 700; }
+      .prompt-block em { color: #ffffff; font-style: italic; }
+      .prompt-block ul, .prompt-block ol { padding-left: 1.4em; margin: 0.6em 0; }
+      .prompt-block li { margin: 0.3em 0; }
+      .prompt-block p { margin: 0.6em 0; }
+      .prompt-block a { color: #00BCD4; text-decoration: underline; }
+      .prompt-block hr { border: none; border-top: 1px solid rgba(0, 188, 212, 0.2); margin: 1.5em 0; }
+      .prompt-block blockquote { border-left: 3px solid #ff6b00; padding-left: 1em; color: rgba(255,255,255,0.7); margin: 1em 0; }
+      .prompt-block table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+      .prompt-block th, .prompt-block td { border: 1px solid rgba(0, 188, 212, 0.2); padding: 0.5em 0.8em; text-align: left; }
+      .prompt-block th { background: rgba(0, 188, 212, 0.1); color: #00BCD4; }
+      .prompt-block input[type="checkbox"] { margin-right: 0.4em; }
+    </style>
+  </head>
+  <body>
+    <slot />
+    <script>
+      const reveals = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+          });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+        reveals.forEach(el => io.observe(el));
+      } else {
+        reveals.forEach(el => el.classList.add('is-visible'));
+      }
+    </script>
+  </body>
+</html>
