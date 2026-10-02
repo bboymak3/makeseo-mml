@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="es-VE" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1020" />
+
+  <!-- SEO Primary -->
+  <title>Edward Valencia | Método Malla Local (MML) · SEO Local + $0 Hosting</title>
+  <meta name="description" content="Aprende el Método Malla Local (MML) de Edward Valencia (@makeseo): el sistema paso a paso para posicionar negocios en Google Maps, construir webs ultrarrápidas con IA y $0 hosting, y recibir llamadas reales sin publicidad costosa." />
+  <meta name="author" content="Edward Valencia" />
+  <meta name="keywords" content="Método Malla Local, MML, SEO Local, Google Maps, Google Business Profile, Cloudflare Pages, Astro, $0 hosting, makeseo, Edward Valencia, 360 Soluciones, malla territorial, serverless, SAB, NAP" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  <!-- Geo Tags (Venezuela / Latam) -->
+  <meta name="geo.region" content="VE" />
+  <meta name="geo.placename" content="Venezuela" />
+  <meta name="geo.position" content="10.4806;-66.9036" />
+  <meta name="ICBM" content="10.4806, -66.9036" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Edward Valencia | Método Malla Local (MML) · SEO Local + $0 Hosting" />
+  <meta property="og:description" content="Aprende el Método Malla Local (MML): posicionar negocios en Google Maps, webs ultrarrápidas con IA y $0 hosting, llamadas reales sin publicidad. Canal @makeseo en YouTube." />
+  <meta property="og:locale" content="es_VE" />
+  <meta property="og:site_name" content="Edward Valencia | MML" />
+  <meta property="og:url" content="https://makeseo-mml.pages.dev" />
+  <meta property="og:image" content="https://i.ytimg.com/vi/MGcITnwpgCo/maxresdefault.jpg" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
+  <meta property="og:image:alt" content="Edward Valencia - Método Malla Local MML - SEO Local + 0 Hosting" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Edward Valencia | Método Malla Local (MML) · SEO Local + $0 Hosting" />
+  <meta name="twitter:description" content="Sistema paso a paso para posicionar negocios en Google Maps, construir webs ultrarrápidas con IA y $0 hosting." />
+  <meta name="twitter:image" content="https://i.ytimg.com/vi/MGcITnwpgCo/maxresdefault.jpg" />
+
+  <link rel="canonical" href="https://makeseo-mml.pages.dev" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-navy': '#0b1020',
+            'dark-navy-alt': '#121a33',
+            'primary-cyan': '#00BCD4',
+            'primary-teal': '#00838F',
+            'accent-orange': '#ff6b00',
+            'accent-orange-light': '#ff8c33',
+            'whatsapp-green': '#25D366',
+            'youtube-red': '#FF0000',
+            'ink-dark': '#1a1a1a',
+            'text-muted': '#5b6475',
+          },
+          fontFamily: {
+            sans: ['Inter', 'Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulseSlow 2.5s ease-in-out infinite',
+            'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate',
+            'float': 'float 4s ease-in-out infinite',
+          },
+          keyframes: {
+            pulseSlow: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.85' } },
+            glowPulse: { '0%': { boxShadow: '0 0 20px rgba(0, 188, 212, 0.45)' }, '100%': { boxShadow: '0 0 38px rgba(0, 188, 212, 0.75)' } },
+            float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Fonts: Inter + Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD Schema.org: Person + EducationalOrganization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Person", "EducationalOrganization"],
+    "@id": "https://makeseo-mml.pages.dev/#person",
+    "name": "Edward Valencia",
+    "alternateName": "@makeseo",
+    "url": "https://makeseo-mml.pages.dev",
+    "image": "https://i.ytimg.com/vi/MGcITnwpgCo/maxresdefault.jpg",
+    "jobTitle": "Especialista en SEO Local y Arquitectura Serverless",
+    "description": "Creador del Método Malla Local (MML). Educar a emprendedores y PYMES de Latam a posicionar negocios en Google Maps y construir webs ultrarrápidas con $0 hosting.",
+    "knowsAbout": ["SEO Local", "Google Business Profile", "Google Maps", "Cloudflare Pages", "Astro", "Arquitectura Serverless", "Malla Territorial", "Citaciones Locales"],
+    "nationality": "Venezuelan",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "360 Soluciones",
+      "url": "https://makeseo-mml.pages.dev"
+    },
+    "sameAs": [
+      "https://youtube.com/@makeseo",
+      "https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w"
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+58 416-777-5771",
+      "contactType": "customer support",
+      "areaServed": "Latam",
+      "availableLanguage": ["Spanish"]
+    }],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Método Malla Local (MML)",
+      "description": "Sistema educativo para SEO Local con arquitectura serverless y $0 hosting."
+    },
+    "hasCourse": [{
+      "@type": "Course",
+      "name": "Método Malla Local (MML) - Serie Completa",
+      "description": "Curso gratuito en YouTube sobre SEO Local, Google Business Profile, web serverless y malla territorial.",
+      "provider": { "@type": "Organization", "name": "Edward Valencia", "sameAs": "https://youtube.com/@makeseo" }
+    }]
+  }
+  </script>
+
+  <!-- Global CSS tweaks -->
+  <style>
+    html { scroll-padding-top: 90px; }
+    body { background-color: #0b1020; }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: #0b1020; }
+    ::-webkit-scrollbar-thumb { background: #00838f; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #00bcd4; }
+    :focus-visible { outline: 2px solid #00BCD4; outline-offset: 2px; border-radius: 4px; }
+    [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; transition: none; }
+      .animate-pulse-slow, .animate-glow-pulse, .animate-float { animation: none !important; }
+      html { scroll-behavior: auto; }
+    }
+    /* Gradient text helper */
+    .text-gradient-cyanteal { background: linear-gradient(135deg, #00BCD4, #00838F); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .text-gradient-orange { background: linear-gradient(135deg, #ff6b00, #ff8c33); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    /* Hero radial bg */
+    .hero-radial { background-image: radial-gradient(circle at 30% 20%, rgba(0, 188, 212, 0.22), transparent 45%), radial-gradient(circle at 80% 0%, rgba(255, 107, 0, 0.18), transparent 35%); }
+    /* YT iframe ratio */
+    .yt-frame { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .yt-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  </style>
+</head>
+
+<body class="font-sans text-white antialiased">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-dark-navy/80 border-b border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 lg:h-20 items-center justify-between">
+        <!-- Logo -->
+        <a href="#inicio" class="flex items-center gap-2.5 group" aria-label="Edward Valencia MML - Inicio">
+          <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center shadow-[0_0_30px_rgba(0,188,212,0.45)] group-hover:shadow-[0_0_30px_rgba(255,107,0,0.45)] transition-shadow">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/>
+            </svg>
+          </div>
+          <div class="leading-none">
+            <span class="block text-white font-extrabold text-sm sm:text-base tracking-tight">EDWARD VALENCIA</span>
+            <span class="block text-primary-cyan text-[10px] sm:text-xs font-medium tracking-widest">MÉTODO MALLA LOCAL · MML</span>
+          </div>
+        </a>
+
+        <!-- Links desktop -->
+        <div class="hidden lg:flex items-center gap-1">
+          <a href="#inicio" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Inicio</a>
+          <a href="#metodo" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Método MML</a>
+          <a href="#tutoriales" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Tutoriales YouTube</a>
+          <a href="#comunidad" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Comunidad</a>
+          <a href="#contacto" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Contacto</a>
+        </div>
+
+        <!-- CTA WhatsApp desktop -->
+        <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-whatsapp-green text-white text-sm font-semibold shadow-[0_10px_30px_-6px_rgba(37,211,102,0.5)] hover:scale-105 active:scale-95 transition-transform">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.473-.607z"/>
+          </svg>
+          Comunidad
+        </a>
+
+        <!-- Botón hamburguesa mobile -->
+        <button type="button" id="mobile-menu-button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition-colors" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false">
+          <svg class="w-6 h-6" id="menu-open-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg class="w-6 h-6 hidden" id="menu-close-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú mobile -->
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-white/10 bg-dark-navy-alt/95 backdrop-blur-lg">
+      <div class="px-4 py-4 space-y-1">
+        <a href="#inicio" class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors mobile-link">Inicio</a>
+        <a href="#metodo" class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors mobile-link">Método MML</a>
+        <a href="#tutoriales" class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors mobile-link">Tutoriales YouTube</a>
+        <a href="#comunidad" class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors mobile-link">Comunidad</a>
+        <a href="#contacto" class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors mobile-link">Contacto</a>
+        <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="mt-3 flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-whatsapp-green text-white text-sm font-semibold mobile-link">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/>
+          </svg>
+          Comunidad WhatsApp
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="inicio" class="relative overflow-hidden bg-dark-navy pt-28 pb-20 lg:pt-36 lg:pb-28">
+    <div class="absolute inset-0 hero-radial" aria-hidden="true"></div>
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-cyan/20 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+    <div class="absolute -top-24 right-0 w-80 h-80 bg-accent-orange/15 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Badge neón superior -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-navy-alt/80 border border-primary-cyan/40 backdrop-blur-sm mb-8" data-reveal>
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-cyan opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary-cyan"></span>
+        </span>
+        <span class="text-xs sm:text-sm font-semibold tracking-wider text-primary-cyan">• ARQUITECTURA SERVERLESS • SEO LOCAL • $0 HOSTING</span>
+      </div>
+
+      <!-- H1 -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] max-w-5xl mx-auto" data-reveal>
+        Domina el Mapa Local y Atrae<br class="hidden sm:inline" />
+        Clientes Diarios con <span class="text-gradient-cyanteal">IA</span> y <span class="text-gradient-orange">$0 Hosting</span>
+      </h1>
+
+      <!-- Subtítulo -->
+      <p class="mt-6 text-lg lg:text-xl text-white/75 max-w-3xl mx-auto leading-relaxed" data-reveal>
+        Aprende el <strong class="text-white font-semibold">Método Malla Local (MML)</strong>: el sistema paso a paso para posicionar negocios en Google Maps, construir webs ultrarrápidas y recibir llamadas reales sin depender de publicidad costosa.
+      </p>
+
+      <!-- Stats cards -->
+      <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto" data-reveal>
+        <div class="p-5 lg:p-6 rounded-2xl bg-dark-navy-alt/60 backdrop-blur-md border border-white/10 hover:border-primary-cyan/60 transition-colors">
+          <div class="text-3xl lg:text-4xl font-extrabold text-gradient-orange">+500</div>
+          <div class="mt-2 text-sm text-white/70">Reseñas Reales Gestionadas</div>
+        </div>
+        <div class="p-5 lg:p-6 rounded-2xl bg-dark-navy-alt/60 backdrop-blur-md border border-white/10 hover:border-primary-cyan/60 transition-colors">
+          <div class="text-3xl lg:text-4xl font-extrabold text-gradient-cyanteal">$0</div>
+          <div class="mt-2 text-sm text-white/70">Costo de Servidores / Hosting</div>
+        </div>
+        <div class="p-5 lg:p-6 rounded-2xl bg-dark-navy-alt/60 backdrop-blur-md border border-white/10 hover:border-primary-cyan/60 transition-colors">
+          <div class="text-3xl lg:text-4xl font-extrabold text-gradient-cyanteal">100%</div>
+          <div class="mt-2 text-sm text-white/70">Construible desde el Teléfono Móvil</div>
+        </div>
+      </div>
+
+      <!-- Botones principales -->
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center" data-reveal>
+        <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-youtube-red text-white font-bold text-base shadow-[0_10px_30px_-6px_rgba(255,0,0,0.5)] hover:scale-105 active:scale-95 transition-transform">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          Ver Canal @makeseo
+        </a>
+        <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-whatsapp-green text-white font-bold text-base shadow-[0_10px_30px_-6px_rgba(37,211,102,0.55)] hover:scale-105 active:scale-95 transition-transform animate-pulse-slow">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/>
+          </svg>
+          Unirme al Canal de WhatsApp
+        </a>
+      </div>
+
+      <!-- Microcopy -->
+      <p class="mt-8 text-sm text-white/50" data-reveal>
+        Canal oficial · Actualizaciones semanales · Soporte para tus proyectos locales
+      </p>
+    </div>
+
+    <!-- Wave divider -->
+    <div class="relative -mb-1" aria-hidden="true">
+      <svg class="w-full h-12 lg:h-20 text-dark-navy-alt" fill="currentColor" viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0 80h1440V40c-240 26-480 26-720 13S240 14 0 40v40z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ==================== MÉTODO MML ==================== -->
+  <section id="metodo" class="bg-dark-navy-alt py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-72 h-72 bg-primary-cyan/10 rounded-full blur-3xl" aria-hidden="true"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent-orange/10 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 lg:mb-16" data-reveal>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-cyan text-sm font-semibold mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan"></span>
+          Trinomio de Autoridad
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+          El Método <span class="text-gradient-cyanteal">Malla Local</span> (MML)
+        </h2>
+        <p class="mt-5 text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+          Tres pilares coordinados que convierten cualquier negocio local en la opción #1 de su zona en Google Maps, sin pagar publicidad y con infraestructura de costo cero.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8" data-reveal>
+        <!-- Pilar 1 -->
+        <article class="group relative bg-dark-navy/60 backdrop-blur-sm border border-white/10 rounded-3xl p-7 lg:p-8 hover:border-primary-cyan/50 hover:-translate-y-1 transition-all">
+          <div class="absolute top-0 left-0 right-0 h-1.5 rounded-t-3xl bg-gradient-to-r from-primary-cyan via-primary-teal to-accent-orange scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+          <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-primary-cyan/20 to-primary-teal/20 border border-primary-cyan/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-primary-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-wider text-primary-cyan mb-2">Pilar 1</div>
+          <h3 class="text-xl lg:text-2xl font-bold text-white mb-3">Perfil de Google Business Semántico</h3>
+          <p class="text-sm text-white/70 leading-relaxed mb-5">
+            La base del mapa. Se construye un perfil Google Business Profile optimizado al máximo: NAP consistente en todos los directorios, configuración SAB (Service Area Business) para operar sin local físico, selección estratégica de categorías y servicios clave que disparan las impresiones en el mapa.
+          </p>
+          <ul class="space-y-2 text-sm text-white/85">
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span><span>NAP consistente en toda la web</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span><span>SAB sin local físico</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span><span>Categorías y servicios clave</span></li>
+          </ul>
+        </article>
+
+        <!-- Pilar 2 -->
+        <article class="group relative bg-dark-navy/60 backdrop-blur-sm border border-white/10 rounded-3xl p-7 lg:p-8 hover:border-primary-cyan/50 hover:-translate-y-1 transition-all">
+          <div class="absolute top-0 left-0 right-0 h-1.5 rounded-t-3xl bg-gradient-to-r from-primary-cyan via-primary-teal to-accent-orange scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+          <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-orange/20 to-accent-orange-light/20 border border-accent-orange/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-wider text-accent-orange-light mb-2">Pilar 2</div>
+          <h3 class="text-xl lg:text-2xl font-bold text-white mb-3">Web Serverless Ultrarrápida</h3>
+          <p class="text-sm text-white/70 leading-relaxed mb-5">
+            Se construye la web del negocio con Astro o HTML plano servido desde Cloudflare Pages vía GitHub. Cero dependencias de WordPress, cero servidores que mantener, cero costos mensuales. Carga en menos de 1 segundo, 100/100 en PageSpeed.
+          </p>
+          <ul class="space-y-2 text-sm text-white/85">
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary-cyan flex-shrink-0"></span><span>Astro / HTML plano</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary-cyan flex-shrink-0"></span><span>GitHub + Cloudflare Pages</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary-cyan flex-shrink-0"></span><span>Costo cero mensual</span></li>
+          </ul>
+        </article>
+
+        <!-- Pilar 3 -->
+        <article class="group relative bg-dark-navy/60 backdrop-blur-sm border border-white/10 rounded-3xl p-7 lg:p-8 hover:border-primary-cyan/50 hover:-translate-y-1 transition-all">
+          <div class="absolute top-0 left-0 right-0 h-1.5 rounded-t-3xl bg-gradient-to-r from-primary-cyan via-primary-teal to-accent-orange scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+          <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-whatsapp-green/20 to-primary-teal/20 border border-whatsapp-green/30 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-whatsapp-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 9h6v6H9z"/>
+            </svg>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-wider text-whatsapp-green mb-2">Pilar 3</div>
+          <h3 class="text-xl lg:text-2xl font-bold text-white mb-3">Malla Territorial y Directorio Propio</h3>
+          <p class="text-sm text-white/70 leading-relaxed mb-5">
+            Se despliegen landings SEO por cada comuna/municipio que el negocio cubre, todas interconectadas. Se complementan con citaciones locales coordinadas en directorios de alta autoridad para multiplicar la presencia territorial sin canibalizar el dominio principal.
+          </p>
+          <ul class="space-y-2 text-sm text-white/85">
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span><span>Landings por comuna/municipio</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span><span>Directorio propio interconectado</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span><span>Citaciones locales coordinadas</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- CTA inferior método -->
+      <div class="mt-12 text-center" data-reveal>
+        <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-sm hover:bg-white/15 transition-colors">
+          Ver la serie completa en YouTube
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TUTORIALES YOUTUBE ==================== -->
+  <section id="tutoriales" class="bg-dark-navy py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute -top-32 -right-32 w-96 h-96 bg-youtube-red/10 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-reveal>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-youtube-red/10 text-red-400 text-sm font-semibold mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-youtube-red"></span>
+          Serie Tutorial Completa
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+          Tutoriales en <span class="text-red-500">YouTube</span>
+        </h2>
+        <p class="mt-5 text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+          Serie gratuita que documenta todo el Método MML: desde la teoría y la ficha maestra en Google Business, hasta el despliegue serverless y la malla territorial completa.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-reveal>
+        <!-- Video 1: Embed real -->
+        <article class="group bg-dark-navy-alt/60 border border-white/10 rounded-2xl overflow-hidden hover:border-youtube-red/50 hover:-translate-y-1 transition-all">
+          <div class="yt-frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/MGcITnwpgCo"
+              title="De 0 a Clientes Diarios con SEO Local y Google Business - Edward Valencia @makeseo"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-xs font-semibold text-red-400 mb-2">
+              <span class="px-2 py-0.5 rounded-full bg-youtube-red/15 border border-youtube-red/30">EP 01</span>
+              <span>Prueba y Concepto</span>
+            </div>
+            <h3 class="text-base font-bold text-white leading-tight mb-2">De 0 a Clientes Diarios con SEO Local y Google Business</h3>
+            <p class="text-xs text-white/60 leading-relaxed">El video inicial donde se prueba el concepto del MML y se muestra en vivo cómo recibir llamadas reales solo con Google Maps optimizado.</p>
+            <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-red-400 hover:text-red-300">
+              Ver en YouTube
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Video 2 -->
+        <article class="group bg-dark-navy-alt/60 border border-white/10 rounded-2xl overflow-hidden hover:border-primary-cyan/50 hover:-translate-y-1 transition-all">
+          <div class="aspect-video bg-gradient-to-br from-dark-navy to-dark-navy-alt flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-hero-radial opacity-50"></div>
+            <div class="relative text-center px-4">
+              <div class="h-16 w-16 rounded-2xl bg-youtube-red/20 border border-youtube-red/40 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                <svg class="w-7 h-7 text-red-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <span class="text-xs font-semibold text-red-400">EP 02 · Próximamente</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-xs font-semibold text-primary-cyan mb-2">
+              <span class="px-2 py-0.5 rounded-full bg-primary-cyan/15 border border-primary-cyan/30">EP 02</span>
+              <span>Configuración Avanzada</span>
+            </div>
+            <h3 class="text-base font-bold text-white leading-tight mb-2">Ficha Maestra NAP y Configuración SAB en Google Business Profile</h3>
+            <p class="text-xs text-white/60 leading-relaxed">Cómo construir el NAP definitivo, configurar Service Area Business sin local físico y seleccionar categorías que disparen impresiones.</p>
+            <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary-cyan hover:text-primary-cyan/80">
+              Ver canal @makeseo
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Video 3 -->
+        <article class="group bg-dark-navy-alt/60 border border-white/10 rounded-2xl overflow-hidden hover:border-accent-orange/50 hover:-translate-y-1 transition-all">
+          <div class="aspect-video bg-gradient-to-br from-dark-navy to-dark-navy-alt flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-hero-radial opacity-50"></div>
+            <div class="relative text-center px-4">
+              <div class="h-16 w-16 rounded-2xl bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                <svg class="w-7 h-7 text-accent-orange-light" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <span class="text-xs font-semibold text-accent-orange-light">EP 03 · Próximamente</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-xs font-semibold text-accent-orange-light mb-2">
+              <span class="px-2 py-0.5 rounded-full bg-accent-orange/15 border border-accent-orange/30">EP 03</span>
+              <span>Web Serverless</span>
+            </div>
+            <h3 class="text-base font-bold text-white leading-tight mb-2">Adiós WordPress - Webs con IA, GitHub y Cloudflare Pages desde el Móvil</h3>
+            <p class="text-xs text-white/60 leading-relaxed">Construir y deployear una web ultrarrápida 100% desde el teléfono, con IA, GitHub y Cloudflare Pages a costo cero.</p>
+            <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-accent-orange-light hover:text-accent-orange">
+              Ver canal @makeseo
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Video 4 -->
+        <article class="group bg-dark-navy-alt/40 border border-white/10 rounded-2xl overflow-hidden hover:border-primary-cyan/40 hover:-translate-y-1 transition-all">
+          <div class="aspect-video bg-gradient-to-br from-dark-navy to-dark-navy-alt flex items-center justify-center relative">
+            <div class="text-center px-4">
+              <div class="h-14 w-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-2">
+                <span class="text-lg font-bold text-white/70">04</span>
+              </div>
+              <span class="text-[10px] font-semibold text-white/50 uppercase tracking-wider">Próximo paso</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-xs font-semibold text-white/60 mb-2">
+              <span class="px-2 py-0.5 rounded-full bg-white/5 border border-white/10">EP 04</span>
+            </div>
+            <h3 class="text-base font-bold text-white leading-tight mb-2">Malla de Comunas</h3>
+            <p class="text-xs text-white/50 leading-relaxed">Despliegue de landings SEO por comuna/municipio interconectadas con directorio propio.</p>
+          </div>
+        </article>
+
+        <!-- Video 5 -->
+        <article class="group bg-dark-navy-alt/40 border border-white/10 rounded-2xl overflow-hidden hover:border-primary-cyan/40 hover:-translate-y-1 transition-all">
+          <div class="aspect-video bg-gradient-to-br from-dark-navy to-dark-navy-alt flex items-center justify-center relative">
+            <div class="text-center px-4">
+              <div class="h-14 w-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-2">
+                <span class="text-lg font-bold text-white/70">05</span>
+              </div>
+              <span class="text-[10px] font-semibold text-white/50 uppercase tracking-wider">Próximo paso</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-xs font-semibold text-white/60 mb-2">
+              <span class="px-2 py-0.5 rounded-full bg-white/5 border border-white/10">EP 05</span>
+            </div>
+            <h3 class="text-base font-bold text-white leading-tight mb-2">Optimización WebP / GTM</h3>
+            <p class="text-xs text-white/50 leading-relaxed">Compresión de imágenes, lazy loading, Google Tag Manager y medición de conversiones.</p>
+          </div>
+        </article>
+
+        <!-- Video 6 -->
+        <article class="group bg-dark-navy-alt/40 border border-white/10 rounded-2xl overflow-hidden hover:border-primary-cyan/40 hover:-translate-y-1 transition-all">
+          <div class="aspect-video bg-gradient-to-br from-dark-navy to-dark-navy-alt flex items-center justify-center relative">
+            <div class="text-center px-4">
+              <div class="h-14 w-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-2">
+                <span class="text-lg font-bold text-white/70">06</span>
+              </div>
+              <span class="text-[10px] font-semibold text-white/50 uppercase tracking-wider">Próximo paso</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-xs font-semibold text-white/60 mb-2">
+              <span class="px-2 py-0.5 rounded-full bg-white/5 border border-white/10">EP 06</span>
+            </div>
+            <h3 class="text-base font-bold text-white leading-tight mb-2">Circuito de Reseñas</h3>
+            <p class="text-xs text-white/50 leading-relaxed">Sistema ético y automatizado para conseguir reseñas 5 estrellas que disparen el ranking local.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Botón suscripción -->
+      <div class="mt-12 text-center" data-reveal>
+        <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-youtube-red text-white font-bold text-base shadow-[0_10px_30px_-6px_rgba(255,0,0,0.5)] hover:scale-105 active:scale-95 transition-transform w-full sm:w-auto">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          Suscribirse al Canal @makeseo en YouTube
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COMUNIDAD WHATSAPP ==================== -->
+  <section id="comunidad" class="bg-dark-navy-alt py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-whatsapp-green/15 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="relative" data-reveal>
+        <!-- Borde gradiente -->
+        <div class="absolute -inset-1 bg-gradient-to-r from-whatsapp-green via-primary-cyan to-accent-orange rounded-3xl blur-md opacity-60"></div>
+
+        <div class="relative bg-dark-navy rounded-3xl border border-white/10 overflow-hidden">
+          <div class="absolute inset-0 hero-radial opacity-30"></div>
+
+          <div class="relative p-7 sm:p-10 lg:p-14 text-center">
+            <!-- Icono grande -->
+            <div class="inline-flex items-center justify-center h-20 w-20 rounded-3xl bg-gradient-to-br from-whatsapp-green to-primary-teal mb-6 shadow-[0_0_50px_rgba(37,211,102,0.6)] animate-glow-pulse">
+              <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.473-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/>
+              </svg>
+            </div>
+
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-whatsapp-green/15 border border-whatsapp-green/30 text-whatsapp-green text-sm font-semibold mb-5">
+              <span class="h-1.5 w-1.5 rounded-full bg-whatsapp-green animate-ping"></span>
+              Comunidad Oficial · Gratis
+            </span>
+
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-5">
+              Accede a los <span class="text-gradient-orange">Prompts, Plantillas</span><br />
+              y <span class="text-gradient-cyanteal">Código</span> de los Repositorios
+            </h2>
+
+            <p class="text-base lg:text-lg text-white/75 max-w-2xl mx-auto leading-relaxed mb-8">
+              Únete gratis a nuestro canal oficial de WhatsApp para recibir las actualizaciones de los scripts, directos y soporte para tus proyectos locales.
+            </p>
+
+            <!-- Lista de beneficios -->
+            <ul class="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto mb-10 text-left">
+              <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-whatsapp-green/20 border border-whatsapp-green/50 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5 text-whatsapp-green" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </span>
+                <span class="text-sm text-white/85 font-medium">Prompts de IA probados en producción</span>
+              </li>
+              <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-whatsapp-green/20 border border-whatsapp-green/50 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5 text-whatsapp-green" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </span>
+                <span class="text-sm text-white/85 font-medium">Plantillas de Google Business Profile</span>
+              </li>
+              <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-whatsapp-green/20 border border-whatsapp-green/50 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5 text-whatsapp-green" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </span>
+                <span class="text-sm text-white/85 font-medium">Código de repositorios públicos</span>
+              </li>
+              <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-whatsapp-green/20 border border-whatsapp-green/50 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5 text-whatsapp-green" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </span>
+                <span class="text-sm text-white/85 font-medium">Directos y soporte entre miembros</span>
+              </li>
+            </ul>
+
+            <!-- Botón gigante -->
+            <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-3 px-8 py-5 lg:px-12 lg:py-6 rounded-full bg-whatsapp-green text-white font-extrabold text-base lg:text-lg shadow-[0_15px_40px_-8px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-transform animate-pulse-slow w-full sm:w-auto">
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/>
+              </svg>
+              ENTRAR AL CANAL DE WHATSAPP AHORA
+              <svg class="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+
+            <p class="mt-5 text-xs text-white/50">
+              Sin spam · Notificaciones de nuevos videos, scripts y directos · Salir cuando quieras
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICIOS 360 SOLUCIONES ==================== -->
+  <section id="contacto" class="bg-dark-navy py-20 lg:py-28">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div data-reveal>
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-orange/10 text-accent-orange-light text-sm font-semibold mb-4">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent-orange"></span>
+            Servicios Empresariales
+          </span>
+          <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight mb-5">
+            ¿Quieres que <span class="text-gradient-orange">Edward y su equipo</span> implementen la Malla Local en tu negocio?
+          </h2>
+          <p class="text-base lg:text-lg text-white/70 leading-relaxed mb-6">
+            360 Soluciones se encarga del despliegue completo: auditoría inicial, optimización de Google Business Profile, construcción de web serverless, malla territorial de landings por comuna y circuito de reseñas. Todo el sistema MML aplicado a tu negocio por el equipo que lo creó.
+          </p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex-shrink-0 h-5 w-5 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+                <svg class="w-3 h-3 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <span class="text-sm text-white/85">Auditoría SEO Local completa y plan de acción</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex-shrink-0 h-5 w-5 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+                <svg class="w-3 h-3 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <span class="text-sm text-white/85">Implementación del Método MML de la A a la Z</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex-shrink-0 h-5 w-5 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+                <svg class="w-3 h-3 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <span class="text-sm text-white/85">Web ultrarrápida + malla territorial incluida</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 flex-shrink-0 h-5 w-5 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+                <svg class="w-3 h-3 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <span class="text-sm text-white/85">Sistema de reseñas y reporting mensual</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card de contacto -->
+        <div data-reveal>
+          <div class="relative">
+            <div class="absolute -inset-1 bg-gradient-to-br from-accent-orange/30 to-primary-cyan/30 rounded-3xl blur-2xl" aria-hidden="true"></div>
+            <div class="relative bg-dark-navy-alt border border-white/10 rounded-3xl p-7 lg:p-8 shadow-2xl">
+              <div class="flex items-center gap-3 mb-5">
+                <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-accent-orange to-accent-orange-light flex items-center justify-center shadow-[0_0_30px_rgba(255,107,0,0.5)]">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21 16.42v3.536a1 1 0 01-1.093.998c-.493-.057-1.06-.083-1.692-.083-5.523 0-10.586-2.24-14.18-5.836C.526 11.443-1.714 6.38 1.18 1.093A1 1 0 012.176.5H5.71a1 1 0 01.97.757l1.31 4.367a1 1 0 01-.495 1.158L5.43 7.93a13.34 13.34 0 006.64 6.64l1.149-2.065a1 1 0 011.158-.495l4.367 1.31a1 1 0 01.757.97V16.42z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-white font-bold text-lg leading-tight">Consultoría directa</h3>
+                  <p class="text-white/60 text-sm">Respuesta en menos de 24h</p>
+                </div>
+              </div>
+
+              <p class="text-sm text-white/75 mb-5">Agenda una consulta con el equipo de <strong class="text-white">360 Soluciones</strong> para evaluar tu negocio y aplicar el Método MML.</p>
+
+              <!-- Datos de contacto -->
+              <div class="space-y-3 mb-6">
+                <a href="https://wa.me/584167775771?text=Hola%20Edward%20,%20vi%20el%20M%C3%A9todo%20Malla%20Local%20en%20YouTube%20y%20quiero%20que%20me%20implementen%20la%20MML%20en%20mi%20negocio%20con%20360%20Soluciones." target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-whatsapp-green/10 hover:border-whatsapp-green/40 transition-colors group">
+                  <span class="h-9 w-9 rounded-lg bg-whatsapp-green/20 border border-whatsapp-green/40 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-whatsapp-green" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[10px] text-white/50 uppercase tracking-wide">WhatsApp directo</p>
+                    <p class="text-sm font-bold text-white">+58 416-777-5771</p>
+                  </div>
+                  <svg class="w-4 h-4 text-white/40 group-hover:text-whatsapp-green transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+
+                <a href="tel:+584167775771" class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-primary-cyan/10 hover:border-primary-cyan/40 transition-colors group">
+                  <span class="h-9 w-9 rounded-lg bg-primary-cyan/20 border border-primary-cyan/40 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-primary-cyan" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.46 15.46 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/></svg>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[10px] text-white/50 uppercase tracking-wide">Llamadas</p>
+                    <p class="text-sm font-bold text-white">+58 416-777-5771</p>
+                  </div>
+                  <svg class="w-4 h-4 text-white/40 group-hover:text-primary-cyan transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+              </div>
+
+              <!-- CTA principal -->
+              <a href="https://wa.me/584167775771?text=Hola%20Edward%20,%20vi%20el%20M%C3%A9todo%20Malla%20Local%20en%20YouTube%20y%20quiero%20que%20me%20implementen%20la%20MML%20en%20mi%20negocio%20con%20360%20Soluciones." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white text-sm font-bold shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] hover:scale-[1.02] active:scale-95 transition-transform">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+                Solicitar consulta gratis
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-dark-navy-alt border-t border-white/10 py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8 mb-10">
+        <!-- Marca -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/>
+              </svg>
+            </div>
+            <div>
+              <span class="block text-white font-extrabold text-sm tracking-tight">EDWARD VALENCIA</span>
+              <span class="block text-primary-cyan text-[10px] font-medium tracking-widest">MML · @makeseo</span>
+            </div>
+          </div>
+          <p class="text-sm text-white/60 leading-relaxed mb-4">
+            Creador del Método Malla Local (MML). Especialista en SEO Local y arquitectura serverless. Educar y construir sistemas de captación de clientes a costo cero para PYMES de Latam.
+          </p>
+          <p class="text-xs text-white/40">
+            Agencia: <span class="text-white/70 font-semibold">360 Soluciones</span>
+          </p>
+        </div>
+
+        <!-- Enlaces -->
+        <div>
+          <h3 class="text-white font-bold text-sm uppercase tracking-wide mb-4">Navegación</h3>
+          <ul class="space-y-2.5">
+            <li><a href="#inicio" class="text-sm text-white/60 hover:text-primary-cyan transition-colors">Inicio</a></li>
+            <li><a href="#metodo" class="text-sm text-white/60 hover:text-primary-cyan transition-colors">Método MML</a></li>
+            <li><a href="#tutoriales" class="text-sm text-white/60 hover:text-primary-cyan transition-colors">Tutoriales YouTube</a></li>
+            <li><a href="#comunidad" class="text-sm text-white/60 hover:text-primary-cyan transition-colors">Comunidad WhatsApp</a></li>
+            <li><a href="#contacto" class="text-sm text-white/60 hover:text-primary-cyan transition-colors">Servicios 360 Soluciones</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div>
+          <h3 class="text-white font-bold text-sm uppercase tracking-wide mb-4">Conecta</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-white/70 hover:text-red-400 transition-colors">
+                <span class="h-8 w-8 rounded-lg bg-youtube-red/15 border border-youtube-red/30 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </span>
+                <div>
+                  <span class="block">YouTube</span>
+                  <span class="block text-[10px] text-white/40">@makeseo</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-white/70 hover:text-whatsapp-green transition-colors">
+                <span class="h-8 w-8 rounded-lg bg-whatsapp-green/15 border border-whatsapp-green/30 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-whatsapp-green" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+                </span>
+                <div>
+                  <span class="block">Canal de WhatsApp</span>
+                  <span class="block text-[10px] text-white/40">Comunidad oficial MML</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/584167775771" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-white/70 hover:text-primary-cyan transition-colors">
+                <span class="h-8 w-8 rounded-lg bg-primary-cyan/15 border border-primary-cyan/30 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-primary-cyan" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.46 15.46 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/></svg>
+                </span>
+                <div>
+                  <span class="block">+58 416-777-5771</span>
+                  <span class="block text-[10px] text-white/40">WhatsApp / Llamadas</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-xs text-white/40 text-center sm:text-left">
+          © <span id="current-year">2026</span> Edward Valencia · 360 Soluciones · Método Malla Local (MML). Todos los derechos reservados.
+        </p>
+        <p class="text-xs text-white/40">
+          Hecho con Astro + Tailwind + Cloudflare Pages · $0 hosting
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== BOTONES FLOTANTES ==================== -->
+  <!-- WhatsApp flotante (derecha) -->
+  <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" aria-label="Unirse al canal de WhatsApp" class="fixed bottom-6 right-4 md:right-6 z-40 inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-whatsapp-green text-white shadow-[0_10px_30px_-6px_rgba(37,211,102,0.6)] hover:scale-110 active:scale-95 transition-transform">
+    <span class="absolute inset-0 rounded-full bg-whatsapp-green animate-ping opacity-20" aria-hidden="true"></span>
+    <svg class="relative w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.473-.607z"/>
+    </svg>
+  </a>
+
+  <!-- YouTube flotante (izquierda) -->
+  <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" aria-label="Ver canal en YouTube" class="fixed bottom-6 left-4 md:left-6 z-40 inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-youtube-red text-white shadow-[0_10px_30px_-6px_rgba(255,0,0,0.5)] hover:scale-110 active:scale-95 transition-transform">
+    <span class="absolute inset-0 rounded-full bg-youtube-red animate-ping opacity-20" aria-hidden="true"></span>
+    <svg class="relative w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </svg>
+  </a>
+
+  <!-- ==================== JS Vanilla ==================== -->
+  <script>
+    // Año dinámico en footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Menú móvil hamburguesa
+    const mobileButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = document.getElementById('menu-open-icon');
+    const closeIcon = document.getElementById('menu-close-icon');
+
+    const toggleMenu = (force) => {
+      const willOpen = force ?? mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden', !willOpen);
+      openIcon.classList.toggle('hidden', willOpen);
+      closeIcon.classList.toggle('hidden', !willOpen);
+      mobileButton.setAttribute('aria-expanded', String(willOpen));
+      document.body.style.overflow = willOpen ? 'hidden' : '';
+    };
+
+    mobileButton.addEventListener('click', () => toggleMenu());
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) toggleMenu(false);
+    });
+
+    // Navbar sombra dinámica al hacer scroll
+    const navbar = document.querySelector('nav');
+    const onScroll = () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('shadow-2xl', 'bg-dark-navy/95');
+        navbar.classList.remove('bg-dark-navy/80');
+      } else {
+        navbar.classList.remove('shadow-2xl', 'bg-dark-navy/95');
+        navbar.classList.add('bg-dark-navy/80');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('is-visible'));
+    }
+  </script>
+</body>
+</html>
