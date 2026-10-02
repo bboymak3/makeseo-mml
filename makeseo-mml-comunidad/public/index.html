@@ -147,6 +147,31 @@
     /* YT iframe ratio */
     .yt-frame { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; }
     .yt-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    /* Markdown render for generated prompt */
+    .prompt-block h1, .prompt-block h2, .prompt-block h3 { color: #00BCD4; font-weight: 700; margin-top: 1.2em; margin-bottom: 0.4em; }
+    .prompt-block h1 { font-size: 1.4rem; }
+    .prompt-block h2 { font-size: 1.1rem; }
+    .prompt-block h3 { font-size: 0.95rem; }
+    .prompt-block code { background: rgba(0, 188, 212, 0.15); color: #00BCD4; padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.85em; }
+    .prompt-block pre { background: rgba(0, 0, 0, 0.4); padding: 1em; border-radius: 8px; overflow-x: auto; margin: 0.8em 0; border: 1px solid rgba(0, 188, 212, 0.2); }
+    .prompt-block pre code { background: transparent; color: #ff8c33; padding: 0; }
+    .prompt-block strong { color: #ff8c33; font-weight: 700; }
+    .prompt-block em { color: #ffffff; font-style: italic; }
+    .prompt-block ul, .prompt-block ol { padding-left: 1.4em; margin: 0.6em 0; }
+    .prompt-block li { margin: 0.3em 0; }
+    .prompt-block p { margin: 0.6em 0; }
+    .prompt-block a { color: #00BCD4; text-decoration: underline; }
+    .prompt-block hr { border: none; border-top: 1px solid rgba(0, 188, 212, 0.2); margin: 1.5em 0; }
+    .prompt-block blockquote { border-left: 3px solid #ff6b00; padding-left: 1em; color: rgba(255,255,255,0.7); margin: 1em 0; }
+    .prompt-block table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+    .prompt-block th, .prompt-block td { border: 1px solid rgba(0, 188, 212, 0.2); padding: 0.5em 0.8em; text-align: left; }
+    .prompt-block th { background: rgba(0, 188, 212, 0.1); color: #00BCD4; }
+
+    /* Niche card selected state */
+    .niche-card { cursor: pointer; transition: all 0.2s; }
+    .niche-card.is-selected { background: linear-gradient(135deg, rgba(255,107,0,0.2), rgba(255,140,51,0.1)) !important; border-color: #ff6b00 !important; transform: scale(1.03); }
+    .niche-card.is-selected .niche-icon { background: linear-gradient(135deg, #ff6b00, #ff8c33) !important; color: #fff !important; }
   </style>
 </head>
 
@@ -425,41 +450,39 @@
           </div>
         </article>
 
-        <!-- Video 2 -->
+        <!-- Video 2: Embed real -->
         <article class="group bg-dark-navy-alt/60 border border-white/10 rounded-2xl overflow-hidden hover:border-primary-cyan/50 hover:-translate-y-1 transition-all">
-          <div class="aspect-video bg-gradient-to-br from-dark-navy to-dark-navy-alt flex items-center justify-center relative overflow-hidden">
-            <div class="absolute inset-0 bg-hero-radial opacity-50"></div>
-            <div class="relative text-center px-4">
-              <div class="h-16 w-16 rounded-2xl bg-youtube-red/20 border border-youtube-red/40 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <svg class="w-7 h-7 text-red-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <span class="text-xs font-semibold text-red-400">EP 02 · Próximamente</span>
-            </div>
+          <div class="yt-frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/0Cf8YR0XjWo"
+              title="Episodio 2 - SEO Local MML Crear Perfil de Google - Edward Valencia @makeseo"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
           </div>
           <div class="p-5">
             <div class="flex items-center gap-2 text-xs font-semibold text-primary-cyan mb-2">
               <span class="px-2 py-0.5 rounded-full bg-primary-cyan/15 border border-primary-cyan/30">EP 02</span>
-              <span>Configuración Avanzada</span>
+              <span>Configuración Google Business</span>
             </div>
             <h3 class="text-base font-bold text-white leading-tight mb-2">Ficha Maestra NAP y Configuración SAB en Google Business Profile</h3>
-            <p class="text-xs text-white/60 leading-relaxed">Cómo construir el NAP definitivo, configurar Service Area Business sin local físico y seleccionar categorías que disparen impresiones.</p>
-            <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary-cyan hover:text-primary-cyan/80">
-              Ver canal @makeseo
+            <p class="text-xs text-white/60 leading-relaxed">Cómo construir el NAP definitivo, configurar Service Area Business sin local físico y seleccionar categorías que disparen impresiones en Google Maps.</p>
+            <a href="https://youtu.be/0Cf8YR0XjWo" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary-cyan hover:text-primary-cyan/80">
+              Ver en YouTube
               <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </article>
 
-        <!-- Video 3 -->
+        <!-- Video 3: Embed real -->
         <article class="group bg-dark-navy-alt/60 border border-white/10 rounded-2xl overflow-hidden hover:border-accent-orange/50 hover:-translate-y-1 transition-all">
-          <div class="aspect-video bg-gradient-to-br from-dark-navy to-dark-navy-alt flex items-center justify-center relative overflow-hidden">
-            <div class="absolute inset-0 bg-hero-radial opacity-50"></div>
-            <div class="relative text-center px-4">
-              <div class="h-16 w-16 rounded-2xl bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <svg class="w-7 h-7 text-accent-orange-light" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <span class="text-xs font-semibold text-accent-orange-light">EP 03 · Próximamente</span>
-            </div>
+          <div class="yt-frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/PbDUwBGJqm0"
+              title="Episodio 3 - Adiós WordPress: Webs con IA, Cloudflare y Github Costo 0 | MML - Edward Valencia @makeseo"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
           </div>
           <div class="p-5">
             <div class="flex items-center gap-2 text-xs font-semibold text-accent-orange-light mb-2">
@@ -467,9 +490,9 @@
               <span>Web Serverless</span>
             </div>
             <h3 class="text-base font-bold text-white leading-tight mb-2">Adiós WordPress - Webs con IA, GitHub y Cloudflare Pages desde el Móvil</h3>
-            <p class="text-xs text-white/60 leading-relaxed">Construir y deployear una web ultrarrápida 100% desde el teléfono, con IA, GitHub y Cloudflare Pages a costo cero.</p>
-            <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-accent-orange-light hover:text-accent-orange">
-              Ver canal @makeseo
+            <p class="text-xs text-white/60 leading-relaxed">Construir y deployear una web ultrarrápida 100% desde el teléfono, con IA, GitHub y Cloudflare Pages a costo cero. $0 hosting garantizado.</p>
+            <a href="https://youtu.be/PbDUwBGJqm0" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-accent-orange-light hover:text-accent-orange">
+              Ver en YouTube
               <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
@@ -655,6 +678,112 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MASTER PROMPT DISEÑADO PARA TU NICHO ==================== -->
+  <section id="prompt-generador" class="bg-dark-navy py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-accent-orange/15 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-reveal>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-orange/10 text-accent-orange-light text-sm font-semibold mb-4">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent-orange animate-ping"></span>
+          Generador automático · MML
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+          MASTER PROMPT DISEÑADO<br />
+          PARA TU <span class="text-gradient-orange">NICHO</span>
+        </h2>
+        <p class="mt-5 text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+          Selecciona tu nicho y genera una versión personalizada del Master Prompt MML con Schema.org específico, servicios típicos, keywords y FAQs adaptadas a tu rubro. Listo para copiar y pegar en tu IA.
+        </p>
+      </div>
+
+      <!-- Selector de nicho -->
+      <div data-reveal>
+        <p class="text-sm font-semibold text-white/80 mb-4 text-center">1. Selecciona tu nicho:</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mb-8" id="niche-grid">
+          <!-- Las cards se generan con JS -->
+        </div>
+
+        <!-- Input custom -->
+        <div class="max-w-2xl mx-auto mb-8">
+          <label for="custom-niche" class="block text-sm font-semibold text-white/80 mb-2 text-center">¿Tu nicho no está en la lista? Escríbelo:</label>
+          <div class="relative">
+            <input
+              type="text"
+              id="custom-niche"
+              placeholder="Ej: Estética automotriz, Peluquería canina, Piscinas..."
+              class="w-full px-4 py-3 rounded-xl bg-dark-navy-alt/60 border border-white/15 text-white text-sm placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-accent-orange focus:border-transparent"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <!-- Botón generar -->
+        <div class="text-center mb-10">
+          <button
+            type="button"
+            id="generate-prompt-btn"
+            class="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white font-bold text-base shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] hover:scale-105 active:scale-95 transition-transform"
+            aria-label="Generar Master Prompt personalizado"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+            <span>GENERAR PROMPT</span>
+            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+          <p id="generate-hint" class="mt-3 text-xs text-white/50">Selecciona un nicho o escribe el tuyo para activar el botón</p>
+        </div>
+      </div>
+
+      <!-- Resultado (oculto hasta generar) -->
+      <div id="prompt-result" class="hidden" data-reveal>
+        <div class="relative">
+          <div class="absolute -inset-0.5 bg-gradient-to-br from-accent-orange/30 to-primary-cyan/30 rounded-3xl blur-md" aria-hidden="true"></div>
+          <div class="relative bg-dark-navy-alt border border-white/10 rounded-3xl overflow-hidden">
+            <!-- Header del resultado -->
+            <div class="flex items-center justify-between px-4 py-3 bg-dark-navy border-b border-white/10">
+              <div class="flex items-center gap-2">
+                <span class="h-3 w-3 rounded-full bg-red-500/80"></span>
+                <span class="h-3 w-3 rounded-full bg-yellow-500/80"></span>
+                <span class="h-3 w-3 rounded-full bg-green-500/80"></span>
+                <span class="ml-3 text-white/60 text-xs font-mono">MASTER_PROMPT_<span id="result-niche-tag">NICHO</span>.md</span>
+              </div>
+              <span class="text-white/40 text-xs font-mono hidden sm:inline" id="result-stats">— líneas</span>
+            </div>
+
+            <!-- Botonera -->
+            <div class="flex flex-wrap items-center gap-2 px-4 py-3 bg-dark-navy-alt/40 border-b border-white/10">
+              <button type="button" id="copy-generated-btn" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-whatsapp-green text-white text-xs font-bold hover:scale-105 active:scale-95 transition-transform">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                <span id="copy-generated-text">Copiar prompt</span>
+              </button>
+              <button type="button" id="download-generated-btn" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold hover:bg-white/15 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                Descargar .md
+              </button>
+              <button type="button" id="regenerate-btn" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold hover:bg-white/15 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                Generar otro nicho
+              </button>
+            </div>
+
+            <!-- Aviso copiado -->
+            <div id="copy-generated-feedback" class="hidden px-4 py-2 bg-whatsapp-green/15 border-b border-whatsapp-green/40 text-whatsapp-green text-xs font-semibold" style="color: #25D366;">
+              ✓ ¡Master Prompt copiado al portapapeles! Pégalo en tu IA favorita.
+            </div>
+
+            <!-- Contenido generado -->
+            <div class="prompt-block p-5 lg:p-8 text-white/85 text-sm lg:text-[15px] leading-relaxed font-mono overflow-x-auto max-h-[600px] overflow-y-auto" id="generated-prompt-content">
+              <!-- Se rellena con JS -->
             </div>
           </div>
         </div>
@@ -1007,6 +1136,722 @@
     } else {
       reveals.forEach(el => el.classList.add('is-visible'));
     }
+
+    // ====== GENERADOR DE MASTER PROMPT POR NICHO ======
+    const NICHES = [
+      { id: 'automotriz', label: 'Automotriz a Domicilio', icon: 'M5 11l1.5-4.5A3 3 0 019.4 4h5.2a3 3 0 012.9 2.5L19 11h.5a1.5 1.5 0 011.5 1.5v5a1.5 1.5 0 01-1.5 1.5H18a1 1 0 01-1-1v-1H7v1a1 1 0 01-1 1H4.5A1.5 1.5 0 013 17.5v-5A1.5 1.5 0 014.5 11H5z', schema: 'AutomotiveBusiness', servicios: ['Recarga de Gas Aire Acondicionado','Diagnóstico Electrónico','Cambio de Aceite','Frenos','Alineación y Balanceo'], keywords: 'mecánico a domicilio, recarga gas aire acondicionado automotriz, diagnóstico automotriz, servicio móvil automotriz' },
+      { id: 'plomeria', label: 'Plomería', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z', schema: 'Plumber', servicios: ['Destapación de Cañerías','Reparación de Filtraciones','Instalación de Baños','Calefones y Termos','Emergencias 24/7'], keywords: 'plomero a domicilio, destapación cañerías, reparación filtraciones, plomería urgente' },
+      { id: 'electricista', label: 'Electricista', icon: 'M13 10V3L4 14h7v7l9-11h-7z', schema: 'Electrician', servicios: ['Instalaciones Eléctricas','Reparación de Cortocircuitos','Tableros Eléctricos','Iluminación LED','Emergencias 24/7'], keywords: 'electricista a domicilio, instalación eléctrica, cortocircuito, tablero eléctrico' },
+      { id: 'cerrajero', label: 'Cerrajero', icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z', schema: 'Locksmith', servicios: ['Apertura de Puertas','Duplicado de Llaves','Cerraduras de Seguridad','Cajas Fuertes','Emergencias 24/7'], keywords: 'cerrajero a domicilio, apertura puertas, cerraduras seguridad, duplicado llaves' },
+      { id: 'limpieza', label: 'Limpieza Profesional', icon: 'M19 6h-1V4h-2v2H8V4H6v2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2z', schema: 'HousePainter', servicios: ['Limpieza de Hogares','Limpieza de Oficinas','Limpieza Post Obra','Tapices y Muebles','Limpieza Profunda'], keywords: 'servicio de limpieza, limpieza de oficinas, limpieza post obra, limpieza profesional' },
+      { id: 'climatizacion', label: 'Climatización / AC', icon: 'M12 2v20M2 12h20M5 5l14 14M19 5L5 19', schema: 'HVACBusiness', servicios: ['Instalación de Split','Mantención de A/C','Recarga de Gas','Limpieza de Conductos','Reparación de Equipos'], keywords: 'climatización a domicilio, instalación split, mantención aire acondicionado, recarga gas refrigerante' },
+      { id: 'mascotas', label: 'Veterinaria / Mascotas', icon: 'M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm5 3a2 2 0 100 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4z', schema: 'VeterinaryCare', servicios: ['Consulta Veterinaria','Vacunación','Peluquería Canina','Emergencias Veterinarias','Visita a Domicilio'], keywords: 'veterinario a domicilio, vacunación mascotas, peluquería canina, urgencias veterinarias' },
+      { id: 'belleza', label: 'Belleza / Barbería', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18a8 8 0 01-8-8 8 8 0 018-8 8 8 0 018 8 8 8 0 01-8 8z', schema: 'HairSalon', servicios: ['Corte de Cabello','Tintura y Peinados','Barbería','Tratamientos Capilares','Servicio a Domicilio'], keywords: 'barbería a domicilio, peluquería, corte de cabello, tintura, estilista móvil' },
+      { id: 'jardineria', label: 'Jardinería / Paisajismo', icon: 'M12 2C7 2 3 6 3 11c0 5 4 9 9 9s9-4 9-9c0-5-4-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z', schema: 'LandscapingBusiness', servicios: ['Mantenimiento de Jardines','Poda de Árboles','Diseño de Paisajes','Riego Automático','Limpieza de Terrenos'], keywords: 'jardinería a domicilio, mantenimiento jardines, paisajismo, poda árboles' },
+      { id: 'mudanzas', label: 'Mudanzas', icon: 'M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10', schema: 'MovingCompany', servicios: ['Mudanzas Residenciales','Mudanzas de Oficinas','Embalaje Profesional','Guardamuebles','Fletes Express'], keywords: 'mudanzas, fletes, servicio de embalaje, mudanzas oficinas' },
+      { id: 'abogados', label: 'Abogados / Legal', icon: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5', schema: 'LegalService', servicios: ['Consultoría Legal','Derecho Civil','Derecho Laboral','Derecho de Familia','Herencias y Testamentos'], keywords: 'abogado, consultoría legal, derecho civil, derecho laboral, abogado de familia' },
+      { id: 'salud', label: 'Doctor a Domicilio', icon: 'M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3V8zM5 8h2v8H5V8zm4 0h2v8H9V8z', schema: 'MedicalBusiness', servicios: ['Consulta Médica Domicilio','Control de Adulto Mayor','Toma de Muestras','Terapias Domiciliarias','Enfermería a Domicilio'], keywords: 'doctor a domicilio, consulta médica domicilio, enfermería domicilio, toma muestras' },
+    ];
+
+    let selectedNiche = null;
+    let generatedPromptText = '';
+
+    // Renderizar grid de nichos
+    const nicheGrid = document.getElementById('niche-grid');
+    NICHES.forEach(n => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'niche-card flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-dark-navy-alt/60 border border-white/10 hover:border-accent-orange/50 hover:bg-white/5 transition-all';
+      card.dataset.niche = n.id;
+      card.innerHTML = `
+        <span class="niche-icon h-10 w-10 rounded-xl bg-primary-cyan/15 border border-primary-cyan/30 flex items-center justify-center text-primary-cyan">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="${n.icon}"/></svg>
+        </span>
+        <span class="text-xs sm:text-sm text-white/80 font-medium text-center leading-tight">${n.label}</span>
+      `;
+      card.addEventListener('click', () => selectNiche(n.id));
+      nicheGrid.appendChild(card);
+    });
+
+    const customNicheInput = document.getElementById('custom-niche');
+    const generateBtn = document.getElementById('generate-prompt-btn');
+    const generateHint = document.getElementById('generate-hint');
+
+    function selectNiche(nicheId) {
+      selectedNiche = NICHES.find(n => n.id === nicheId) || null;
+      // Quitar selección visual de todas
+      document.querySelectorAll('.niche-card').forEach(c => c.classList.remove('is-selected'));
+      // Marcar la seleccionada
+      const card = document.querySelector(`.niche-card[data-niche="${nicheId}"]`);
+      if (card) card.classList.add('is-selected');
+      // Limpiar input custom si seleccionaron uno preset
+      if (customNicheInput.value) customNicheInput.value = '';
+      // Actualizar hint
+      if (selectedNiche) {
+        generateHint.textContent = `Nicho seleccionado: ${selectedNiche.label} — listo para generar`;
+        generateHint.style.color = '#25D366';
+      }
+    }
+
+    customNicheInput.addEventListener('input', (e) => {
+      const v = e.target.value.trim();
+      if (v) {
+        // Crear nicho custom en runtime
+        selectedNiche = {
+          id: 'custom',
+          label: v,
+          icon: 'M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z',
+          schema: 'LocalBusiness',
+          servicios: ['Servicio Principal','Servicio Secundario','Servicio Premium','Consulta y Cotización','Atención de Emergencias'],
+          keywords: `${v.toLowerCase()} a domicilio, servicio de ${v.toLowerCase()}, ${v.toLowerCase()} profesional`,
+        };
+        // Qitar selección visual de presets
+        document.querySelectorAll('.niche-card').forEach(c => c.classList.remove('is-selected'));
+        generateHint.textContent = `Nicho personalizado: "${v}" — listo para generar`;
+        generateHint.style.color = '#25D366';
+      } else if (selectedNiche && selectedNiche.id === 'custom') {
+        selectedNiche = null;
+        generateHint.textContent = 'Selecciona un nicho o escribe el tuyo para activar el botón';
+        generateHint.style.color = '';
+      }
+    });
+
+    generateBtn.addEventListener('click', () => {
+      if (!selectedNiche) {
+        generateHint.textContent = '⚠ Primero selecciona un nicho de la lista o escribe el tuyo arriba';
+        generateHint.style.color = '#ff6b00';
+        return;
+      }
+      generatePromptForNiche(selectedNiche);
+    });
+
+    function generatePromptForNiche(niche) {
+      // Slug del nicho en mayúsculas para el nombre del archivo
+      const nicheSlug = niche.label.toUpperCase().replace(/[^A-Z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+      const promptText = `# MASTER PROMPT — Landing SEO Local para ${niche.label}
+
+> Versión personalizada del Master Prompt MML generado automáticamente para el nicho **${niche.label}**. Pégalo completo en un nuevo chat con tu IA para construir una landing optimizada para SEO Local.
+
+---
+
+## 1. ROL Y OBJETIVO
+
+Actúa como **Desarrollador Web Full Stack Senior + Especialista en SEO Local y CRO**, experto en **Astro, Tailwind CSS, Git/GitHub y Cloudflare Pages**.
+
+**Objetivo:** Construir una landing page de servicios de **${niche.label.toLowerCase()}** a domicilio, lista para producción, optimizada para:
+- Conversión móvil
+- Core Web Vitals (95+ en PageSpeed mobile)
+- SEO Local / Geo-SEO (city-level landing pages)
+- Rich snippets via Schema.org JSON-LD
+
+**Metodología:** Método Malla Local (MML) — sistema creado por Edward Valencia (@makeseo) para posicionar negocios en Google Maps, construir webs ultrarrápidas serverless con $0 hosting, y desplegar mallas territoriales de landings por comuna/municipio.
+
+---
+
+## 2. STACK TÉCNICO OBLIGATORIO
+
+| Capa | Tecnología | Razón |
+|------|------------|-------|
+| Framework | **Astro 4.x** (SSG / static output) | HTML estático = máxima velocidad |
+| Estilos | **Tailwind CSS 3.x** con tokens custom | Design system consistente |
+| Interactividad | **Vanilla JS** en \`<script>\` (sin React/Vue) | Mínimo JS = mejor INP |
+| Mapas | **Leaflet 1.9.4** + tiles OpenStreetMap con filtro CSS | Ver sección 11 |
+| Imágenes | **Sharp** (Node) para optimizar a WebP + JPG | ~50% de ahorro de peso |
+| Hosting | **Cloudflare Pages** | CDN global gratis, $0 hosting |
+
+**Prohibido:** React, Vue, Svelte, jQuery, Bootstrap, frameworks CSS pesados, WordPress.
+
+---
+
+## 3. SISTEMA DE DISEÑO — TOKENS TAILWIND (Dark Tech)
+
+\`\`\`js
+colors: {
+  'primary-cyan':       '#00BCD4',
+  'primary-teal':       '#00838F',
+  'accent-orange':      '#ff6b00',
+  'accent-orange-light':'#ff8c33',
+  'dark-navy':          '#0b1020',
+  'dark-navy-alt':      '#121a33',
+  'whatsapp-green':     '#25D366',
+},
+fontFamily: { sans: ['Inter', 'Poppins', 'sans-serif'] }
+\`\`\`
+
+**Fuentes:** Inter + Poppins desde Google Fonts con \`preconnect\` + \`display=swap\`.
+
+---
+
+## 4. ARQUITECTURA DE CARPETAS
+
+\`\`\`
+proyecto/
+├── astro.config.mjs          # SSG, site URL, @astrojs/tailwind
+├── tailwind.config.mjs       # Tokens + animaciones
+├── public/
+│   ├── favicon.svg
+│   ├── robots.txt            # Con Sitemap
+│   ├── manifest.webmanifest  # PWA
+│   └── images/
+│       ├── logo.svg
+│       ├── og/               # Open Graph 1200×630
+│       ├── icons/            # icon-192.png, icon-512.png, apple-touch-icon.png
+│       ├── gallery/          # Fotos renombradas con keywords SEO
+│       └── services/         # Fotos por servicio
+└── src/
+    ├── data/
+    │   └── ubicaciones.ts    # Data centralizada (slug, nombre, zona, lat/lng, FAQ)
+    ├── layouts/
+    │   └── Layout.astro      # Head + SEO + Geo-tags + Schema JSON-LD
+    ├── components/
+    │   ├── Navbar.astro
+    │   ├── Hero.astro
+    │   ├── TrustBar.astro
+    │   ├── ServicesGrid.astro
+    │   ├── ProcessSteps.astro
+    │   ├── PricingSection.astro
+    │   ├── CoverageMap.astro
+    │   ├── LeafletMap.astro
+    │   ├── Gallery.astro
+    │   ├── FaqSection.astro
+    │   ├── FloatingActions.astro
+    │   └── Footer.astro
+    └── pages/
+        ├── index.astro              # Home
+        ├── ubicaciones.astro        # Hub + mapa amplio
+        ├── ubicacion/[slug].astro   # N landings dinámicas
+        ├── faq.astro                # FAQ global
+        ├── galeria.astro            # Galería completa
+        ├── privacidad.astro         # Política de privacidad
+        └── sitemap.xml.ts           # Sitemap dinámico
+\`\`\`
+
+---
+
+## 5. SERVICIOS DEL NICHO ${niche.label.toUpperCase()} (SERVICESGRID)
+
+Configurar las tarjetas de servicios con EXACTAMENTE estos servicios típicos del nicho:
+
+${niche.servicios.map((s, i) => `${i + 1}. **${s}**`).join('\n')}
+
+Cada servicio debe tener:
+- Imagen optimizada (WebP + JPG, \`loading="lazy"\`, \`width\`+\`height\` explícitos)
+- Título con keyword + ubicación
+- Descripción persuasiva de 2-3 líneas
+- Lista de inclusiones (4-5 items)
+- Precio en moneda local
+- Botón CTA WhatsApp con mensaje pre-rellenado mencionando el servicio
+
+---
+
+## 6. PÁGINA DINÁMICA POR UBICACIÓN — \`[slug].astro\`
+
+Generar una landing SEO por cada comuna/municipio/barrio que el negocio cubre.
+
+### Data source: \`src/data/ubicaciones.ts\`
+\`\`\`ts
+export interface Ubicacion {
+  slug: string;
+  nombre: string;
+  zona: 'Centro'|'Oriente'|'Norte'|'Sur'|'Oeste'|'Rural';
+  descripcion: string;
+  barrios?: string[];
+  lat: number;
+  lng: number;
+  tiempoRespuesta: string;
+  faqs: UbicacionFAQ[];
+}
+\`\`\`
+
+### \`getStaticPaths()\`
+\`\`\`astro
+export function getStaticPaths() {
+  return ubicaciones.map((ubi) => ({
+    params: { slug: ubi.slug },
+    props: { ubi },
+  }));
+}
+\`\`\`
+
+### Estructura de cada landing por ubicación
+- **Hero específico:** H1 con "${niche.servicios[0]} a Domicilio en {ubicacion.nombre}"
+- Breadcrumb: Inicio › Cobertura › {ubicacion.nombre}
+- Badge: "Desde $X · Atención hoy en {ubicacion.nombre}"
+- Barrios atendidos como chips
+- CTA WhatsApp con mensaje pre-rellenado mencionando la ubicación
+- TrustBar + ServicesGrid + ProcessSteps + PricingSection (componentes compartidos)
+- **FAQ específico de la ubicación** (5 preguntas con nombre de la ubicación)
+- Gallery compacta
+- **Ubicaciones vecinas** como chips clickeables
+
+### Schemas por ubicación (4 en total)
+1. \`${niche.schema}\` (LocalBusiness subtipo) con \`areaServed\` = City + \`geo\` con lat/lng específicos
+2. \`Service\` con \`areaServed\` = City + \`Offer\` en moneda local
+3. \`FAQPage\` con 5 FAQs únicas
+4. \`BreadcrumbList\` con Inicio › Cobertura › {ubicacion}
+
+---
+
+## 7. SCHEMA.ORG JSON-LD — PATRONES
+
+### 7.1 ${niche.schema} (en Layout principal)
+\`\`\`json
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "${niche.schema}"],
+  "@id": "https://dominio.com/#business",
+  "name": "Nombre del negocio de ${niche.label.toLowerCase()}",
+  "telephone": "+XX-XXXX-XXXX",
+  "image": ".../og-image.jpg",
+  "logo": ".../logo.svg",
+  "priceRange": "$$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Efectivo, Transferencia, Tarjeta",
+  "address": { "@type": "PostalAddress", "addressLocality": "Ciudad", "addressRegion": "Región", "addressCountry": "XX" },
+  "geo": { "@type": "GeoCoordinates", "latitude": 0, "longitude": 0 },
+  "areaServed": [ /* array de { "@type": "City", "name": "..." } */ ],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "09:00", "closes": "21:00" }
+  ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "327" }
+}
+\`\`\`
+
+### 7.2 Service
+\`\`\`json
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "${niche.servicios[0]}",
+  "provider": { "@id": ".../#business" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Región" },
+  "offers": { "@type": "Offer", "price": "X", "priceCurrency": "USD", "availability": "InStock" }
+}
+\`\`\`
+
+### 7.3 FAQPage
+\`\`\`json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "...", "acceptedAnswer": { "@type": "Answer", "text": "..." } }
+  ]
+}
+\`\`\`
+
+---
+
+## 8. SEO ON-PAGE CHECKLIST
+
+- [ ] Un único \`<h1>\` con keyword transaccional: "${niche.servicios[0]} a Domicilio en {Ciudad}"
+- [ ] \`<title>\` 50–60 chars: "${niche.servicios[0]} a Domicilio en {Ciudad} | {Marca}"
+- [ ] \`<meta description>\` 150–160 chars con precio + tiempo + CTA
+- [ ] Geo-tags: \`geo.region\`, \`geo.placename\`, \`geo.position\`, \`ICBM\`
+- [ ] Open Graph completo con \`og:locale\`
+- [ ] Twitter Cards \`summary_large_image\`
+- [ ] \`<link rel="canonical">\`
+- [ ] \`robots.txt\` con \`Sitemap: https://dominio.com/sitemap.xml\`
+- [ ] \`sitemap.xml\` dinámico con todas las URLs
+- [ ] Imágenes: \`alt\` descriptivo con keywords (${niche.keywords}), \`width\`+\`height\`, \`loading="lazy"\`
+- [ ] \`prefers-reduced-motion\` respetado
+- [ ] \`lang="es-XX"\` en \`<html>\`
+
+### Keywords principales del nicho ${niche.label}:
+${niche.keywords}
+
+---
+
+## 9. PWA — WEB MANIFEST
+
+\`\`\`json
+{
+  "name": "Negocio de ${niche.label} - Servicio a Domicilio",
+  "short_name": "${niche.label}",
+  "description": "Servicio de ${niche.label.toLowerCase()} a domicilio en tu ciudad.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#00838F",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "/images/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/images/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
+\`\`\`
+
+Generar iconos PNG con sharp desde el favicon.svg (densidad 384, tamaños 192/512/180).
+
+---
+
+## 10. IMÁGENES — CONVENCIONES
+
+### Renombrado SEO (kebab-case con keywords del nicho ${niche.label.toLowerCase()})
+- ✅ \`${niche.id}-a-domicilio-en-ciudad-1.jpg\`
+- ✅ \`tecnico-${niche.id}-profesional-domicilio-3.webp\`
+- ❌ \`IMG-20260929-WA0132.jpg\`
+
+### Optimización con sharp
+\`\`\`js
+await sharp(input).resize({ width: 1200, height: 1200, fit: 'inside', withoutEnlargement: true })
+  .jpeg({ quality: 78, progressive: true, mozjpeg: true }).toBuffer();
+await sharp(input).resize({...}).webp({ quality: 75 }).toFile(output);
+\`\`\`
+
+### Uso en HTML
+\`\`\`html
+<picture>
+  <source srcset="/images/gallery/foto.webp" type="image/webp" />
+  <img src="/images/gallery/foto.jpg" alt="${niche.keywords.split(',')[0]} en {Ciudad}"
+       width="900" height="1200" loading="lazy" decoding="async" />
+</picture>
+\`\`\`
+
+**Excepción:** Hero principal usa \`fetchpriority="high"\` (no lazy).
+
+---
+
+## 11. MAPA INTERACTIVO — LECCIONES CRÍTICAS
+
+### ❌ NO USES SVG CUSTOM
+SVG con 50+ markers animados + transforms JS = lag severo en mobile.
+
+### ❌ NO USES CARTODB TILES
+Requiere API key ahora. Muestra "API KEY REQUIRED" tapando el mapa.
+
+### ✅ SOLUCIÓN: Leaflet + OpenStreetMap + Filtro CSS
+
+\`\`\`js
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap',
+  subdomains: 'abc',
+  maxZoom: 19,
+  className: 'osm-dark-tiles',
+}).addTo(map);
+\`\`\`
+
+\`\`\`css
+.osm-dark-tiles {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.7);
+}
+\`\`\`
+
+### Carga vía CDN con SRI
+\`\`\`html
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+\`\`\`
+
+### Configuración
+\`\`\`js
+const map = L.map('leaflet-map', {
+  center: [LAT, LNG],  // centro de tu zona
+  zoom: 10,
+  minZoom: 9,
+  maxZoom: 16,
+  zoomControl: true,
+  scrollWheelZoom: true,
+});
+\`\`\`
+
+---
+
+## 12. SITEMAP DINÁMICO
+
+\`\`\`ts
+import type { APIRoute } from 'astro';
+import { ubicaciones } from '../data/ubicaciones.ts';
+
+const SITE_URL = 'https://dominio.com';
+
+export const GET: APIRoute = () => {
+  const pages = [
+    { url: '/', priority: '1.0', changefreq: 'weekly' },
+    { url: '/faq', priority: '0.8', changefreq: 'monthly' },
+    { url: '/galeria', priority: '0.7', changefreq: 'monthly' },
+    { url: '/ubicaciones', priority: '0.9', changefreq: 'monthly' },
+    { url: '/privacidad', priority: '0.3', changefreq: 'yearly' },
+    ...ubicaciones.map(u => ({ url: \`/ubicacion/\${u.slug}\`, priority: '0.9', changefreq: 'monthly' })),
+  ];
+  const xml = \`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+\${pages.map(p => \`  <url>
+    <loc>\${SITE_URL}\${p.url}</loc>
+    <lastmod>\${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>\${p.changefreq}</changefreq>
+    <priority>\${p.priority}</priority>
+  </url>\`).join('\\n')}
+</urlset>\`;
+  return new Response(xml, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } });
+};
+\`\`\`
+
+---
+
+## 13. WORKFLOW DE DESPLIEGUE
+
+### 13.1 Git init + commit
+\`\`\`bash
+cd proyecto
+git init -b main
+git add .
+git commit -m "feat: landing ${niche.label.toLowerCase()} - MML"
+\`\`\`
+
+### 13.2 GitHub
+\`\`\`bash
+gh auth login
+gh repo create nombre-repo --private --source=. --push
+\`\`\`
+
+### 13.3 Cloudflare Pages
+1. dash.cloudflare.com → Workers & Pages → Create → Pages → Connect to Git
+2. Seleccionar repo
+3. Config: Framework preset \`Astro\`, Build command \`npm run build\`, Build output \`dist\`
+4. Save and Deploy
+
+O vía Wrangler CLI:
+\`\`\`bash
+npm install -g wrangler
+wrangler login
+wrangler pages project create nombre-proyecto
+npm run build
+wrangler pages deploy dist --project-name=nombre-proyecto --branch=main
+\`\`\`
+
+---
+
+## 14. SEGURIDAD — REGLAS CRÍTICAS
+
+### ⚠️ NUNCA compartas tokens en chat
+Si el usuario pega tokens de GitHub (\`ghp_...\`) o Cloudflare (\`cfat_...\`):
+1. Advertir inmediatamente que los revoque
+2. No usar los tokens sin confirmación explícita
+3. Recomendar rotación en github.com/settings/tokens y dash.cloudflare.com/profile/api-tokens
+
+### \`.gitignore\` obligatorio
+\`\`\`
+node_modules/
+dist/
+.env
+.env.local
+.env.production
+.astro/
+.DS_Store
+\`\`\`
+
+---
+
+## 15. CALIDAD — CHECKLIST FINAL
+
+### Build
+- [ ] \`npm run build\` compila sin errores
+- [ ] Total de páginas = 1 home + N landings por ubicación + páginas auxiliares
+
+### SEO
+- [ ] Un único \`<h1>\` por página
+- [ ] Schemas JSON-LD válidos (probar en search.google.com/test/rich-results)
+- [ ] Sitemap accessible en \`/sitemap.xml\`
+- [ ] Geo-tags presentes
+- [ ] canonical URL correcta
+
+### Performance
+- [ ] Sin React/Vue/jQuery
+- [ ] Imágenes en WebP + JPG con \`<picture>\`
+- [ ] \`loading="lazy"\` en imágenes bajo el fold
+- [ ] \`fetchpriority="high"\` en imagen del Hero
+- [ ] \`width\`+\`height\` en todas las imágenes (evita CLS)
+- [ ] Fuentes con \`preconnect\` + \`display=swap\`
+
+### Accesibilidad
+- [ ] \`lang="es-XX"\` en \`<html>\`
+- [ ] \`aria-label\` en botones de iconos
+- [ ] \`aria-expanded\` en dropdowns y acordeones
+- [ ] \`prefers-reduced-motion\` respetado
+
+### PWA
+- [ ] \`manifest.webmanifest\` válido
+- [ ] Iconos 192, 512, apple-touch-icon 180
+
+### Mapa
+- [ ] Leaflet 1.9.4 vía CDN con SRI
+- [ ] Tiles OpenStreetMap (NO CartoDB)
+- [ ] Filtro CSS \`invert(1) hue-rotate(180deg)\` para dark theme
+
+---
+
+## 16. LECCIONES APRENDIDAS — ERRORES A EVITAR
+
+### 16.1 Foto del Hero como background
+❌ No uses foto como \`background\` absoluto del Hero con \`object-cover\` (zoom/recorte + mala legibilidad).
+✅ Patrón correcto: Hero sin foto de fondo (solo glow), texto directo sobre dark-navy, foto como \`<figure>\` bloque independiente debajo con \`object-contain\` y \`max-h-[70vh]\`.
+
+### 16.2 Tarjeta "Servicio Garantizado" en columna derecha del Hero
+❌ No la pongas como columna derecha del Hero (compite con foto de fondo).
+✅ Sección independiente debajo del Hero.
+
+### 16.3 SVG custom para mapas
+❌ No uses SVG con 50+ markers animados (lag severo).
+✅ Leaflet + tiles OSM rasterizados.
+
+### 16.4 CartoDB tiles
+❌ No uses \`basemaps.cartocdn.com/dark_all\` (requiere API key).
+✅ \`tile.openstreetmap.org/{z}/{x}/{y}.png\` + filtro CSS.
+
+### 16.5 Tokens en el chat
+❌ Nunca aceptes tokens pegados en el chat sin advertir al usuario que los revoque.
+
+### 16.6 Hard refresh
+Después de cada deploy, recordar al usuario hacer hard refresh:
+- Windows/Linux: \`Ctrl + Shift + R\`
+- Mac: \`Cmd + Shift + R\`
+
+---
+
+## 17. PROMPT INICIAL SUGERIDO
+
+\`\`\`
+Actúa como Desarrollador Web Full Stack Senior + Especialista en SEO Local.
+
+Construye una landing page de ${niche.label} a domicilio en [CIUDAD/REGIÓN] siguiendo
+EXACTAMENTE el master prompt adjunto (Método MML). Ciudad: [nombre].
+Comunas/sectores a cubrir: [N] ubicaciones.
+
+Stack: Astro 4 + Tailwind CSS + Vanilla JS + Leaflet + Cloudflare Pages.
+
+Entregar:
+1. Repo local con git init + commit inicial
+2. Build SSG que genere [N + 5] páginas
+3. SEO on-page completo con Schema.org JSON-LD (${niche.schema} + Service + FAQPage + BreadcrumbList)
+4. Webmanifest PWA + iconos
+5. Sitemap dinámico
+6. Mapa Leaflet con tiles OSM + filtro CSS dark
+7. Galería con lightbox
+8. Deploy a GitHub + Cloudflare Pages
+\`\`\`
+
+---
+
+## 18. ARCHIVOS DE REFERENCIA
+
+\`\`\`
+Páginas HTML totales:
+├── /                          # Home
+├── /ubicaciones               # Hub + mapa amplio
+├── /ubicacion/[slug]          # N landings
+├── /faq                       # FAQ global
+├── /galeria                   # Galería completa
+├── /privacidad                # Política de privacidad
+└── /sitemap.xml               # Sitemap dinámico
+
+Componentes clave:
+├── Layout.astro              # Head + SEO + Schema
+├── Navbar.astro              # Sticky + mega-dropdown Ubicaciones
+├── Hero.astro                # Sin foto de fondo (solo glow)
+├── LeafletMap.astro          # Leaflet + OSM + filtro CSS
+├── Gallery.astro             # Lightbox accesible
+└── Footer.astro              # Datos fiscales + listado SEO ubicaciones
+
+Data:
+└── src/data/ubicaciones.ts   # N ubicaciones con slug, nombre, zona, lat/lng, FAQ único
+\`\`\`
+
+---
+
+**Fin del Master Prompt MML para ${niche.label}.** Pega esto completo en un nuevo chat para construir tu landing SEO Local.
+
+*Método Malla Local (MML) · Edward Valencia · @makeseo · 360 Soluciones*
+`;
+
+      generatedPromptText = promptText;
+
+      // Renderizar markdown a HTML con marked (si está cargado) o mostrar como texto
+      const contentEl = document.getElementById('generated-prompt-content');
+      if (typeof marked !== 'undefined') {
+        contentEl.innerHTML = marked.parse(promptText);
+      } else {
+        // Fallback: cargar marked dinámicamente
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js';
+        script.onload = () => {
+          contentEl.innerHTML = marked.parse(promptText);
+        };
+        document.head.appendChild(script);
+        contentEl.innerHTML = '<p class="text-white/60">Cargando renderizador...</p>';
+      }
+
+      // Actualizar header
+      document.getElementById('result-niche-tag').textContent = nicheSlug;
+      const lineCount = promptText.split('\n').length;
+      document.getElementById('result-stats').textContent = `${lineCount} líneas · ${(promptText.length / 1024).toFixed(1)}KB`;
+
+      // Mostrar resultado
+      const resultDiv = document.getElementById('prompt-result');
+      resultDiv.classList.remove('hidden');
+      resultDiv.classList.add('is-visible');
+      // Scroll al resultado
+      setTimeout(() => {
+        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 200);
+    }
+
+    // Botón copiar generado
+    document.getElementById('copy-generated-btn').addEventListener('click', async (e) => {
+      if (!generatedPromptText) return;
+      const btn = e.currentTarget;
+      const span = btn.querySelector('span');
+      const originalText = span.textContent;
+      try {
+        await navigator.clipboard.writeText(generatedPromptText);
+        span.textContent = '¡Copiado!';
+        btn.style.background = '#25D366';
+        const feedback = document.getElementById('copy-generated-feedback');
+        feedback.classList.remove('hidden');
+        setTimeout(() => {
+          span.textContent = originalText;
+          btn.style.background = '';
+          feedback.classList.add('hidden');
+        }, 2500);
+      } catch (err) {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = generatedPromptText;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        span.textContent = '¡Copiado!';
+        setTimeout(() => { span.textContent = originalText; }, 2500);
+      }
+    });
+
+    // Botón descargar generado
+    document.getElementById('download-generated-btn').addEventListener('click', () => {
+      if (!generatedPromptText) return;
+      const blob = new Blob([generatedPromptText], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `MASTER_PROMPT_MML_${selectedNiche.id}.md`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    // Botón regenerar
+    document.getElementById('regenerate-btn').addEventListener('click', () => {
+      document.getElementById('prompt-result').classList.add('hidden');
+      document.getElementById('prompt-generador').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   </script>
 </body>
 </html>
