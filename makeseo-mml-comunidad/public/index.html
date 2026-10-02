@@ -778,13 +778,36 @@
 
             <!-- Aviso copiado -->
             <div id="copy-generated-feedback" class="hidden px-4 py-2 bg-whatsapp-green/15 border-b border-whatsapp-green/40 text-whatsapp-green text-xs font-semibold" style="color: #25D366;">
-              ✓ ¡Master Prompt copiado al portapapeles! Pégalo en tu IA favorita.
+              ✓ ¡Master Prompt copiado al portapapeles! Pégalo en chat.z.ai (botón abajo) o tu IA favorita.
             </div>
 
             <!-- Contenido generado -->
             <div class="prompt-block p-5 lg:p-8 text-white/85 text-sm lg:text-[15px] leading-relaxed font-mono overflow-x-auto max-h-[600px] overflow-y-auto" id="generated-prompt-content">
               <!-- Se rellena con JS -->
             </div>
+          </div>
+        </div>
+
+        <!-- CTA inferior: pegar en chat.z.ai -->
+        <div class="mt-8 text-center" data-reveal>
+          <div class="inline-flex flex-col items-center gap-4 p-6 lg:p-7 rounded-2xl bg-gradient-to-br from-primary-cyan/10 to-accent-orange/10 border border-primary-cyan/30 max-w-2xl">
+            <div>
+              <p class="text-white font-bold text-base lg:text-lg">2. Pega el prompt en tu IA favorita</p>
+              <p class="text-white/60 text-sm mt-1">Recomendamos Z.ai — gratis, sin registro, soporta prompts largos</p>
+            </div>
+            <a
+              href="https://chat.z.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-gradient-to-r from-primary-cyan to-primary-teal text-white font-bold text-base shadow-[0_10px_30px_-6px_rgba(0,188,212,0.5)] hover:scale-105 active:scale-95 transition-transform w-full sm:w-auto"
+            >
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12H7v-2h6v2zm3-4H7V8h9v2z"/>
+              </svg>
+              <span>Abrir chat.z.ai</span>
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <p class="text-xs text-white/50">También puedes usar Claude, ChatGPT, Gemini, etc.</p>
           </div>
         </div>
       </div>
@@ -1813,11 +1836,16 @@ Data:
         btn.style.background = '#25D366';
         const feedback = document.getElementById('copy-generated-feedback');
         feedback.classList.remove('hidden');
+        // Scroll al botón de Z.ai después de copiar
+        setTimeout(() => {
+          const zaiCta = feedback.parentElement.parentElement.parentElement.querySelector('.mt-8.text-center');
+          if (zaiCta) zaiCta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 400);
         setTimeout(() => {
           span.textContent = originalText;
           btn.style.background = '';
           feedback.classList.add('hidden');
-        }, 2500);
+        }, 3500);
       } catch (err) {
         // Fallback
         const textarea = document.createElement('textarea');
