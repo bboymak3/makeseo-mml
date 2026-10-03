@@ -1,0 +1,28 @@
+# wrangler.toml - Configuración para Cloudflare Pages + D1
+# Proyecto: Academia MML - Edward Valencia / @makeseo
+
+name = "makeseo-mml"
+compatibility_date = "2024-09-25"
+pages_build_output_dir = "public"
+
+# ============================================================
+# D1 Database binding
+# ============================================================
+# IMPORTANTE: Crea la base de datos D1 primero con:
+#   npx wrangler d1 create makeseo-mml-db
+# Luego copia el database_id que te devuelva y reemplázalo abajo.
+# ============================================================
+
+[[d1_databases]]
+binding = "DB"
+database_name = "generico_db"
+database_id = "38dd85ba-03dc-4937-af19-4d1c41a18f27"
+
+# ============================================================
+# Variables de entorno
+# ============================================================
+[vars]
+JWT_SECRET = "mml_academia_secret_2026_super_seguro_9f8a7b2c4e1d3a6f5b8c2e7d9a4f1b6c"
+APP_URL = "https://makeseo-mml.pages.dev"
+# GOOGLE_CLIENT_ID = "configurar-en-dashboard-si-usas-google-oauth"
+# GOOGLE_CLIENT_SECRET = "configurar-en-dashboard-si-usas-google-oauth"

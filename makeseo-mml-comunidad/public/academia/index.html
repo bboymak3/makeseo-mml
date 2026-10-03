@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Academia de Agentes AunClick - Aprende, gana XP y conviértete en Partner Digital Certificado.">
+<title>Academia de Agentes - AunClick</title>
+<meta property="og:title" content="Academia de Agentes - AunClick">
+<meta property="og:description" content="Aprende y crece como agente digital. Clases, exámenes y certificaciones.">
+<meta property="og:site_name" content="AunClick">
+<meta property="og:locale" content="es_VE">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/jpeg" href="/images/favicon.jpeg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#7c3aed;--primary-light:#ede9fe;--primary-dark:#5b21b6;
+  --success:#10b981;--success-light:#d1fae5;
+  --danger:#ef4444;--danger-light:#fee2e2;
+  --warning:#f59e0b;--warning-light:#fef3c7;
+  --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+  --gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;
+  --gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;
+  --radius:12px;--radius-sm:8px;--radius-lg:16px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);
+  --shadow-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.06);
+  --shadow-lg:0 10px 15px rgba(0,0,0,.08),0 4px 6px rgba(0,0,0,.05);
+  --header-h:60px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f0f5;color:var(--gray-800);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{cursor:pointer;font-family:inherit;border:none;outline:none}
+button:active{transform:scale(.97)}
+
+/* Header */
+.header{position:fixed;top:0;left:0;right:0;height:var(--header-h);background:#fff;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;padding:0 16px;z-index:100;box-shadow:var(--shadow)}
+.header-logo{font-size:18px;font-weight:800;color:var(--primary);display:flex;align-items:center;gap:8px;flex-shrink:0}
+.header-logo i{font-size:22px}
+.header-spacer{flex:1}
+.header-avatar{width:36px;height:36px;border-radius:50%;background:var(--primary-light);border:2px solid var(--primary);cursor:pointer;object-fit:cover;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:14px;color:var(--primary);flex-shrink:0}
+.header-avatar img{width:100%;height:100%;object-fit:cover}
+.header-logout{background:none;color:var(--gray-500);font-size:18px;padding:6px 10px;margin-left:8px;flex-shrink:0}
+.header-profile-btn{background:var(--primary);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:var(--radius-sm);display:flex;align-items:center;gap:6px;margin-left:8px;flex-shrink:0;transition:background .2s}
+.header-edit-btn{color:var(--primary);border:1.5px solid var(--primary);font-size:12px;font-weight:600;padding:5px 10px;border-radius:var(--radius-sm);display:flex;align-items:center;gap:6px;margin-left:8px;flex-shrink:0}
+.header-edit-btn:hover{background:var(--primary-light)}
+@media(max-width:420px){.header-edit-btn span{display:none}.header-logo{font-size:15px}}
+.header-profile-btn:hover{background:var(--primary-dark);text-decoration:none;color:#fff}
+
+/* Toast */
+.toast-container{position:fixed;top:72px;left:50%;transform:translateX(-50%);z-index:999;width:90%;max-width:400px;pointer-events:none}
+.toast{background:var(--gray-800);color:#fff;padding:12px 20px;border-radius:var(--radius-sm);font-size:14px;text-align:center;box-shadow:var(--shadow-lg);opacity:0;transform:translateY(-10px);transition:all .3s ease;pointer-events:auto}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.success{background:var(--success)}
+.toast.error{background:var(--danger)}
+
+/* Loading spinner */
+.page-loader{text-align:center;padding:80px 20px}
+.spinner{width:40px;height:40px;border:3px solid var(--gray-200);border-top-color:var(--primary);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Main */
+.main{padding:calc(var(--header-h) + 16px) 16px 32px;max-width:640px;margin:0 auto}
+
+/* Card */
+.card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:20px;margin-bottom:16px}
+.card-title{font-size:16px;font-weight:700;color:var(--gray-900);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card-title i{color:var(--primary)}
+
+/* Profile card */
+.profile-card{text-align:center;position:relative}
+.profile-avatar-wrap{position:relative;width:90px;height:90px;margin:0 auto 12px}
+.profile-avatar{width:90px;height:90px;border-radius:50%;border:3px solid var(--primary);object-fit:cover;cursor:pointer;display:flex;align-items:center;justify-content:center;background:var(--primary-light);color:var(--primary);font-size:32px;overflow:hidden}
+.profile-avatar img{width:100%;height:100%;object-fit:cover}
+.profile-avatar-overlay{position:absolute;bottom:0;left:0;right:0;height:30px;border-radius:0 0 50% 50%;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;cursor:pointer}
+.profile-avatar-wrap:hover .profile-avatar-overlay{opacity:1}
+.profile-avatar-overlay i{color:#fff;font-size:12px}
+.profile-name{font-size:20px;font-weight:700;color:var(--gray-900)}
+.profile-bio{font-size:14px;color:var(--gray-500);margin-top:4px;margin-bottom:16px;max-width:400px;margin-left:auto;margin-right:auto}
+
+/* Level badge */
+.level-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:12px}
+.level-1{background:#fee2e2;color:#dc2626}.level-2{background:#fef3c7;color:#d97706}
+.level-3{background:#fef3c7;color:#d97706}.level-4{background:#e0e7ff;color:#4f46e5}
+.level-5{background:#e0e7ff;color:#4f46e5}.level-6{background:#ede9fe;color:#7c3aed}
+.level-7{background:#ede9fe;color:#7c3aed}.level-8{background:#fce7f3;color:#db2777}
+.level-9{background:#fce7f3;color:#db2777}.level-10{background:#fef3c7;color:#b45309}
+
+/* XP bar */
+.xp-bar-wrap{margin-bottom:16px}
+.xp-label{display:flex;justify-content:space-between;font-size:12px;color:var(--gray-500);margin-bottom:6px}
+.xp-bar{height:8px;background:var(--gray-200);border-radius:4px;overflow:hidden}
+.xp-bar-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-dark));border-radius:4px;transition:width .6s ease}
+
+/* Stats row */
+.stats-row{display:flex;justify-content:center;gap:24px;margin-bottom:16px}
+.stat-item{text-align:center}
+.stat-value{font-size:20px;font-weight:800;color:var(--gray-900)}
+.stat-label{font-size:11px;color:var(--gray-500);text-transform:uppercase;letter-spacing:.5px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 20px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;transition:all .2s}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark)}
+.btn-success{background:var(--success);color:#fff}
+.btn-success:hover{opacity:.9}
+.btn-outline{background:#fff;color:var(--primary);border:2px solid var(--primary)}
+.btn-outline:hover{background:var(--primary-light)}
+.btn-sm{padding:8px 14px;font-size:13px}
+.btn-block{width:100%;justify-content:center}
+.btn:disabled{opacity:.5;pointer-events:none}
+
+/* Share button */
+.share-btn{background:var(--primary-light);color:var(--primary);border:1.5px solid var(--primary-light);margin:0 auto}
+.share-btn:hover{background:var(--primary);color:#fff}
+
+/* Class cards */
+.classes-grid{display:grid;gap:12px}
+.class-card{background:#fff;border-radius:var(--radius);border:1.5px solid var(--gray-200);padding:16px;transition:border-color .2s}
+.class-card:hover{border-color:var(--primary-light)}
+.class-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.class-title{font-size:15px;font-weight:700;color:var(--gray-900)}
+.class-desc{font-size:13px;color:var(--gray-500);margin-top:4px;line-height:1.5}
+.class-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;align-items:center}
+.class-meta-item{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--gray-500)}
+.class-meta-item i{font-size:11px}
+.class-status{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:12px}
+.class-status.completed{background:var(--success-light);color:var(--success)}
+.class-status.available{background:var(--primary-light);color:var(--primary)}
+.class-xp{background:var(--warning-light);color:#92400e;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;display:inline-flex;align-items:center;gap:4px}
+
+/* Quiz panel */
+.quiz-panel{background:var(--gray-50);border-radius:var(--radius);margin-top:12px;padding:16px;border:1.5px solid var(--primary-light)}
+.quiz-progress{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:13px;color:var(--gray-500)}
+.quiz-progress-bar{flex:1;height:6px;background:var(--gray-200);border-radius:3px;overflow:hidden}
+.quiz-progress-fill{height:100%;background:var(--primary);border-radius:3px;transition:width .3s}
+.quiz-question{font-size:15px;font-weight:600;color:var(--gray-900);margin-bottom:14px}
+.quiz-options{display:grid;gap:8px}
+.quiz-option{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fff;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);cursor:pointer;transition:all .15s;font-size:14px;color:var(--gray-700)}
+.quiz-option:hover{border-color:var(--primary);background:var(--primary-light)}
+.quiz-option.selected{border-color:var(--primary);background:var(--primary-light);color:var(--primary-dark)}
+.quiz-option-letter{width:28px;height:28px;border-radius:50%;background:var(--gray-100);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;transition:all .15s}
+.quiz-option.selected .quiz-option-letter{background:var(--primary);color:#fff}
+.quiz-nav{display:flex;gap:10px;margin-top:16px}
+
+/* Results panel */
+.results-panel{text-align:center;padding:20px}
+.results-score{font-size:48px;font-weight:800;margin:12px 0}
+.results-score.pass{color:var(--success)}
+.results-score.fail{color:var(--danger)}
+.results-message{font-size:15px;color:var(--gray-600);margin-bottom:8px}
+.results-xp{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:4px}
+.results-levelup{background:var(--warning-light);color:#92400e;padding:10px 16px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;margin-top:12px;display:inline-flex;align-items:center;gap:6px}
+.results-actions{margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* Exam section */
+.exam-card{text-align:center}
+.exam-locked{padding:24px}
+.exam-locked i{font-size:36px;color:var(--gray-300);margin-bottom:12px}
+.exam-locked h3{font-size:16px;font-weight:700;color:var(--gray-700);margin-bottom:6px}
+.exam-locked p{font-size:14px;color:var(--gray-500)}
+.exam-info{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:20px}
+.exam-info-item{text-align:center}
+.exam-info-value{font-size:22px;font-weight:800;color:var(--gray-900)}
+.exam-info-label{font-size:11px;color:var(--gray-500);text-transform:uppercase}
+.exam-passed{padding:20px}
+.exam-passed i{font-size:48px;color:var(--success);margin-bottom:8px}
+.exam-passed h3{font-size:18px;font-weight:700;color:var(--success);margin-bottom:4px}
+.exam-passed p{font-size:14px;color:var(--gray-600)}
+
+/* Badges grid */
+.badges-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.badge-card{background:#fff;border-radius:var(--radius);border:1.5px solid var(--gray-200);padding:16px 12px;text-align:center;transition:transform .2s}
+.badge-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.badge-icon{width:48px;height:48px;border-radius:50%;background:var(--warning-light);color:#d97706;display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 10px}
+.badge-card .badge-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 10px}
+.badge-name{font-size:13px;font-weight:700;color:var(--gray-800);margin-bottom:4px}
+.badge-desc{font-size:11px;color:var(--gray-500);line-height:1.4}
+.badge-date{font-size:10px;color:var(--gray-400);margin-top:6px}
+.no-badges{text-align:center;padding:32px;color:var(--gray-400);font-size:14px}
+.no-badges i{font-size:32px;margin-bottom:8px;display:block}
+
+/* YouTube channel banner */
+.yt-channel{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:linear-gradient(135deg,#fff,#fef2f2);border:1.5px solid #fecaca}
+.yt-channel-icon{width:52px;height:52px;border-radius:50%;background:#dc2626;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.yt-channel-icon.small{width:38px;height:38px;font-size:18px}
+.yt-rows{display:grid;gap:10px;width:100%}
+.yt-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fff;border:1px solid #fecaca;border-radius:var(--radius-sm);padding:10px 12px}
+.yt-row-name{flex:1;min-width:120px;font-weight:700;font-size:14px;color:var(--gray-900)}
+.yt-channel-text{flex:1;min-width:180px}
+.yt-channel-title{font-size:15px;font-weight:700;color:var(--gray-900)}
+.yt-channel-sub{font-size:13px;color:var(--gray-500)}
+.yt-channel-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn-yt{background:#dc2626;color:#fff}
+.btn-yt:hover{background:#b91c1c}
+.btn-yt-outline{background:#fff;color:#dc2626;border:2px solid #dc2626}
+.btn-yt-outline:hover{background:#fef2f2}
+
+/* Video class */
+.class-teacher{font-size:12px;color:var(--gray-600);margin-top:6px;display:flex;align-items:center;gap:6px}
+.class-teacher i{color:var(--primary)}
+.class-teacher a{color:#dc2626;font-weight:600}
+.class-teacher a i{color:#dc2626}
+.class-video-tag{background:#fee2e2;color:#b91c1c;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;display:inline-flex;align-items:center;gap:4px}
+.video-panel{background:var(--gray-50);border-radius:var(--radius);margin-top:12px;padding:14px;border:1.5px solid #fecaca}
+.video-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:var(--radius-sm);overflow:hidden}
+.video-frame iframe,.video-frame>div{position:absolute;inset:0;width:100%;height:100%}
+.video-note{font-size:12px;color:var(--gray-600);margin:10px 0 8px;display:flex;gap:6px;align-items:flex-start}
+.video-note i{color:#dc2626;margin-top:2px}
+.video-progress{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gray-500)}
+.video-progress-bar{flex:1;height:8px;background:var(--gray-200);border-radius:4px;overflow:hidden}
+.video-progress-fill{height:100%;width:0;background:#dc2626;border-radius:4px;transition:width .4s}
+.video-progress[hidden]{display:none}
+.video-note.review i{color:var(--success)}
+.btn-outline-green{background:#fff;color:#047857;border:2px solid var(--success)}
+.btn-outline-green:hover{background:var(--success-light)}
+.video-done{text-align:center;padding:12px 4px 4px}
+.video-done i{font-size:32px;color:var(--success);margin-bottom:6px}
+.score-breakdown{display:grid;gap:6px;max-width:320px;margin:10px auto 6px;text-align:left}
+.score-row{display:flex;justify-content:space-between;font-size:13px;color:var(--gray-600);padding:6px 10px;background:#fff;border-radius:var(--radius-sm);border:1px solid var(--gray-200)}
+.score-row strong{color:var(--gray-900)}
+.score-row.total{border-color:var(--primary);background:var(--primary-light)}
+
+/* Learning path */
+.path-summary{margin-bottom:16px}
+.path-summary-top{display:flex;justify-content:space-between;font-size:13px;color:var(--gray-600);margin-bottom:6px}
+.path-summary-top strong{color:var(--gray-900)}
+.module-block{margin-bottom:18px}
+.module-block:last-child{margin-bottom:0}
+.module-head{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:var(--primary-dark);background:var(--primary-light);padding:8px 12px;border-radius:var(--radius-sm);margin-bottom:10px;text-transform:uppercase;letter-spacing:.4px}
+.module-head i{margin-right:4px}
+.module-head.complete{background:var(--success-light);color:#047857}
+.module-count{font-size:12px;letter-spacing:0}
+.class-card.is-locked{background:var(--gray-50);opacity:.75}
+.class-card.is-locked .class-title{color:var(--gray-500)}
+.class-card.is-done{border-color:var(--success-light)}
+.class-status.locked{background:var(--gray-200);color:var(--gray-600)}
+.class-locked-note{font-size:12px;color:var(--gray-500);margin-top:10px}
+.class-material{margin-top:12px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);background:var(--gray-50)}
+.class-material summary{cursor:pointer;padding:10px 12px;font-size:13px;font-weight:600;color:var(--primary);list-style:none}
+.class-material summary::-webkit-details-marker{display:none}
+.class-material summary::after{content:'\25BE';float:right;color:var(--gray-400)}
+.class-material[open] summary::after{content:'\25B4'}
+.class-material-body{padding:0 14px 14px;font-size:14px;color:var(--gray-700);line-height:1.65;overflow-wrap:anywhere}
+.class-material-body a{color:var(--primary);text-decoration:underline}
+.class-material-body img{border-radius:var(--radius-sm);margin:8px 0;height:auto}
+.class-material-body ul,.class-material-body ol{padding-left:20px;margin:6px 0}
+.class-material-body p{margin:6px 0}
+.class-material-body table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}
+.class-material-body td,.class-material-body th{border:1px solid var(--gray-200);padding:4px 8px}
+
+/* Certificate */
+.cert-card{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #fcd34d}
+.cert-icon{width:52px;height:52px;border-radius:50%;background:#d97706;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.cert-text{flex:1;min-width:180px}
+.cert-title{font-size:15px;font-weight:700;color:var(--gray-900)}
+.cert-sub{font-size:13px;color:#92400e}
+.btn-cert{background:#d97706;color:#fff}
+.btn-cert:hover{background:#b45309}
+
+/* Profile actions */
+.profile-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.profile-actions .share-btn{margin:0}
+body.modal-open{overflow:hidden}
+
+/* Profile editor (bottom sheet) */
+.pe-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:500;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+.pe-backdrop.open{opacity:1;pointer-events:auto}
+.pe-sheet{background:#fff;width:100%;max-width:560px;max-height:92vh;border-radius:20px 20px 0 0;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.pe-backdrop.open .pe-sheet{transform:none}
+.pe-handle{width:44px;height:5px;border-radius:99px;background:var(--gray-300);margin:8px auto 0}
+.pe-head{display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--gray-200)}
+.pe-head h2{flex:1;font-size:16px;font-weight:800}
+.pe-head h2 i{color:var(--primary)}
+.pe-close{width:36px;height:36px;border-radius:50%;background:var(--gray-100);color:var(--gray-500);font-size:16px}
+.pe-body{padding:16px 18px;overflow-y:auto;flex:1}
+.pe-photo{text-align:center;margin-bottom:14px}
+.pe-photo-preview{width:120px;height:120px;border-radius:50%;margin:0 auto 10px;border:3px solid var(--primary);background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:44px;overflow:hidden}
+.pe-photo-preview img{width:100%;height:100%;object-fit:cover}
+.pe-photo-actions,.pe-camera-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.pe-camera video{width:100%;max-width:320px;aspect-ratio:1/1;object-fit:cover;border-radius:16px;background:#000;display:block;margin:0 auto 10px}
+.pe-camera video.mirror{transform:scaleX(-1)}
+.pe-remove{background:#fff;color:var(--danger);border:2px solid var(--danger-light)}
+.pe-hint{font-size:12px;color:var(--gray-500);margin-top:8px}
+.pe-field{display:block;margin-bottom:12px}
+.pe-field span{display:flex;justify-content:flex-start;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:5px}
+.pe-field small{font-weight:500;color:var(--gray-400);margin-left:auto}
+.pe-field input,.pe-field textarea{width:100%;padding:11px 12px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-size:15px;font-family:inherit;color:var(--gray-800);background:#fff;outline:none}
+.pe-field input:focus,.pe-field textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-light)}
+.pe-field textarea{resize:vertical;min-height:90px}
+.pe-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pe-foot{display:flex;gap:10px;justify-content:flex-end;padding:12px 18px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--gray-200)}
+.pe-foot .btn{flex:1}
+[hidden]{display:none!important}
+@media(min-width:640px){
+  .pe-backdrop{align-items:center;padding:20px}
+  .pe-sheet{border-radius:20px;transform:translateY(30px) scale(.98)}
+  .pe-handle{display:none}
+  .pe-foot .btn{flex:0 0 auto}
+}
+@media(max-width:420px){.pe-row{grid-template-columns:1fr}}
+
+/* File input hidden */
+.hidden-input{display:none}
+
+/* Section empty state */
+.empty-state{text-align:center;padding:32px;color:var(--gray-400);font-size:14px}
+.empty-state i{font-size:32px;margin-bottom:8px;display:block}
+
+/* Responsive */
+@media(min-width:480px){
+  .main{padding:calc(var(--header-h) + 24px) 24px 48px}
+  .card{padding:24px}
+  .badges-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(min-width:768px){
+  .main{max-width:720px}
+}
+</style>
+</head>
+<body>
+
+<!-- Toast container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Header -->
+<header class="header">
+  <a href="/" class="header-logo">
+    <i class="fas fa-graduation-cap"></i>
+    AunClick Academy
+  </a>
+  <div class="header-spacer"></div>
+  <a id="headerAvatarLink" href="#" title="Mi perfil">
+    <div class="header-avatar" id="headerAvatar">
+      <i class="fas fa-user"></i>
+    </div>
+  </a>
+  <button type="button" class="header-edit-btn" onclick="openProfileEditor()" title="Editar mi perfil de la academia">
+    <i class="fas fa-user-pen"></i><span> Editar</span>
+  </button>
+  <a id="headerProfileBtn" href="#" class="header-profile-btn" title="Ver mi perfil público">
+    <i class="fas fa-id-card"></i> Ver mi Perfil
+  </a>
+  <button class="header-logout" id="logoutBtn" title="Cerrar sesión">
+    <i class="fas fa-sign-out-alt"></i>
+  </button>
+</header>
+
+<!-- Main content -->
+<main class="main" id="mainContent">
+  <div class="page-loader" id="pageLoader">
+    <div class="spinner"></div>
+    <p style="color:var(--gray-500);font-size:14px">Cargando tu perfil...</p>
+  </div>
+</main>
+
+<!-- Editor del perfil de la academia -->
+<div class="pe-backdrop" id="profileEditor" aria-hidden="true">
+  <div class="pe-sheet" role="dialog" aria-modal="true" aria-labelledby="peTitle">
+    <div class="pe-handle"></div>
+    <div class="pe-head">
+      <h2 id="peTitle"><i class="fas fa-user-pen"></i> Editar mi perfil</h2>
+      <button type="button" class="pe-close" onclick="closeProfileEditor()" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="pe-body">
+      <!-- Foto -->
+      <div class="pe-photo">
+        <div class="pe-photo-preview" id="pePhotoPreview"></div>
+        <div class="pe-camera" id="peCamera" hidden>
+          <video id="peVideo" autoplay playsinline muted></video>
+          <div class="pe-camera-actions">
+            <button type="button" class="btn btn-sm btn-outline" onclick="peStopCamera()"><i class="fas fa-xmark"></i> Cancelar</button>
+            <button type="button" class="btn btn-sm btn-outline" id="peSwitchCam" onclick="peSwitchCamera()" hidden><i class="fas fa-camera-rotate"></i> Girar</button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="peCapture()"><i class="fas fa-camera"></i> Capturar</button>
+          </div>
+        </div>
+        <div class="pe-photo-actions" id="pePhotoActions">
+          <button type="button" class="btn btn-sm btn-primary" onclick="peTakePhoto()"><i class="fas fa-camera"></i> Tomar foto</button>
+          <button type="button" class="btn btn-sm btn-outline" onclick="document.getElementById('peFileInput').click()"><i class="fas fa-image"></i> Subir foto</button>
+          <button type="button" class="btn btn-sm pe-remove" id="peRemovePhoto" onclick="peRemovePhoto()"><i class="fas fa-trash"></i> Quitar</button>
+        </div>
+        <p class="pe-hint">La foto se recorta cuadrada y se guarda optimizada.</p>
+      </div>
+      <!-- Datos -->
+      <label class="pe-field"><span>Nombre completo *</span>
+        <input type="text" id="peName" maxlength="80" autocomplete="name" required>
+      </label>
+      <label class="pe-field"><span>Presentación <small id="peBioCount">0/500</small></span>
+        <textarea id="peBio" maxlength="500" rows="4" placeholder="Cuéntale a los clientes quién eres y cómo puedes ayudarles"></textarea>
+      </label>
+      <div class="pe-row">
+        <label class="pe-field"><span><i class="fab fa-whatsapp" style="color:#25d366"></i> WhatsApp</span>
+          <input type="tel" id="peWhatsapp" maxlength="30" placeholder="+58 424 0000000" autocomplete="tel">
+        </label>
+        <label class="pe-field"><span><i class="fas fa-phone"></i> Teléfono</span>
+          <input type="tel" id="pePhone" maxlength="30" placeholder="+58 274 0000000">
+        </label>
+      </div>
+      <p class="pe-hint"><i class="fas fa-globe"></i> Estos datos se muestran en tu perfil público de Partner.</p>
+    </div>
+    <div class="pe-foot">
+      <button type="button" class="btn btn-outline" onclick="closeProfileEditor()">Cancelar</button>
+      <button type="button" class="btn btn-primary" id="peSaveBtn" onclick="saveProfileEditor()"><i class="fas fa-check"></i> Guardar</button>
+    </div>
+  </div>
+</div>
+<input type="file" class="hidden-input" id="peFileInput" accept="image/*">
+<input type="file" class="hidden-input" id="peCaptureInput" accept="image/*" capture="user">
+
+<script src="/js/image-optimize.js?v=1"></script>
+<script src="/js/academy-certificate.js?v=2"></script>
+<script>
+(function(){
+  'use strict';
+
+  // ── Config ──
+  const API = '/api';
+  let TOKEN = localStorage.getItem('meridaunclick_token') || localStorage.getItem('token');
+  let USER_ID = localStorage.getItem('meridaunclick_user') ? JSON.parse(localStorage.getItem('meridaunclick_user')).id : (localStorage.getItem('user_id') || '');
+  let userProfile = null;
+  let agentProgress = null;
+  let classes = [];
+  let examStatus = null;
+  let academyConfig = {};
+
+  // ── Helpers ──
+  function apiHeaders(){ return {'Content-Type':'application/json','Authorization':'Bearer '+TOKEN} }
+
+  async function apiGet(path){
+    const r = await fetch(API+path,{headers:apiHeaders()});
+    if(r.status===401){ localStorage.removeItem('meridaunclick_token'); localStorage.removeItem('meridaunclick_user'); window.location.href='/login.html?redirect=academia.html'; return null; }
+    if(!r.ok) throw await r.json();
+    return r.json();
+  }
+
+  async function apiPost(path,body){
+    const r = await fetch(API+path,{method:'POST',headers:apiHeaders(),body:JSON.stringify(body)});
+    if(r.status===401){ localStorage.removeItem('meridaunclick_token'); localStorage.removeItem('meridaunclick_user'); window.location.href='/login.html?redirect=academia.html'; return null; }
+    if(!r.ok){ const e=await r.json(); throw new Error(e.error||'Error'); }
+    return r.json();
+  }
+
+  function showToast(msg, type){
+    const c=document.getElementById('toastContainer');
+    const t=document.createElement('div');
+    t.className='toast'+(type?' '+type:'');
+    t.textContent=msg;
+    c.appendChild(t);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    setTimeout(()=>{t.classList.remove('show');setTimeout(()=>t.remove(),300)},2500);
+  }
+
+  // Mismos nombres que el perfil público y el servidor (functions/_lib/academy-levels.js)
+  function getLevelName(l){ return l>=10?'Experto':l>=7?'Avanzado':l>=5?'Intermedio':l>=3?'Aprendiz':'Principiante'; }
+
+  function levelBadgeClass(l){ return 'level-'+Math.min(l,10) }
+
+  function formatBadgeIcon(icon){
+    if(!icon) return 'fas fa-medal';
+    return icon;
+  }
+
+  // ── Auth check ──
+  if(!TOKEN){ window.location.href='/login.html?redirect=academia.html'; return; }
+
+  // ── Header ──
+  document.getElementById('logoutBtn').addEventListener('click',function(){
+    localStorage.removeItem('meridaunclick_token');
+    localStorage.removeItem('meridaunclick_user');
+    localStorage.removeItem('token');
+    localStorage.removeItem('user_id');
+    window.location.href='/login.html';
+  });
+
+  // ── Editor del perfil de la academia ──
+  // Foto: tomar con la cámara (getUserMedia; si no está disponible, la cámara
+  // nativa del teléfono) o subir desde la galería. Se recorta cuadrada,
+  // 600x600 JPEG (también convierte fotos HEIC del iPhone).
+  const PE_SIZE=600;
+  let pe={blob:null,previewUrl:null,removed:false,stream:null,facing:'user',saving:false};
+
+  function peEl(id){ return document.getElementById(id); }
+
+  function peRenderPreview(){
+    const box=peEl('pePhotoPreview');
+    const src=pe.previewUrl||(!pe.removed&&userProfile.avatar)||'';
+    box.innerHTML=src?'<img src="'+escapeAttr(src)+'" alt="Tu foto">':'<i class="fas fa-user"></i>';
+    peEl('peRemovePhoto').hidden=!src;
+  }
+
+  function openProfileEditor(){
+    pe.blob=null; pe.removed=false;
+    if(pe.previewUrl){ URL.revokeObjectURL(pe.previewUrl); pe.previewUrl=null; }
+    peEl('peName').value=userProfile.name||'';
+    peEl('peBio').value=userProfile.bio||'';
+    peEl('peWhatsapp').value=userProfile.whatsapp||'';
+    peEl('pePhone').value=userProfile.phone||'';
+    peBioCount();
+    peRenderPreview();
+    const m=peEl('profileEditor');
+    m.classList.add('open'); m.setAttribute('aria-hidden','false');
+    document.body.classList.add('modal-open');
+    setTimeout(function(){ peEl('peName').focus(); },250);
+  }
+  window.openProfileEditor=openProfileEditor;
+
+  function closeProfileEditor(){
+    peStopCamera();
+    const m=peEl('profileEditor');
+    m.classList.remove('open'); m.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+    if(location.hash==='#editar-perfil') history.replaceState(null,'',location.pathname+location.search);
+  }
+  window.closeProfileEditor=closeProfileEditor;
+
+  function peBioCount(){ peEl('peBioCount').textContent=peEl('peBio').value.length+'/500'; }
+  peEl('peBio').addEventListener('input',peBioCount);
+  peEl('profileEditor').addEventListener('click',function(e){ if(e.target===e.currentTarget) closeProfileEditor(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&peEl('profileEditor').classList.contains('open')) closeProfileEditor(); });
+
+  // Recorte cuadrado centrado + redimensión a JPEG
+  function peToSquareJpeg(source,w,h){
+    const side=Math.min(w,h);
+    const c=document.createElement('canvas');
+    c.width=PE_SIZE; c.height=PE_SIZE;
+    const ctx=c.getContext('2d');
+    ctx.fillStyle='#fff'; ctx.fillRect(0,0,PE_SIZE,PE_SIZE);
+    ctx.drawImage(source,(w-side)/2,(h-side)/2,side,side,0,0,PE_SIZE,PE_SIZE);
+    return new Promise(function(resolve,reject){
+      c.toBlob(function(b){ b?resolve(b):reject(new Error('No se pudo procesar la foto')); },'image/jpeg',0.86);
+    });
+  }
+
+  function peSetBlob(blob){
+    pe.blob=blob; pe.removed=false;
+    if(pe.previewUrl) URL.revokeObjectURL(pe.previewUrl);
+    pe.previewUrl=URL.createObjectURL(blob);
+    peRenderPreview();
+  }
+
+  async function peUseFile(file){
+    if(!file) return;
+    if(file.type&&!/^image\//.test(file.type)){ showToast('Elige una imagen','error'); return; }
+    if(file.size>25*1024*1024){ showToast('La imagen es demasiado grande (máx. 25 MB)','error'); return; }
+    const url=URL.createObjectURL(file);
+    try{
+      const img=await new Promise(function(resolve,reject){
+        const i=new Image();
+        i.onload=function(){ resolve(i); };
+        i.onerror=function(){ reject(new Error('No se pudo leer la imagen. Prueba con otra foto (JPG o PNG).')); };
+        i.src=url;
+      });
+      peSetBlob(await peToSquareJpeg(img,img.naturalWidth,img.naturalHeight));
+    }catch(err){ showToast(err.message,'error'); }
+    finally{ URL.revokeObjectURL(url); }
+  }
+  peEl('peFileInput').addEventListener('change',function(e){ peUseFile(e.target.files[0]); e.target.value=''; });
+  peEl('peCaptureInput').addEventListener('change',function(e){ peUseFile(e.target.files[0]); e.target.value=''; });
+
+  // Cámara en vivo
+  async function peStartCamera(){
+    peStopCamera();
+    pe.stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:pe.facing,width:{ideal:1280},height:{ideal:1280}},audio:false});
+    const v=peEl('peVideo');
+    v.srcObject=pe.stream;
+    v.classList.toggle('mirror',pe.facing==='user');
+    peEl('peCamera').hidden=false;
+    peEl('pePhotoPreview').hidden=true;
+    peEl('pePhotoActions').hidden=true;
+    try{
+      const devices=await navigator.mediaDevices.enumerateDevices();
+      peEl('peSwitchCam').hidden=devices.filter(function(d){ return d.kind==='videoinput'; }).length<2;
+    }catch(e){ peEl('peSwitchCam').hidden=true; }
+  }
+
+  async function peTakePhoto(){
+    if(!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia)){
+      peEl('peCaptureInput').click(); // cámara nativa del teléfono
+      return;
+    }
+    try{ await peStartCamera(); }
+    catch(err){
+      peStopCamera();
+      if(err&&(err.name==='NotAllowedError'||err.name==='SecurityError')){
+        showToast('Permite el acceso a la cámara en tu navegador, o usa "Subir foto"','error');
+      }
+      peEl('peCaptureInput').click(); // alternativa: cámara nativa
+    }
+  }
+  window.peTakePhoto=peTakePhoto;
+
+  async function peSwitchCamera(){
+    pe.facing=pe.facing==='user'?'environment':'user';
+    try{ await peStartCamera(); }catch(e){ showToast('No se pudo cambiar de cámara','error'); }
+  }
+  window.peSwitchCamera=peSwitchCamera;
+
+  async function peCapture(){
+    const v=peEl('peVideo');
+    if(!v.videoWidth){ showToast('La cámara aún no está lista','error'); return; }
+    try{
+      let source=v;
+      if(pe.facing==='user'){
+        // Guardar la selfie como se ve en la vista previa (espejo)
+        const c=document.createElement('canvas');
+        c.width=v.videoWidth; c.height=v.videoHeight;
+        const ctx=c.getContext('2d');
+        ctx.translate(c.width,0); ctx.scale(-1,1); ctx.drawImage(v,0,0);
+        source=c;
+      }
+      peSetBlob(await peToSquareJpeg(source,v.videoWidth,v.videoHeight));
+    }catch(err){ showToast(err.message,'error'); }
+    peStopCamera();
+  }
+  window.peCapture=peCapture;
+
+  function peStopCamera(){
+    if(pe.stream){ pe.stream.getTracks().forEach(function(t){ t.stop(); }); pe.stream=null; }
+    const v=peEl('peVideo'); if(v) v.srcObject=null;
+    if(peEl('peCamera')) peEl('peCamera').hidden=true;
+    if(peEl('pePhotoPreview')) peEl('pePhotoPreview').hidden=false;
+    if(peEl('pePhotoActions')) peEl('pePhotoActions').hidden=false;
+  }
+  window.peStopCamera=peStopCamera;
+
+  function peRemovePhoto(){
+    pe.blob=null; pe.removed=true;
+    if(pe.previewUrl){ URL.revokeObjectURL(pe.previewUrl); pe.previewUrl=null; }
+    peRenderPreview();
+  }
+  window.peRemovePhoto=peRemovePhoto;
+
+  async function saveProfileEditor(){
+    if(pe.saving) return;
+    const name=peEl('peName').value.trim();
+    if(name.length<2){ showToast('Escribe tu nombre','error'); peEl('peName').focus(); return; }
+    const data={
+      name:name,
+      bio:peEl('peBio').value.trim(),
+      whatsapp:peEl('peWhatsapp').value.trim(),
+      phone:peEl('pePhone').value.trim()
+    };
+    const btn=peEl('peSaveBtn');
+    pe.saving=true; btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Guardando...';
+    try{
+      if(pe.blob){
+        const fd=new FormData();
+        fd.append('file',pe.blob,'avatar.jpg');
+        fd.append('product_type','avatar');
+        const r=await fetch(API+'/upload',{method:'POST',headers:{'Authorization':'Bearer '+TOKEN},body:fd});
+        if(r.status===401){ localStorage.removeItem('meridaunclick_token'); localStorage.removeItem('meridaunclick_user'); window.location.href='/login.html?redirect=academia.html'; return; }
+        const up=await r.json().catch(function(){ return {}; });
+        if(!r.ok||!up.url) throw new Error(up.error||'No se pudo subir la foto');
+        data.avatar=up.url;
+      }else if(pe.removed){
+        data.avatar='';
+      }
+      const r2=await fetch(API+'/user-profile',{method:'PUT',headers:apiHeaders(),body:JSON.stringify(data)});
+      const res=await r2.json().catch(function(){ return {}; });
+      if(!r2.ok) throw new Error(res.error||'No se pudo guardar');
+      Object.assign(userProfile,res.user||data);
+      if(data.avatar==='') userProfile.avatar=null;
+      // Mantener la sesión en caché al día (nombre y foto del resto del sitio)
+      try{
+        const cached=JSON.parse(localStorage.getItem('meridaunclick_user')||'null');
+        if(cached){ cached.name=userProfile.name; cached.avatar=userProfile.avatar; cached.bio=userProfile.bio; cached.whatsapp=userProfile.whatsapp; cached.phone=userProfile.phone; localStorage.setItem('meridaunclick_user',JSON.stringify(cached)); }
+      }catch(e){}
+      closeProfileEditor();
+      refreshSummary();
+      showToast('Perfil actualizado','success');
+    }catch(err){
+      showToast(err.message||'Error al guardar','error');
+    }finally{
+      pe.saving=false; btn.disabled=false; btn.innerHTML='<i class="fas fa-check"></i> Guardar';
+    }
+  }
+  window.saveProfileEditor=saveProfileEditor;
+  window.addEventListener('pagehide',peStopCamera);
+
+  // ── Initialize ──
+  async function init(){
+    try{
+      // Load profile + progress + classes + exam in parallel
+      const [profileData, progressData, classesData, examData] = await Promise.all([
+        apiGet('/user-profile'),
+        apiGet('/agent-progress'),
+        apiGet('/agent-classes'),
+        apiGet('/agent-exam')
+      ]);
+      if(!profileData||!progressData||!classesData||!examData){ return; }
+
+      userProfile = profileData.user || profileData.profile || profileData;
+      USER_ID = userProfile.id || USER_ID;
+      localStorage.setItem('user_id', USER_ID);
+
+      agentProgress = progressData;
+      classes = classesData.classes || [];
+      examStatus = examData;
+
+      // Update header avatar link
+      document.getElementById('headerAvatarLink').href='/perfil.html?id='+USER_ID;
+      document.getElementById('headerProfileBtn').href='/perfil.html?id='+USER_ID;
+
+      // Canal de YouTube (opcional, no bloquea la carga)
+      try{
+        const cfg=await fetch(API+'/academy-config').then(function(r){ return r.ok?r.json():null; });
+        academyConfig=(cfg&&cfg.config)||{};
+      }catch(e){ academyConfig={}; }
+
+      render();
+      if(location.hash==='#editar-perfil') openProfileEditor();
+    }catch(err){
+      document.getElementById('pageLoader').innerHTML='<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><p>Error al cargar datos</p><p style="font-size:12px;margin-top:4px;color:var(--gray-400)">'+err.message+'</p></div>';
+    }
+  }
+
+  function render(){
+    const m=document.getElementById('mainContent');
+    m.innerHTML='';
+
+    closeVideo();
+    m.innerHTML += '<div id="profileSection">'+renderProfileCard()+'</div>';
+    m.innerHTML += renderCertificateCard();
+    m.innerHTML += renderChannelCard();
+    m.innerHTML += renderClassesSection();
+    m.innerHTML += renderExamSection();
+    m.innerHTML += '<div id="badgesSection">'+renderBadgesSection()+'</div>';
+
+    bindClassEvents();
+  }
+
+  // Actualiza perfil y medallas sin tocar las clases (no borra los resultados del quiz)
+  function refreshSummary(){
+    const p=document.getElementById('profileSection');
+    const b=document.getElementById('badgesSection');
+    if(p) p.innerHTML=renderProfileCard();
+    if(b) b.innerHTML=renderBadgesSection();
+  }
+
+  // ── Certificado (PDF) ──
+  function isCertified(){
+    return !!(examStatus&&examStatus.exam_passed)||!!(agentProgress&&(agentProgress.is_partner||agentProgress.is_graduated));
+  }
+
+  function renderCertificateCard(){
+    if(!isCertified()) return '';
+    return `
+    <div class="card cert-card">
+      <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+      <div class="cert-text">
+        <div class="cert-title">Partner Digital Certificado</div>
+        <div class="cert-sub">Descarga tu certificado y compártelo en tus redes.</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="btn btn-sm btn-outline" href="/perfil.html?id=${encodeURIComponent(USER_ID)}#certificado"><i class="fas fa-eye"></i> Ver en mi perfil</a>
+        <button class="btn btn-sm btn-cert" onclick="downloadCertificate()"><i class="fas fa-file-pdf"></i> Descargar PDF</button>
+      </div>
+    </div>`;
+  }
+
+  function certificateInfo(){
+    const p=(agentProgress&&agentProgress.profile)||{};
+    return window.AcademyCertificate.info({
+      name:userProfile.name,
+      userId:USER_ID||userProfile.id,
+      issuedAt:(examStatus&&examStatus.exam_passed_at)||p.exam_passed_at||p.partner_at||p.graduated_at||''
+    });
+  }
+
+  async function downloadCertificate(){
+    if(!isCertified()){ showToast('Aún no tienes el certificado','error'); return; }
+    if(!window.AcademyCertificate){ showToast('No se pudo cargar el certificado. Recarga la página.','error'); return; }
+    showToast('Generando tu certificado...');
+    try{
+      await window.AcademyCertificate.download(certificateInfo());
+      showToast('Certificado descargado','success');
+    }catch(err){
+      showToast(err.message||'No se pudo generar el certificado','error');
+    }
+  }
+  window.downloadCertificate=downloadCertificate;
+
+  // ── Render: canales de YouTube (uno por profesor) ──
+  function channelList(){
+    const isYt=function(u){ return /^https:\/\/(www\.|m\.)?youtube\.com\//.test(String(u||'')); };
+    let list=Array.isArray(academyConfig.youtube_channels)?academyConfig.youtube_channels:[];
+    if(!list.length&&academyConfig.youtube_channel_url) list=[{url:academyConfig.youtube_channel_url,name:academyConfig.youtube_channel_name}];
+    return list.filter(function(c){ return c&&isYt(c.url); }).slice(0,4);
+  }
+
+  function renderChannelCard(){
+    const list=channelList();
+    if(!list.length) return '';
+    const many=list.length>1;
+    const rows=list.map(function(c){
+      const name=c.name||'Canal de YouTube';
+      return `
+      <div class="yt-row">
+        <div class="yt-channel-icon small"><i class="fab fa-youtube"></i></div>
+        <div class="yt-row-name">${escapeHTML(name)}</div>
+        <div class="yt-channel-actions">
+          <a class="btn btn-sm btn-yt" href="${escapeAttr(c.url+'?sub_confirmation=1')}" target="_blank" rel="noopener"><i class="fas fa-bell"></i> Suscribirme</a>
+          <a class="btn btn-sm btn-yt-outline" href="${escapeAttr(c.url)}" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Ver canal</a>
+        </div>
+      </div>`;
+    }).join('');
+    return `
+    <div class="card yt-channel">
+      <div class="yt-channel-text">
+        <div class="yt-channel-title"><i class="fab fa-youtube" style="color:#dc2626"></i> ${many?'Aprende con nuestros profesores':'Aprende con '+escapeHTML(list[0].name||'nuestro canal de YouTube')}</div>
+        <div class="yt-channel-sub">Las clases de la academia están en ${many?'nuestros canales':'nuestro canal'}. ¡Suscríbete para no perderte ninguna!</div>
+      </div>
+      <div class="yt-rows">${rows}</div>
+    </div>`;
+  }
+
+  // ── Render: Profile Card ──
+  function renderProfileCard(){
+    const p=agentProgress;
+    const lvl=p.level;
+    const xpPercent=p.progress_percent;
+    const completedClasses=p.completed_classes? p.completed_classes.filter(function(c){ return c.completed===1; }).length : 0;
+    const totalBadges=p.total_badges||0;
+    const avatarHTML=userProfile.avatar
+      ? '<img src="'+escapeAttr(userProfile.avatar)+'" alt="Mi foto">'
+      : '<i class="fas fa-user"></i>';
+    const headerAvatarHTML=avatarHTML;
+    document.getElementById('headerAvatar').innerHTML=headerAvatarHTML;
+
+    let levelLabel='Nivel '+lvl;
+    const ln=getLevelName(lvl);
+    if(ln) levelLabel+=' · '+ln;
+
+    return `
+    <div class="card profile-card">
+      <div class="profile-avatar-wrap" onclick="openProfileEditor()" title="Cambiar foto">
+        <div class="profile-avatar">${avatarHTML}</div>
+        <div class="profile-avatar-overlay"><i class="fas fa-camera"></i></div>
+      </div>
+      <div class="profile-name">${escapeHTML(userProfile.name||'Agente')}</div>
+      ${userProfile.bio?'<div class="profile-bio">'+escapeHTML(userProfile.bio)+'</div>':''}
+      <span class="level-badge ${levelBadgeClass(lvl)}"><i class="fas fa-star"></i> ${levelLabel}</span>
+      <div class="xp-bar-wrap">
+        <div class="xp-label"><span>${p.xp} XP</span><span>${p.xp_in_current_level} / ${p.xp_needed_for_next} XP</span></div>
+        <div class="xp-bar"><div class="xp-bar-fill" style="width:${xpPercent}%"></div></div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-item"><div class="stat-value">${completedClasses}</div><div class="stat-label">Clases</div></div>
+        <div class="stat-item"><div class="stat-value">${totalBadges}</div><div class="stat-label">Medallas</div></div>
+        <div class="stat-item"><div class="stat-value">${examStatus.exam_passed?'✓':'—'}</div><div class="stat-label">Examen</div></div>
+      </div>
+      <div class="profile-actions">
+        <button class="btn btn-sm btn-primary" onclick="openProfileEditor()"><i class="fas fa-user-pen"></i> Editar mi perfil</button>
+        <button class="btn btn-sm share-btn" onclick="copyProfileLink()"><i class="fas fa-share-alt"></i> Compartir mi perfil</button>
+      </div>
+    </div>`;
+  }
+
+  function copyProfileLink(){
+    const url=window.location.origin+'/perfil.html?id='+USER_ID;
+    navigator.clipboard.writeText(url).then(()=>showToast('Link copiado al portapapeles','success')).catch(()=>showToast('No se pudo copiar','error'));
+  }
+  window.copyProfileLink=copyProfileLink;
+
+  // ── Render: Classes Section ──
+  function renderClassesSection(){
+    if(!classes.length){
+      return '<div class="card"><div class="card-title"><i class="fas fa-book-open"></i> Mis Clases</div><div class="empty-state"><i class="fas fa-inbox"></i><p>No hay clases disponibles aún</p></div></div>';
+    }
+    // Las clases ya vienen ordenadas por el servidor (ruta por módulos)
+    const groups=[];
+    classes.forEach(function(c){
+      const mod=c.module||'General';
+      let g=groups[groups.length-1];
+      if(!g||g.name!==mod){ g={name:mod,items:[]}; groups.push(g); }
+      g.items.push(c);
+    });
+    const done=classes.filter(isDone).length;
+    const pct=Math.round(done/classes.length*100);
+
+    let html=`
+    <div class="path-summary">
+      <div class="path-summary-top"><span>Tu avance en la ruta</span><strong>${done} / ${classes.length} clases</strong></div>
+      <div class="xp-bar"><div class="xp-bar-fill" style="width:${pct}%"></div></div>
+    </div>`;
+    groups.forEach(function(g){
+      const gDone=g.items.filter(isDone).length;
+      const complete=gDone===g.items.length;
+      html+=`
+      <div class="module-block">
+        <div class="module-head${complete?' complete':''}">
+          <span><i class="fas ${complete?'fa-check-circle':'fa-layer-group'}"></i> ${escapeHTML(g.name)}</span>
+          <span class="module-count">${gDone}/${g.items.length}</span>
+        </div>
+        <div class="classes-grid">${g.items.map(renderClassCard).join('')}</div>
+      </div>`;
+    });
+    return '<div class="card"><div class="card-title"><i class="fas fa-route"></i> Ruta de aprendizaje</div>'+html+'</div>';
+  }
+
+  function isDone(c){ return c.is_completed===1||c.is_completed===true; }
+
+  function isWatched(c){ return c.video_watched===1||c.video_watched===true; }
+
+  // Estado + botones de la tarjeta. En clases con video:
+  //   aprobada            -> "Completada" + Ver de nuevo (repaso)
+  //   video ya visto      -> "Video visto" + Responder preguntas (+ repaso)
+  //   pendiente           -> "Disponible" + Ver video
+  function renderClassMeta(c){
+    const completed=isDone(c);
+    const locked=!completed&&!!c.is_locked;
+    const isVideo=!!youtubeId(c.video_url);
+    const watched=isVideo&&!completed&&isWatched(c);
+    const statusHTML=completed
+      ?'<span class="class-status completed"><i class="fas fa-check-circle"></i> Completada</span>'
+      :locked
+        ?'<span class="class-status locked"><i class="fas fa-lock"></i> Bloqueada</span>'
+        :watched
+          ?'<span class="class-status completed"><i class="fas fa-check-circle"></i> Video visto</span>'
+          :'<span class="class-status available"><i class="fas fa-play-circle"></i> Disponible</span>';
+    let action='';
+    if(isVideo&&completed){
+      action='<button class="btn btn-sm btn-outline-green" onclick="startVideoClass('+c.id+',true)" style="margin-left:auto"><i class="fas fa-redo"></i> Ver de nuevo</button>';
+    }else if(watched){
+      action='<span style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end">'+
+        '<button class="btn btn-sm btn-outline-green" onclick="startVideoClass('+c.id+',true)"><i class="fas fa-redo"></i> Ver de nuevo</button>'+
+        '<button class="btn btn-sm btn-success" onclick="answerVideoQuestions('+c.id+')"><i class="fas fa-question-circle"></i> Responder preguntas</button></span>';
+    }else if(!completed&&!locked){
+      action=isVideo
+        ?'<button class="btn btn-sm btn-yt" onclick="startVideoClass('+c.id+')" style="margin-left:auto"><i class="fab fa-youtube"></i> Ver video</button>'
+        :'<button class="btn btn-sm btn-primary" onclick="startQuiz('+c.id+')" style="margin-left:auto"><i class="fas fa-play"></i> Comenzar</button>';
+    }
+    return `
+        ${isVideo?'<span class="class-video-tag"><i class="fab fa-youtube"></i> Video</span>':''}
+        <span class="class-meta-item"><i class="fas fa-question-circle"></i> ${c.question_count||0} preguntas</span>
+        <span class="class-xp"><i class="fas fa-bolt"></i> ${isVideo?'hasta +'+VIDEO_MAX_POINTS:'+'+(c.xp_reward||10)} XP</span>
+        ${statusHTML}
+        ${action}`;
+  }
+
+  // Actualiza estado y botones de una tarjeta sin tocar el video/quiz abierto
+  function refreshClassCard(classId){
+    const c=classes.find(function(x){ return x.id===classId; });
+    const card=document.getElementById('classCard-'+classId);
+    const meta=document.getElementById('classMeta-'+classId);
+    if(!c||!card||!meta) return;
+    meta.innerHTML=renderClassMeta(c);
+    card.classList.toggle('is-done',isDone(c));
+  }
+
+  // Profesor de la clase; si coincide con un canal configurado, enlaza al canal
+  function renderTeacher(c){
+    const t=String(c.teacher||'').trim();
+    if(!t) return '';
+    const ch=channelList().find(function(x){ return String(x.name||'').trim().toLowerCase()===t.toLowerCase(); });
+    const name=escapeHTML(t);
+    return '<div class="class-teacher"><i class="fas fa-chalkboard-teacher"></i> Prof. '+
+      (ch?'<a href="'+escapeAttr(ch.url)+'" target="_blank" rel="noopener">'+name+' <i class="fab fa-youtube"></i></a>':name)+'</div>';
+  }
+
+  function renderClassCard(c){
+    const completed=isDone(c);
+    const locked=!completed&&!!c.is_locked;
+    const material=!locked&&String(c.content||'').trim()
+      ?`<details class="class-material"><summary><i class="fas fa-file-alt"></i> Material de la clase</summary><div class="class-material-body">${renderMaterial(c.content)}</div></details>`
+      :'';
+    return `
+    <div class="class-card${locked?' is-locked':''}${completed?' is-done':''}" id="classCard-${c.id}">
+      <div class="class-card-top">
+        <div style="flex:1">
+          <div class="class-title">${escapeHTML(c.title)}</div>
+          ${c.description?'<div class="class-desc">'+escapeHTML(c.description)+'</div>':''}
+          ${renderTeacher(c)}
+        </div>
+      </div>
+      <div class="class-meta" id="classMeta-${c.id}">${renderClassMeta(c)}</div>
+      ${locked?'<div class="class-locked-note"><i class="fas fa-info-circle"></i> Aprueba la clase anterior para desbloquearla</div>':''}
+      ${material}
+      <div id="quizPanel-${c.id}"></div>
+    </div>`;
+  }
+
+  // Material escrito por el admin: se permite HTML básico, sin scripts ni eventos.
+  // Si es texto plano, se respetan los saltos de línea y los enlaces.
+  function renderMaterial(content){
+    const raw=String(content||'');
+    if(!/<[a-z][\s\S]*>/i.test(raw)){
+      return escapeHTML(raw)
+        .replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>')
+        .replace(/\n/g,'<br>');
+    }
+    const doc=new DOMParser().parseFromString('<div>'+raw+'</div>','text/html');
+    const ALLOWED=['P','BR','B','STRONG','I','EM','U','UL','OL','LI','A','H2','H3','H4','BLOCKQUOTE','IMG','DIV','SPAN','CODE','PRE','HR','TABLE','THEAD','TBODY','TR','TD','TH'];
+    (function clean(node){
+      Array.from(node.children).forEach(function(el){
+        if(ALLOWED.indexOf(el.tagName)===-1){
+          if(['SCRIPT','STYLE','IFRAME','OBJECT','EMBED','FORM','INPUT','BUTTON','TEXTAREA','SELECT','LINK','META'].indexOf(el.tagName)!==-1){ el.remove(); return; }
+          clean(el); el.replaceWith.apply(el,Array.from(el.childNodes)); return;
+        }
+        Array.from(el.attributes).forEach(function(a){
+          const n=a.name.toLowerCase(), v=String(a.value||'').trim();
+          const keep=(n==='href'&&el.tagName==='A')||(n==='src'&&el.tagName==='IMG')||(n==='alt'&&el.tagName==='IMG');
+          if(!keep||/^(javascript|data|vbscript):/i.test(v.replace(/\s+/g,''))) el.removeAttribute(a.name);
+        });
+        if(el.tagName==='A'){ el.setAttribute('target','_blank'); el.setAttribute('rel','noopener'); }
+        if(el.tagName==='IMG') el.setAttribute('loading','lazy');
+        clean(el);
+      });
+    })(doc.body.firstChild);
+    return doc.body.firstChild.innerHTML;
+  }
+
+  // ── Clases con video de YouTube ──
+  // Hay que ver el video completo sin cerrarlo ni adelantarlo. Si se cierra
+  // el panel o se recarga la página, el progreso se pierde y empieza de nuevo.
+  const VIDEO_MAX_POINTS=30;
+  let ytApiPromise=null;
+  let video=null; // {classId, player, timer, maxWatched, duration, started, done}
+
+  function youtubeId(url){
+    const s=String(url||'').trim();
+    if(!s) return '';
+    if(/^[A-Za-z0-9_-]{11}$/.test(s)) return s;
+    const m=s.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/|v\/)|youtube-nocookie\.com\/embed\/|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+    return m?m[1]:'';
+  }
+
+  function loadYouTubeApi(){
+    if(window.YT&&window.YT.Player) return Promise.resolve(window.YT);
+    if(ytApiPromise) return ytApiPromise;
+    ytApiPromise=new Promise(function(resolve,reject){
+      const prev=window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady=function(){ if(prev) prev(); resolve(window.YT); };
+      const s=document.createElement('script');
+      s.src='https://www.youtube.com/iframe_api';
+      s.onerror=function(){ ytApiPromise=null; reject(new Error('No se pudo cargar YouTube')); };
+      document.head.appendChild(s);
+    });
+    return ytApiPromise;
+  }
+
+  function closeVideo(){
+    if(!video) return;
+    clearInterval(video.timer);
+    try{ video.player&&video.player.destroy(); }catch(e){}
+    const panel=document.getElementById('quizPanel-'+video.classId);
+    if(panel&&!video.keepPanel) panel.innerHTML='';
+    video=null;
+  }
+
+  function fmtTime(s){
+    s=Math.max(0,Math.floor(s||0));
+    return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+  }
+
+  async function startVideoClass(classId,review){
+    const cls=classes.find(function(c){ return c.id===classId; });
+    review=!!review;
+    const vid=cls&&youtubeId(cls.video_url);
+    if(!vid) return;
+    closeVideo();
+    Object.keys(quizStates).forEach(function(id){
+      const qp=document.getElementById('quizPanel-'+id);
+      if(qp&&Number(id)!==classId) qp.innerHTML='';
+      delete quizStates[id];
+    });
+    const panel=document.getElementById('quizPanel-'+classId);
+    if(!panel) return;
+    panel.innerHTML=`
+    <div class="video-panel">
+      <div class="video-frame"><div id="ytPlayer-${classId}"></div></div>
+      ${review
+        ?'<div class="video-note review"><i class="fas fa-check-circle"></i><span>Ya viste este video. Puedes repasarlo libremente: tu avance no cambia.</span></div>'
+        :'<div class="video-note"><i class="fas fa-info-circle"></i><span>Mira el video <strong>completo</strong> para desbloquear las 5 preguntas. No lo cierres ni lo adelantes: si cierras o recargas la página, empiezas de nuevo.</span></div>'}
+      <div class="video-progress"${review?' hidden':''}>
+        <span id="videoTime-${classId}">0:00</span>
+        <div class="video-progress-bar"><div class="video-progress-fill" id="videoFill-${classId}"></div></div>
+        <span id="videoPct-${classId}">0%</span>
+      </div>
+      <div id="videoStatus-${classId}"></div>
+      <div style="text-align:right;margin-top:10px"><button class="btn btn-sm btn-outline" onclick="closeVideoClass()">Cerrar</button></div>
+    </div>`;
+    video={classId:classId,player:null,timer:null,maxWatched:0,duration:0,started:false,done:false,review:review};
+    const state=video;
+    try{
+      const YT=await loadYouTubeApi();
+      if(video!==state) return;
+      state.player=new YT.Player('ytPlayer-'+classId,{
+        videoId:vid,
+        playerVars:{rel:0,modestbranding:1,playsinline:1,disablekb:1,fs:1},
+        events:{
+          onStateChange:function(e){ onVideoState(state,e.data); },
+          onPlaybackRateChange:function(){ if(state.review) return; try{ if(state.player.getPlaybackRate()!==1) state.player.setPlaybackRate(1); }catch(err){} }
+        }
+      });
+      if(!review) state.timer=setInterval(function(){ trackVideo(state); },500);
+    }catch(err){
+      panel.innerHTML='<div class="empty-state" style="padding:12px;color:var(--danger)"><i class="fas fa-exclamation-triangle"></i><p>'+escapeHTML(err.message)+'</p></div>';
+      if(video===state) video=null;
+    }
+  }
+  window.startVideoClass=startVideoClass;
+
+  function closeVideoClass(){
+    if(video&&!video.done&&!video.review) showToast('Cerraste el video: tendrás que verlo de nuevo desde el inicio');
+    closeVideo();
+  }
+  window.closeVideoClass=closeVideoClass;
+
+  async function onVideoState(state,s){
+    if(video!==state||state.done) return;
+    const YTS=window.YT.PlayerState;
+    if(state.review){
+      const c=classes.find(function(x){ return x.id===state.classId; });
+      if(s===YTS.ENDED&&c&&!isDone(c)){
+        setVideoStatus(state,'<button class="btn btn-success" onclick="answerVideoQuestions('+state.classId+')"><i class="fas fa-question-circle"></i> Responder preguntas</button>');
+      }
+      return;
+    }
+    if(s===YTS.PLAYING&&!state.started){
+      state.started=true;
+      state.duration=state.player.getDuration()||0;
+      try{
+        await apiPost('/agent-progress',{class_id:state.classId,action:'video_start',duration:state.duration});
+      }catch(err){
+        state.started=false;
+        state.player.pauseVideo();
+        setVideoStatus(state,'<span style="color:var(--danger)">'+escapeHTML(err.message)+'</span>');
+      }
+    }
+    if(s===YTS.ENDED){
+      trackVideo(state);
+      if(state.duration&&state.maxWatched>=state.duration*0.95-2){
+        finishVideo(state);
+      }else{
+        setVideoStatus(state,'<span style="color:var(--danger)">Debes ver todo el video sin adelantarlo.</span>');
+        state.player.seekTo(state.maxWatched,true);
+      }
+    }
+  }
+
+  function trackVideo(state){
+    if(video!==state||!state.player||!state.player.getCurrentTime||state.done) return;
+    const t=state.player.getCurrentTime()||0;
+    const d=state.duration||state.player.getDuration()||0;
+    const now=Date.now();
+    // Avance permitido = tiempo real transcurrido (las pestañas en segundo plano
+    // ejecutan el timer con menos frecuencia) + un margen
+    const allowed=state.lastTick?(now-state.lastTick)/1000*1.1+1.5:2.5;
+    state.lastTick=now;
+    if(state.started){
+      if(t>state.maxWatched+allowed){
+        // Intentó adelantar: volver al punto máximo visto
+        state.player.seekTo(state.maxWatched,true);
+        showToast('No puedes adelantar el video');
+      }else if(t>state.maxWatched){
+        state.maxWatched=t;
+      }
+    }
+    const pct=d?Math.min(100,Math.round(state.maxWatched/d*100)):0;
+    const fill=document.getElementById('videoFill-'+state.classId);
+    if(fill) fill.style.width=pct+'%';
+    const pctEl=document.getElementById('videoPct-'+state.classId);
+    if(pctEl) pctEl.textContent=pct+'%';
+    const timeEl=document.getElementById('videoTime-'+state.classId);
+    if(timeEl) timeEl.textContent=fmtTime(state.maxWatched)+' / '+fmtTime(d);
+  }
+
+  function setVideoStatus(state,html){
+    const el=document.getElementById('videoStatus-'+state.classId);
+    if(el) el.innerHTML='<div style="font-size:13px;margin-top:8px;text-align:center">'+html+'</div>';
+  }
+
+  async function finishVideo(state){
+    state.done=true;
+    clearInterval(state.timer);
+    setVideoStatus(state,'<div class="spinner" style="width:24px;height:24px"></div>');
+    try{
+      await apiPost('/agent-progress',{class_id:state.classId,action:'video_complete'});
+      const wc=classes.find(function(x){ return x.id===state.classId; });
+      if(wc){ wc.video_watched=1; refreshClassCard(state.classId); }
+      setVideoStatus(state,`
+        <div class="video-done">
+          <i class="fas fa-check-circle"></i>
+          <div style="font-weight:700;color:var(--gray-900)">¡Video completado! +10 pts</div>
+          <div style="font-size:13px;color:var(--gray-500);margin:4px 0 10px">Ahora responde las 5 preguntas: 2 pts por cada respuesta correcta y 10 pts extra si aciertas todas.</div>
+          <button class="btn btn-primary" onclick="answerVideoQuestions(${state.classId})"><i class="fas fa-question-circle"></i> Responder preguntas</button>
+        </div>`);
+    }catch(err){
+      state.done=false;
+      setVideoStatus(state,'<span style="color:var(--danger)">'+escapeHTML(err.message)+'</span><br><button class="btn btn-sm btn-yt" style="margin-top:8px" onclick="startVideoClass('+state.classId+')"><i class="fas fa-redo"></i> Ver de nuevo</button>');
+    }
+  }
+
+  function answerVideoQuestions(classId){
+    if(video&&video.classId===classId){ video.keepPanel=true; closeVideo(); }
+    startQuiz(classId);
+  }
+  window.answerVideoQuestions=answerVideoQuestions;
+
+  // Avisar antes de cerrar/recargar con un video a medias
+  window.addEventListener('beforeunload',function(e){
+    if(video&&!video.review&&video.started&&!video.done){ e.preventDefault(); e.returnValue=''; }
+  });
+
+  // ── Quiz State ──
+  const quizStates={};
+
+  function bindClassEvents(){}
+
+  async function startQuiz(classId){
+    if(video&&video.classId!==classId) closeVideo();
+    const panel=document.getElementById('quizPanel-'+classId);
+    if(!panel) return;
+    panel.innerHTML='<div style="text-align:center;padding:16px"><div class="spinner"></div><p style="font-size:13px;color:var(--gray-500)">Cargando preguntas...</p></div>';
+
+    try{
+      const data=await apiGet('/agent-classes/'+classId);
+      if(!data) return;
+      const questions=data.questions||[];
+      if(!questions.length){
+        panel.innerHTML='<div class="empty-state" style="padding:12px"><i class="fas fa-exclamation-circle"></i><p>No hay preguntas para esta clase</p></div>';
+        return;
+      }
+      quizStates[classId]={questions:questions,current:0,answers:[]};
+      renderQuestion(classId);
+    }catch(err){
+      panel.innerHTML='<div class="empty-state" style="padding:12px;color:var(--danger)"><i class="fas fa-exclamation-triangle"></i><p>Error: '+err.message+'</p></div>';
+    }
+  }
+  window.startQuiz=startQuiz;
+
+  function renderQuestion(classId){
+    const qs=quizStates[classId];
+    const q=qs.questions[qs.current];
+    const total=qs.questions.length;
+    const current=qs.current+1;
+    const pct=Math.round((current/total)*100);
+
+    const letters=['A','B','C','D'];
+    const options=[
+      {letter:'A', text:q.option_a},
+      {letter:'B', text:q.option_b},
+      {letter:'C', text:q.option_c},
+      {letter:'D', text:q.option_d}
+    ].filter(function(o){ return o.text; });
+    const selected=qs.answers[qs.current]||'';
+
+    const optionsHTML=options.map(function(opt,i){
+      const letter=opt.letter;
+      const sel=selected===letter?' selected':'';
+      return `<div class="quiz-option${sel}" onclick="selectOption(${classId},'${letter}')" data-letter="${letter}">
+        <span class="quiz-option-letter">${letter}</span>
+        <span>${escapeHTML(opt.text)}</span>
+      </div>`;
+    }).join('');
+
+    const isLast=current===total;
+
+    document.getElementById('quizPanel-'+classId).innerHTML=`
+    <div class="quiz-panel">
+      <div class="quiz-progress">
+        <span>${current} / ${total}</span>
+        <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${pct}%"></div></div>
+      </div>
+      <div class="quiz-question">${current}. ${escapeHTML(q.question)}</div>
+      <div class="quiz-options">${optionsHTML}</div>
+      <div class="quiz-nav">
+        ${current>1?'<button class="btn btn-sm btn-outline" onclick="prevQuestion('+classId+')"><i class="fas fa-arrow-left"></i> Anterior</button>':''}
+        <div style="flex:1"></div>
+        <button class="btn btn-sm btn-primary" onclick="${isLast?'submitQuiz('+classId+')':'nextQuestion('+classId+')'}" ${!selected?'disabled':''}>
+          ${isLast?'<i class="fas fa-check"></i> Enviar':'Siguiente <i class="fas fa-arrow-right"></i>'}
+        </button>
+      </div>
+    </div>`;
+  }
+
+  function selectOption(classId,letter){
+    quizStates[classId].answers[quizStates[classId].current]=letter;
+    // Update UI
+    const panel=document.getElementById('quizPanel-'+classId);
+    panel.querySelectorAll('.quiz-option').forEach(function(el){
+      el.classList.toggle('selected',el.dataset.letter===letter);
+    });
+    // Enable submit button
+    const btn=panel.querySelector('.quiz-nav .btn-primary');
+    if(btn) btn.disabled=false;
+  }
+  window.selectOption=selectOption;
+
+  function nextQuestion(classId){
+    const qs=quizStates[classId];
+    if(qs.current<qs.questions.length-1){
+      qs.current++;
+      renderQuestion(classId);
+      document.getElementById('quizPanel-'+classId).scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+  }
+  window.nextQuestion=nextQuestion;
+
+  function prevQuestion(classId){
+    const qs=quizStates[classId];
+    if(qs.current>0){
+      qs.current--;
+      renderQuestion(classId);
+    }
+  }
+  window.prevQuestion=prevQuestion;
+
+  async function submitQuiz(classId){
+    const qs=quizStates[classId];
+    const panel=document.getElementById('quizPanel-'+classId);
+    panel.innerHTML='<div style="text-align:center;padding:16px"><div class="spinner"></div><p style="font-size:13px;color:var(--gray-500)">Calificando...</p></div>';
+
+    // Build answers array
+    const answers=qs.questions.map(function(q,i){
+      return {question_id:q.id, answer:qs.answers[i]||''};
+    });
+
+    try{
+      const result=await apiPost('/agent-progress',{class_id:classId,answers:answers});
+      if(!result) return;
+      if(result.passed) pathChanged=true;
+      renderQuizResults(classId,result);
+      // Refresh progress (perfil y medallas, sin borrar los resultados)
+      const freshProgress=await apiGet('/agent-progress');
+      if(freshProgress){ agentProgress=freshProgress; refreshSummary(); }
+      if(result.passed){
+        pathRefresh=Promise.all([apiGet('/agent-classes'),apiGet('/agent-exam')]).then(function(r){
+          if(r[0]) classes=r[0].classes||classes;
+          if(r[1]) examStatus=r[1];
+        }).catch(function(){});
+        await pathRefresh;
+      }
+    }catch(err){
+      const cls=classes.find(function(c){return c.id===classId});
+      // El servidor pide ver el video de nuevo: la tarjeta vuelve a "Ver video"
+      if(cls&&youtubeId(cls.video_url)&&/video/i.test(err.message||'')){ cls.video_watched=0; refreshClassCard(classId); }
+      const retry=cls&&youtubeId(cls.video_url)
+        ?'<button class="btn btn-sm btn-yt" onclick="startVideoClass('+classId+')" style="margin-top:12px"><i class="fab fa-youtube"></i> Ver video</button>'
+        :'<button class="btn btn-sm btn-outline" onclick="startQuiz('+classId+')" style="margin-top:12px"><i class="fas fa-redo"></i> Reintentar</button>';
+      panel.innerHTML='<div class="results-panel" style="color:var(--danger)"><i class="fas fa-exclamation-triangle" style="font-size:24px;margin-bottom:8px"></i><p>'+escapeHTML(err.message)+'</p>'+retry+'</div>';
+    }
+  }
+  window.submitQuiz=submitQuiz;
+
+  function renderQuizResults(classId,r){
+    const passed=r.score_percent>=70;
+    const cls=classes.find(function(c){return c.id===classId});
+
+    let html=`<div class="quiz-panel results-panel">`;
+    html+=`<i class="fas ${passed?'fa-check-circle':'fa-times-circle'}" style="font-size:40px;color:${passed?'var(--success)':'var(--danger)'}"></i>`;
+    html+=`<div class="results-score ${passed?'pass':'fail'}">${r.score_percent}%</div>`;
+    html+=`<div class="results-message">${r.correct_answers} de ${r.total_questions} correctas</div>`;
+    const b=r.score_breakdown;
+    if(r.is_video&&b){
+      html+=`<div class="score-breakdown">
+        <div class="score-row"><span><i class="fab fa-youtube" style="color:#dc2626"></i> Video visto</span><strong>+${b.video_points}</strong></div>
+        <div class="score-row"><span><i class="fas fa-check" style="color:var(--success)"></i> Respuestas correctas (${r.correct_answers} × 2)</span><strong>+${b.answer_points}</strong></div>
+        <div class="score-row"><span><i class="fas fa-crown" style="color:#d97706"></i> Bono todas correctas</span><strong>+${b.bonus_points}</strong></div>
+        <div class="score-row total"><span>Total</span><strong>${b.points} / ${b.max_points} pts</strong></div>
+      </div>`;
+      if(!passed) html+=`<div class="results-message" style="font-size:13px">Necesitas al menos 4 de 5 correctas. Para reintentar debes ver el video otra vez.</div>`;
+    }
+    html+=`<div class="results-xp"><i class="fas fa-bolt"></i> +${r.xp_earned} XP ganados</div>`;
+    if(r.leveled_up){
+      html+=`<div class="results-levelup"><i class="fas fa-arrow-up"></i> ¡Subiste al nivel ${r.new_level}! ${getLevelName(r.new_level)?'· '+getLevelName(r.new_level):''}</div>`;
+    }
+    html+=`<div class="results-actions">`;
+    html+=passed
+      ?`<button class="btn btn-sm btn-primary" onclick="closeQuiz(${classId})">Continuar <i class="fas fa-arrow-right"></i></button>`
+      :`<button class="btn btn-sm btn-outline" onclick="closeQuiz(${classId})">Cerrar</button>`;
+    if(!passed && cls){
+      html+=r.is_video
+        ?`<button class="btn btn-sm btn-yt" onclick="startVideoClass(${classId})"><i class="fab fa-youtube"></i> Ver video de nuevo</button>`
+        :`<button class="btn btn-sm btn-primary" onclick="startQuiz(${classId})"><i class="fas fa-redo"></i> Reintentar</button>`;
+    }
+    html+=`</div></div>`;
+
+    document.getElementById('quizPanel-'+classId).innerHTML=html;
+
+    // Actualizar la tarjeta: aprobada -> Completada; video no aprobado -> hay que verlo otra vez
+    if(cls){
+      if(passed) cls.is_completed=1;
+      if(r.is_video) cls.video_watched=passed?1:0;
+      refreshClassCard(classId);
+    }
+  }
+
+  let pathChanged=false;
+  let pathRefresh=null;
+  async function closeQuiz(classId){
+    const panel=document.getElementById('quizPanel-'+classId);
+    if(panel) panel.innerHTML='';
+    delete quizStates[classId];
+    if(pathChanged){
+      if(pathRefresh) await pathRefresh;
+      // Aprobó una clase: mostrar la ruta actualizada con la siguiente desbloqueada
+      pathChanged=false;
+      render();
+      const next=classes.find(function(c){ return !isDone(c)&&!c.is_locked; });
+      const card=next&&document.getElementById('classCard-'+next.id);
+      if(card) card.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  }
+  window.closeQuiz=closeQuiz;
+
+  // ── Render: Exam Section ──
+  function renderExamSection(){
+    const passed=examStatus.exam_passed;
+    const attemptsRemaining=examStatus.attempts_remaining;
+    const canTake=examStatus.can_take_exam;
+
+    let content='';
+
+    if(passed){
+      const passedDate=examStatus.exam_passed_at ? formatDate(examStatus.exam_passed_at) : '';
+      content=`
+      <div class="exam-passed">
+        <i class="fas fa-trophy"></i>
+        <h3>Examen Aprobado</h3>
+        <p>${examStatus.score_percent?'Calificación: '+examStatus.score_percent+'%':'¡Felicidades! Eres Partner Digital Certificado'}</p>
+        ${passedDate?'<p style="font-size:12px;color:var(--gray-400);margin-top:4px">'+passedDate+'</p>':''}
+        <button class="btn btn-cert" style="margin-top:14px" onclick="downloadCertificate()"><i class="fas fa-file-pdf"></i> Descargar certificado (PDF)</button>
+      </div>`;
+    } else if(!examStatus.requirement_met){
+      const done=examStatus.path_completed||0, total=examStatus.path_total||0;
+      content=`
+      <div class="exam-locked">
+        <i class="fas fa-lock"></i>
+        <h3>Examen Bloqueado</h3>
+        <p>${total?'Aprueba <strong>todas las clases</strong> de la ruta para desbloquear el examen final.':'Aún no hay clases publicadas.'}</p>
+        ${total?'<p style="margin-top:8px;font-size:13px;color:var(--gray-400)">Llevas '+done+' de '+total+' clases</p>':''}
+      </div>`;
+    } else {
+      content=`
+      <div class="exam-info">
+        <div class="exam-info-item"><div class="exam-info-value">15</div><div class="exam-info-label">Preguntas</div></div>
+        <div class="exam-info-item"><div class="exam-info-value">80%</div><div class="exam-info-label">Para aprobar</div></div>
+        <div class="exam-info-item"><div class="exam-info-value">${attemptsRemaining}</div><div class="exam-info-label">Intentos restantes</div></div>
+        <div class="exam-info-item"><div class="exam-info-value">+${examStatus.exam_xp||150}</div><div class="exam-info-label">XP al aprobar</div></div>
+      </div>
+      ${canTake
+        ?'<button class="btn btn-primary btn-block" onclick="startExam()"><i class="fas fa-file-alt"></i> Comenzar Examen</button>'
+        :'<div style="color:var(--gray-400);font-size:13px">No tienes intentos disponibles. Contacta al administrador.</div>'}
+      <div id="examPanel"></div>`;
+    }
+
+    return `<div class="card exam-card"><div class="card-title"><i class="fas fa-award"></i> Examen Final</div>${content}</div>`;
+  }
+
+  // ── Exam State ──
+  let examQuestions=[];
+  let examTimer = 0;
+  let examTimerInterval = null;
+
+  async function startExam(){
+    const panel=document.getElementById('examPanel');
+    if(!panel) return;
+    panel.innerHTML='<div style="text-align:center;padding:16px"><div class="spinner"></div><p style="font-size:13px;color:var(--gray-500)">Cargando examen...</p></div>';
+
+    try{
+      const data=await apiGet('/agent-exam/questions');
+      if(!data) return;
+      examQuestions=data.questions||[];
+      if(!examQuestions.length){
+        panel.innerHTML='<div class="empty-state" style="padding:12px"><i class="fas fa-exclamation-circle"></i><p>No hay preguntas disponibles</p></div>';
+        return;
+      }
+      examTimer = 1800; // 30 minutes in seconds
+      examTimerInterval = setInterval(function() {
+          examTimer--;
+          if (examTimer <= 0) {
+              clearInterval(examTimerInterval);
+              submitExam(); // Auto-submit when time runs out
+              return;
+          }
+          var mins = Math.floor(examTimer / 60);
+          var secs = examTimer % 60;
+          var timerEl = document.getElementById('exam-timer');
+          if (timerEl) {
+              timerEl.innerHTML = '<i class="fas fa-clock"></i> ' + mins + ':' + (secs < 10 ? '0' : '') + secs;
+              if (examTimer <= 300) timerEl.style.color = '#dc2626'; // Red when under 5 min
+          }
+      }, 1000);
+      renderExamQuestion(0,new Array(examQuestions.length).fill(''));
+    }catch(err){
+      panel.innerHTML='<div style="color:var(--danger);text-align:center;padding:12px"><i class="fas fa-exclamation-triangle"></i><p>'+escapeHTML(err.message)+'</p></div>';
+    }
+  }
+  window.startExam=startExam;
+
+  let examCurrentIdx=0;
+  let examAnswers=[];
+
+  function renderExamQuestion(idx,answers){
+    examCurrentIdx=idx;
+    examAnswers=answers;
+    const q=examQuestions[idx];
+    const total=examQuestions.length;
+    const current=idx+1;
+    const pct=Math.round((current/total)*100);
+
+    const letters=['A','B','C','D'];
+    const options=[
+      {letter:'A', text:q.option_a},
+      {letter:'B', text:q.option_b},
+      {letter:'C', text:q.option_c},
+      {letter:'D', text:q.option_d}
+    ].filter(function(o){ return o.text; });
+    const selected=answers[idx]||'';
+
+    const optionsHTML=options.map(function(opt,i){
+      const letter=opt.letter;
+      const sel=selected===letter?' selected':'';
+      return `<div class="quiz-option${sel}" onclick="selectExamOption('${letter}')" data-letter="${letter}">
+        <span class="quiz-option-letter">${letter}</span>
+        <span>${escapeHTML(opt.text)}</span>
+      </div>`;
+    }).join('');
+
+    const isLast=current===total;
+
+    document.getElementById('examPanel').innerHTML=`
+    <div class="quiz-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding:8px 12px;background:linear-gradient(90deg,#f5f3ff,#ede9fe);border-radius:8px;">
+        <span style="font-weight:600;font-size:0.9rem;color:#7c3aed;"><i class="fas fa-file-alt"></i> Pregunta ${idx + 1} de ${examQuestions.length}</span>
+        <span id="exam-timer" style="font-weight:700;font-size:0.95rem;color:#7c3aed;"><i class="fas fa-clock"></i> 30:00</span>
+      </div>
+      <div style="height:6px;background:#e5e7eb;border-radius:3px;margin-bottom:16px;overflow:hidden;">
+        <div style="height:100%;background:linear-gradient(90deg,#7c3aed,#3b82f6);border-radius:3px;width:${((idx + 1) / examQuestions.length * 100)}%;transition:width 0.3s;"></div>
+      </div>
+      <div class="quiz-question">${current}. ${escapeHTML(q.question)}</div>
+      ${q.class_name?'<div style="font-size:11px;color:var(--gray-400);margin-bottom:12px"><i class="fas fa-book"></i> '+escapeHTML(q.class_name)+'</div>':''}
+      <div class="quiz-options">${optionsHTML}</div>
+      <div class="quiz-nav">
+        ${current>1?'<button class="btn btn-sm btn-outline" onclick="examPrev()"><i class="fas fa-arrow-left"></i> Anterior</button>':''}
+        <div style="flex:1"></div>
+        <button class="btn btn-sm btn-primary" onclick="${isLast?'submitExam()':'examNext()'}" ${!selected?'disabled':''}>
+          ${isLast?'<i class="fas fa-check"></i> Enviar Examen':'Siguiente <i class="fas fa-arrow-right"></i>'}
+        </button>
+      </div>
+    </div>`;
+  }
+
+  function selectExamOption(letter){
+    examAnswers[examCurrentIdx]=letter;
+    const panel=document.getElementById('examPanel');
+    panel.querySelectorAll('.quiz-option').forEach(function(el){
+      el.classList.toggle('selected',el.dataset.letter===letter);
+    });
+    const btn=panel.querySelector('.quiz-nav .btn-primary');
+    if(btn) btn.disabled=false;
+  }
+  window.selectExamOption=selectExamOption;
+
+  function examNext(){
+    if(examCurrentIdx<examQuestions.length-1){
+      renderExamQuestion(examCurrentIdx+1,examAnswers);
+      document.getElementById('examPanel').scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+  }
+  window.examNext=examNext;
+
+  function examPrev(){
+    if(examCurrentIdx>0){
+      renderExamQuestion(examCurrentIdx-1,examAnswers);
+    }
+  }
+  window.examPrev=examPrev;
+
+  async function submitExam(){
+    if (examTimerInterval) { clearInterval(examTimerInterval); examTimerInterval = null; }
+    const panel=document.getElementById('examPanel');
+    panel.innerHTML='<div style="text-align:center;padding:16px"><div class="spinner"></div><p style="font-size:13px;color:var(--gray-500)">Calificando examen...</p></div>';
+
+    const answers=examQuestions.map(function(q,i){
+      return {question_id:q.id, answer:examAnswers[i]||''};
+    });
+
+    try{
+      const result=await apiPost('/agent-exam',{answers:answers});
+      if(!result) return;
+      renderExamResults(result);
+    }catch(err){
+      panel.innerHTML='<div class="results-panel" style="color:var(--danger)"><i class="fas fa-exclamation-triangle" style="font-size:24px;margin-bottom:8px"></i><p>'+escapeHTML(err.message)+'</p><button class="btn btn-sm btn-outline" onclick="startExam()" style="margin-top:12px"><i class="fas fa-redo"></i> Reintentar</button></div>';
+    }
+  }
+  window.submitExam=submitExam;
+
+  function renderExamResults(r){
+    const panel=document.getElementById('examPanel');
+    let html=`<div class="quiz-panel results-panel">`;
+    if(r.passed){
+      html+=`<i class="fas fa-trophy" style="font-size:48px;color:var(--success)"></i>`;
+      html+=`<div class="results-score pass">${r.score_percent}%</div>`;
+      html+=`<div class="results-message" style="font-size:16px;font-weight:700;color:var(--success)">¡Aprobaste!</div>`;
+      html+=`<div class="results-message">Eres ahora un <strong>Partner Digital Certificado</strong></div>`;
+      if(r.xp_earned) html+=`<div class="results-xp"><i class="fas fa-bolt"></i> +${r.xp_earned} XP ganados</div>`;
+      if(r.leveled_up) html+=`<div class="results-levelup"><i class="fas fa-arrow-up"></i> ¡Subiste al nivel ${r.new_level}! · ${getLevelName(r.new_level)}</div>`;
+      html+=`<button class="btn btn-cert" style="margin-top:10px" onclick="downloadCertificate()"><i class="fas fa-file-pdf"></i> Descargar certificado (PDF)</button>`;
+    }else{
+      html+=`<i class="fas fa-times-circle" style="font-size:48px;color:var(--danger)"></i>`;
+      html+=`<div class="results-score fail">${r.score_percent}%</div>`;
+      html+=`<div class="results-message">No aprobaste (necesitas 80%)</div>`;
+      html+=`<div class="results-message">Intentos restantes: ${r.attempts_remaining}</div>`;
+    }
+    html+=`<div class="results-message" style="margin-top:4px">${r.correct_answers} de ${r.total_questions} correctas</div>`;
+    html+=`<div class="results-actions">`;
+    if(!r.passed && r.attempts_remaining>0){
+      html+=`<button class="btn btn-sm btn-primary" onclick="startExam()"><i class="fas fa-redo"></i> Reintentar</button>`;
+    }
+    html+=`<button class="btn btn-sm btn-outline" onclick="closeExam()">Cerrar</button>`;
+    html+=`</div></div>`;
+    panel.innerHTML=html;
+  }
+
+  function closeExam(){
+    if (examTimerInterval) { clearInterval(examTimerInterval); examTimerInterval = null; }
+    const panel=document.getElementById('examPanel');
+    if(panel) panel.innerHTML='';
+    examQuestions=[];
+    examAnswers=[];
+    examCurrentIdx=0;
+    // Refresh exam status
+    Promise.all([apiGet('/agent-exam'),apiGet('/agent-progress')]).then(function(r){
+      if(r[0]) examStatus=r[0];
+      if(r[1]) agentProgress=r[1];
+      render();
+    }).catch(function(){});
+  }
+  window.closeExam=closeExam;
+
+  // ── Render: Badges Section ──
+  function renderBadgesSection(){
+    const badges=agentProgress.badges||[];
+    if(!badges.length){
+      return '<div class="card"><div class="card-title"><i class="fas fa-medal"></i> Medallas</div><div class="no-badges"><i class="fas fa-lock"></i><p>Completa clases y sube de nivel para ganar medallas</p></div></div>';
+    }
+
+    const cards=badges.map(function(b){
+      const icon=(b.badge_icon||'fas fa-medal').replace(/[^a-zA-Z0-9\s\-]/g,'');
+      const earnedDate=b.earned_at ? formatDate(b.earned_at) : '';
+      return `
+      <div class="badge-card">
+        <div class="badge-icon"><i class="${icon}"></i></div>
+        <div class="badge-name">${escapeHTML(b.badge_name)}</div>
+        <div class="badge-desc">${escapeHTML(b.badge_description)}</div>
+        ${earnedDate?'<div class="badge-date"><i class="fas fa-calendar"></i> '+earnedDate+'</div>':''}
+      </div>`;
+    }).join('');
+
+    return `<div class="card"><div class="card-title"><i class="fas fa-medal"></i> Medallas (${badges.length})</div><div class="badges-grid">${cards}</div></div>`;
+  }
+
+  // ── Utilities ──
+  function escapeHTML(str){
+    if(!str) return '';
+    const div=document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  function escapeAttr(str){
+    return String(str||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function formatDate(dateStr){
+    if(!dateStr) return '';
+    try{
+      const d=new Date(dateStr+'Z');
+      if(isNaN(d.getTime())) return dateStr;
+      return d.toLocaleDateString('es-VE',{day:'numeric',month:'short',year:'numeric'});
+    }catch(e){ return dateStr; }
+  }
+
+  // ── Start ──
+  init();
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+// GET: List all classes (admin gets all, agents get active only)
+// POST: Create new class (admin only)
+
+import { corsHeaders, requireAuth, requireAdmin } from '../../_lib/auth.js';
+import { ensureAcademyVideoSchema, youtubeId, normalizeQuestions, replaceQuestions } from '../../_lib/academy-video.js';
+import { applyPath } from '../../_lib/academy-path.js';
+
+async function ensureTables(db) {
+  var tables = [
+    "CREATE TABLE IF NOT EXISTS mml_agent_classes (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, description TEXT, content TEXT DEFAULT '', xp_reward INTEGER DEFAULT 10, sort_order INTEGER DEFAULT 0, is_active INTEGER DEFAULT 1, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))",
+    "CREATE TABLE IF NOT EXISTS mml_class_questions (id INTEGER PRIMARY KEY AUTOINCREMENT, class_id INTEGER NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT DEFAULT '', option_d TEXT DEFAULT '', correct_answer TEXT NOT NULL, explanation TEXT DEFAULT '', points INTEGER DEFAULT 10, sort_order INTEGER DEFAULT 0, created_at TEXT DEFAULT (datetime('now')))",
+    "CREATE TABLE IF NOT EXISTS mml_user_class_progress (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, class_id INTEGER NOT NULL, completed INTEGER DEFAULT 0, correct_answers INTEGER DEFAULT 0, total_questions INTEGER DEFAULT 0, total_points INTEGER DEFAULT 0, xp_earned INTEGER DEFAULT 0, completed_at TEXT, UNIQUE(user_id, class_id))",
+    "CREATE TABLE IF NOT EXISTS mml_agent_profiles (user_id INTEGER PRIMARY KEY, level INTEGER DEFAULT 1, xp INTEGER DEFAULT 0, xp_to_next_level INTEGER DEFAULT 100, total_classes_completed INTEGER DEFAULT 0, exam_passed INTEGER DEFAULT 0, exam_passed_at TEXT, mml_exam_attempts INTEGER DEFAULT 0, last_exam_at TEXT, is_partner INTEGER DEFAULT 0, partner_at TEXT, graduated INTEGER DEFAULT 0, graduated_at TEXT, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))",
+    "CREATE TABLE IF NOT EXISTS mml_user_badges (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, badge_type TEXT NOT NULL, badge_name TEXT NOT NULL, badge_description TEXT DEFAULT '', badge_icon TEXT DEFAULT 'fas fa-medal', earned_at TEXT DEFAULT (datetime('now')))"
+  ];
+  for (var i = 0; i < tables.length; i++) {
+    try { await db.prepare(tables[i]).run(); } catch(e) {}
+  }
+  // Ensure columns added by later migrations exist (migration may have created tables without these)
+  var alters = [
+    "ALTER TABLE mml_class_questions ADD COLUMN points INTEGER DEFAULT 10",
+    "ALTER TABLE mml_user_class_progress ADD COLUMN total_points INTEGER DEFAULT 0",
+    "ALTER TABLE mml_agent_classes ADD COLUMN module TEXT DEFAULT 'General'",
+    "ALTER TABLE mml_agent_classes ADD COLUMN module_order INTEGER DEFAULT 0"
+  ];
+  for (var j = 0; j < alters.length; j++) {
+    try { await db.prepare(alters[j]).run(); } catch(e) { /* column already exists */ }
+  }
+  await ensureAcademyVideoSchema(db);
+}
+
+export async function onRequestOptions() {
+  return new Response(null, { headers: corsHeaders });
+}
+
+export async function onRequestGet(context) {
+  try {
+    var auth = await requireAuth(context.request, context.env);
+    if (auth.error) return auth.error;
+
+    var env = context.env;
+    // Vista de administracion solo si el admin la pide (?view=admin, desde
+    // /academia-admin). En la academia el admin ve lo mismo que un agente:
+    // su propio progreso, video visto y clases bloqueadas.
+    var wantsAdmin = new URL(context.request.url).searchParams.get('view') === 'admin';
+    var isAdmin = auth.user.role === 'admin' && wantsAdmin;
+
+    await ensureTables(env.DB);
+
+    var query, params;
+    if (isAdmin) {
+      query = "SELECT ac.*, (SELECT COUNT(*) FROM mml_class_questions WHERE class_id = ac.id) as question_count, (SELECT COUNT(*) FROM mml_user_class_progress WHERE class_id = ac.id AND completed = 1) as completions FROM mml_agent_classes ac ORDER BY ac.sort_order ASC, ac.id ASC";
+      params = [];
+    } else {
+      query = "SELECT ac.id, ac.title, ac.description, ac.content, ac.xp_reward, ac.sort_order, ac.video_url, ac.teacher, ac.module, ac.module_order, (SELECT COUNT(*) FROM mml_class_questions WHERE class_id = ac.id) as question_count, COALESCE((SELECT completed FROM mml_user_class_progress WHERE class_id = ac.id AND user_id = ?), 0) as is_completed, COALESCE((SELECT video_completed FROM mml_user_class_progress WHERE class_id = ac.id AND user_id = ?), 0) as video_watched FROM mml_agent_classes ac WHERE ac.is_active = 1 ORDER BY ac.sort_order ASC, ac.id ASC";
+      params = [auth.user.id, auth.user.id];
+    }
+
+    var stmt = env.DB.prepare(query);
+    var result = params.length > 0 ? await stmt.bind(...params).all() : await stmt.all();
+    // Agentes: ruta ordenada por modulos, con las clases siguientes bloqueadas
+    var list = isAdmin ? (result.results || []) : applyPath(result.results || []);
+    return new Response(JSON.stringify({ classes: list }), {
+      status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    // BUG #1 FIX: Return 500 so frontend shows error, NOT 200 with empty classes
+    console.error('GET /agent-classes error:', error.message);
+    return new Response(JSON.stringify({ error: 'Error al cargar clases', details: error.message }), {
+      status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  }
+}
+
+export async function onRequestPost(context) {
+  try {
+    var auth = await requireAdmin(context.request, context.env);
+    if (auth.error) return auth.error;
+
+    var env = context.env;
+    var body = await context.request.json();
+    var title = body.title;
+    var description = body.description;
+    var content = body.content;
+    var xp_reward = body.xp_reward;
+    var sort_order = body.sort_order;
+    var is_active = body.is_active;
+    var module = body.module;
+    var module_order = body.module_order;
+
+    if (!title || !title.trim()) {
+      return new Response(JSON.stringify({ error: 'El titulo es requerido' }), {
+        status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Clase con video de YouTube: URL valida + 5 preguntas
+    var video_url = String(body.video_url || '').trim();
+    if (video_url && !youtubeId(video_url)) {
+      return new Response(JSON.stringify({ error: 'La URL del video de YouTube no es valida' }), {
+        status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+    var questions = null;
+    if (body.questions !== undefined || video_url) {
+      var norm = normalizeQuestions(body.questions || [], !!video_url);
+      if (norm.error) {
+        return new Response(JSON.stringify({ error: norm.error }), {
+          status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+      questions = norm.questions;
+    }
+
+    await ensureTables(env.DB);
+
+    // Profesor de la clase: el indicado o, si no, el admin que la crea
+    var teacher = String(body.teacher || '').trim().slice(0, 100);
+    if (!teacher) {
+      try {
+        var me = await env.DB.prepare('SELECT name FROM mml_users WHERE id = ?').bind(auth.user.id).first();
+        teacher = (me && me.name) ? String(me.name).slice(0, 100) : '';
+      } catch (e) {}
+    }
+
+    // BUG #8 FIX: Use !== undefined instead of || to allow explicit 0 values
+    var result = await env.DB.prepare(
+      'INSERT INTO mml_agent_classes (title, description, content, xp_reward, sort_order, is_active, module, module_order, video_url, teacher) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+    ).bind(
+      title.trim(),
+      description || '',
+      content || '',
+      xp_reward !== undefined ? xp_reward : 10,
+      sort_order !== undefined ? sort_order : 0,
+      is_active !== undefined ? (is_active ? 1 : 0) : 1,
+      module || 'General',
+      module_order !== undefined ? module_order : 0,
+      video_url,
+      teacher
+    ).run();
+
+    var classId = result.meta.last_row_id;
+    if (questions) await replaceQuestions(env.DB, classId, questions);
+
+    return new Response(JSON.stringify({
+      message: 'Clase creada exitosamente',
+      class_id: classId,
+      questions_saved: questions ? questions.length : 0,
+    }), {
+      status: 201, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: 'Error al crear clase', details: error.message }), {
+      status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  }
+}

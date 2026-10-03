@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Panel Admin · Academia MML</title>
+  <meta name="description" content="Panel de administración para crear usuarios y gestionar la academia.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #00BCD4;
+      --primary-dark: #00838F;
+      --accent: #ff6b00;
+      --accent-light: #ff8c33;
+      --whatsapp: #25D366;
+      --dark: #0b1020;
+      --dark-alt: #121a33;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-700: #374151;
+      --danger: #ef4444;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f0f0f5;
+      color: #1f2937;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: inherit; border: none; outline: none; }
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      background: linear-gradient(135deg, var(--dark), var(--dark-alt));
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(11, 16, 32, 0.25);
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 12px 20px;
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; color: #fff; }
+    .brand-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand-icon svg { width: 18px; height: 18px; color: #fff; }
+    .brand strong { display: block; font-size: 1.05rem; line-height: 1.2; }
+    .brand small { display: block; font-size: 0.75rem; opacity: 0.85; }
+    .spacer { flex: 1; }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #fff;
+      font-size: 0.82rem; font-weight: 600;
+      padding: 7px 12px; border-radius: 8px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.25);
+      cursor: pointer;
+    }
+    .link:hover { background: rgba(255,255,255,0.25); }
+    .user-info { font-size: 0.8rem; opacity: 0.9; }
+    .main { max-width: 1200px; margin: 0 auto; padding: 24px 20px 48px; }
+    .intro { margin-bottom: 18px; }
+    .intro h1 { font-size: 1.5rem; margin: 0 0 4px; color: #1e293b; }
+    .intro p { margin: 0; color: #64748b; font-size: 0.9rem; }
+
+    .card {
+      background: #fff; border-radius: var(--radius);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      padding: 20px; margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 1rem; font-weight: 700; color: #1e293b;
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card-title i { color: var(--primary-dark); }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-grid .full { grid-column: 1 / -1; }
+    @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+
+    .form-label { display: block; font-size: 0.82rem; font-weight: 600; color: #374151; margin-bottom: 4px; }
+    .form-input, .form-select {
+      width: 100%; padding: 9px 12px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem; font-family: inherit;
+      background: #fff; color: #1f2937;
+      transition: all 0.2s;
+    }
+    .form-input:focus, .form-select:focus {
+      outline: none; border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.15);
+    }
+    .btn {
+      padding: 10px 18px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #fff; border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem; font-weight: 600;
+      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,107,0,0.3); }
+    .btn-secondary { background: var(--gray-200); color: var(--gray-700); }
+    .btn-secondary:hover { background: var(--gray-300); box-shadow: none; }
+    .btn-danger { background: var(--danger); }
+    .btn-sm { padding: 6px 10px; font-size: 0.78rem; }
+
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th { text-align: left; padding: 10px 12px; background: var(--gray-100); color: var(--gray-700); font-weight: 600; border-bottom: 2px solid var(--gray-200); }
+    td { padding: 10px 12px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); }
+    tr:hover td { background: var(--gray-50); }
+
+    .badge {
+      display: inline-block; padding: 3px 8px;
+      border-radius: 12px; font-size: 0.7rem; font-weight: 600;
+    }
+    .badge-admin { background: #fee2e2; color: #991b1b; }
+    .badge-agent { background: #dbeafe; color: #1e40af; }
+    .badge-user { background: #f3f4f6; color: #374151; }
+    .badge-active { background: #d1fae5; color: #065f46; }
+    .badge-inactive { background: #fee2e2; color: #991b1b; }
+
+    .toast {
+      position: fixed; top: 80px; left: 50%; transform: translateX(-50%);
+      background: var(--gray-700); color: #fff;
+      padding: 12px 20px; border-radius: var(--radius-sm);
+      font-size: 0.85rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0; transition: all 0.3s; z-index: 999;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; }
+    .toast.success { background: var(--success); }
+    .toast.error { background: var(--danger); }
+
+    .login-screen {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--dark), var(--dark-alt));
+      padding: 20px;
+    }
+    .login-box {
+      background: rgba(18, 26, 51, 0.6); backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 188, 212, 0.2);
+      border-radius: 24px; padding: 40px 32px;
+      max-width: 380px; width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .login-box h2 { color: #fff; text-align: center; margin-bottom: 20px; font-size: 1.4rem; }
+    .login-box input {
+      width: 100%; padding: 12px 16px;
+      background: rgba(11,16,32,0.6); border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm); color: #fff;
+      font-size: 14px; margin-bottom: 12px; font-family: inherit;
+    }
+    .login-box input:focus { outline: none; border-color: var(--primary); }
+    .login-box button {
+      width: 100%; padding: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #fff; border: none; border-radius: var(--radius-sm);
+      font-size: 15px; font-weight: 700; cursor: pointer;
+    }
+    .login-box .hint { color: rgba(255,255,255,0.5); font-size: 12px; text-align: center; margin-top: 16px; }
+    .hidden { display: none !important; }
+    .spinner {
+      display: inline-block; width: 14px; height: 14px;
+      border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff;
+      border-radius: 50%; animation: spin 0.7s linear infinite;
+      vertical-align: middle; margin-right: 6px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+  <!-- Login screen (visible si no hay token admin) -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-box">
+      <h2>🔐 Panel Admin · MML</h2>
+      <input type="email" id="admin-email" placeholder="admin@email.com">
+      <input type="password" id="admin-password" placeholder="••••••••">
+      <button id="admin-login-btn">Entrar</button>
+      <p class="hint">Solo administradores. Usuario por defecto: admin@makeseo.local / admin123</p>
+    </div>
+  </div>
+
+  <!-- App (visible tras login admin) -->
+  <div id="app" class="hidden">
+    <header class="header">
+      <div class="header-inner">
+        <a class="brand" href="/academia/admin.html">
+          <span class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/>
+            </svg>
+          </span>
+          <span><strong>Academia MML · Admin</strong><small>Edward Valencia · @makeseo</small></span>
+        </a>
+        <div class="spacer"></div>
+        <span class="user-info" id="user-info"></span>
+        <div class="links">
+          <a class="link" href="/academia/" target="_blank"><i class="fas fa-eye"></i> Ver academia</a>
+          <a class="link" href="/academia/login.html"><i class="fas fa-sign-in-alt"></i> Login agentes</a>
+          <button class="link" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Salir</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="intro">
+        <h1>Panel de Administración</h1>
+        <p>Crea usuarios, gestiona clases y revisa el progreso de los agentes.</p>
+      </div>
+
+      <!-- Crear usuario -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-user-plus"></i> Crear nuevo usuario</div>
+        <form id="create-user-form">
+          <div class="form-grid">
+            <div>
+              <label class="form-label">Nombre completo</label>
+              <input type="text" id="new-name" class="form-input" required>
+            </div>
+            <div>
+              <label class="form-label">Email</label>
+              <input type="email" id="new-email" class="form-input" required>
+            </div>
+            <div>
+              <label class="form-label">Contraseña</label>
+              <input type="text" id="new-password" class="form-input" required placeholder="Mínimo 6 caracteres">
+            </div>
+            <div>
+              <label class="form-label">Rol</label>
+              <select id="new-role" class="form-select">
+                <option value="user">Usuario / Agente</option>
+                <option value="admin">Administrador</option>
+              </select>
+            </div>
+            <div class="full">
+              <button type="submit" class="btn"><i class="fas fa-plus"></i> Crear usuario</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Lista de usuarios -->
+      <div class="card">
+        <div class="card-title">
+          <i class="fas fa-users"></i> Usuarios registrados
+          <button id="refresh-btn" class="btn btn-secondary btn-sm" style="margin-left: auto;"><i class="fas fa-sync"></i> Actualizar</button>
+        </div>
+        <div class="table-wrap">
+          <table id="users-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Estado</th>
+                <th>Creado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="users-tbody">
+              <tr><td colspan="7" style="text-align: center; padding: 30px; color: #9ca3af;">Cargando usuarios...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Estadísticas -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-chart-bar"></i> Estadísticas</div>
+        <div id="stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;">
+          <div style="text-align: center; padding: 16px; background: #f9fafb; border-radius: 8px;">
+            <div style="font-size: 1.8rem; font-weight: 800; color: #00838F;" id="stat-total">—</div>
+            <div style="font-size: 0.75rem; color: #6b7280; text-transform: uppercase;">Usuarios totales</div>
+          </div>
+          <div style="text-align: center; padding: 16px; background: #f9fafb; border-radius: 8px;">
+            <div style="font-size: 1.8rem; font-weight: 800; color: #ff6b00;" id="stat-agents">—</div>
+            <div style="font-size: 0.75rem; color: #6b7280; text-transform: uppercase;">Agentes activos</div>
+          </div>
+          <div style="text-align: center; padding: 16px; background: #f9fafb; border-radius: 8px;">
+            <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;" id="stat-partners">—</div>
+            <div style="font-size: 0.75rem; color: #6b7280; text-transform: uppercase;">Partners certificados</div>
+          </div>
+          <div style="text-align: center; padding: 16px; background: #f9fafb; border-radius: 8px;">
+            <div style="font-size: 1.8rem; font-weight: 800; color: #7c3aed;" id="stat-classes">—</div>
+            <div style="font-size: 0.75rem; color: #6b7280; text-transform: uppercase;">Clases completadas</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instrucciones setup -->
+      <div class="card" style="background: #fef3c7; border: 1px solid #f59e0b;">
+        <div class="card-title"><i class="fas fa-info-circle" style="color: #f59e0b;"></i> Configuración inicial</div>
+        <div style="font-size: 0.85rem; color: #78350f; line-height: 1.7;">
+          <p><strong>1. Cambia la contraseña del admin por defecto.</strong> El usuario inicial es <code>admin@makeseo.local</code> con contraseña <code>admin123</code>. Créate una cuenta nueva con rol admin y elimina la default.</p>
+          <p style="margin-top: 8px;"><strong>2. Google OAuth (opcional).</strong> Para activar login con Google, configura las variables de entorno <code>GOOGLE_CLIENT_ID</code> y <code>GOOGLE_CLIENT_SECRET</code> en Cloudflare Pages → Settings → Environment variables.</p>
+          <p style="margin-top: 8px;"><strong>3. Crea clases y preguntas.</strong> Visita <code>/academia/admin-classes.html</code> (próximamente) o usa los endpoints <code>/api/agent-classes</code> directamente.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    const API_BASE = '';
+    const toast = document.getElementById('toast');
+
+    function showToast(msg, type = '') {
+      toast.textContent = msg;
+      toast.className = 'toast show ' + type;
+      setTimeout(() => { toast.className = 'toast ' + type; }, 3000);
+    }
+
+    function getToken() {
+      return localStorage.getItem('mml_admin_token') || sessionStorage.getItem('mml_admin_token');
+    }
+    function setToken(token, remember) {
+      if (remember) localStorage.setItem('mml_admin_token', token);
+      else sessionStorage.setItem('mml_admin_token', token);
+    }
+    function clearToken() {
+      localStorage.removeItem('mml_admin_token');
+      sessionStorage.removeItem('mml_admin_token');
+    }
+
+    async function api(path, options = {}) {
+      const token = getToken();
+      const headers = { 'Content-Type': 'application/json', ...(options.headers || {}) };
+      if (token) headers['Authorization'] = 'Bearer ' + token;
+      const res = await fetch(API_BASE + path, { ...options, headers });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || 'Error ' + res.status);
+      return data;
+    }
+
+    // ====== LOGIN ADMIN ======
+    document.getElementById('admin-login-btn').addEventListener('click', async () => {
+      const email = document.getElementById('admin-email').value.trim();
+      const password = document.getElementById('admin-password').value;
+      if (!email || !password) { showToast('Email y contraseña requeridos', 'error'); return; }
+
+      const btn = document.getElementById('admin-login-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span>Entrando...';
+
+      try {
+        const data = await api('/api/auth/login', {
+          method: 'POST',
+          body: JSON.stringify({ email, password, remember: true }),
+        });
+
+        if (data.user && data.user.role !== 'admin') {
+          showToast('Acceso denegado: se requiere rol admin', 'error');
+          btn.disabled = false;
+          btn.textContent = 'Entrar';
+          return;
+        }
+
+        setToken(data.token, true);
+        showApp(data.user);
+      } catch (err) {
+        showToast(err.message, 'error');
+        btn.disabled = false;
+        btn.textContent = 'Entrar';
+      }
+    });
+
+    function showApp(user) {
+      document.getElementById('login-screen').classList.add('hidden');
+      document.getElementById('app').classList.remove('hidden');
+      document.getElementById('user-info').textContent = '👤 ' + (user.name || user.email);
+      loadUsers();
+      loadStats();
+    }
+
+    function showLogin() {
+      document.getElementById('app').classList.add('hidden');
+      document.getElementById('login-screen').classList.remove('hidden');
+    }
+
+    // ====== LOGOUT ======
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      clearToken();
+      showLogin();
+    });
+
+    // ====== CREAR USUARIO ======
+    document.getElementById('create-user-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('new-name').value.trim();
+      const email = document.getElementById('new-email').value.trim();
+      const password = document.getElementById('new-password').value;
+      const role = document.getElementById('new-role').value;
+
+      if (password.length < 6) {
+        showToast('La contraseña debe tener al menos 6 caracteres', 'error');
+        return;
+      }
+
+      try {
+        await api('/api/admin/create-user', {
+          method: 'POST',
+          body: JSON.stringify({ name, email, password, role }),
+        });
+        showToast('✓ Usuario creado correctamente', 'success');
+        document.getElementById('create-user-form').reset();
+        loadUsers();
+        loadStats();
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    });
+
+    // ====== LISTAR USUARIOS ======
+    async function loadUsers() {
+      try {
+        const data = await api('/api/admin/users');
+        const tbody = document.getElementById('users-tbody');
+        if (!data.users || data.users.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:30px;color:#9ca3af;">No hay usuarios. Crea el primero arriba.</td></tr>';
+          return;
+        }
+        tbody.innerHTML = data.users.map(u => `
+          <tr>
+            <td>${u.id}</td>
+            <td>${escapeHtml(u.name)}</td>
+            <td>${escapeHtml(u.email)}</td>
+            <td><span class="badge badge-${u.role}">${u.role}</span></td>
+            <td><span class="badge badge-${u.is_active ? 'active' : 'inactive'}">${u.is_active ? 'Activo' : 'Inactivo'}</span></td>
+            <td>${u.created_at ? new Date(u.created_at + 'Z').toLocaleDateString('es-VE') : '—'}</td>
+            <td>
+              <button class="btn btn-secondary btn-sm" onclick="toggleUser(${u.id}, ${u.is_active ? 0 : 1})" title="${u.is_active ? 'Desactivar' : 'Activar'}">
+                <i class="fas fa-${u.is_active ? 'ban' : 'check'}"></i>
+              </button>
+              ${u.role !== 'admin' ? `<button class="btn btn-danger btn-sm" onclick="deleteUser(${u.id})" title="Eliminar"><i class="fas fa-trash"></i></button>` : ''}
+            </td>
+          </tr>
+        `).join('');
+      } catch (err) {
+        showToast('Error cargando usuarios: ' + err.message, 'error');
+      }
+    }
+
+    window.toggleUser = async (id, active) => {
+      try {
+        await api('/api/admin/users/' + id, {
+          method: 'PATCH',
+          body: JSON.stringify({ is_active: active }),
+        });
+        showToast('✓ Usuario actualizado', 'success');
+        loadUsers();
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    };
+
+    window.deleteUser = async (id) => {
+      if (!confirm('¿Eliminar este usuario? Esta acción no se puede deshacer.')) return;
+      try {
+        await api('/api/admin/users/' + id, { method: 'DELETE' });
+        showToast('✓ Usuario eliminado', 'success');
+        loadUsers();
+        loadStats();
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    };
+
+    // ====== STATS ======
+    async function loadStats() {
+      try {
+        const data = await api('/api/admin/stats');
+        document.getElementById('stat-total').textContent = data.total || 0;
+        document.getElementById('stat-agents').textContent = data.agents || 0;
+        document.getElementById('stat-partners').textContent = data.partners || 0;
+        document.getElementById('stat-classes').textContent = data.classes_completed || 0;
+      } catch (err) {
+        console.error('stats error:', err);
+      }
+    }
+
+    document.getElementById('refresh-btn').addEventListener('click', () => {
+      loadUsers();
+      loadStats();
+      showToast('Actualizado', 'success');
+    });
+
+    function escapeHtml(s) {
+      if (!s) return '';
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    // ====== INIT ======
+    (async () => {
+      const token = getToken();
+      if (!token) { showLogin(); return; }
+      try {
+        const data = await api('/api/auth/me');
+        if (data.user && data.user.role === 'admin') {
+          showApp(data.user);
+        } else {
+          clearToken();
+          showLogin();
+          showToast('Acceso denegado: se requiere rol admin', 'error');
+        }
+      } catch (err) {
+        clearToken();
+        showLogin();
+      }
+    })();
+  </script>
+</body>
+</html>

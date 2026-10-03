@@ -1,0 +1,247 @@
+// functions/api/agent-exam/index.js
+// GET: Get exam status
+// POST: Submit exam answers - 15 questions, 80% to pass, max 3 attempts
+// Requisito: haber aprobado todas las clases activas de la ruta
+
+import { corsHeaders, requireAuth } from '../../_lib/auth.js';
+import { getPath } from '../../_lib/academy-path.js';
+import { addXp, EXAM_XP } from '../../_lib/academy-levels.js';
+
+function calcLevel(xp) {
+  const LEVEL_XP = [0, 100, 250, 450, 700, 1000, 1400, 1900, 2500, 3200];
+  let level = 1;
+  for (let i = LEVEL_XP.length - 1; i >= 0; i--) {
+    if (xp >= LEVEL_XP[i]) { level = i + 1; break; }
+  }
+  return Math.min(level, 10);
+}
+
+async function ensureTables(db) {
+  var tables = [
+    "CREATE TABLE IF NOT EXISTS mml_agent_profiles (user_id INTEGER PRIMARY KEY, level INTEGER DEFAULT 1, xp INTEGER DEFAULT 0, xp_to_next_level INTEGER DEFAULT 100, total_classes_completed INTEGER DEFAULT 0, exam_passed INTEGER DEFAULT 0, exam_passed_at TEXT, mml_exam_attempts INTEGER DEFAULT 0, last_exam_at TEXT, is_partner INTEGER DEFAULT 0, partner_at TEXT, graduated INTEGER DEFAULT 0, graduated_at TEXT, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))",
+    "CREATE TABLE IF NOT EXISTS mml_user_badges (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, badge_type TEXT NOT NULL, badge_name TEXT NOT NULL, badge_description TEXT DEFAULT '', badge_icon TEXT DEFAULT 'fas fa-medal', earned_at TEXT DEFAULT (datetime('now')))",
+    "CREATE TABLE IF NOT EXISTS mml_agent_classes (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, description TEXT, content TEXT DEFAULT '', xp_reward INTEGER DEFAULT 10, sort_order INTEGER DEFAULT 0, is_active INTEGER DEFAULT 1, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))",
+    "CREATE TABLE IF NOT EXISTS mml_class_questions (id INTEGER PRIMARY KEY AUTOINCREMENT, class_id INTEGER NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT DEFAULT '', option_d TEXT DEFAULT '', correct_answer TEXT NOT NULL, explanation TEXT DEFAULT '', points INTEGER DEFAULT 10, sort_order INTEGER DEFAULT 0, created_at TEXT DEFAULT (datetime('now')))"
+  ];
+  for (var i = 0; i < tables.length; i++) {
+    try { await db.prepare(tables[i]).run(); } catch(e) {}
+  }
+  // Ensure points column exists (migration may have created table without it)
+  try { await db.prepare("ALTER TABLE mml_class_questions ADD COLUMN points INTEGER DEFAULT 10").run(); } catch(e) {}
+}
+
+export async function onRequestOptions() {
+  return new Response(null, { headers: corsHeaders });
+}
+
+export async function onRequestGet(context) {
+  try {
+    const auth = await requireAuth(context.request, context.env);
+    if (auth.error) return auth.error;
+
+    const { env } = context;
+    const userId = auth.user.id;
+
+    // BUG #7 FIX: Ensure tables exist
+    await ensureTables(env.DB);
+
+    // Get profile
+    let profile = await env.DB.prepare('SELECT * FROM mml_agent_profiles WHERE user_id = ?').bind(userId).first();
+    if (!profile) {
+      await env.DB.prepare('INSERT INTO mml_agent_profiles (user_id) VALUES (?)').bind(userId).run();
+      profile = await env.DB.prepare('SELECT * FROM mml_agent_profiles WHERE user_id = ?').bind(userId).first();
+    }
+
+    // Requisito: aprobar todas las clases de la ruta
+    const level = calcLevel(profile.xp);
+    const path = await getPath(env.DB, userId);
+
+    return new Response(JSON.stringify({
+      level,
+      requirement_met: path.exam_unlocked,
+      path_completed: path.completed,
+      path_total: path.total,
+      exam_xp: EXAM_XP,
+      exam_passed: profile.exam_passed === 1,
+      exam_passed_at: profile.exam_passed_at,
+      mml_exam_attempts: profile.mml_exam_attempts || 0,
+      max_attempts: 3,
+      attempts_remaining: Math.max(0, 3 - (profile.mml_exam_attempts || 0)),
+      can_take_exam: path.exam_unlocked && profile.exam_passed !== 1 && (profile.mml_exam_attempts || 0) < 3,
+    }), {
+      status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: 'Error al obtener estado del examen', details: error.message }), {
+      status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  }
+}
+
+export async function onRequestPost(context) {
+  try {
+    const auth = await requireAuth(context.request, context.env);
+    if (auth.error) return auth.error;
+
+    const { env } = context;
+    const userId = auth.user.id;
+    const body = await context.request.json();
+    const { answers } = body;
+
+    if (!answers || !Array.isArray(answers) || answers.length < 10) {
+      return new Response(JSON.stringify({ error: 'Debes responder al menos 10 preguntas' }), {
+        status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // BUG #7 FIX: Ensure tables exist
+    await ensureTables(env.DB);
+
+    // Get profile
+    let profile = await env.DB.prepare('SELECT * FROM mml_agent_profiles WHERE user_id = ?').bind(userId).first();
+    if (!profile) {
+      return new Response(JSON.stringify({ error: 'Perfil de agente no encontrado' }), {
+        status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Requisito: aprobar todas las clases de la ruta
+    const path = await getPath(env.DB, userId);
+    if (!path.exam_unlocked) {
+      return new Response(JSON.stringify({ error: 'Debes aprobar todas las clases antes del examen final', path_completed: path.completed, path_total: path.total }), {
+        status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Check if already passed
+    if (profile.exam_passed === 1) {
+      return new Response(JSON.stringify({ error: 'Ya aprobaste el examen', exam_passed: true }), {
+        status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Check max attempts
+    if ((profile.mml_exam_attempts || 0) >= 3) {
+      return new Response(JSON.stringify({ error: 'Alcanzaste el maximo de 3 intentos' }), {
+        status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Get all questions from all active classes (pool for exam)
+    const { results: allQuestions } = await env.DB.prepare(`
+      SELECT cq.* FROM mml_class_questions cq
+      JOIN mml_agent_classes ac ON ac.id = cq.class_id
+      WHERE ac.is_active = 1
+    `).bind().all();
+
+    if (allQuestions.length < 10) {
+      return new Response(JSON.stringify({ error: 'No hay suficientes preguntas en el banco para generar el examen (minimo 10)' }), {
+        status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Grade answers with points
+    let totalPoints = 0;
+    let maxPoints = 0;
+    let correct = 0;
+    let graded = 0;
+
+    const seen = {};
+    for (const ans of answers) {
+      // Cada pregunta cuenta una sola vez
+      if (!ans || seen[ans.question_id]) continue;
+      seen[ans.question_id] = true;
+      const q = allQuestions.find(function(q) { return q.id === ans.question_id; });
+      if (q) {
+        graded++;
+        maxPoints += (q.points || 10);
+        var isCorrect = String(q.correct_answer).toLowerCase() === String(ans.answer).toLowerCase();
+        if (isCorrect) {
+          correct++;
+          totalPoints += (q.points || 10);
+        }
+      }
+    }
+
+    // Minimo 10 preguntas distintas y validas (no se gasta un intento)
+    if (graded < 10) {
+      return new Response(JSON.stringify({ error: 'Debes responder al menos 10 preguntas distintas del examen' }), {
+        status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Calificacion = % de respuestas correctas (las preguntas de video valen
+    // 2 pts y las normales 10, asi que no se pondera por puntos)
+    var scorePercent = Math.round((correct / graded) * 100);
+    var passed = scorePercent >= 80;
+
+    // Update exam attempts
+    await env.DB.prepare(`
+      UPDATE mml_agent_profiles SET
+        mml_exam_attempts = COALESCE(mml_exam_attempts, 0) + 1,
+        last_exam_at = datetime('now'),
+        updated_at = datetime('now')
+      WHERE user_id = ?
+    `).bind(userId).run();
+
+    var xpEarned = 0;
+    var levelInfo = null;
+    if (passed) {
+      // BUG #6 FIX: Check for existing badges before inserting (prevent duplicates)
+      var existingPassed = await env.DB.prepare("SELECT COUNT(*) as cnt FROM mml_user_badges WHERE user_id = ? AND badge_type = 'exam_passed'").bind(userId).first();
+
+      if (existingPassed.cnt === 0) {
+        // Award exam passed badge and partner status
+        await env.DB.batch([
+          env.DB.prepare(`
+            UPDATE mml_agent_profiles SET
+              exam_passed = 1,
+              exam_passed_at = datetime('now'),
+              is_partner = 1,
+              partner_at = COALESCE(partner_at, datetime('now')),
+              updated_at = datetime('now')
+            WHERE user_id = ?
+          `).bind(userId),
+          env.DB.prepare(`
+            INSERT INTO mml_user_badges (user_id, badge_type, badge_name, badge_description, badge_icon)
+            VALUES (?, 'exam_passed', 'Examen Aprobado', ?, 'fas fa-trophy')
+          `).bind(userId, 'Aprobaste el examen final con ' + scorePercent + '% de calificacion'),
+          env.DB.prepare(`
+            INSERT INTO mml_user_badges (user_id, badge_type, badge_name, badge_description, badge_icon)
+            VALUES (?, 'partner', 'Partner Digital Certificado', 'Eres un Partner Digital certificado de AunClick', 'fas fa-certificate')
+          `).bind(userId),
+        ]);
+        // +150 XP por aprobar el examen (una sola vez; no si ya lo graduo el admin)
+        if (profile.graduated !== 1) {
+          xpEarned = EXAM_XP;
+          levelInfo = await addXp(env.DB, userId, EXAM_XP);
+        }
+      }
+    }
+
+    var newAttempts = (profile.mml_exam_attempts || 0) + 1;
+
+    return new Response(JSON.stringify({
+      passed,
+      score_percent: scorePercent,
+      correct_answers: correct,
+      total_questions: graded,
+      total_points: totalPoints,
+      max_points: maxPoints,
+      mml_exam_attempts: newAttempts,
+      attempts_remaining: Math.max(0, 3 - newAttempts),
+      xp_earned: xpEarned,
+      leveled_up: !!(levelInfo && levelInfo.leveledUp),
+      new_level: levelInfo ? levelInfo.newLevel : null,
+      message: passed
+        ? 'Felicidades! Aprobaste el examen con ' + scorePercent + '% y eres ahora un Partner Digital Certificado!'
+        : 'No aprobaste. Obtuviste ' + scorePercent + '% (necesitas 80%). Intentos restantes: ' + Math.max(0, 3 - newAttempts) + '.',
+    }), {
+      status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: 'Error al procesar examen', details: error.message }), {
+      status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  }
+}
