@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://makeseo-mml.pages.dev/sitemap.xml
