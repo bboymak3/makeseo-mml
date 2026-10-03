@@ -5,7 +5,7 @@ import { addXp, calcLevel, EXAM_XP } from '../../../_lib/academy-levels.js';
 
 async function ensureTables(db) {
   var tables = [
-    "CREATE TABLE IF NOT EXISTS mml_agent_profiles (user_id INTEGER PRIMARY KEY, level INTEGER DEFAULT 1, xp INTEGER DEFAULT 0, xp_to_next_level INTEGER DEFAULT 100, total_classes_completed INTEGER DEFAULT 0, exam_passed INTEGER DEFAULT 0, exam_passed_at TEXT, mml_exam_attempts INTEGER DEFAULT 0, last_exam_at TEXT, is_partner INTEGER DEFAULT 0, partner_at TEXT, graduated INTEGER DEFAULT 0, graduated_at TEXT, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))" ,
+    "CREATE TABLE IF NOT EXISTS mml_agent_profiles (user_id INTEGER PRIMARY KEY, level INTEGER DEFAULT 1, xp INTEGER DEFAULT 0, xp_to_next_level INTEGER DEFAULT 100, total_classes_completed INTEGER DEFAULT 0, exam_passed INTEGER DEFAULT 0, exam_passed_at TEXT, exam_attempts INTEGER DEFAULT 0, last_exam_at TEXT, is_partner INTEGER DEFAULT 0, partner_at TEXT, graduated INTEGER DEFAULT 0, graduated_at TEXT, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))" ,
     "CREATE TABLE IF NOT EXISTS mml_user_badges (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, badge_type TEXT NOT NULL, badge_name TEXT NOT NULL, badge_description TEXT DEFAULT '', badge_icon TEXT DEFAULT 'fas fa-medal', earned_at TEXT DEFAULT (datetime('now')))" ,
     "CREATE TABLE IF NOT EXISTS class_assignments (id INTEGER PRIMARY KEY AUTOINCREMENT, class_id INTEGER NOT NULL, user_id INTEGER NOT NULL, assigned_by INTEGER NOT NULL, status TEXT DEFAULT 'pending', assigned_at TEXT DEFAULT (datetime('now')), UNIQUE(class_id, user_id))"
   ];
@@ -62,7 +62,7 @@ export async function onRequestPost(context) {
       });
 
     } else if (action === 'graduate') {
-      // Mark agent as graduated
+      // Mark agent as graduated (admin can graduate directly, no exam required)
       const { user_id, badge_name, badge_description } = body;
       if (!user_id) {
         return new Response(JSON.stringify({ error: 'user_id es requerido' }), {
@@ -76,16 +76,16 @@ export async function onRequestPost(context) {
         await env.DB.prepare('INSERT INTO mml_agent_profiles (user_id) VALUES (?)').bind(user_id).run();
       }
 
-      // Graduarlo equivale a aprobar el examen: +150 XP una sola vez
+      // Graduarlo equivale a aprobar el examen: +150 XP una sola vez (solo si no estaba graduado)
       var gradXp = 0;
-      if (!existing || (existing.exam_passed !== 1 && existing.graduated !== 1)) {
-        await addXp(env.DB, user_id, EXAM_XP);
+      if (!existing || (existing.graduated !== 1)) {
+        try { await addXp(env.DB, user_id, EXAM_XP); } catch(e) {}
         gradXp = EXAM_XP;
       }
 
-      // Set graduated
+      // Set graduated, is_partner, exam_passed (admin override)
       await env.DB.prepare(
-        "UPDATE mml_agent_profiles SET graduated = 1, graduated_at = datetime('now'), is_partner = 1, partner_at = COALESCE(partner_at, datetime('now')), updated_at = datetime('now') WHERE user_id = ?"
+        "UPDATE mml_agent_profiles SET graduated = 1, graduated_at = datetime('now'), is_partner = 1, partner_at = COALESCE(partner_at, datetime('now')), exam_passed = 1, exam_passed_at = COALESCE(exam_passed_at, datetime('now')), updated_at = datetime('now') WHERE user_id = ?"
       ).bind(user_id).run();
 
       // Award graduation badge (check for duplicates first)
@@ -152,7 +152,7 @@ export async function onRequestPost(context) {
       var newXp = Math.max(0, (ap.xp || 0) - (hadCredit ? EXAM_XP : 0));
       await env.DB.batch([
         env.DB.prepare(
-          "UPDATE mml_agent_profiles SET is_partner = 0, partner_at = NULL, exam_passed = 0, exam_passed_at = NULL, graduated = 0, graduated_at = NULL, xp = ?, level = ?, mml_exam_attempts = CASE WHEN ? = 1 THEN 0 ELSE mml_exam_attempts END, updated_at = datetime('now') WHERE user_id = ?"
+          "UPDATE mml_agent_profiles SET is_partner = 0, partner_at = NULL, exam_passed = 0, exam_passed_at = NULL, graduated = 0, graduated_at = NULL, xp = ?, level = ?, exam_attempts = CASE WHEN ? = 1 THEN 0 ELSE exam_attempts END, updated_at = datetime('now') WHERE user_id = ?"
         ).bind(newXp, calcLevel(newXp), reset_exam ? 1 : 0, user_id),
         env.DB.prepare("DELETE FROM mml_user_badges WHERE user_id = ? AND badge_type IN ('partner', 'exam_passed', 'graduation')").bind(user_id),
       ]);

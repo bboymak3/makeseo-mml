@@ -1,4 +1,4 @@
-// functions/api/admin/users/[id].js
+// functions/api/admin/mml_users/[id].js
 // PATCH: Activar/desactivar usuario
 // DELETE: Eliminar usuario
 

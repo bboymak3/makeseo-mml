@@ -23,7 +23,7 @@ export async function onRequestGet(context) {
     var db = context.env.DB;
 
     var tables = [
-      "CREATE TABLE IF NOT EXISTS mml_agent_profiles (user_id INTEGER PRIMARY KEY, level INTEGER DEFAULT 1, xp INTEGER DEFAULT 0, xp_to_next_level INTEGER DEFAULT 100, total_classes_completed INTEGER DEFAULT 0, exam_passed INTEGER DEFAULT 0, exam_passed_at TEXT, mml_exam_attempts INTEGER DEFAULT 0, last_exam_at TEXT, is_partner INTEGER DEFAULT 0, partner_at TEXT, graduated INTEGER DEFAULT 0, graduated_at TEXT, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))",
+      "CREATE TABLE IF NOT EXISTS mml_agent_profiles (user_id INTEGER PRIMARY KEY, level INTEGER DEFAULT 1, xp INTEGER DEFAULT 0, xp_to_next_level INTEGER DEFAULT 100, total_classes_completed INTEGER DEFAULT 0, exam_passed INTEGER DEFAULT 0, exam_passed_at TEXT, exam_attempts INTEGER DEFAULT 0, last_exam_at TEXT, is_partner INTEGER DEFAULT 0, partner_at TEXT, graduated INTEGER DEFAULT 0, graduated_at TEXT, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))",
       "CREATE TABLE IF NOT EXISTS mml_user_badges (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, badge_type TEXT NOT NULL, badge_name TEXT NOT NULL, badge_description TEXT DEFAULT '', badge_icon TEXT DEFAULT 'fas fa-medal', earned_at TEXT DEFAULT (datetime('now')))",
       "CREATE TABLE IF NOT EXISTS mml_user_class_progress (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, class_id INTEGER NOT NULL, completed INTEGER DEFAULT 0, correct_answers INTEGER DEFAULT 0, total_questions INTEGER DEFAULT 0, total_points INTEGER DEFAULT 0, xp_earned INTEGER DEFAULT 0, completed_at TEXT, UNIQUE(user_id, class_id))"
     ];
@@ -33,7 +33,7 @@ export async function onRequestGet(context) {
 
     var res = await db.prepare(
       "SELECT u.id, u.name, u.avatar, u.role, " +
-      "COALESCE(ap.xp, 0) AS xp, COALESCE(ap.exam_passed, 0) AS exam_passed, COALESCE(ap.mml_exam_attempts, 0) AS mml_exam_attempts, " +
+      "COALESCE(ap.xp, 0) AS xp, COALESCE(ap.exam_passed, 0) AS exam_passed, COALESCE(ap.exam_attempts, 0) AS exam_attempts, " +
       "COALESCE(ap.is_partner, 0) AS is_partner, COALESCE(ap.graduated, 0) AS graduated, " +
       "ap.exam_passed_at, ap.partner_at, ap.graduated_at, ap.updated_at AS last_activity, " +
       "(SELECT COUNT(*) FROM mml_user_class_progress ucp WHERE ucp.user_id = u.id AND ucp.completed = 1) AS classes_completed, " +

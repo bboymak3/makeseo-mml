@@ -18,7 +18,7 @@ function calcLevel(xp) {
 
 async function ensureTables(db) {
   var tables = [
-    "CREATE TABLE IF NOT EXISTS mml_agent_profiles (user_id INTEGER PRIMARY KEY, level INTEGER DEFAULT 1, xp INTEGER DEFAULT 0, xp_to_next_level INTEGER DEFAULT 100, total_classes_completed INTEGER DEFAULT 0, exam_passed INTEGER DEFAULT 0, exam_passed_at TEXT, mml_exam_attempts INTEGER DEFAULT 0, last_exam_at TEXT, is_partner INTEGER DEFAULT 0, partner_at TEXT, graduated INTEGER DEFAULT 0, graduated_at TEXT, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))",
+    "CREATE TABLE IF NOT EXISTS mml_agent_profiles (user_id INTEGER PRIMARY KEY, level INTEGER DEFAULT 1, xp INTEGER DEFAULT 0, xp_to_next_level INTEGER DEFAULT 100, total_classes_completed INTEGER DEFAULT 0, exam_passed INTEGER DEFAULT 0, exam_passed_at TEXT, exam_attempts INTEGER DEFAULT 0, last_exam_at TEXT, is_partner INTEGER DEFAULT 0, partner_at TEXT, graduated INTEGER DEFAULT 0, graduated_at TEXT, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))",
     "CREATE TABLE IF NOT EXISTS mml_user_badges (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, badge_type TEXT NOT NULL, badge_name TEXT NOT NULL, badge_description TEXT DEFAULT '', badge_icon TEXT DEFAULT 'fas fa-medal', earned_at TEXT DEFAULT (datetime('now')))",
     "CREATE TABLE IF NOT EXISTS mml_agent_classes (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, description TEXT, content TEXT DEFAULT '', xp_reward INTEGER DEFAULT 10, sort_order INTEGER DEFAULT 0, is_active INTEGER DEFAULT 1, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))",
     "CREATE TABLE IF NOT EXISTS mml_class_questions (id INTEGER PRIMARY KEY AUTOINCREMENT, class_id INTEGER NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT DEFAULT '', option_d TEXT DEFAULT '', correct_answer TEXT NOT NULL, explanation TEXT DEFAULT '', points INTEGER DEFAULT 10, sort_order INTEGER DEFAULT 0, created_at TEXT DEFAULT (datetime('now')))"
@@ -64,10 +64,10 @@ export async function onRequestGet(context) {
       exam_xp: EXAM_XP,
       exam_passed: profile.exam_passed === 1,
       exam_passed_at: profile.exam_passed_at,
-      mml_exam_attempts: profile.mml_exam_attempts || 0,
+      exam_attempts: profile.exam_attempts || 0,
       max_attempts: 3,
-      attempts_remaining: Math.max(0, 3 - (profile.mml_exam_attempts || 0)),
-      can_take_exam: path.exam_unlocked && profile.exam_passed !== 1 && (profile.mml_exam_attempts || 0) < 3,
+      attempts_remaining: Math.max(0, 3 - (profile.exam_attempts || 0)),
+      can_take_exam: path.exam_unlocked && profile.exam_passed !== 1 && (profile.exam_attempts || 0) < 3,
     }), {
       status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
@@ -121,7 +121,7 @@ export async function onRequestPost(context) {
     }
 
     // Check max attempts
-    if ((profile.mml_exam_attempts || 0) >= 3) {
+    if ((profile.exam_attempts || 0) >= 3) {
       return new Response(JSON.stringify({ error: 'Alcanzaste el maximo de 3 intentos' }), {
         status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
@@ -178,7 +178,7 @@ export async function onRequestPost(context) {
     // Update exam attempts
     await env.DB.prepare(`
       UPDATE mml_agent_profiles SET
-        mml_exam_attempts = COALESCE(mml_exam_attempts, 0) + 1,
+        exam_attempts = COALESCE(exam_attempts, 0) + 1,
         last_exam_at = datetime('now'),
         updated_at = datetime('now')
       WHERE user_id = ?
@@ -219,7 +219,7 @@ export async function onRequestPost(context) {
       }
     }
 
-    var newAttempts = (profile.mml_exam_attempts || 0) + 1;
+    var newAttempts = (profile.exam_attempts || 0) + 1;
 
     return new Response(JSON.stringify({
       passed,
@@ -228,7 +228,7 @@ export async function onRequestPost(context) {
       total_questions: graded,
       total_points: totalPoints,
       max_points: maxPoints,
-      mml_exam_attempts: newAttempts,
+      exam_attempts: newAttempts,
       attempts_remaining: Math.max(0, 3 - newAttempts),
       xp_earned: xpEarned,
       leveled_up: !!(levelInfo && levelInfo.leveledUp),

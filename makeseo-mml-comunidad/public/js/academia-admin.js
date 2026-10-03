@@ -1,6 +1,6 @@
 /**
- * HolaX / AunClick — Administración de la Academia
- * Página independiente: /academia-admin (academia-admin.html)
+ * MakeSEO / MakeSEO — Administración de la Academia
+ * Página independiente: /academia/admin.html (academia-admin.html)
  *
  * Contiene lo que antes estaba en la pestaña "Academia" del panel admin:
  * canales de YouTube, clases (video + 5 preguntas), preguntas, Partners
@@ -12,9 +12,9 @@
 
     // ─── Utilidades (antes venían de js/app.js) ─────────────────
     var API = '/api';
-    var TOKEN_KEY = 'meridaunclick_token';
-    var USER_KEY = 'meridaunclick_user';
-    var LOGIN_URL = '/login.html?redirect=' + encodeURIComponent('/academia-admin');
+    var TOKEN_KEY = 'mml_token';
+    var USER_KEY = 'mml_user';
+    var LOGIN_URL = '/academia/academia/login.html
 
     function getToken() {
         try { return localStorage.getItem(TOKEN_KEY); } catch (e) { return null; }
@@ -169,7 +169,7 @@
                     '<td>' + (info ? '<strong style="font-size:0.78rem;">' + _esc(info.code) + '</strong><div style="font-size:0.72rem;color:#6b7280;">' + _esc(info.dateText) + '</div>' : '-') + '</td>' +
                     '<td><div style="display:flex;gap:4px;flex-wrap:wrap;">' +
                         '<button onclick="academyShowCertificate(' + p.id + ')" style="' + btn + 'border:1px solid #fde68a;color:#b45309;" title="Ver certificado"><i class="fas fa-certificate"></i> Certificado</button>' +
-                        '<a href="/perfil.html?id=' + p.id + '" target="_blank" style="' + btn + 'border:1px solid #bfdbfe;color:#2563eb;text-decoration:none;" title="Ver perfil"><i class="fas fa-external-link-alt"></i> Perfil</a>' +
+                        '<a href="/academia/?id=' + p.id + '" target="_blank" style="' + btn + 'border:1px solid #bfdbfe;color:#2563eb;text-decoration:none;" title="Ver perfil"><i class="fas fa-external-link-alt"></i> Perfil</a>' +
                         '<button onclick="academyRevokePartner(' + p.id + ')" style="' + btn + 'border:1px solid #fdba74;color:#c2410c;" title="Quitar certificación"><i class="fas fa-user-minus"></i> Quitar</button>' +
                         '<button onclick="academyDeletePartner(' + p.id + ')" style="' + btn + 'border:1px solid #fca5a5;color:#dc2626;" title="Eliminar cuenta de Partner"><i class="fas fa-trash"></i> Eliminar</button>' +
                     '</div></td>' +
@@ -187,7 +187,7 @@
         _academyCertInfo = window.AcademyCertificate.info({ name: p.name, userId: userId, issuedAt: p.issued_at || partnerIssuedAt(p) });
         document.getElementById('academyCertModalTitle').innerHTML = '<i class="fas fa-certificate" style="color:#d97706;"></i> Certificado de ' + _esc(p.name);
         document.getElementById('academyCertModalNote').textContent = 'Código ' + _academyCertInfo.code + ' · Emitido el ' + _academyCertInfo.dateText;
-        document.getElementById('academyCertModalProfile').href = '/perfil.html?id=' + userId;
+        document.getElementById('academyCertModalProfile').href = '/academia/?id=' + userId;
         var box = document.getElementById('academyCertPreview');
         box.innerHTML = '<div style="padding:40px;color:#6b7280;"><i class="fas fa-spinner fa-spin"></i> Generando certificado...</div>';
         document.getElementById('academyCertModal').classList.remove('hidden');
@@ -844,7 +844,7 @@
                 else html += '<span style="color:#94a3b8;font-size:0.8rem;">-</span>';
                 html += '</td>';
                 html += '<td><div style="display:flex;gap:4px;flex-wrap:wrap;">';
-                html += '<a href="/perfil.html?id=' + a.id + '" target="_blank" style="' + btn + 'border:1px solid #bfdbfe;color:#2563eb;text-decoration:none;" title="Ver perfil"><i class="fas fa-external-link-alt"></i></a>';
+                html += '<a href="/academia/?id=' + a.id + '" target="_blank" style="' + btn + 'border:1px solid #bfdbfe;color:#2563eb;text-decoration:none;" title="Ver perfil"><i class="fas fa-external-link-alt"></i></a>';
                 if (a.is_partner) {
                     window._academyAgentCerts[a.id] = { name: a.name, issued_at: a.certificate_issued_at };
                     html += '<button onclick="academyShowCertificate(' + a.id + ', window._academyAgentCerts[' + a.id + '])" style="' + btn + 'border:1px solid #fde68a;color:#b45309;" title="Ver certificado"><i class="fas fa-certificate"></i></button>';

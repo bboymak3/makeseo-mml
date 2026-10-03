@@ -1,4 +1,4 @@
-// functions/api/admin/users/index.js
+// functions/api/admin/mml_users/index.js
 // GET: Listar todos los usuarios (solo admin)
 
 import { corsResponse, requireAdmin, errorResponse } from '../../../_lib/auth.js';
@@ -17,7 +17,7 @@ export async function onRequestGet(context) {
       'SELECT id, name, email, role, is_active, created_at, avatar FROM mml_users ORDER BY created_at DESC LIMIT 500'
     ).all();
 
-    return corsResponse({ users: result.results || [] });
+    return corsResponse({ mml_users: result.results || [] });
   } catch (e) {
     return errorResponse('Error al listar usuarios: ' + e.message, 500);
   }

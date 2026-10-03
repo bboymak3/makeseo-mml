@@ -97,7 +97,7 @@ export async function onRequestGet(context) {
           total_classes_completed INTEGER DEFAULT 0,
           exam_passed INTEGER DEFAULT 0,
           exam_passed_at TEXT,
-          mml_exam_attempts INTEGER DEFAULT 0,
+          exam_attempts INTEGER DEFAULT 0,
           last_exam_at TEXT,
           is_partner INTEGER DEFAULT 0,
           partner_at TEXT,

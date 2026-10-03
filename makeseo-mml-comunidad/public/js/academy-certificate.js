@@ -1,11 +1,11 @@
 /**
- * AunClick Academy - Certificado de Partner Digital (PDF)
+ * MakeSEO Academy - Certificado de Partner Digital (PDF)
  *
  * Compartido por academia.html (descarga del agente), perfil.html (perfil
  * público con vista previa en modal) y el panel admin.
  *
  * Usa como plantilla el certificado oficial ya diseñado y firmado
- * (/partnerdigimon.pdf: diseño HolaX con las firmas del CEO y del Director)
+ * (/partnerdigimon.pdf: diseño MakeSEO con las firmas del CEO y del Director)
  * y escribe encima, con pdf-lib, el nombre del Partner, la fecha y el código
  * en el espacio en blanco bajo "OTORGA CERTIFICADO A:". La plantilla no se
  * modifica. Si no se pudiera cargar, genera un certificado de respaldo con
@@ -96,7 +96,7 @@
         centered(url, 548, urlSize, fReg, GRAY);
         doc.setTitle('Certificado Partner Digital - ' + inf.name);
         doc.setSubject('Partner Digital Certificado');
-        doc.setAuthor('AunClick Academy');
+        doc.setAuthor('MakeSEO Academy');
         return await doc.save();
     }
 
@@ -146,7 +146,7 @@
             dateText = date.toLocaleDateString('es-VE', { day: 'numeric', month: 'long', year: 'numeric' });
         }
         return {
-            name: String((opts && opts.name) || 'Agente AunClick').trim() || 'Agente AunClick',
+            name: String((opts && opts.name) || 'Agente MakeSEO').trim() || 'Agente MakeSEO',
             userId: id,
             date: date,
             dateText: dateText,
@@ -172,7 +172,7 @@
         let y = 24;
         if (logo) { try { doc.addImage(logo, 'JPEG', cx - 10, y, 20, 20); y += 26; } catch (e) { y += 4; } } else { y += 4; }
         doc.setFont('helvetica', 'bold'); doc.setFontSize(13); color('setTextColor', PURPLE);
-        doc.text('AUNCLICK ACADEMY', cx, y, { align: 'center' });
+        doc.text('MAKESEO ACADEMY', cx, y, { align: 'center' });
         y += 16;
         doc.setFontSize(36); color('setTextColor', DARK);
         doc.text('CERTIFICADO', cx, y, { align: 'center' });
@@ -194,7 +194,7 @@
         // Texto
         y += 14;
         doc.setFont('helvetica', 'normal'); doc.setFontSize(12); color('setTextColor', GRAY);
-        const body = 'por haber completado satisfactoriamente la ruta de formación de la Academia de Agentes AunClick y aprobado su evaluación final, acreditándose como Partner Digital Certificado.';
+        const body = 'por haber completado satisfactoriamente la ruta de formación de la Academia de Agentes MakeSEO y aprobado su evaluación final, acreditándose como Partner Digital Certificado.';
         doc.text(doc.splitTextToSize(body, 200), cx, y, { align: 'center' });
 
         // Pie: fecha, firma, código
@@ -203,7 +203,7 @@
         doc.line(35, fy, 95, fy); doc.line(cx - 30, fy, cx + 30, fy); doc.line(W - 95, fy, W - 35, fy);
         doc.setFont('helvetica', 'bold'); doc.setFontSize(11); color('setTextColor', DARK);
         doc.text(inf.dateText, 65, fy - 3, { align: 'center' });
-        doc.text('AunClick Academy', cx, fy - 3, { align: 'center' });
+        doc.text('MakeSEO Academy', cx, fy - 3, { align: 'center' });
         doc.text(inf.code, W - 65, fy - 3, { align: 'center' });
         doc.setFont('helvetica', 'normal'); doc.setFontSize(9); color('setTextColor', GRAY);
         doc.text('Fecha de emisión', 65, fy + 5, { align: 'center' });
@@ -213,7 +213,7 @@
         doc.setFontSize(8.5);
         doc.text('Verifica este certificado en: ' + inf.verifyUrl, cx, H - 19, { align: 'center' });
 
-        doc.setProperties({ title: 'Certificado AunClick Academy - ' + inf.name, subject: 'Partner Digital Certificado', author: 'AunClick Academy' });
+        doc.setProperties({ title: 'Certificado MakeSEO Academy - ' + inf.name, subject: 'Partner Digital Certificado', author: 'MakeSEO Academy' });
         return new Uint8Array(doc.output('arraybuffer'));
     }
 
@@ -228,7 +228,7 @@
     }
 
     function fileName(inf) {
-        return 'Certificado-AunClick-' + inf.name.normalize('NFD').replace(/[̀-ͯ]/g, '')
+        return 'Certificado-MakeSEO-' + inf.name.normalize('NFD').replace(/[̀-ͯ]/g, '')
             .replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.pdf';
     }
 

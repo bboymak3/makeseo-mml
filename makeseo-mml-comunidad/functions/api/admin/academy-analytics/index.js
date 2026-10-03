@@ -8,7 +8,7 @@ async function ensureTables(db) {
     "CREATE TABLE IF NOT EXISTS mml_agent_classes (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, description TEXT, content TEXT DEFAULT '', xp_reward INTEGER DEFAULT 10, sort_order INTEGER DEFAULT 0, is_active INTEGER DEFAULT 1, module TEXT DEFAULT 'General', module_order INTEGER DEFAULT 0, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))" ,
     "CREATE TABLE IF NOT EXISTS mml_class_questions (id INTEGER PRIMARY KEY AUTOINCREMENT, class_id INTEGER NOT NULL, question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, option_c TEXT DEFAULT '', option_d TEXT DEFAULT '', correct_answer TEXT NOT NULL, explanation TEXT DEFAULT '', points INTEGER DEFAULT 10, sort_order INTEGER DEFAULT 0, created_at TEXT DEFAULT (datetime('now')))" ,
     "CREATE TABLE IF NOT EXISTS mml_user_class_progress (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, class_id INTEGER NOT NULL, completed INTEGER DEFAULT 0, correct_answers INTEGER DEFAULT 0, total_questions INTEGER DEFAULT 0, total_points INTEGER DEFAULT 0, xp_earned INTEGER DEFAULT 0, completed_at TEXT, UNIQUE(user_id, class_id))" ,
-    "CREATE TABLE IF NOT EXISTS mml_agent_profiles (user_id INTEGER PRIMARY KEY, level INTEGER DEFAULT 1, xp INTEGER DEFAULT 0, xp_to_next_level INTEGER DEFAULT 100, total_classes_completed INTEGER DEFAULT 0, exam_passed INTEGER DEFAULT 0, exam_passed_at TEXT, mml_exam_attempts INTEGER DEFAULT 0, last_exam_at TEXT, is_partner INTEGER DEFAULT 0, partner_at TEXT, graduated INTEGER DEFAULT 0, graduated_at TEXT, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))" ,
+    "CREATE TABLE IF NOT EXISTS mml_agent_profiles (user_id INTEGER PRIMARY KEY, level INTEGER DEFAULT 1, xp INTEGER DEFAULT 0, xp_to_next_level INTEGER DEFAULT 100, total_classes_completed INTEGER DEFAULT 0, exam_passed INTEGER DEFAULT 0, exam_passed_at TEXT, exam_attempts INTEGER DEFAULT 0, last_exam_at TEXT, is_partner INTEGER DEFAULT 0, partner_at TEXT, graduated INTEGER DEFAULT 0, graduated_at TEXT, created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))" ,
     "CREATE TABLE IF NOT EXISTS mml_user_badges (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, badge_type TEXT NOT NULL, badge_name TEXT NOT NULL, badge_description TEXT DEFAULT '', badge_icon TEXT DEFAULT 'fas fa-medal', earned_at TEXT DEFAULT (datetime('now')))"
   ];
   for (var i = 0; i < tables.length; i++) {
@@ -43,7 +43,7 @@ export async function onRequestPost(context) {
     var totalCompletions = await env.DB.prepare('SELECT COUNT(*) as cnt FROM mml_user_class_progress WHERE completed = 1').first();
     var totalAttempts = await env.DB.prepare('SELECT COUNT(*) as cnt FROM mml_user_class_progress').first();
     var examPassed = await env.DB.prepare('SELECT COUNT(*) as cnt FROM mml_agent_profiles WHERE exam_passed = 1').first();
-    var examAttempts = await env.DB.prepare('SELECT COALESCE(SUM(mml_exam_attempts), 0) as cnt FROM mml_agent_profiles WHERE mml_exam_attempts > 0').first();
+    var examAttempts = await env.DB.prepare('SELECT COALESCE(SUM(exam_attempts), 0) as cnt FROM mml_agent_profiles WHERE exam_attempts > 0').first();
     var partners = await env.DB.prepare('SELECT COUNT(*) as cnt FROM mml_agent_profiles WHERE is_partner = 1').first();
 
     // 2. Pass rate per class

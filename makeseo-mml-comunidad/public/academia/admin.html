@@ -310,6 +310,48 @@
         </div>
       </div>
 
+      <!-- ============ AGENTES Y GRADUACIÓN ============ -->
+      <div class="card">
+        <div class="card-title">
+          <i class="fas fa-user-graduate"></i> Agentes y Graduación
+          <button id="refresh-agents-btn" class="btn btn-secondary btn-sm" style="margin-left: auto;"><i class="fas fa-sync"></i></button>
+        </div>
+        <p style="font-size:0.82rem;color:#6b7280;margin-bottom:12px;">Lista de agentes con su progreso. Usa "Graduar" para certificar a un agente como Partner Digital (podrá descargar su certificado PDF).</p>
+        <div class="table-wrap">
+          <table id="agents-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Nivel</th>
+                <th>XP</th>
+                <th>Clases</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="agents-tbody">
+              <tr><td colspan="8" style="text-align: center; padding: 20px; color: #9ca3af;">Cargando agentes...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Modal de certificado -->
+      <div class="hidden" id="cert-modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;">
+        <div style="background:#fff;border-radius:14px;max-width:900px;width:100%;max-height:90vh;overflow:auto;padding:20px;position:relative;">
+          <button id="close-cert-modal" style="position:absolute;top:10px;right:10px;background:#fee2e2;border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;color:#dc2626;">×</button>
+          <h3 style="margin:0 0 12px;font-size:1.1rem;"><i class="fas fa-certificate" style="color:#d97706;"></i> <span id="cert-modal-title">Certificado</span></h3>
+          <div id="cert-preview" style="background:#f3f4f6;border-radius:8px;padding:20px;text-align:center;min-height:300px;">
+            <div style="padding:60px 20px;color:#6b7280;"><i class="fas fa-spinner fa-spin" style="font-size:2rem;"></i><p style="margin-top:8px;">Generando certificado...</p></div>
+          </div>
+          <div style="margin-top:12px;text-align:center;">
+            <button id="download-cert-btn" class="btn"><i class="fas fa-download"></i> Descargar PDF</button>
+          </div>
+        </div>
+      </div>
+
       <!-- ============ GESTIÓN DE CLASES ============ -->
       <div class="card">
         <div class="card-title">
@@ -527,6 +569,7 @@
       loadUsers();
       loadStats();
       loadClasses();
+      loadAgents();
     }
 
     function showLogin() {
@@ -664,6 +707,160 @@
         showLogin();
       }
     })();
+
+    // ====== AGENTES Y GRADUACIÓN ======
+    let currentCertInfo = null;
+
+    async function loadAgents() {
+      try {
+        const data = await api('/api/admin/academy-agents');
+        const tbody = document.getElementById('agents-tbody');
+        const agents = data.agents || [];
+        if (!agents.length) {
+          tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:20px;color:#9ca3af;">No hay agentes registrados aún.</td></tr>';
+          return;
+        }
+        tbody.innerHTML = agents.map(a => {
+          const isPartner = a.is_partner == 1 || a.is_partner === true || a.graduated == 1;
+          const statusBadge = isPartner
+            ? '<span class="badge badge-active">Partner Digital</span>'
+            : (a.exam_passed == 1 || a.exam_passed === true ? '<span class="badge badge-agent">Examen aprobado</span>' : '<span class="badge badge-user">En formación</span>');
+          const uid = a.id || a.user_id;
+          const gradBtn = isPartner
+            ? `<button class="btn btn-secondary btn-sm" onclick="viewCert(${uid}, '${escapeHtml(a.name).replace(/'/g, "\\'")}')" title="Ver certificado"><i class="fas fa-certificate"></i></button>
+               <button class="btn btn-danger btn-sm" onclick="revokePartner(${uid}, '${escapeHtml(a.name).replace(/'/g, "\\'")}')" title="Quitar certificación"><i class="fas fa-user-minus"></i></button>`
+            : `<button class="btn btn-sm" style="background:#d97706;" onclick="graduateAgent(${uid}, '${escapeHtml(a.name).replace(/'/g, "\\'")}')" title="Graduar como Partner Digital"><i class="fas fa-graduation-cap"></i> Graduar</button>`;
+          return `
+            <tr>
+              <td>${uid}</td>
+              <td><strong>${escapeHtml(a.name)}</strong></td>
+              <td>${escapeHtml(a.email || '—')}</td>
+              <td>Nivel ${a.level || 1}</td>
+              <td>${a.xp || 0} XP</td>
+              <td>${a.classes_completed || 0}</td>
+              <td>${statusBadge}</td>
+              <td>${gradBtn}</td>
+            </tr>
+          `;
+        }).join('');
+      } catch (err) {
+        // Si /api/admin/academy-agents falla, intentar con lista simple de usuarios
+        try {
+          const data = await api('/api/admin/users');
+          const tbody = document.getElementById('agents-tbody');
+          const users = (data.users || []).filter(u => u.role !== 'admin');
+          if (!users.length) {
+            tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:20px;color:#9ca3af;">No hay agentes. Crea usuarios con rol "user".</td></tr>';
+            return;
+          }
+          tbody.innerHTML = users.map(u => `
+            <tr>
+              <td>${u.id}</td>
+              <td><strong>${escapeHtml(u.name)}</strong></td>
+              <td>${escapeHtml(u.email)}</td>
+              <td>Nivel 1</td>
+              <td>0 XP</td>
+              <td>0</td>
+              <td><span class="badge badge-user">En formación</span></td>
+              <td><button class="btn btn-sm" style="background:#d97706;" onclick="graduateAgent(${u.id}, '${escapeHtml(u.name).replace(/'/g, "\\'")}')" title="Graduar"><i class="fas fa-graduation-cap"></i> Graduar</button></td>
+            </tr>
+          `).join('');
+        } catch (err2) {
+          showToast('Error cargando agentes: ' + err2.message, 'error');
+        }
+      }
+    }
+
+    document.getElementById('refresh-agents-btn').addEventListener('click', () => {
+      loadAgents();
+      showToast('Agentes actualizados', 'success');
+    });
+
+    // Graduar agente
+    window.graduateAgent = async (userId, name) => {
+      if (!confirm('¿Graduar a "' + name + '" como Partner Digital?\n\nSe le otorgará el certificado PDF y aparecerá como agente certificado.')) return;
+      try {
+        await api('/api/admin/agent-actions', {
+          method: 'POST',
+          body: JSON.stringify({ action: 'graduate', user_id: userId }),
+        });
+        showToast('✓ ' + name + ' graduado como Partner Digital', 'success');
+        loadAgents();
+        loadStats();
+      } catch (err) {
+        showToast('Error: ' + err.message, 'error');
+      }
+    };
+
+    // Revocar certificación
+    window.revokePartner = async (userId, name) => {
+      if (!confirm('¿Quitar la certificación de Partner a "' + name + '"?\n\nPerderá el estado de Partner y su certificado.')) return;
+      try {
+        await api('/api/admin/agent-actions', {
+          method: 'POST',
+          body: JSON.stringify({ action: 'revoke_partner', user_id: userId, reset_exam: true }),
+        });
+        showToast('✓ Certificación revocada', 'success');
+        loadAgents();
+        loadStats();
+      } catch (err) {
+        showToast('Error: ' + err.message, 'error');
+      }
+    };
+
+    // Ver certificado (modal)
+    window.viewCert = async (userId, name) => {
+      document.getElementById('cert-modal-title').textContent = 'Certificado de ' + name;
+      document.getElementById('cert-modal').classList.remove('hidden');
+      document.getElementById('cert-modal').style.display = 'flex';
+      const preview = document.getElementById('cert-preview');
+      preview.innerHTML = '<div style="padding:60px 20px;color:#6b7280;"><i class="fas fa-spinner fa-spin" style="font-size:2rem;"></i><p style="margin-top:8px;">Generando certificado...</p></div>';
+
+      // Cargar academy-certificate.js si no está cargado
+      if (!window.AcademyCertificate) {
+        await new Promise((resolve, reject) => {
+          const s = document.createElement('script');
+          s.src = '/js/academy-certificate.js';
+          s.onload = resolve;
+          s.onerror = reject;
+          document.head.appendChild(s);
+        }).catch(() => {});
+      }
+
+      if (!window.AcademyCertificate) {
+        preview.innerHTML = '<div style="padding:40px;color:#dc2626;"><i class="fas fa-exclamation-triangle"></i><p>No se pudo cargar el generador de certificados.</p></div>';
+        return;
+      }
+
+      try {
+        const info = window.AcademyCertificate.info({ name: name, userId: userId, issuedAt: new Date().toISOString() });
+        currentCertInfo = info;
+        // Vista previa
+        await window.AcademyCertificate.preview(info, preview);
+      } catch (err) {
+        preview.innerHTML = '<div style="padding:40px;color:#dc2626;"><i class="fas fa-exclamation-triangle"></i><p>Error: ' + err.message + '</p></div>';
+      }
+    };
+
+    // Cerrar modal certificado
+    document.getElementById('close-cert-modal').addEventListener('click', () => {
+      document.getElementById('cert-modal').classList.add('hidden');
+      document.getElementById('cert-modal').style.display = 'none';
+    });
+
+    // Descargar certificado
+    document.getElementById('download-cert-btn').addEventListener('click', async () => {
+      if (!currentCertInfo || !window.AcademyCertificate) {
+        showToast('No hay certificado para descargar', 'error');
+        return;
+      }
+      try {
+        await window.AcademyCertificate.download(currentCertInfo);
+        showToast('✓ Certificado descargado', 'success');
+      } catch (err) {
+        showToast('Error: ' + err.message, 'error');
+      }
+    });
 
     // ====== GESTIÓN DE CLASES ======
     let currentClassId = null;

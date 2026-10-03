@@ -41,7 +41,7 @@
         registerForm.classList.toggle('hidden', isLogin);
         if (authTitle) authTitle.textContent = isLogin ? 'Bienvenido de nuevo' : 'Crea tu cuenta gratis';
         if (authSubtitle) authSubtitle.textContent = isLogin
-            ? 'Inicia sesión para continuar en HolaX.'
+            ? 'Inicia sesión para continuar en MakeSEO.'
             : 'Publica tu negocio, deja reseñas y guarda tus favoritos.';
         clearAllErrors();
         // Clear messages
