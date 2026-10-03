@@ -151,7 +151,7 @@
             date: date,
             dateText: dateText,
             code: 'AC-' + year + '-' + id.padStart(5, '0'),
-            verifyUrl: window.location.origin + '/perfil.html?id=' + encodeURIComponent(id),
+            verifyUrl: window.location.origin + '/academia/?user=' + encodeURIComponent(id),
         };
     }
 

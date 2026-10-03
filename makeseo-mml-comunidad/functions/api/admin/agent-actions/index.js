@@ -106,7 +106,7 @@ export async function onRequestPost(context) {
       var partnerExists = await env.DB.prepare("SELECT COUNT(*) as cnt FROM mml_user_badges WHERE user_id = ? AND badge_type = 'partner'").bind(user_id).first();
       if (partnerExists.cnt === 0) {
         await env.DB.prepare(
-          "INSERT INTO mml_user_badges (user_id, badge_type, badge_name, badge_description, badge_icon) VALUES (?, 'partner', 'Partner Digital Certificado', 'Certificado como Partner Digital de AunClick', 'fas fa-certificate')"
+          "INSERT INTO mml_user_badges (user_id, badge_type, badge_name, badge_description, badge_icon) VALUES (?, 'partner', 'Partner Digital Certificado', 'Certificado como Partner Digital de MakeSEO', 'fas fa-certificate')"
         ).bind(user_id).run();
         awardedBadges.push('partner');
       }

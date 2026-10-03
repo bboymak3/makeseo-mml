@@ -208,7 +208,7 @@ export async function onRequestPost(context) {
           `).bind(userId, 'Aprobaste el examen final con ' + scorePercent + '% de calificacion'),
           env.DB.prepare(`
             INSERT INTO mml_user_badges (user_id, badge_type, badge_name, badge_description, badge_icon)
-            VALUES (?, 'partner', 'Partner Digital Certificado', 'Eres un Partner Digital certificado de AunClick', 'fas fa-certificate')
+            VALUES (?, 'partner', 'Partner Digital Certificado', 'Eres un Partner Digital certificado de MakeSEO', 'fas fa-certificate')
           `).bind(userId),
         ]);
         // +150 XP por aprobar el examen (una sola vez; no si ya lo graduo el admin)
