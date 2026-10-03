@@ -1,39 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Página principal -->
   <url>
     <loc>https://makeseo-mml.pages.dev/</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://makeseo-mml.pages.dev/og-image.jpg</image:loc>
+      <image:title>Edward Valencia - Método Malla Local (MML) - SEO Local + $0 Hosting</image:title>
+      <image:caption>MakeSEO Academy - Edward Valencia @makeseo - Método Malla Local</image:caption>
+    </image:image>
   </url>
+
+  <!-- Academia -->
   <url>
     <loc>https://makeseo-mml.pages.dev/academia/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Login academia -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/academia/login.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Panel admin -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/academia/admin.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Master Prompt -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/master-prompt</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://makeseo-mml.pages.dev/academia/login.html</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://makeseo-mml.pages.dev/academia/admin.html</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://makeseo-mml.pages.dev/master-prompt</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
+  <!-- Master Prompt MD descargable -->
   <url>
     <loc>https://makeseo-mml.pages.dev/master-prompt.md</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Sección: Método MML (3 Pilares) -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/#metodo</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sección: ¿Qué es el MML? -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/#que-es-mml</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sección: Tutoriales YouTube -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/#tutoriales</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/MGcITnwpgCo/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>De 0 a Clientes Diarios con SEO Local y Google Business - MML Ep.1</video:title>
+      <video:description>Edward Valencia demuestra cómo el Método Malla Local permite recibir llamadas reales de clientes.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=MGcITnwpgCo</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/MGcITnwpgCo</video:player_loc>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/0Cf8YR0XjWo/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Ficha Maestra NAP y Configuración SAB en Google Business Profile - MML Ep.2</video:title>
+      <video:description>Cómo construir el NAP definitivo y configurar Service Area Business.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=0Cf8YR0XjWo</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/0Cf8YR0XjWo</video:player_loc>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/PbDUwBGJqm0/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Adiós WordPress - Webs con IA, GitHub y Cloudflare Pages - MML Ep.3</video:title>
+      <video:description>Construcción de web ultrarrápida 100% desde el móvil con $0 hosting.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=PbDUwBGJqm0</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/PbDUwBGJqm0</video:player_loc>
+    </video:video>
+  </url>
+
+  <!-- Sección: Generador de Prompt -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/#prompt-generador</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sección: Agentes Certificados -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/#agentes</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sección: Nuestros Clientes -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/#clientes</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sección: Directorios Comerciales -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/#directorios</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sección: Bots IA (BotWA) -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/#bots-ia</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sección: Comunidad WhatsApp -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/#comunidad</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sección: Contacto / 360 Soluciones -->
+  <url>
+    <loc>https://makeseo-mml.pages.dev/#contacto</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

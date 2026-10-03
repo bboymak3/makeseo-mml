@@ -1,5 +1,19 @@
 User-agent: *
 Allow: /
 
+# Permitir indexación completa
+Allow: /academia/
+Allow: /academia/login.html
+Allow: /academia/admin.html
+Allow: /master-prompt
+Allow: /master-prompt.md
+Allow: /og-image.jpg
+Allow: /favicon-32.png
+Allow: /partnerdigimon.pdf
+Allow: /sitemap.xml
+
+# Bloquear APIs (no indexar)
+Disallow: /api/
+
 # Sitemap
 Sitemap: https://makeseo-mml.pages.dev/sitemap.xml
