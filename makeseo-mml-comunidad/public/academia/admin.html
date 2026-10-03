@@ -310,13 +310,142 @@
         </div>
       </div>
 
+      <!-- ============ GESTIÓN DE CLASES ============ -->
+      <div class="card">
+        <div class="card-title">
+          <i class="fas fa-graduation-cap"></i> Gestión de Clases
+          <button id="new-class-btn" class="btn btn-sm" style="margin-left: auto;"><i class="fas fa-plus"></i> Nueva Clase</button>
+          <button id="refresh-classes-btn" class="btn btn-secondary btn-sm" style="margin-left: 6px;"><i class="fas fa-sync"></i></button>
+        </div>
+        <div class="table-wrap">
+          <table id="classes-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Módulo</th>
+                <th>Profesor</th>
+                <th>XP</th>
+                <th>Preguntas</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="classes-tbody">
+              <tr><td colspan="8" style="text-align: center; padding: 20px; color: #9ca3af;">Cargando clases...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Editor de Clase (inline) -->
+      <div class="card hidden" id="class-editor">
+        <div class="card-title"><i class="fas fa-edit"></i> <span id="class-editor-title">Nueva Clase</span></div>
+        <form id="class-form">
+          <input type="hidden" id="class-id">
+          <div class="form-grid">
+            <div class="full">
+              <label class="form-label">Título de la clase *</label>
+              <input type="text" id="class-title" class="form-input" required placeholder="Ej: Episodio 1: De 0 a Clientes Diarios">
+            </div>
+            <div class="full">
+              <label class="form-label">Descripción breve</label>
+              <textarea id="class-desc" class="form-input" rows="2" placeholder="Resumen de la clase"></textarea>
+            </div>
+            <div class="full">
+              <label class="form-label">Contenido / Material</label>
+              <textarea id="class-content" class="form-input" rows="4" placeholder="Material que verá el agente en la clase"></textarea>
+            </div>
+            <div>
+              <label class="form-label">Profesor</label>
+              <input type="text" id="class-teacher" class="form-input" placeholder="Edward Valencia" value="Edward Valencia">
+            </div>
+            <div>
+              <label class="form-label">URL de YouTube</label>
+              <input type="url" id="class-video-url" class="form-input" placeholder="https://www.youtube.com/watch?v=...">
+            </div>
+            <div>
+              <label class="form-label">Módulo</label>
+              <select id="class-module" class="form-select">
+                <option value="Módulo 1: Fundamentos">Módulo 1: Fundamentos</option>
+                <option value="Módulo 2: Infraestructura">Módulo 2: Infraestructura</option>
+                <option value="Módulo 3: Optimización">Módulo 3: Optimización</option>
+                <option value="General">General</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">XP (puntos)</label>
+              <input type="number" id="class-xp" class="form-input" value="10" min="1" max="100">
+            </div>
+            <div>
+              <label class="form-label">Orden</label>
+              <input type="number" id="class-order" class="form-input" value="0" min="0">
+            </div>
+            <div>
+              <label class="form-label">Activa</label>
+              <select id="class-active" class="form-select">
+                <option value="1">Sí</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <div class="full" style="display: flex; gap: 8px; margin-top: 8px;">
+              <button type="submit" class="btn"><i class="fas fa-save"></i> Guardar Clase</button>
+              <button type="button" id="cancel-class-btn" class="btn btn-secondary">Cancelar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Gestión de Preguntas de una Clase -->
+      <div class="card hidden" id="questions-panel">
+        <div class="card-title">
+          <i class="fas fa-question-circle"></i> Preguntas de: <span id="questions-class-name"></span>
+          <button id="add-question-btn" class="btn btn-sm" style="margin-left: auto;"><i class="fas fa-plus"></i> Nueva Pregunta</button>
+          <button id="close-questions-btn" class="btn btn-secondary btn-sm" style="margin-left: 6px;"><i class="fas fa-arrow-left"></i> Volver</button>
+        </div>
+        <div id="questions-list" style="space-y: 8px;"></div>
+
+        <!-- Formulario inline de pregunta -->
+        <div class="hidden" id="question-form-wrap" style="margin-top: 16px; padding: 16px; background: #f9fafb; border-radius: 8px; border: 1px solid #e5e7eb;">
+          <input type="hidden" id="question-id">
+          <div style="margin-bottom: 10px;">
+            <label class="form-label">Pregunta *</label>
+            <input type="text" id="question-text" class="form-input" required placeholder="¿Qué significa MML?">
+          </div>
+          <div class="form-grid" style="grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+            <div><label class="form-label">Opción A</label><input type="text" id="question-opt-a" class="form-input" required></div>
+            <div><label class="form-label">Opción B</label><input type="text" id="question-opt-b" class="form-input" required></div>
+            <div><label class="form-label">Opción C</label><input type="text" id="question-opt-c" class="form-input" required></div>
+            <div><label class="form-label">Opción D</label><input type="text" id="question-opt-d" class="form-input" required></div>
+          </div>
+          <div class="form-grid" style="grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+            <div>
+              <label class="form-label">Respuesta correcta</label>
+              <select id="question-correct" class="form-select"><option value="a">A</option><option value="b">B</option><option value="c">C</option><option value="d">D</option></select>
+            </div>
+            <div>
+              <label class="form-label">Puntos</label>
+              <input type="number" id="question-points" class="form-input" value="10" min="1" max="50">
+            </div>
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label class="form-label">Explicación</label>
+            <input type="text" id="question-explanation" class="form-input" placeholder="Explicación de la respuesta correcta">
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" id="save-question-btn" class="btn btn-sm"><i class="fas fa-save"></i> Guardar Pregunta</button>
+            <button type="button" id="cancel-question-btn" class="btn btn-secondary btn-sm">Cancelar</button>
+          </div>
+        </div>
+      </div>
+
       <!-- Instrucciones setup -->
       <div class="card" style="background: #fef3c7; border: 1px solid #f59e0b;">
         <div class="card-title"><i class="fas fa-info-circle" style="color: #f59e0b;"></i> Configuración inicial</div>
         <div style="font-size: 0.85rem; color: #78350f; line-height: 1.7;">
           <p><strong>1. Cambia la contraseña del admin por defecto.</strong> El usuario inicial es <code>admin@makeseo.local</code> con contraseña <code>admin123</code>. Créate una cuenta nueva con rol admin y elimina la default.</p>
           <p style="margin-top: 8px;"><strong>2. Google OAuth (opcional).</strong> Para activar login con Google, configura las variables de entorno <code>GOOGLE_CLIENT_ID</code> y <code>GOOGLE_CLIENT_SECRET</code> en Cloudflare Pages → Settings → Environment variables.</p>
-          <p style="margin-top: 8px;"><strong>3. Crea clases y preguntas.</strong> Visita <code>/academia/admin-classes.html</code> (próximamente) o usa los endpoints <code>/api/agent-classes</code> directamente.</p>
+          <p style="margin-top: 8px;"><strong>3. Crea clases y preguntas.</strong> Usa la sección "Gestión de Clases" arriba. Ya hay 6 clases creadas de la serie MML de Edward Valencia con sus preguntas.</p>
         </div>
       </div>
     </main>
@@ -397,6 +526,7 @@
       document.getElementById('user-info').textContent = '👤 ' + (user.name || user.email);
       loadUsers();
       loadStats();
+      loadClasses();
     }
 
     function showLogin() {
@@ -534,6 +664,258 @@
         showLogin();
       }
     })();
+
+    // ====== GESTIÓN DE CLASES ======
+    let currentClassId = null;
+
+    async function loadClasses() {
+      try {
+        const data = await api('/api/agent-classes?view=admin');
+        const tbody = document.getElementById('classes-tbody');
+        const classes = data.classes || [];
+        if (!classes.length) {
+          tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:20px;color:#9ca3af;">No hay clases. Haz clic en "Nueva Clase".</td></tr>';
+          return;
+        }
+        tbody.innerHTML = classes.map(c => `
+          <tr>
+            <td>${c.id}</td>
+            <td><strong>${escapeHtml(c.title)}</strong>${c.video_url ? ' <i class="fab fa-youtube" style="color:#dc2626;"></i>' : ''}</td>
+            <td>${escapeHtml(c.module || 'General')}</td>
+            <td>${escapeHtml(c.teacher || '—')}</td>
+            <td>+${c.xp_reward || 10} XP</td>
+            <td>${c.question_count || 0}</td>
+            <td>${c.is_active == 1 ? '<span style="color:#059669;">✓ Activa</span>' : '<span style="color:#dc2626;">✗ Inactiva</span>'}</td>
+            <td>
+              <button class="btn btn-secondary btn-sm" onclick="editClass(${c.id})" title="Editar"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-secondary btn-sm" onclick="viewQuestions(${c.id}, '${escapeHtml(c.title).replace(/'/g, "\\'")}')" title="Preguntas"><i class="fas fa-question-circle"></i></button>
+              <button class="btn btn-danger btn-sm" onclick="deleteClass(${c.id}, '${escapeHtml(c.title).replace(/'/g, "\\'")}')" title="Eliminar"><i class="fas fa-trash"></i></button>
+            </td>
+          </tr>
+        `).join('');
+      } catch (err) {
+        showToast('Error cargando clases: ' + err.message, 'error');
+      }
+    }
+
+    // Mostrar editor de clase
+    document.getElementById('new-class-btn').addEventListener('click', () => {
+      document.getElementById('class-editor').classList.remove('hidden');
+      document.getElementById('questions-panel').classList.add('hidden');
+      document.getElementById('class-editor-title').textContent = 'Nueva Clase';
+      document.getElementById('class-form').reset();
+      document.getElementById('class-id').value = '';
+      document.getElementById('class-teacher').value = 'Edward Valencia';
+      document.getElementById('class-xp').value = 10;
+      document.getElementById('class-order').value = 0;
+      document.getElementById('class-active').value = '1';
+    });
+
+    document.getElementById('cancel-class-btn').addEventListener('click', () => {
+      document.getElementById('class-editor').classList.add('hidden');
+    });
+
+    document.getElementById('refresh-classes-btn').addEventListener('click', () => {
+      loadClasses();
+      showToast('Clases actualizadas', 'success');
+    });
+
+    // Guardar clase (crear o editar)
+    document.getElementById('class-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('class-id').value;
+      const payload = {
+        title: document.getElementById('class-title').value.trim(),
+        description: document.getElementById('class-desc').value,
+        content: document.getElementById('class-content').value,
+        teacher: document.getElementById('class-teacher').value.trim(),
+        video_url: document.getElementById('class-video-url').value.trim(),
+        module: document.getElementById('class-module').value,
+        xp_reward: parseInt(document.getElementById('class-xp').value) || 10,
+        sort_order: parseInt(document.getElementById('class-order').value) || 0,
+        is_active: document.getElementById('class-active').value === '1',
+      };
+      try {
+        if (id) {
+          await api('/api/agent-classes/' + id, { method: 'PUT', body: JSON.stringify(payload) });
+          showToast('✓ Clase actualizada', 'success');
+        } else {
+          await api('/api/agent-classes', { method: 'POST', body: JSON.stringify(payload) });
+          showToast('✓ Clase creada', 'success');
+        }
+        document.getElementById('class-editor').classList.add('hidden');
+        loadClasses();
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    });
+
+    // Editar clase
+    window.editClass = async (classId) => {
+      try {
+        const data = await api('/api/agent-classes/' + classId);
+        const cls = data.class;
+        if (!cls) { showToast('Clase no encontrada', 'error'); return; }
+        document.getElementById('class-id').value = cls.id;
+        document.getElementById('class-title').value = cls.title;
+        document.getElementById('class-desc').value = cls.description || '';
+        document.getElementById('class-content').value = cls.content || '';
+        document.getElementById('class-teacher').value = cls.teacher || 'Edward Valencia';
+        document.getElementById('class-video-url').value = cls.video_url || '';
+        document.getElementById('class-module').value = cls.module || 'General';
+        document.getElementById('class-xp').value = cls.xp_reward || 10;
+        document.getElementById('class-order').value = cls.sort_order || 0;
+        document.getElementById('class-active').value = cls.is_active == 1 ? '1' : '0';
+        document.getElementById('class-editor-title').textContent = 'Editar: ' + cls.title;
+        document.getElementById('class-editor').classList.remove('hidden');
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    };
+
+    // Eliminar clase
+    window.deleteClass = async (id, name) => {
+      if (!confirm('¿Eliminar la clase "' + name + '" y todas sus preguntas?')) return;
+      try {
+        await api('/api/agent-classes/' + id, { method: 'DELETE' });
+        showToast('✓ Clase eliminada', 'success');
+        loadClasses();
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    };
+
+    // ====== GESTIÓN DE PREGUNTAS ======
+    window.viewQuestions = async (classId, className) => {
+      currentClassId = classId;
+      document.getElementById('questions-class-name').textContent = className;
+      document.getElementById('questions-panel').classList.remove('hidden');
+      document.getElementById('class-editor').classList.add('hidden');
+      await loadQuestions(classId);
+    };
+
+    async function loadQuestions(classId) {
+      const listEl = document.getElementById('questions-list');
+      listEl.innerHTML = '<div style="text-align:center;padding:20px;color:#9ca3af;">Cargando preguntas...</div>';
+      try {
+        const data = await api('/api/agent-classes/' + classId + '/questions');
+        const questions = data.questions || [];
+        if (!questions.length) {
+          listEl.innerHTML = '<div style="text-align:center;padding:20px;color:#9ca3af;">No hay preguntas. Haz clic en "Nueva Pregunta".</div>';
+          return;
+        }
+        listEl.innerHTML = questions.map((q, idx) => {
+          const opts = { a: q.option_a, b: q.option_b, c: q.option_c, d: q.option_d };
+          const letters = ['a', 'b', 'c', 'd'];
+          const optsHtml = letters.map(l => {
+            const isCorrect = q.correct_answer === l;
+            return '<div style="font-size:0.82rem;padding:2px 0 2px 16px;">' +
+              (isCorrect ? '<span style="color:#059669;font-weight:700;">✓ ' : '<span style="color:#6b7280;">&nbsp;&nbsp;&nbsp;') +
+              l.toUpperCase() + '</span>) ' + escapeHtml(opts[l] || '') + '</div>';
+          }).join('');
+          return '<div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px;margin-bottom:8px;">' +
+            '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">' +
+            '<div style="flex:1;"><div style="font-weight:600;font-size:0.85rem;margin-bottom:6px;">[Q' + (idx + 1) + '] ' + escapeHtml(q.question) + '</div>' +
+            optsHtml + '</div>' +
+            '<div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">' +
+            '<span style="background:#fef3c7;color:#d97706;padding:2px 8px;border-radius:10px;font-size:0.72rem;font-weight:600;">' + (q.points || 10) + ' pts</span>' +
+            '<button class="btn btn-secondary btn-sm" onclick="editQuestion(' + q.id + ')" title="Editar"><i class="fas fa-edit"></i></button>' +
+            '<button class="btn btn-danger btn-sm" onclick="deleteQuestion(' + q.id + ')" title="Eliminar"><i class="fas fa-trash"></i></button>' +
+            '</div></div></div>';
+        }).join('');
+      } catch (err) {
+        listEl.innerHTML = '<div style="text-align:center;color:#f59e0b;padding:20px;">Error al cargar preguntas</div>';
+      }
+    }
+
+    // Mostrar form de nueva pregunta
+    document.getElementById('add-question-btn').addEventListener('click', () => {
+      document.getElementById('question-id').value = '';
+      document.getElementById('question-form-wrap').classList.remove('hidden');
+      document.getElementById('question-text').value = '';
+      document.getElementById('question-opt-a').value = '';
+      document.getElementById('question-opt-b').value = '';
+      document.getElementById('question-opt-c').value = '';
+      document.getElementById('question-opt-d').value = '';
+      document.getElementById('question-correct').value = 'a';
+      document.getElementById('question-points').value = 10;
+      document.getElementById('question-explanation').value = '';
+    });
+
+    document.getElementById('cancel-question-btn').addEventListener('click', () => {
+      document.getElementById('question-form-wrap').classList.add('hidden');
+    });
+
+    document.getElementById('close-questions-btn').addEventListener('click', () => {
+      document.getElementById('questions-panel').classList.add('hidden');
+    });
+
+    // Guardar pregunta
+    document.getElementById('save-question-btn').addEventListener('click', async () => {
+      const qId = document.getElementById('question-id').value;
+      const payload = {
+        question: document.getElementById('question-text').value.trim(),
+        option_a: document.getElementById('question-opt-a').value.trim(),
+        option_b: document.getElementById('question-opt-b').value.trim(),
+        option_c: document.getElementById('question-opt-c').value.trim(),
+        option_d: document.getElementById('question-opt-d').value.trim(),
+        correct_answer: document.getElementById('question-correct').value,
+        points: parseInt(document.getElementById('question-points').value) || 10,
+        explanation: document.getElementById('question-explanation').value,
+      };
+      if (!payload.question || !payload.option_a || !payload.option_b) {
+        showToast('Pregunta y opciones A/B son requeridas', 'error');
+        return;
+      }
+      try {
+        if (qId) {
+          await api('/api/agent-classes/' + currentClassId + '/questions/' + qId, { method: 'PUT', body: JSON.stringify(payload) });
+          showToast('✓ Pregunta actualizada', 'success');
+        } else {
+          await api('/api/agent-classes/' + currentClassId + '/questions', { method: 'POST', body: JSON.stringify(payload) });
+          showToast('✓ Pregunta creada', 'success');
+        }
+        document.getElementById('question-form-wrap').classList.add('hidden');
+        loadQuestions(currentClassId);
+        loadClasses();
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    });
+
+    // Editar pregunta
+    window.editQuestion = async (qId) => {
+      try {
+        const data = await api('/api/agent-classes/' + currentClassId + '/questions');
+        const q = (data.questions || []).find(x => x.id === qId);
+        if (!q) { showToast('Pregunta no encontrada', 'error'); return; }
+        document.getElementById('question-id').value = q.id;
+        document.getElementById('question-text').value = q.question;
+        document.getElementById('question-opt-a').value = q.option_a || '';
+        document.getElementById('question-opt-b').value = q.option_b || '';
+        document.getElementById('question-opt-c').value = q.option_c || '';
+        document.getElementById('question-opt-d').value = q.option_d || '';
+        document.getElementById('question-correct').value = q.correct_answer;
+        document.getElementById('question-points').value = q.points || 10;
+        document.getElementById('question-explanation').value = q.explanation || '';
+        document.getElementById('question-form-wrap').classList.remove('hidden');
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    };
+
+    // Eliminar pregunta
+    window.deleteQuestion = async (qId) => {
+      if (!confirm('¿Eliminar esta pregunta?')) return;
+      try {
+        await api('/api/agent-classes/' + currentClassId + '/questions/' + qId, { method: 'DELETE' });
+        showToast('✓ Pregunta eliminada', 'success');
+        loadQuestions(currentClassId);
+        loadClasses();
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    };
   </script>
 </body>
 </html>
