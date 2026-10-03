@@ -1,0 +1,2002 @@
+     1→<!doctype html>
+     2→<html lang="es-VE" class="scroll-smooth">
+     3→<head>
+     4→  <meta charset="UTF-8" />
+     5→  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+     6→  <meta name="theme-color" content="#0b1020" />
+     7→  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+     8→  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png" />
+     9→
+    10→  <!-- Google Search Console Verification -->
+    11→  <meta name="google-site-verification" content="AO8x2D5digAhJVNmj0wVdeJx60EpOc56vELa9rh_CmY" />
+    12→
+    13→  <!-- SEO Primary -->
+    14→  <title>Edward Valencia | Método Malla Local (MML) · SEO Local + $0 Hosting</title>
+    15→  <meta name="description" content="Aprende el Método Malla Local (MML) de Edward Valencia (@makeseo): posicionar negocios en Google Maps, construir webs ultrarrápidas con IA y $0 hosting, y recibir llamadas reales sin publicidad. Academia online gratis con certificado de Partner Digital." />
+    16→  <meta name="author" content="Edward Valencia" />
+    17→  <meta name="keywords" content="Método Malla Local, MML, SEO Local, Google Maps, Google Business Profile, Cloudflare Pages, Astro, $0 hosting, makeseo, Edward Valencia, 360 Soluciones, malla territorial, serverless, SAB, NAP, academia online, agente digital, partner digital, certificado, Google Business Profile, GBP, recarga gas, SEO Venezuela, SEO Latam" />
+    18→  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    19→
+    20→  <!-- Geo Tags (Venezuela / Latam) -->
+    21→  <meta name="geo.region" content="VE" />
+    22→  <meta name="geo.placename" content="Venezuela" />
+    23→  <meta name="geo.position" content="10.4806;-66.9036" />
+    24→  <meta name="ICBM" content="10.4806, -66.9036" />
+    25→
+    26→  <!-- Open Graph -->
+    27→  <meta property="og:type" content="website" />
+    28→  <meta property="og:title" content="Edward Valencia | Método Malla Local (MML) · SEO Local + $0 Hosting" />
+    29→  <meta property="og:description" content="Aprende el Método Malla Local (MML): posicionar negocios en Google Maps, webs ultrarrápidas con IA y $0 hosting, llamadas reales sin publicidad. Canal @makeseo en YouTube." />
+    30→  <meta property="og:locale" content="es_VE" />
+    31→  <meta property="og:site_name" content="Edward Valencia | MML" />
+    32→  <meta property="og:url" content="https://makeseo-mml.pages.dev" />
+    33→  <meta property="og:image" content="https://makeseo-mml.pages.dev/og-image.jpg" />
+    34→  <meta property="og:image:width" content="1200" />
+    35→  <meta property="og:image:height" content="630" />
+    36→  <meta property="og:image:alt" content="MakeSEO - Edward Valencia - Método Malla Local (MML) - SEO Local + $0 Hosting" />
+    37→
+    38→  <!-- Twitter Cards -->
+    39→  <meta name="twitter:card" content="summary_large_image" />
+    40→  <meta name="twitter:title" content="Edward Valencia | Método Malla Local (MML) · SEO Local + $0 Hosting" />
+    41→  <meta name="twitter:description" content="Sistema paso a paso para posicionar negocios en Google Maps, construir webs ultrarrápidas con IA y $0 hosting." />
+    42→  <meta name="twitter:image" content="https://makeseo-mml.pages.dev/og-image.jpg" />
+    43→
+    44→  <link rel="canonical" href="https://makeseo-mml.pages.dev" />
+    45→
+    46→  <!-- Tailwind CSS via CDN -->
+    47→  <script src="https://cdn.tailwindcss.com"></script>
+    48→  <script>
+    49→    tailwind.config = {
+    50→      theme: {
+    51→        extend: {
+    52→          colors: {
+    53→            'dark-navy': '#0b1020',
+    54→            'dark-navy-alt': '#121a33',
+    55→            'primary-cyan': '#00BCD4',
+    56→            'primary-teal': '#00838F',
+    57→            'accent-orange': '#ff6b00',
+    58→            'accent-orange-light': '#ff8c33',
+    59→            'whatsapp-green': '#25D366',
+    60→            'youtube-red': '#FF0000',
+    61→            'ink-dark': '#1a1a1a',
+    62→            'text-muted': '#5b6475',
+    63→          },
+    64→          fontFamily: {
+    65→            sans: ['Inter', 'Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+    66→          },
+    67→          animation: {
+    68→            'pulse-slow': 'pulseSlow 2.5s ease-in-out infinite',
+    69→            'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate',
+    70→            'float': 'float 4s ease-in-out infinite',
+    71→          },
+    72→          keyframes: {
+    73→            pulseSlow: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.85' } },
+    74→            glowPulse: { '0%': { boxShadow: '0 0 20px rgba(0, 188, 212, 0.45)' }, '100%': { boxShadow: '0 0 38px rgba(0, 188, 212, 0.75)' } },
+    75→            float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
+    76→          },
+    77→        },
+    78→      },
+    79→    };
+    80→  </script>
+    81→
+    82→  <!-- Fonts: Inter + Poppins -->
+    83→  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    84→  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    85→  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    86→
+    87→  <!-- JSON-LD Schema.org: Person + EducationalOrganization + Course + FAQPage + VideoCourse -->
+    88→  <script type="application/ld+json">
+    89→  {
+    90→    "@context": "https://schema.org",
+    91→    "@type": ["Person", "EducationalOrganization"],
+    92→    "@id": "https://makeseo-mml.pages.dev/#person",
+    93→    "name": "Edward Valencia",
+    94→    "alternateName": "@makeseo",
+    95→    "url": "https://makeseo-mml.pages.dev",
+    96→    "image": "https://i.ytimg.com/vi/MGcITnwpgCo/maxresdefault.jpg",
+    97→    "jobTitle": "Especialista en SEO Local y Arquitectura Serverless",
+    98→    "description": "Creador del Método Malla Local (MML). Formación de agentes digitales certificados en SEO Local, arquitectura serverless y malla territorial georreferenciada.",
+    99→    "knowsAbout": ["SEO Local", "Google Business Profile", "Google Maps", "Cloudflare Pages", "Astro", "Arquitectura Serverless", "Malla Territorial", "Citaciones Locales", "Google Tag Manager", "WebP", "Cloudflare D1", "GitHub"],
+   100→    "nationality": "Venezuelan",
+   101→    "worksFor": {
+   102→      "@type": "Organization",
+   103→      "name": "360 Soluciones",
+   104→      "url": "https://makeseo-mml.pages.dev",
+   105→      "telephone": "+58 416-777-5771"
+   106→    },
+   107→    "sameAs": [
+   108→      "https://youtube.com/@makeseo",
+   109→      "https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w"
+   110→    ],
+   111→    "contactPoint": [{
+   112→      "@type": "ContactPoint",
+   113→      "telephone": "+58 416-777-5771",
+   114→      "contactType": "customer support",
+   115→      "areaServed": "Latam",
+   116→      "availableLanguage": ["Spanish"]
+   117→    }],
+   118→    "alumniOf": {
+   119→      "@type": "EducationalOrganization",
+   120→      "name": "MakeSEO Academy",
+   121→      "description": "Academia online del Método Malla Local (MML). Formación de agentes digitales certificados con $0 hosting.",
+   122→      "url": "https://makeseo-mml.pages.dev/academia/"
+   123→    }
+   124→  }
+   125→  </script>
+   126→
+   127→  <!-- Schema: Course (Serie MML) -->
+   128→  <script type="application/ld+json">
+   129→  {
+   130→    "@context": "https://schema.org",
+   131→    "@type": "Course",
+   132→    "name": "Método Malla Local (MML) - Serie Completa",
+   133→    "description": "Curso gratuito sobre SEO Local, Google Business Profile, web serverless, malla territorial y automatización con IA. 6 episodios + examen final + certificado de Partner Digital.",
+   134→    "provider": {
+   135→      "@type": "Organization",
+   136→      "name": "MakeSEO Academy",
+   137→      "sameAs": "https://youtube.com/@makeseo",
+   138→      "url": "https://makeseo-mml.pages.dev/academia/"
+   139→    },
+   140→    "inLanguage": "es",
+   141→    "educationalLevel": "Beginner to Intermediate",
+   142→    "courseCode": "MML-001",
+   143→    "hasCourseInstance": {
+   144→      "@type": "CourseInstance",
+   145→      "courseMode": "Online",
+   146→      "courseWorkload": "PT6H",
+   147→      "instructor": {
+   148→        "@type": "Person",
+   149→        "name": "Edward Valencia",
+   150→        "sameAs": "https://youtube.com/@makeseo"
+   151→      }
+   152→    }
+   153→  }
+   154→  </script>
+   155→
+   156→  <!-- Schema: FAQPage (Rich Snippets) -->
+   157→  <script type="application/ld+json">
+   158→  {
+   159→    "@context": "https://schema.org",
+   160→    "@type": "FAQPage",
+   161→    "mainEntity": [
+   162→      {
+   163→        "@type": "Question",
+   164→        "name": "¿Qué es el Método Malla Local (MML)?",
+   165→        "acceptedAnswer": {
+   166→          "@type": "Answer",
+   167→          "text": "El Método Malla Local (MML) es una metodología práctica de posicionamiento digital y captación de clientes de alta intención desarrollada por Edward Valencia (@makeseo). Su objetivo es dominar las búsquedas en Google Maps y los resultados orgánicos locales sin depender de WordPress, sin pagar mensualidades de hosting y ejecutando la infraestructura técnica desde un teléfono celular."
+   168→        }
+   169→      },
+   170→      {
+   171→        "@type": "Question",
+   172→        "name": "¿Cuáles son los 3 pilares del Método MML?",
+   173→        "acceptedAnswer": {
+   174→          "@type": "Answer",
+   175→          "text": "El Trinomio de Autoridad: Pilar 1 - Google Business Profile Semántico (Ficha Maestra NAP + SAB), Pilar 2 - Web Serverless Ultrarrápida (Astro/HTML + Cloudflare Pages a $0), Pilar 3 - Malla Territorial y Ecosistema de Autoridad (landings por comuna + citaciones + circuito de reseñas)."
+   176→        }
+   177→      },
+   178→      {
+   179→        "@type": "Question",
+   180→        "name": "¿Cuánto cuesta el hosting con el MML?",
+   181→        "acceptedAnswer": {
+   182→          "@type": "Answer",
+   183→          "text": "$0. El MML reemplaza el hosting tradicional y CMS pesados (WordPress/Elementor) por código estático ultraligero montado en GitHub y desplegado en Cloudflare Pages. Cero costo mensual, SSL automático y CDN perimetral global."
+   184→        }
+   185→      },
+   186→      {
+   187→        "@type": "Question",
+   188→        "name": "¿Puedo aprender el MML desde el móvil?",
+   189→        "acceptedAnswer": {
+   190→          "@type": "Answer",
+   191→          "text": "Sí. Todo el desarrollo (prompts de arquitectura, generación de código con agentes de IA como Chat Z/Gemini, creación de tokens y despliegues) se realiza directamente desde el smartphone. El MML está diseñado 100% para ejecución móvil."
+   192→        }
+   193→      },
+   194→      {
+   195→        "@type": "Question",
+   196→        "name": "¿Cómo me certifico como Partner Digital?",
+   197→        "acceptedAnswer": {
+   198→          "@type": "Answer",
+   199→          "text": "Entra gratis a la MakeSEO Academy, completa las 6 clases de la serie MML, aprueba el examen final con 80% o más, y recibirás tu certificado PDF de Partner Digital. También un admin puede graduarte directamente desde el panel."
+   200→        }
+   201→      },
+   202→      {
+   203→        "@type": "Question",
+   204→        "name": "¿Qué es la Malla Territorial?",
+   205→        "acceptedAnswer": {
+   206→          "@type": "Answer",
+   207→          "text": "No se posiciona una sola página genérica, sino una malla de páginas y citaciones que cubren todas las comunas, sectores o municipios donde opera el negocio. Cada comuna tiene su propia landing SEO interconectada, multiplicando la presencia territorial."
+   208→        }
+   209→      },
+   210→      {
+   211→        "@type": "Question",
+   212→        "name": "¿Necesito saber programar para usar el MML?",
+   213→        "acceptedAnswer": {
+   214→          "@type": "Answer",
+   215→          "text": "No. El MML usa IA (Chat Z, Gemini) para generar el código automáticamente. Solo necesitas saber qué pedirle a la IA usando los prompts del Master Prompt MML, que está disponible gratis en el sitio."
+   216→        }
+   217→      },
+   218→      {
+   219→        "@type": "Question",
+   220→        "name": "¿Cómo contacto a Edward Valencia o 360 Soluciones?",
+   221→        "acceptedAnswer": {
+   222→          "@type": "Answer",
+   223→          "text": "Puedes contactar por WhatsApp al +58 416-777-5771, unirte al canal oficial de WhatsApp (whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w), o suscribirte al canal de YouTube youtube.com/@makeseo."
+   224→        }
+   225→      }
+   226→    ]
+   227→  }
+   228→  </script>
+   229→
+   230→  <!-- Schema: VideoObject (Videos YouTube) -->
+   231→  <script type="application/ld+json">
+   232→  {
+   233→    "@context": "https://schema.org",
+   234→    "@type": "VideoObject",
+   235→    "name": "De 0 a Clientes Diarios con SEO Local y Google Business - MML Ep.1",
+   236→    "description": "Edward Valencia demuestra cómo el Método Malla Local permite recibir llamadas reales de clientes solo con Google Maps optimizado.",
+   237→    "thumbnailUrl": "https://i.ytimg.com/vi/MGcITnwpgCo/maxresdefault.jpg",
+   238→    "uploadDate": "2026-09-29",
+   239→    "contentUrl": "https://www.youtube.com/watch?v=MGcITnwpgCo",
+   240→    "embedUrl": "https://www.youtube.com/embed/MGcITnwpgCo",
+   241→    "inLanguage": "es",
+   242→    "publisher": {
+   243→      "@type": "Organization",
+   244→      "name": "MakeSEO Academy",
+   245→      "url": "https://makeseo-mml.pages.dev"
+   246→    }
+   247→  }
+   248→  </script>
+   249→
+   250→  <!-- Schema: BreadcrumbList -->
+   251→  <script type="application/ld+json">
+   252→  {
+   253→    "@context": "https://schema.org",
+   254→    "@type": "BreadcrumbList",
+   255→    "itemListElement": [
+   256→      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://makeseo-mml.pages.dev" },
+   257→      { "@type": "ListItem", "position": 2, "name": "Academia MML", "item": "https://makeseo-mml.pages.dev/academia/" },
+   258→      { "@type": "ListItem", "position": 3, "name": "Master Prompt", "item": "https://makeseo-mml.pages.dev/master-prompt" }
+   259→    ]
+   260→  }
+   261→  </script>
+   262→
+   263→  <!-- Global CSS tweaks -->
+   264→  <style>
+   265→    html { scroll-padding-top: 90px; }
+   266→    body { background-color: #0b1020; }
+   267→    ::-webkit-scrollbar { width: 10px; height: 10px; }
+   268→    ::-webkit-scrollbar-track { background: #0b1020; }
+   269→    ::-webkit-scrollbar-thumb { background: #00838f; border-radius: 5px; }
+   270→    ::-webkit-scrollbar-thumb:hover { background: #00bcd4; }
+   271→    :focus-visible { outline: 2px solid #00BCD4; outline-offset: 2px; border-radius: 4px; }
+   272→    [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+   273→    [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+   274→    @media (prefers-reduced-motion: reduce) {
+   275→      [data-reveal] { opacity: 1; transform: none; transition: none; }
+   276→      .animate-pulse-slow, .animate-glow-pulse, .animate-float { animation: none !important; }
+   277→      html { scroll-behavior: auto; }
+   278→    }
+   279→    /* Gradient text helper */
+   280→    .text-gradient-cyanteal { background: linear-gradient(135deg, #00BCD4, #00838F); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+   281→    .text-gradient-orange { background: linear-gradient(135deg, #ff6b00, #ff8c33); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+   282→    /* Hero radial bg */
+   283→    .hero-radial { background-image: radial-gradient(circle at 30% 20%, rgba(0, 188, 212, 0.22), transparent 45%), radial-gradient(circle at 80% 0%, rgba(255, 107, 0, 0.18), transparent 35%); }
+   284→    /* YT iframe ratio */
+   285→    .yt-frame { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+   286→    .yt-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+   287→
+   288→    /* Markdown render for generated prompt */
+   289→    .prompt-block h1, .prompt-block h2, .prompt-block h3 { color: #00BCD4; font-weight: 700; margin-top: 1.2em; margin-bottom: 0.4em; }
+   290→    .prompt-block h1 { font-size: 1.4rem; }
+   291→    .prompt-block h2 { font-size: 1.1rem; }
+   292→    .prompt-block h3 { font-size: 0.95rem; }
+   293→    .prompt-block code { background: rgba(0, 188, 212, 0.15); color: #00BCD4; padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.85em; }
+   294→    .prompt-block pre { background: rgba(0, 0, 0, 0.4); padding: 1em; border-radius: 8px; overflow-x: auto; margin: 0.8em 0; border: 1px solid rgba(0, 188, 212, 0.2); }
+   295→    .prompt-block pre code { background: transparent; color: #ff8c33; padding: 0; }
+   296→    .prompt-block strong { color: #ff8c33; font-weight: 700; }
+   297→    .prompt-block em { color: #ffffff; font-style: italic; }
+   298→    .prompt-block ul, .prompt-block ol { padding-left: 1.4em; margin: 0.6em 0; }
+   299→    .prompt-block li { margin: 0.3em 0; }
+   300→    .prompt-block p { margin: 0.6em 0; }
+   301→    .prompt-block a { color: #00BCD4; text-decoration: underline; }
+   302→    .prompt-block hr { border: none; border-top: 1px solid rgba(0, 188, 212, 0.2); margin: 1.5em 0; }
+   303→    .prompt-block blockquote { border-left: 3px solid #ff6b00; padding-left: 1em; color: rgba(255,255,255,0.7); margin: 1em 0; }
+   304→    .prompt-block table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+   305→    .prompt-block th, .prompt-block td { border: 1px solid rgba(0, 188, 212, 0.2); padding: 0.5em 0.8em; text-align: left; }
+   306→    .prompt-block th { background: rgba(0, 188, 212, 0.1); color: #00BCD4; }
+   307→
+   308→    /* Niche card selected state */
+   309→    .niche-card { cursor: pointer; transition: all 0.2s; }
+   310→    .niche-card.is-selected { background: linear-gradient(135deg, rgba(255,107,0,0.2), rgba(255,140,51,0.1)) !important; border-color: #ff6b00 !important; transform: scale(1.03); }
+   311→    .niche-card.is-selected .niche-icon { background: linear-gradient(135deg, #ff6b00, #ff8c33) !important; color: #fff !important; }
+   312→  </style>
+   313→</head>
+   314→
+   315→<body class="font-sans text-white antialiased">
+   316→
+   317→  <!-- ==================== NAVBAR ==================== -->
+   318→  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-dark-navy/80 border-b border-white/10">
+   319→    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+   320→      <div class="flex h-16 lg:h-20 items-center justify-between">
+   321→        <!-- Logo -->
+   322→        <a href="#inicio" class="flex items-center gap-2.5 group" aria-label="Edward Valencia MML - Inicio">
+   323→          <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center shadow-[0_0_30px_rgba(0,188,212,0.45)] group-hover:shadow-[0_0_30px_rgba(255,107,0,0.45)] transition-shadow">
+   324→            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+   325→              <path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/>
+   326→            </svg>
+   327→          </div>
+   328→          <div class="leading-none">
+   329→            <span class="block text-white font-extrabold text-sm sm:text-base tracking-tight">EDWARD VALENCIA</span>
+   330→            <span class="block text-primary-cyan text-[10px] sm:text-xs font-medium tracking-widest">MÉTODO MALLA LOCAL · MML</span>
+   331→          </div>
+   332→        </a>
+   333→
+   334→        <!-- Links desktop -->
+   335→        <div class="hidden lg:flex items-center gap-1">
+   336→          <a href="#inicio" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Inicio</a>
+   337→          <a href="#prompt-generador" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Generar Prompt</a>
+   338→          <a href="#metodo" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Método MML</a>
+   339→          <a href="#tutoriales" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Tutoriales YouTube</a>
+   340→          <a href="#comunidad" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Comunidad</a>
+   341→          <a href="#contacto" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Contacto</a>
+   342→        </div>
+   343→
+   344→        <!-- CTA WhatsApp desktop -->
+   345→        <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-whatsapp-green text-white text-sm font-semibold shadow-[0_10px_30px_-6px_rgba(37,211,102,0.5)] hover:scale-105 active:scale-95 transition-transform">
+   346→          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+   347→            <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.473-.607z"/>
+   348→          </svg>
+   349→          Comunidad
+   350→        </a>
+   351→
+   352→        <!-- CTA Academia desktop -->
+   353→        <a href="/academia/login.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white text-sm font-semibold shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] hover:scale-105 active:scale-95 transition-transform">
+   354→          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+   355→            <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+   356→          </svg>
+   357→          Academia
+   358→        </a>
+   359→
+   360→        <!-- Botón hamburguesa mobile -->
+   361→        <button type="button" id="mobile-menu-button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition-colors" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false">
+   362→          <svg class="w-6 h-6" id="menu-open-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+   363→            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+   364→          </svg>
+   365→          <svg class="w-6 h-6 hidden" id="menu-close-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+   366→            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+   367→          </svg>
+   368→        </button>
+   369→      </div>
+   370→    </div>
+   371→
+   372→    <!-- Menú mobile -->
+   373→    <div id="mobile-menu" class="lg:hidden hidden border-t border-white/10 bg-dark-navy-alt/95 backdrop-blur-lg">
+   374→      <div class="px-4 py-4 space-y-1">
+   375→        <a href="#inicio" class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors mobile-link">Inicio</a>
+   376→        <a href="/academia/login.html" class="block px-3 py-2.5 rounded-lg text-accent-orange-light hover:bg-accent-orange/10 font-bold text-sm transition-colors mobile-link">🎓 Academia MML</a>
+   377→        <a href="#prompt-generador" class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors mobile-link">Generar Prompt</a>
+   378→        <a href="#metodo" class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors mobile-link">Método MML</a>
+   379→        <a href="#tutoriales" class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors mobile-link">Tutoriales YouTube</a>
+   380→        <a href="#comunidad" class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors mobile-link">Comunidad</a>
+   381→        <a href="#contacto" class="block px-3 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 font-medium text-sm transition-colors mobile-link">Contacto</a>
+   382→        <a href="/academia/login.html" class="mt-3 flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white text-sm font-bold mobile-link">
+   383→          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+   384→          IR A LA ACADEMIA
+   385→        </a>
+   386→        <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="mt-2 flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-whatsapp-green text-white text-sm font-semibold mobile-link">
+   387→          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+   388→            <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/>
+   389→          </svg>
+   390→          Comunidad WhatsApp
+   391→        </a>
+   392→        <!-- SOPREVER -->
+   393→        <a href="https://share.google/AfpzW5tvS7FOt4Ug2" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+   394→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🌳</span><h3 class="font-bold text-white text-sm">SOPREVER</h3></div>
+   395→          <p class="text-xs text-white/60">Soluciones y Prevenciones Verdes · Tala y poda de árboles · Santiago CL</p>
+   396→        </a>
+   397→      </div>
+   398→    </div>
+   399→  </nav>
+   400→
+   401→  <!-- ==================== HERO ==================== -->
+   402→  <section id="inicio" class="relative overflow-hidden bg-dark-navy pt-28 pb-20 lg:pt-36 lg:pb-28">
+   403→    <div class="absolute inset-0 hero-radial" aria-hidden="true"></div>
+   404→    <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-cyan/20 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+   405→    <div class="absolute -top-24 right-0 w-80 h-80 bg-accent-orange/15 rounded-full blur-3xl" aria-hidden="true"></div>
+   406→
+   407→    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+   408→      <!-- Badge neón superior -->
+   409→      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-navy-alt/80 border border-primary-cyan/40 backdrop-blur-sm mb-8" data-reveal>
+   410→        <span class="relative flex h-2.5 w-2.5">
+   411→          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-cyan opacity-75"></span>
+   412→          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary-cyan"></span>
+   413→        </span>
+   414→        <span class="text-xs sm:text-sm font-semibold tracking-wider text-primary-cyan">• ARQUITECTURA SERVERLESS • SEO LOCAL • $0 HOSTING</span>
+   415→      </div>
+   416→
+   417→      <!-- H1 -->
+   418→      <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] max-w-5xl mx-auto" data-reveal>
+   419→        Método <span class="text-gradient-cyanteal">Malla Local</span><br />
+   420→        <span class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">Domina Google Maps sin WordPress ni hosting</span>
+   421→      </h1>
+   422→
+   423→      <!-- Subtítulo (definición oficial MML) -->
+   424→      <p class="mt-6 text-base lg:text-lg text-white/75 max-w-3xl mx-auto leading-relaxed" data-reveal>
+   425→        Metodología práctica de <strong class="text-white font-semibold">posicionamiento digital y captación de clientes de alta intención</strong> desarrollada por <strong class="text-primary-cyan">Edward Valencia (@makeseo)</strong>. Domina las búsquedas en Google Maps y los resultados orgánicos locales sin WordPress, sin pagar mensualidades de hosting y ejecutando toda la infraestructura técnica desde tu teléfono celular.
+   426→      </p>
+   427→
+   428→      <!-- 3 plataformas con logos grandes -->
+   429→      <div class="mt-12 max-w-5xl mx-auto" data-reveal>
+   430→        <p class="text-center text-xs text-white/40 uppercase tracking-widest font-semibold mb-5">Construido con</p>
+   431→        <div class="grid grid-cols-3 gap-3 lg:gap-5">
+   432→          <!-- GitHub -->
+   433→          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-5 lg:p-7 flex flex-col items-center justify-center gap-3 hover:scale-105 hover:shadow-2xl transition-all" title="GitHub">
+   434→            <div class="h-16 w-16 lg:h-20 lg:w-20 flex items-center justify-center">
+   435→              <img src="/images/platforms/github.png" alt="GitHub - Plataforma de control de versiones" width="80" height="80" class="w-full h-full object-contain" loading="lazy" />
+   436→            </div>
+   437→            <span class="text-sm lg:text-base font-bold text-gray-900">GitHub</span>
+   438→          </a>
+   439→          <!-- Cloudflare -->
+   440→          <a href="https://dash.cloudflare.com/" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-5 lg:p-7 flex flex-col items-center justify-center gap-3 hover:scale-105 hover:shadow-2xl transition-all" title="Cloudflare">
+   441→            <div class="h-16 w-16 lg:h-20 lg:w-20 flex items-center justify-center">
+   442→              <img src="/images/platforms/cloudflare.png" alt="Cloudflare - CDN y hosting serverless" width="80" height="33" class="w-full h-full object-contain" loading="lazy" />
+   443→            </div>
+   444→            <span class="text-sm lg:text-base font-bold text-gray-900">Cloudflare</span>
+   445→          </a>
+   446→          <!-- Chat Z -->
+   447→          <a href="https://chat.z.ai/" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-5 lg:p-7 flex flex-col items-center justify-center gap-3 hover:scale-105 hover:shadow-2xl transition-all" title="Chat Z">
+   448→            <div class="h-16 w-16 lg:h-20 lg:w-20 flex items-center justify-center">
+   449→              <img src="/images/platforms/chatz.svg" alt="Chat Z - IA para generar código" width="80" height="80" class="w-full h-full object-contain" loading="lazy" />
+   450→            </div>
+   451→            <span class="text-sm lg:text-base font-bold text-gray-900">Chat Z</span>
+   452→          </a>
+   453→        </div>
+   454→      </div>
+   455→
+   456→      <!-- Botones principales -->
+   457→      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center" data-reveal>
+   458→        <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-youtube-red text-white font-bold text-base shadow-[0_10px_30px_-6px_rgba(255,0,0,0.5)] hover:scale-105 active:scale-95 transition-transform">
+   459→          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+   460→            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+   461→          </svg>
+   462→          Ver Canal @makeseo
+   463→        </a>
+   464→        <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-whatsapp-green text-white font-bold text-base shadow-[0_10px_30px_-6px_rgba(37,211,102,0.55)] hover:scale-105 active:scale-95 transition-transform animate-pulse-slow">
+   465→          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+   466→            <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/>
+   467→          </svg>
+   468→          Unirme al Canal de WhatsApp
+   469→        </a>
+   470→      </div>
+   471→
+   472→      <!-- Microcopy -->
+   473→      <p class="mt-8 text-sm text-white/50" data-reveal>
+   474→        Canal oficial · Actualizaciones semanales · Soporte para tus proyectos locales
+   475→      </p>
+   476→    </div>
+   477→
+   478→    <!-- Wave divider -->
+   479→    <div class="relative -mb-1" aria-hidden="true">
+   480→      <svg class="w-full h-12 lg:h-20 text-dark-navy-alt" fill="currentColor" viewBox="0 0 1440 80" preserveAspectRatio="none">
+   481→        <path d="M0 80h1440V40c-240 26-480 26-720 13S240 14 0 40v40z"/>
+   482→      </svg>
+   483→    </div>
+   484→  </section>
+   485→
+   486→  <!-- ==================== CTA ACADemia MML ==================== -->
+   487→  <section id="cta-academia" class="bg-dark-navy-alt py-16 lg:py-20 relative overflow-hidden">
+   488→    <div class="absolute -top-32 -right-32 w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+   489→    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-accent-orange/15 rounded-full blur-3xl" aria-hidden="true"></div>
+   490→
+   491→    <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+   492→      <div class="relative" data-reveal>
+   493→        <!-- Borde gradiente -->
+   494→        <div class="absolute -inset-1 bg-gradient-to-r from-primary-cyan via-accent-orange to-whatsapp-green rounded-3xl blur-md opacity-60" aria-hidden="true"></div>
+   495→
+   496→        <div class="relative bg-dark-navy rounded-3xl border border-white/10 overflow-hidden">
+   497→          <div class="absolute inset-0 hero-radial opacity-30"></div>
+   498→
+   499→          <div class="relative p-7 sm:p-10 lg:p-12 text-center">
+   500→            <!-- Icono grande -->
+   501→            <div class="inline-flex items-center justify-center h-20 w-20 rounded-3xl bg-gradient-to-br from-accent-orange to-accent-orange-light mb-6 shadow-[0_0_50px_rgba(255,107,0,0.5)] animate-glow-pulse">
+   502→              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+   503→                <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/>
+   504→                <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+   505→              </svg>
+   506→            </div>
+   507→
+   508→            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-orange/15 border border-accent-orange/40 text-accent-orange-light text-xs font-semibold mb-4">
+   509→              <span class="h-1.5 w-1.5 rounded-full bg-accent-orange animate-ping"></span>
+   510→              FORMACIÓN ONLINE · GRATIS
+   511→            </span>
+   512→
+   513→            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+   514→              Entra a la <span class="text-gradient-orange">MakeSEO Academy</span>
+   515→            </h2>
+   516→
+   517→            <p class="text-base lg:text-lg text-white/75 max-w-2xl mx-auto leading-relaxed mb-8">
+   518→              Formación completa del Método Malla Local. Clases interactivas, exámenes, certificados de <strong class="text-white">Agente Certificado</strong> y <strong class="text-white">Partner Digital</strong>. Sube de nivel, gana XP y demuestra tu dominio del SEO Local.
+   519→            </p>
+   520→
+   521→            <!-- Botón gigante -->
+   522→            <a href="/academia/login.html" class="group inline-flex items-center justify-center gap-3 px-10 py-5 lg:px-14 lg:py-6 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white font-extrabold text-lg lg:text-xl shadow-[0_15px_40px_-8px_rgba(255,107,0,0.6)] hover:scale-105 active:scale-95 transition-transform w-full sm:w-auto animate-pulse-slow">
+   523→              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+   524→                <path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v3a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h8a2 2 0 012 2v3"/>
+   525→              </svg>
+   526→              <span>IR A LA ACADEMIA</span>
+   527→              <svg class="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+   528→            </a>
+   529→
+   530→            <p class="mt-5 text-xs text-white/50">
+   531→              Inicia sesión con email o Google · Si eres admin <a href="/academia/admin.html" class="text-primary-cyan hover:underline font-semibold">entra al panel admin</a>
+   532→            </p>
+   533→          </div>
+   534→        </div>
+   535→      </div>
+   536→    </div>
+   537→  </section>
+   538→
+   539→  <!-- ==================== AGENTES DIGITALES CERTIFICADOS ==================== -->
+   540→  <section id="agentes" class="bg-dark-navy py-20 lg:py-28 relative overflow-hidden">
+   541→    <div class="absolute -top-32 -right-32 w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl" aria-hidden="true"></div>
+   542→    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-accent-orange/15 rounded-full blur-3xl" aria-hidden="true"></div>
+   543→
+   544→    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+   545→      <div class="text-center mb-14" data-reveal>
+   546→        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-cyan text-sm font-semibold mb-4">
+   547→          <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan"></span>
+   548→          Partners Digitales
+   549→        </span>
+   550→        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+   551→          Agentes <span class="text-gradient-cyanteal">Certificados</span> por la academia
+   552→        </h2>
+   553→        <p class="mt-5 text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+   554→          Profesionales formados en el Método MML. Dominan Google Business Profile, web serverless, malla territorial y automatización con IA. Ellos implementan el sistema en negocios reales.
+   555→        </p>
+   556→      </div>
+   557→
+   558→      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" data-reveal>
+   559→        <!-- Agente 1: Edward Valencia -->
+   560→        <article class="group relative bg-dark-navy-alt/60 backdrop-blur-sm border border-white/10 rounded-3xl p-6 text-center hover:border-primary-cyan/50 hover:-translate-y-1 transition-all">
+   561→          <div class="relative inline-block mb-4">
+   562→            <div class="h-24 w-24 rounded-full bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center text-3xl font-extrabold text-white shadow-[0_0_30px_rgba(0,188,212,0.4)] group-hover:scale-105 transition-transform">
+   563→              EV
+   564→            </div>
+   565→            <span class="absolute -bottom-1 -right-1 h-7 w-7 rounded-full bg-accent-orange border-2 border-dark-navy flex items-center justify-center" title="Partner Digital Certificado">
+   566→              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/></svg>
+   567→            </span>
+   568→          </div>
+   569→          <h3 class="text-lg font-bold text-white">Edward Valencia</h3>
+   570→          <p class="text-xs text-primary-cyan font-semibold mt-0.5">Fundador · @makeseo</p>
+   571→          <p class="text-xs text-white/60 mt-3 leading-relaxed">Creador del Método MML. Especialista en SEO Local y arquitectura serverless. +500 reseñas gestionadas.</p>
+   572→          <div class="mt-4 flex flex-wrap justify-center gap-1.5">
+   573→            <span class="px-2 py-0.5 rounded-full bg-primary-cyan/15 text-primary-cyan text-[10px] font-semibold">SEO Local</span>
+   574→            <span class="px-2 py-0.5 rounded-full bg-accent-orange/15 text-accent-orange-light text-[10px] font-semibold">Cloudflare</span>
+   575→            <span class="px-2 py-0.5 rounded-full bg-whatsapp-green/15 text-whatsapp-green text-[10px] font-semibold" style="color: #25D366;">IA</span>
+   576→          </div>
+   577→        </article>
+   578→
+   579→        <!-- Agente 2: Carlos Mendoza -->
+   580→        <article class="group relative bg-dark-navy-alt/60 backdrop-blur-sm border border-white/10 rounded-3xl p-6 text-center hover:border-primary-cyan/50 hover:-translate-y-1 transition-all">
+   581→          <div class="relative inline-block mb-4">
+   582→            <div class="h-24 w-24 rounded-full bg-gradient-to-br from-accent-orange to-accent-orange-light flex items-center justify-center text-3xl font-extrabold text-white shadow-[0_0_30px_rgba(255,107,0,0.4)] group-hover:scale-105 transition-transform">
+   583→              CM
+   584→            </div>
+   585→            <span class="absolute -bottom-1 -right-1 h-7 w-7 rounded-full bg-accent-orange border-2 border-dark-navy flex items-center justify-center" title="Partner Digital Certificado">
+   586→              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/></svg>
+   587→            </span>
+   588→          </div>
+   589→          <h3 class="text-lg font-bold text-white">Carlos Mendoza</h3>
+   590→          <p class="text-xs text-accent-orange-light font-semibold mt-0.5">Agente Certificado Nivel 5</p>
+   591→          <p class="text-xs text-white/60 mt-3 leading-relaxed">Implementador de mallas territoriales. Ha desplegado +30 landings por comuna en 360 Soluciones.</p>
+   592→          <div class="mt-4 flex flex-wrap justify-center gap-1.5">
+   593→            <span class="px-2 py-0.5 rounded-full bg-primary-cyan/15 text-primary-cyan text-[10px] font-semibold">GBP</span>
+   594→            <span class="px-2 py-0.5 rounded-full bg-accent-orange/15 text-accent-orange-light text-[10px] font-semibold">Astro</span>
+   595→            <span class="px-2 py-0.5 rounded-full bg-whatsapp-green/15 text-whatsapp-green text-[10px] font-semibold" style="color: #25D366;">D1</span>
+   596→          </div>
+   597→        </article>
+   598→
+   599→        <!-- Agente 3: María Fernández -->
+   600→        <article class="group relative bg-dark-navy-alt/60 backdrop-blur-sm border border-white/10 rounded-3xl p-6 text-center hover:border-primary-cyan/50 hover:-translate-y-1 transition-all">
+   601→          <div class="relative inline-block mb-4">
+   602→            <div class="h-24 w-24 rounded-full bg-gradient-to-br from-whatsapp-green to-primary-teal flex items-center justify-center text-3xl font-extrabold text-white shadow-[0_0_30px_rgba(37,211,102,0.4)] group-hover:scale-105 transition-transform" style="background: linear-gradient(135deg, #25D366, #00838F);">
+   603→              MF
+   604→            </div>
+   605→            <span class="absolute -bottom-1 -right-1 h-7 w-7 rounded-full bg-accent-orange border-2 border-dark-navy flex items-center justify-center" title="Partner Digital Certificado">
+   606→              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/></svg>
+   607→            </span>
+   608→          </div>
+   609→          <h3 class="text-lg font-bold text-white">María Fernández</h3>
+   610→          <p class="text-xs font-semibold mt-0.5" style="color: #25D366;">Agente Certificada Nivel 4</p>
+   611→          <p class="text-xs text-white/60 mt-3 leading-relaxed">Especialista en Google Business Profile y circuitos de reseñas. +200 fichas NAP optimizadas.</p>
+   612→          <div class="mt-4 flex flex-wrap justify-center gap-1.5">
+   613→            <span class="px-2 py-0.5 rounded-full bg-primary-cyan/15 text-primary-cyan text-[10px] font-semibold">SAB</span>
+   614→            <span class="px-2 py-0.5 rounded-full bg-accent-orange/15 text-accent-orange-light text-[10px] font-semibold">Reseñas</span>
+   615→            <span class="px-2 py-0.5 rounded-full bg-whatsapp-green/15 text-whatsapp-green text-[10px] font-semibold" style="color: #25D366;">WhatsApp</span>
+   616→          </div>
+   617→        </article>
+   618→
+   619→        <!-- Agente 4: José Rodríguez -->
+   620→        <article class="group relative bg-dark-navy-alt/60 backdrop-blur-sm border border-white/10 rounded-3xl p-6 text-center hover:border-primary-cyan/50 hover:-translate-y-1 transition-all">
+   621→          <div class="relative inline-block mb-4">
+   622→            <div class="h-24 w-24 rounded-full bg-gradient-to-br from-purple-600 to-primary-teal flex items-center justify-center text-3xl font-extrabold text-white shadow-[0_0_30px_rgba(124,58,237,0.4)] group-hover:scale-105 transition-transform" style="background: linear-gradient(135deg, #7c3aed, #00838F);">
+   623→              JR
+   624→            </div>
+   625→            <span class="absolute -bottom-1 -right-1 h-7 w-7 rounded-full bg-accent-orange border-2 border-dark-navy flex items-center justify-center" title="Partner Digital Certificado">
+   626→              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/></svg>
+   627→            </span>
+   628→          </div>
+   629→          <h3 class="text-lg font-bold text-white">José Rodríguez</h3>
+   630→          <p class="text-xs font-semibold mt-0.5" style="color: #a78bfa;">Agente Certificado Nivel 4</p>
+   631→          <p class="text-xs text-white/60 mt-3 leading-relaxed">Desarrollador web serverless con IA. Experto en Astro, Tailwind y Cloudflare Pages desde móvil.</p>
+   632→          <div class="mt-4 flex flex-wrap justify-center gap-1.5">
+   633→            <span class="px-2 py-0.5 rounded-full bg-primary-cyan/15 text-primary-cyan text-[10px] font-semibold">Astro</span>
+   634→            <span class="px-2 py-0.5 rounded-full bg-accent-orange/15 text-accent-orange-light text-[10px] font-semibold">Tailwind</span>
+   635→            <span class="px-2 py-0.5 rounded-full bg-whatsapp-green/15 text-whatsapp-green text-[10px] font-semibold" style="color: #25D366;">$0 Hosting</span>
+   636→          </div>
+   637→        </article>
+   638→      </div>
+   639→
+   640→      <!-- CTA para convertirse en agente -->
+   641→      <div class="mt-12 text-center" data-reveal>
+   642→        <p class="text-white/70 mb-4">¿Quieres aparecer aquí como Agente Certificado?</p>
+   643→        <a href="/academia/login.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary-cyan to-primary-teal text-white font-bold text-sm shadow-[0_10px_30px_-6px_rgba(0,188,212,0.5)] hover:scale-105 active:scale-95 transition-transform">
+   644→          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+   645→          Empezar formación gratis
+   646→        </a>
+   647→      </div>
+   648→    </div>
+   649→  </section>
+   650→
+   651→  <!-- ==================== MASTER PROMPT DISEÑADO PARA TU NICHO ==================== -->
+   652→  <section id="prompt-generador" class="bg-dark-navy py-20 lg:py-28 relative overflow-hidden">
+   653→    <div class="absolute -top-32 -left-32 w-96 h-96 bg-accent-orange/15 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+   654→    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl" aria-hidden="true"></div>
+   655→
+   656→    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+   657→      <div class="text-center mb-12" data-reveal>
+   658→        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-orange/10 text-accent-orange-light text-sm font-semibold mb-4">
+   659→          <span class="h-1.5 w-1.5 rounded-full bg-accent-orange animate-ping"></span>
+   660→          Generador automático · MML
+   661→        </span>
+   662→        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+   663→          MASTER PROMPT DISEÑADO<br />
+   664→          PARA TU <span class="text-gradient-orange">NICHO</span>
+   665→        </h2>
+   666→        <p class="mt-5 text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+   667→          Selecciona tu nicho y genera una versión personalizada del Master Prompt MML con Schema.org específico, servicios típicos, keywords y FAQs adaptadas a tu rubro. Listo para copiar y pegar en tu IA.
+   668→        </p>
+   669→      </div>
+   670→
+   671→      <!-- Selector de nicho -->
+   672→      <div data-reveal>
+   673→        <p class="text-sm font-semibold text-white/80 mb-4 text-center">1. Selecciona tu nicho:</p>
+   674→        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mb-8" id="niche-grid">
+   675→          <!-- Las cards se generan con JS -->
+   676→        </div>
+   677→
+   678→        <!-- Input custom -->
+   679→        <div class="max-w-2xl mx-auto mb-8">
+   680→          <label for="custom-niche" class="block text-sm font-semibold text-white/80 mb-2 text-center">¿Tu nicho no está en la lista? Escríbelo:</label>
+   681→          <div class="relative">
+   682→            <input
+   683→              type="text"
+   684→              id="custom-niche"
+   685→              placeholder="Ej: Estética automotriz, Peluquería canina, Piscinas..."
+   686→              class="w-full px-4 py-3 rounded-xl bg-dark-navy-alt/60 border border-white/15 text-white text-sm placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-accent-orange focus:border-transparent"
+   687→              autocomplete="off"
+   688→            />
+   689→          </div>
+   690→        </div>
+   691→
+   692→        <!-- Botón generar -->
+   693→        <div class="text-center mb-10">
+   694→          <button
+   695→            type="button"
+   696→            id="generate-prompt-btn"
+   697→            class="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white font-bold text-base shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] hover:scale-105 active:scale-95 transition-transform"
+   698→            aria-label="Generar Master Prompt personalizado"
+   699→          >
+   700→            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+   701→              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+   702→            </svg>
+   703→            <span>GENERAR PROMPT</span>
+   704→            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+   705→          </button>
+   706→          <p id="generate-hint" class="mt-3 text-xs text-white/50">Selecciona un nicho o escribe el tuyo para activar el botón</p>
+   707→        </div>
+   708→      </div>
+   709→
+   710→      <!-- Resultado (oculto hasta generar) -->
+   711→      <div id="prompt-result" class="hidden" data-reveal>
+   712→        <div class="relative">
+   713→          <div class="absolute -inset-0.5 bg-gradient-to-br from-accent-orange/30 to-primary-cyan/30 rounded-3xl blur-md" aria-hidden="true"></div>
+   714→          <div class="relative bg-dark-navy-alt border border-white/10 rounded-3xl overflow-hidden">
+   715→            <!-- Header del resultado -->
+   716→            <div class="flex items-center justify-between px-4 py-3 bg-dark-navy border-b border-white/10">
+   717→              <div class="flex items-center gap-2">
+   718→                <span class="h-3 w-3 rounded-full bg-red-500/80"></span>
+   719→                <span class="h-3 w-3 rounded-full bg-yellow-500/80"></span>
+   720→                <span class="h-3 w-3 rounded-full bg-green-500/80"></span>
+   721→                <span class="ml-3 text-white/60 text-xs font-mono">MASTER_PROMPT_<span id="result-niche-tag">NICHO</span>.md</span>
+   722→              </div>
+   723→              <span class="text-white/40 text-xs font-mono hidden sm:inline" id="result-stats">— líneas</span>
+   724→            </div>
+   725→
+   726→            <!-- Botonera -->
+   727→            <div class="flex flex-wrap items-center gap-2 px-4 py-3 bg-dark-navy-alt/40 border-b border-white/10">
+   728→              <button type="button" id="copy-generated-btn" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-whatsapp-green text-white text-xs font-bold hover:scale-105 active:scale-95 transition-transform">
+   729→                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+   730→                <span id="copy-generated-text">Copiar prompt</span>
+   731→              </button>
+   732→              <button type="button" id="download-generated-btn" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold hover:bg-white/15 transition-colors">
+   733→                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+   734→                Descargar .md
+   735→              </button>
+   736→              <button type="button" id="regenerate-btn" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold hover:bg-white/15 transition-colors">
+   737→                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+   738→                Generar otro nicho
+   739→              </button>
+   740→            </div>
+   741→
+   742→            <!-- Aviso copiado -->
+   743→            <div id="copy-generated-feedback" class="hidden px-4 py-2 bg-whatsapp-green/15 border-b border-whatsapp-green/40 text-whatsapp-green text-xs font-semibold" style="color: #25D366;">
+   744→              ✓ ¡Master Prompt copiado al portapapeles! Pégalo en chat.z.ai (botón abajo) o tu IA favorita.
+   745→            </div>
+   746→
+   747→            <!-- Contenido generado -->
+   748→            <div class="prompt-block p-5 lg:p-8 text-white/85 text-sm lg:text-[15px] leading-relaxed font-mono overflow-x-auto max-h-[600px] overflow-y-auto" id="generated-prompt-content">
+   749→              <!-- Se rellena con JS -->
+   750→            </div>
+   751→          </div>
+   752→        </div>
+   753→
+   754→        <!-- CTA inferior: pegar en chat.z.ai -->
+   755→        <div class="mt-8 text-center" data-reveal>
+   756→          <div class="inline-flex flex-col items-center gap-4 p-6 lg:p-7 rounded-2xl bg-gradient-to-br from-primary-cyan/10 to-accent-orange/10 border border-primary-cyan/30 max-w-2xl">
+   757→            <div>
+   758→              <p class="text-white font-bold text-base lg:text-lg">2. Pega el prompt en tu IA favorita</p>
+   759→              <p class="text-white/60 text-sm mt-1">Recomendamos Z.ai — gratis, sin registro, soporta prompts largos</p>
+   760→            </div>
+   761→            <a
+   762→              href="https://chat.z.ai"
+   763→              target="_blank"
+   764→              rel="noopener noreferrer"
+   765→              class="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-gradient-to-r from-primary-cyan to-primary-teal text-white font-bold text-base shadow-[0_10px_30px_-6px_rgba(0,188,212,0.5)] hover:scale-105 active:scale-95 transition-transform w-full sm:w-auto"
+   766→            >
+   767→              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+   768→                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12H7v-2h6v2zm3-4H7V8h9v2z"/>
+   769→              </svg>
+   770→              <span>Abrir chat.z.ai</span>
+   771→              <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+   772→            </a>
+   773→            <p class="text-xs text-white/50">También puedes usar Claude, ChatGPT, Gemini, etc.</p>
+   774→          </div>
+   775→        </div>
+   776→      </div>
+   777→    </div>
+   778→  </section>
+   779→
+   780→
+   781→  <!-- ==================== ¿QUÉ ES EL MML? ==================== -->
+   782→  <section id="que-es-mml" class="bg-dark-navy-alt py-20 lg:py-28 relative overflow-hidden">
+   783→    <div class="absolute top-0 right-0 w-72 h-72 bg-primary-cyan/10 rounded-full blur-3xl" aria-hidden="true"></div>
+   784→    <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent-orange/10 rounded-full blur-3xl" aria-hidden="true"></div>
+   785→
+   786→    <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+   787→      <div class="text-center mb-12" data-reveal>
+   788→        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-cyan text-sm font-semibold mb-4">
+   789→          <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan"></span>
+   790→          Definición
+   791→        </span>
+   792→        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+   793→          ¿Qué es el <span class="text-gradient-cyanteal">Método Malla Local</span>?
+   794→        </h2>
+   795→      </div>
+   796→
+   797→      <div class="relative" data-reveal>
+   798→        <div class="absolute -inset-0.5 bg-gradient-to-br from-primary-cyan/20 to-accent-orange/20 rounded-3xl blur-md" aria-hidden="true"></div>
+   799→        <div class="relative bg-dark-navy border border-white/10 rounded-3xl p-7 lg:p-10 shadow-2xl">
+   800→          <div class="absolute inset-0 hero-radial opacity-30 rounded-3xl pointer-events-none"></div>
+   801→          <div class="relative space-y-5 text-base lg:text-lg text-white/80 leading-relaxed">
+   802→            <p>
+   803→              El <strong class="text-white">Método Malla Local (MML)</strong> es una metodología práctica de <strong class="text-primary-cyan">posicionamiento digital y captación de clientes de alta intención</strong> desarrollada por <strong class="text-white">Edward Valencia (@makeseo)</strong>.
+   804→            </p>
+   805→            <p>
+   806→              Su objetivo es <strong class="text-accent-orange-light">dominar las búsquedas en Google Maps</strong> y los resultados orgánicos locales <strong class="text-white">sin depender de WordPress</strong>, <strong class="text-white">sin pagar mensualidades de hosting</strong> y ejecutando la <strong class="text-white">infraestructura técnica desde un teléfono celular</strong>.
+   807→            </p>
+   808→          </div>
+   809→
+   810→          <!-- 4 diferenciadores clave explicados -->
+   811→          <div class="mt-8 pt-6 border-t border-white/10 grid sm:grid-cols-2 gap-4">
+   812→            <div class="flex items-start gap-3">
+   813→              <span class="flex-shrink-0 h-9 w-9 rounded-lg bg-primary-cyan/15 border border-primary-cyan/30 flex items-center justify-center">
+   814→                <svg class="w-4 h-4 text-primary-cyan" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+   815→              </span>
+   816→              <div>
+   817→                <p class="text-sm font-bold text-white">$0 Costo de Servidores (Serverless)</p>
+   818→                <p class="text-xs text-white/60 mt-1 leading-relaxed">Reemplaza hosting tradicional y CMS pesados (WordPress/Elementor) por código estático ultraligero en GitHub desplegado en Cloudflare Pages.</p>
+   819→              </div>
+   820→            </div>
+   821→            <div class="flex items-start gap-3">
+   822→              <span class="flex-shrink-0 h-9 w-9 rounded-lg bg-primary-cyan/15 border border-primary-cyan/30 flex items-center justify-center">
+   823→                <svg class="w-4 h-4 text-primary-cyan" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+   824→              </span>
+   825→              <div>
+   826→                <p class="text-sm font-bold text-white">Velocidad Extrema (Core Web Vitals 100)</p>
+   827→                <p class="text-xs text-white/60 mt-1 leading-relaxed">Al eliminar bases de datos y plugins, las páginas cargan en menos de 1 segundo, reduciendo rebote y maximizando conversión.</p>
+   828→              </div>
+   829→            </div>
+   830→            <div class="flex items-start gap-3">
+   831→              <span class="flex-shrink-0 h-9 w-9 rounded-lg bg-accent-orange/15 border border-accent-orange/30 flex items-center justify-center">
+   832→                <svg class="w-4 h-4 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+   833→              </span>
+   834→              <div>
+   835→                <p class="text-sm font-bold text-white">Ejecución 100% Móvil con IA</p>
+   836→                <p class="text-xs text-white/60 mt-1 leading-relaxed">Todo el desarrollo (prompts, código con agentes IA como Chat Z/Gemini, tokens y deploys) se hace directamente desde el smartphone.</p>
+   837→              </div>
+   838→            </div>
+   839→            <div class="flex items-start gap-3">
+   840→              <span class="flex-shrink-0 h-9 w-9 rounded-lg bg-accent-orange/15 border border-accent-orange/30 flex items-center justify-center">
+   841→                <svg class="w-4 h-4 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 9m0 8V9"/></svg>
+   842→              </span>
+   843→              <div>
+   844→                <p class="text-sm font-bold text-white">Dominio Territorial Georreferenciado</p>
+   845→                <p class="text-xs text-white/60 mt-1 leading-relaxed">No se posiciona una sola página genérica, sino una "malla" de páginas y citaciones que cubren todas las comunas/municipios donde opera el negocio.</p>
+   846→              </div>
+   847→            </div>
+   848→          </div>
+   849→        </div>
+   850→      </div>
+   851→    </div>
+   852→  </section>
+   853→
+   854→  <!-- ==================== MÉTODO MML - TRINOMIO DE AUTORIDAD ==================== -->
+   855→  <section id="metodo" class="bg-dark-navy py-20 lg:py-28 relative overflow-hidden">
+   856→    <div class="absolute -top-32 -right-32 w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+   857→    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-accent-orange/15 rounded-full blur-3xl" aria-hidden="true"></div>
+   858→
+   859→    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+   860→      <div class="text-center mb-14 lg:mb-16" data-reveal>
+   861→        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-cyan text-sm font-semibold mb-4">
+   862→          <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan"></span>
+   863→          Trinomio de Autoridad
+   864→        </span>
+   865→        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+   866→          Los <span class="text-gradient-cyanteal">3 Pilares</span> del Método MML
+   867→        </h2>
+   868→        <p class="mt-5 text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+   869→          Tres pilares coordinados que convierten cualquier negocio local en la opción #1 de su zona en Google Maps, sin pagar publicidad y con infraestructura de costo cero.
+   870→        </p>
+   871→      </div>
+   872→
+   873→      <!-- Diagrama visual del Trinomio de Autoridad -->
+   874→      <div class="max-w-5xl mx-auto" data-reveal>
+   875→        <!-- Pilar 1 (arriba, centrado) -->
+   876→        <div class="flex justify-center mb-2">
+   877→          <div class="text-primary-cyan/60 text-xs font-mono uppercase tracking-widest hidden sm:block">↓ Coherencia NAP &amp; Enlaces ↓</div>
+   878→        </div>
+   879→        <div class="flex justify-center mb-6">
+   880→          <article class="group relative w-full max-w-xl bg-gradient-to-br from-primary-cyan/15 to-primary-teal/10 border-2 border-primary-cyan/40 rounded-3xl p-6 lg:p-8 hover:border-primary-cyan hover:-translate-y-1 transition-all">
+   881→            <div class="flex items-center gap-4 mb-4">
+   882→              <div class="flex-shrink-0 h-14 w-14 rounded-2xl bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center shadow-[0_0_30px_rgba(0,188,212,0.45)]">
+   883→                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+   884→                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+   885→                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+   886→                </svg>
+   887→              </div>
+   888→              <div>
+   889→                <div class="text-xs font-bold uppercase tracking-wider text-primary-cyan">Pilar 1 · El Cimiento</div>
+   890→                <h3 class="text-xl lg:text-2xl font-bold text-white">Ficha Maestra &amp; Google Business Profile Semántico</h3>
+   891→              </div>
+   892→            </div>
+   893→            <p class="text-sm text-white/80 leading-relaxed mb-4">
+   894→              La base del mapa. Se construye el perfil Google Business Profile optimizado al máximo: <strong class="text-white">Ficha Maestra NAP</strong> (Nombre, Dirección/Cobertura y Teléfono idénticos en toda la web), configuración <strong class="text-white">SAB (Service Area Business)</strong> para servicios a domicilio sin local físico que evita suspensiones, carga semántica de servicios, categorías estratégicas y fotos optimizadas.
+   895→            </p>
+   896→            <ul class="grid sm:grid-cols-3 gap-2 text-xs text-white/85">
+   897→              <li class="flex items-center gap-2 p-2 rounded-lg bg-white/5"><span class="h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span>Ficha Maestra NAP</li>
+   898→              <li class="flex items-center gap-2 p-2 rounded-lg bg-white/5"><span class="h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span>SAB sin local físico</li>
+   899→              <li class="flex items-center gap-2 p-2 rounded-lg bg-white/5"><span class="h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span>Categorías estratégicas</li>
+   900→            </ul>
+   901→          </article>
+   902→        </div>
+   903→
+   904→        <!-- Conectores visuales -->
+   905→        <div class="flex justify-center gap-8 sm:gap-24 mb-4">
+   906→          <div class="text-primary-cyan/40 text-2xl">↙</div>
+   907→          <div class="text-primary-cyan/40 text-2xl">↘</div>
+   908→        </div>
+   909→
+   910→        <!-- Pilar 2 y 3 (abajo, lado a lado) -->
+   911→        <div class="grid md:grid-cols-2 gap-6">
+   912→          <!-- Pilar 2 -->
+   913→          <article class="group relative bg-dark-navy-alt/60 backdrop-blur-sm border border-white/10 rounded-3xl p-6 lg:p-7 hover:border-accent-orange/50 hover:-translate-y-1 transition-all">
+   914→            <div class="absolute top-0 left-0 right-0 h-1.5 rounded-t-3xl bg-gradient-to-r from-primary-cyan via-primary-teal to-accent-orange scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+   915→            <div class="flex items-center gap-3 mb-4">
+   916→              <div class="flex-shrink-0 h-12 w-12 rounded-xl bg-gradient-to-br from-accent-orange/20 to-accent-orange-light/20 border border-accent-orange/30 flex items-center justify-center">
+   917→                <svg class="w-6 h-6 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+   918→                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+   919→                </svg>
+   920→              </div>
+   921→              <div>
+   922→                <div class="text-xs font-bold uppercase tracking-wider text-accent-orange-light">Pilar 2</div>
+   923→                <h3 class="text-lg lg:text-xl font-bold text-white">Web Serverless Ultrarrápida</h3>
+   924→                <p class="text-[10px] text-white/50 font-mono">Astro/HTML + Cloudflare Pages</p>
+   925→              </div>
+   926→            </div>
+   927→            <p class="text-sm text-white/75 leading-relaxed mb-4">
+   928→              Generación de landings con <strong class="text-white">IA preparadas para conversión directa</strong> (botones flotantes de llamada y WhatsApp). Repositorios en <strong class="text-white">GitHub</strong> para control de versiones gratuito. Alojamiento global en <strong class="text-white">Cloudflare Pages</strong> con SSL automático y CDN perimetral a costo <strong class="text-accent-orange-light">$0</strong>.
+   929→            </p>
+   930→            <ul class="space-y-1.5 text-xs text-white/85">
+   931→              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary-cyan flex-shrink-0"></span>Landings con IA + conversión directa</li>
+   932→              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary-cyan flex-shrink-0"></span>GitHub para control de versiones</li>
+   933→              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary-cyan flex-shrink-0"></span>Cloudflare Pages + SSL + CDN $0</li>
+   934→            </ul>
+   935→          </article>
+   936→
+   937→          <!-- Pilar 3 -->
+   938→          <article class="group relative bg-dark-navy-alt/60 backdrop-blur-sm border border-white/10 rounded-3xl p-6 lg:p-7 hover:border-whatsapp-green/50 hover:-translate-y-1 transition-all">
+   939→            <div class="absolute top-0 left-0 right-0 h-1.5 rounded-t-3xl bg-gradient-to-r from-primary-cyan via-primary-teal to-accent-orange scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+   940→            <div class="flex items-center gap-3 mb-4">
+   941→              <div class="flex-shrink-0 h-12 w-12 rounded-xl bg-gradient-to-br from-whatsapp-green/20 to-primary-teal/20 border border-whatsapp-green/30 flex items-center justify-center">
+   942→                <svg class="w-6 h-6 text-whatsapp-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+   943→                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 9m0 8V9"/>
+   944→                </svg>
+   945→              </div>
+   946→              <div>
+   947→                <div class="text-xs font-bold uppercase tracking-wider text-whatsapp-green">Pilar 3</div>
+   948→                <h3 class="text-lg lg:text-xl font-bold text-white">Malla Territorial y Ecosistema de Autoridad</h3>
+   949→                <p class="text-[10px] text-white/50 font-mono">Directorios + Comunas D1</p>
+   950→              </div>
+   951→            </div>
+   952→            <p class="text-sm text-white/75 leading-relaxed mb-4">
+   953→              Inyección de <strong class="text-white">citaciones consistentes</strong> en directorios locales y redes sociales. Creación de <strong class="text-white">páginas de aterrizaje específicas para cada comuna o municipio</strong> (cobertura total de la ciudad). Automatización de contenido local y <strong class="text-accent-orange-light">circuitos continuos de reseñas reales de 5 estrellas</strong>.
+   954→            </p>
+   955→            <ul class="space-y-1.5 text-xs text-white/85">
+   956→              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span>Citaciones en directorios locales</li>
+   957→              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span>Landings por comuna/municipio</li>
+   958→              <li class="flex items-start gap-2"><span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent-orange flex-shrink-0"></span>Circuito de reseñas 5★</li>
+   959→            </ul>
+   960→          </article>
+   961→        </div>
+   962→      </div>
+   963→
+   964→      <!-- CTA inferior método -->
+   965→      <div class="mt-12 text-center" data-reveal>
+   966→        <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-sm hover:bg-white/15 transition-colors">
+   967→          Ver la serie completa en YouTube
+   968→          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+   969→        </a>
+   970→      </div>
+   971→    </div>
+   972→  </section>
+   973→
+   974→  <!-- ==================== TUTORIALES YOUTUBE ==================== -->
+   975→  <section id="tutoriales" class="bg-dark-navy py-20 lg:py-28 relative overflow-hidden">
+   976→    <div class="absolute -top-32 -right-32 w-96 h-96 bg-youtube-red/10 rounded-full blur-3xl" aria-hidden="true"></div>
+   977→
+   978→    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+   979→      <div class="text-center mb-14" data-reveal>
+   980→        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-youtube-red/10 text-red-400 text-sm font-semibold mb-4">
+   981→          <span class="h-1.5 w-1.5 rounded-full bg-youtube-red"></span>
+   982→          Ruta de Aprendizaje · 6 Episodios
+   983→        </span>
+   984→        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+   985→          Serie del <span class="text-gradient-cyanteal">Método MML</span> en YouTube
+   986→        </h2>
+   987→        <p class="mt-5 text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+   988→          Serie gratuita de 6 episodios que documenta todo el Método Malla Local: desde la prueba de concepto y la ficha maestra en Google Business, hasta el despliegue serverless, la malla territorial por comunas y el circuito automatizado de reseñas.
+   989→        </p>
+   990→      </div>
+   991→
+   992→      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-reveal>
+   993→        <!-- Video 1: Embed real -->
+   994→        <article class="group bg-dark-navy-alt/60 border border-white/10 rounded-2xl overflow-hidden hover:border-youtube-red/50 hover:-translate-y-1 transition-all">
+   995→          <div class="yt-frame">
+   996→            <iframe
+   997→              src="https://www.youtube-nocookie.com/embed/MGcITnwpgCo"
+   998→              title="De 0 a Clientes Diarios con SEO Local y Google Business - Edward Valencia @makeseo"
+   999→              loading="lazy"
+  1000→              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  1001→              allowfullscreen></iframe>
+  1002→          </div>
+  1003→          <div class="p-5">
+  1004→            <div class="flex items-center gap-2 text-xs font-semibold text-red-400 mb-2">
+  1005→              <span class="px-2 py-0.5 rounded-full bg-youtube-red/15 border border-youtube-red/30">EP 01</span>
+  1006→              <span>Resultados y Prueba de Concepto</span>
+  1007→            </div>
+  1008→            <h3 class="text-base font-bold text-white leading-tight mb-2">De 0 a Clientes Diarios con SEO Local y Google Business</h3>
+  1009→            <p class="text-xs text-white/60 leading-relaxed">Episodio 1: Cómo captar llamadas diarias con SEO Local. Prueba de concepto del MML mostrando resultados reales en vivo.</p>
+  1010→            <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-red-400 hover:text-red-300">
+  1011→              Ver en YouTube
+  1012→              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  1013→            </a>
+  1014→          </div>
+  1015→        </article>
+  1016→
+  1017→        <!-- Video 2: Embed real -->
+  1018→        <article class="group bg-dark-navy-alt/60 border border-white/10 rounded-2xl overflow-hidden hover:border-primary-cyan/50 hover:-translate-y-1 transition-all">
+  1019→          <div class="yt-frame">
+  1020→            <iframe
+  1021→              src="https://www.youtube-nocookie.com/embed/0Cf8YR0XjWo"
+  1022→              title="Episodio 2 - SEO Local MML Crear Perfil de Google - Edward Valencia @makeseo"
+  1023→              loading="lazy"
+  1024→              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  1025→              allowfullscreen></iframe>
+  1026→          </div>
+  1027→          <div class="p-5">
+  1028→            <div class="flex items-center gap-2 text-xs font-semibold text-primary-cyan mb-2">
+  1029→              <span class="px-2 py-0.5 rounded-full bg-primary-cyan/15 border border-primary-cyan/30">EP 02</span>
+  1030→              <span>Ficha Maestra &amp; GBP blindado</span>
+  1031→            </div>
+  1032→            <h3 class="text-base font-bold text-white leading-tight mb-2">Ficha Maestra NAP y Configuración SAB en Google Business Profile</h3>
+  1033→            <p class="text-xs text-white/60 leading-relaxed">Episodio 2: Ficha Maestra y Google Business Profile blindado para servicios a domicilio. NAP consistente, SAB sin local físico y categorías estratégicas.</p>
+  1034→            <a href="https://youtu.be/0Cf8YR0XjWo" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary-cyan hover:text-primary-cyan/80">
+  1035→              Ver en YouTube
+  1036→              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  1037→            </a>
+  1038→          </div>
+  1039→        </article>
+  1040→
+  1041→        <!-- Video 3: Embed real -->
+  1042→        <article class="group bg-dark-navy-alt/60 border border-white/10 rounded-2xl overflow-hidden hover:border-accent-orange/50 hover:-translate-y-1 transition-all">
+  1043→          <div class="yt-frame">
+  1044→            <iframe
+  1045→              src="https://www.youtube-nocookie.com/embed/PbDUwBGJqm0"
+  1046→              title="Episodio 3 - Adiós WordPress: Webs con IA, Cloudflare y Github Costo 0 | MML - Edward Valencia @makeseo"
+  1047→              loading="lazy"
+  1048→              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  1049→              allowfullscreen></iframe>
+  1050→          </div>
+  1051→          <div class="p-5">
+  1052→            <div class="flex items-center gap-2 text-xs font-semibold text-accent-orange-light mb-2">
+  1053→              <span class="px-2 py-0.5 rounded-full bg-accent-orange/15 border border-accent-orange/30">EP 03</span>
+  1054→              <span>Adiós WordPress · Web Serverless</span>
+  1055→            </div>
+  1056→            <h3 class="text-base font-bold text-white leading-tight mb-2">Adiós WordPress - Webs con IA, GitHub y Cloudflare Pages desde el Móvil</h3>
+  1057→            <p class="text-xs text-white/60 leading-relaxed">Episodio 3: Webs con IA, GitHub y Cloudflare Pages desde el móvil. Construcción y deploy de web ultrarrápida 100% desde el teléfono, $0 hosting garantizado.</p>
+  1058→            <a href="https://youtu.be/PbDUwBGJqm0" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-accent-orange-light hover:text-accent-orange">
+  1059→              Ver en YouTube
+  1060→              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  1061→            </a>
+  1062→          </div>
+  1063→        </article>
+  1064→
+  1065→        <!-- Video 4 -->
+  1066→        <article class="group bg-dark-navy-alt/40 border border-white/10 rounded-2xl overflow-hidden hover:border-primary-cyan/40 hover:-translate-y-1 transition-all">
+  1067→          <div class="aspect-video bg-gradient-to-br from-dark-navy to-dark-navy-alt flex items-center justify-center relative">
+  1068→            <div class="text-center px-4">
+  1069→              <div class="h-14 w-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-2">
+  1070→                <span class="text-lg font-bold text-white/70">04</span>
+  1071→              </div>
+  1072→              <span class="text-[10px] font-semibold text-white/50 uppercase tracking-wider">Próximo episodio</span>
+  1073→            </div>
+  1074→          </div>
+  1075→          <div class="p-5">
+  1076→            <div class="flex items-center gap-2 text-xs font-semibold text-white/60 mb-2">
+  1077→              <span class="px-2 py-0.5 rounded-full bg-white/5 border border-white/10">EP 04</span>
+  1078→              <span>Malla Territorial</span>
+  1079→            </div>
+  1080→            <h3 class="text-base font-bold text-white leading-tight mb-2">Malla Territorial: Despliegue masivo por comunas + Cloudflare D1</h3>
+  1081→            <p class="text-xs text-white/50 leading-relaxed">Episodio 4: Despliegue masivo de landings por comunas y base de datos Cloudflare D1 para gestionar cobertura territorial completa.</p>
+  1082→          </div>
+  1083→        </article>
+  1084→
+  1085→        <!-- Video 5 -->
+  1086→        <article class="group bg-dark-navy-alt/40 border border-white/10 rounded-2xl overflow-hidden hover:border-primary-cyan/40 hover:-translate-y-1 transition-all">
+  1087→          <div class="aspect-video bg-gradient-to-br from-dark-navy to-dark-navy-alt flex items-center justify-center relative">
+  1088→            <div class="text-center px-4">
+  1089→              <div class="h-14 w-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-2">
+  1090→                <span class="text-lg font-bold text-white/70">05</span>
+  1091→              </div>
+  1092→              <span class="text-[10px] font-semibold text-white/50 uppercase tracking-wider">Próximo episodio</span>
+  1093→            </div>
+  1094→          </div>
+  1095→          <div class="p-5">
+  1096→            <div class="flex items-center gap-2 text-xs font-semibold text-white/60 mb-2">
+  1097→              <span class="px-2 py-0.5 rounded-full bg-white/5 border border-white/10">EP 05</span>
+  1098→              <span>Optimización WebP + GTM</span>
+  1099→            </div>
+  1100→            <h3 class="text-base font-bold text-white leading-tight mb-2">Optimización WebP con IA, Google Tag Manager y Search Console</h3>
+  1101→            <p class="text-xs text-white/50 leading-relaxed">Episodio 5: Compresión de imágenes WebP con IA, configuración de Google Tag Manager para medición y verificación en Google Search Console.</p>
+  1102→          </div>
+  1103→        </article>
+  1104→
+  1105→        <!-- Video 6 -->
+  1106→        <article class="group bg-dark-navy-alt/40 border border-white/10 rounded-2xl overflow-hidden hover:border-primary-cyan/40 hover:-translate-y-1 transition-all">
+  1107→          <div class="aspect-video bg-gradient-to-br from-dark-navy to-dark-navy-alt flex items-center justify-center relative">
+  1108→            <div class="text-center px-4">
+  1109→              <div class="h-14 w-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-2">
+  1110→                <span class="text-lg font-bold text-white/70">06</span>
+  1111→              </div>
+  1112→              <span class="text-[10px] font-semibold text-white/50 uppercase tracking-wider">Próximo episodio</span>
+  1113→            </div>
+  1114→          </div>
+  1115→          <div class="p-5">
+  1116→            <div class="flex items-center gap-2 text-xs font-semibold text-white/60 mb-2">
+  1117→              <span class="px-2 py-0.5 rounded-full bg-white/5 border border-white/10">EP 06</span>
+  1118→              <span>Automatización + Reseñas</span>
+  1119→            </div>
+  1120→            <h3 class="text-base font-bold text-white leading-tight mb-2">Automatización de Posts con IA + Circuito de Reseñas por WhatsApp</h3>
+  1121→            <p class="text-xs text-white/50 leading-relaxed">Episodio 6: Automatización de contenido con IA y circuito continuo de reseñas reales de 5 estrellas gestionado por WhatsApp.</p>
+  1122→          </div>
+  1123→        </article>
+  1124→      </div>
+  1125→
+  1126→      <!-- Botón suscripción -->
+  1127→      <div class="mt-12 text-center" data-reveal>
+  1128→        <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-youtube-red text-white font-bold text-base shadow-[0_10px_30px_-6px_rgba(255,0,0,0.5)] hover:scale-105 active:scale-95 transition-transform w-full sm:w-auto">
+  1129→          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+  1130→            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+  1131→          </svg>
+  1132→          Suscribirse al Canal @makeseo en YouTube
+  1133→        </a>
+  1134→      </div>
+  1135→    </div>
+  1136→  </section>
+  1137→
+  1138→  <!-- ==================== MASTER PROMPT MML ==================== -->
+  1139→  <section id="master-prompt" class="bg-gradient-to-br from-dark-navy via-dark-navy-alt to-dark-navy py-20 lg:py-28 relative overflow-hidden">
+  1140→    <div class="absolute -top-32 -right-32 w-96 h-96 bg-accent-orange/15 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+  1141→    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl" aria-hidden="true"></div>
+  1142→
+  1143→    <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+  1144→      <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+  1145→        <!-- Columna izquierda -->
+  1146→        <div class="lg:col-span-7" data-reveal>
+  1147→          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-orange/10 text-accent-orange-light text-sm font-semibold mb-4">
+  1148→            <span class="h-1.5 w-1.5 rounded-full bg-accent-orange"></span>
+  1149→            Playbook reproducible · MML
+  1150→          </span>
+  1151→          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-5">
+  1152→            Lleva el <span class="text-gradient-orange">Método MML</span> a tu propia ciudad
+  1153→          </h2>
+  1154→          <p class="text-base lg:text-lg text-white/75 leading-relaxed mb-6">
+  1155→            He open-sourceado el <strong class="text-white">Master Prompt</strong> que documenta todo el sistema: stack exacto, tokens de diseño, arquitectura de carpetas, patrones de componentes, schemas JSON-LD, lecciones críticas y el paso a paso del deploy. Cópialo, pégalo en tu IA favorita y genera landings SEO Local para cualquier nicho en cualquier ciudad.
+  1156→          </p>
+  1157→
+  1158→          <!-- Features inline -->
+  1159→          <ul class="grid sm:grid-cols-2 gap-3 mb-8">
+  1160→            <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+  1161→              <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+  1162→                <svg class="w-3.5 h-3.5 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1163→              </span>
+  1164→              <span class="text-sm text-white/85 font-medium">700+ líneas de código y patrones</span>
+  1165→            </li>
+  1166→            <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+  1167→              <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+  1168→                <svg class="w-3.5 h-3.5 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1169→              </span>
+  1170→              <span class="text-sm text-white/85 font-medium">Astro + Tailwind + Leaflet + Cloudflare</span>
+  1171→            </li>
+  1172→            <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+  1173→              <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+  1174→                <svg class="w-3.5 h-3.5 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1175→              </span>
+  1176→              <span class="text-sm text-white/85 font-medium">Lecciones críticas (errores a evitar)</span>
+  1177→            </li>
+  1178→            <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+  1179→              <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+  1180→                <svg class="w-3.5 h-3.5 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1181→              </span>
+  1182→              <span class="text-sm text-white/85 font-medium">Botón copiar + paso a paso tutorial</span>
+  1183→            </li>
+  1184→          </ul>
+  1185→
+  1186→          <!-- CTAs -->
+  1187→          <div class="flex flex-col sm:flex-row gap-3">
+  1188→            <a href="/master-prompt" class="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white font-bold text-sm shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] hover:scale-105 active:scale-95 transition-transform">
+  1189→              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+  1190→              Ver Master Prompt
+  1191→              <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  1192→            </a>
+  1193→            <a href="/master-prompt.md" download="MASTER_PROMPT_MML.md" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-sm hover:bg-white/15 transition-colors">
+  1194→              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+  1195→              Descargar .md
+  1196→            </a>
+  1197→          </div>
+  1198→        </div>
+  1199→
+  1200→        <!-- Columna derecha: card visual -->
+  1201→        <div class="lg:col-span-5" data-reveal>
+  1202→          <div class="relative">
+  1203→            <div class="absolute -inset-1 bg-gradient-to-br from-accent-orange/30 to-primary-cyan/30 rounded-3xl blur-2xl animate-glow-pulse" aria-hidden="true"></div>
+  1204→            <div class="relative bg-dark-navy-alt/60 backdrop-blur-xl border border-white/10 rounded-3xl p-7 shadow-2xl overflow-hidden">
+  1205→              <div class="absolute inset-0 hero-radial opacity-30"></div>
+  1206→
+  1207→              <div class="relative">
+  1208→                <!-- Header tipo terminal -->
+  1209→                <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+  1210→                  <div class="flex items-center gap-2">
+  1211→                    <span class="h-3 w-3 rounded-full bg-red-500/80"></span>
+  1212→                    <span class="h-3 w-3 rounded-full bg-yellow-500/80"></span>
+  1213→                    <span class="h-3 w-3 rounded-full bg-green-500/80"></span>
+  1214→                  </div>
+  1215→                  <span class="text-white/40 text-xs font-mono">MASTER_PROMPT_MML.md</span>
+  1216→                </div>
+  1217→
+  1218→                <!-- Contenido preview -->
+  1219→                <div class="space-y-2 text-xs font-mono">
+  1220→                  <p class="text-primary-cyan"># MASTER PROMPT MML</p>
+  1221→                  <p class="text-white/60">## 1. ROL Y OBJETIVO</p>
+  1222→                  <p class="text-white/40">Actúa como Desarrollador Web Full Stack...</p>
+  1223→                  <p class="text-white/60 mt-3">## 2. STACK OBLIGATORIO</p>
+  1224→                  <p class="text-accent-orange-light">- Astro 4 + Tailwind + Vanilla JS</p>
+  1225→                  <p class="text-accent-orange-light">- Leaflet + OpenStreetMap</p>
+  1226→                  <p class="text-accent-orange-light">- Cloudflare Pages ($0 hosting)</p>
+  1227→                  <p class="text-white/60 mt-3">## 11. MAPA INTERACTIVO</p>
+  1228→                  <p class="text-red-400">❌ NO uses SVG custom</p>
+  1229→                  <p class="text-red-400">❌ NO uses CartoDB tiles</p>
+  1230→                  <p class="text-whatsapp-green" style="color: #25D366;">✅ SÍ Leaflet + OSM + CSS</p>
+  1231→                  <p class="text-white/60 mt-3">## 16. LECCIONES APRENDIDAS</p>
+  1232→                  <p class="text-white/40">...6 errores críticos a evitar...</p>
+  1233→                </div>
+  1234→
+  1235→                <!-- Footer del card -->
+  1236→                <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+  1237→                  <div>
+  1238→                    <p class="text-2xl font-extrabold text-gradient-orange">700+</p>
+  1239→                    <p class="text-xs text-white/50">líneas · 29KB</p>
+  1240→                  </div>
+  1241→                  <div class="flex items-center gap-1.5">
+  1242→                    <span class="px-2 py-1 rounded-md bg-primary-cyan/15 text-primary-cyan text-[10px] font-semibold">Astro</span>
+  1243→                    <span class="px-2 py-1 rounded-md bg-accent-orange/15 text-accent-orange-light text-[10px] font-semibold">Tailwind</span>
+  1244→                    <span class="px-2 py-1 rounded-md bg-whatsapp-green/15 text-whatsapp-green text-[10px] font-semibold" style="color: #25D366;">$0</span>
+  1245→                  </div>
+  1246→                </div>
+  1247→              </div>
+  1248→            </div>
+  1249→          </div>
+  1250→        </div>
+  1251→      </div>
+  1252→    </div>
+  1253→  </section>
+  1254→
+  1255→  <!-- ==================== COMUNIDAD WHATSAPP ==================== -->
+  1256→  <section id="comunidad" class="bg-dark-navy-alt py-20 lg:py-28 relative overflow-hidden">
+  1257→    <div class="absolute -top-32 -left-32 w-96 h-96 bg-whatsapp-green/15 rounded-full blur-3xl animate-pulse-slow" aria-hidden="true"></div>
+  1258→    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl" aria-hidden="true"></div>
+  1259→
+  1260→    <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+  1261→      <div class="relative" data-reveal>
+  1262→        <!-- Borde gradiente -->
+  1263→        <div class="absolute -inset-1 bg-gradient-to-r from-whatsapp-green via-primary-cyan to-accent-orange rounded-3xl blur-md opacity-60"></div>
+  1264→
+  1265→        <div class="relative bg-dark-navy rounded-3xl border border-white/10 overflow-hidden">
+  1266→          <div class="absolute inset-0 hero-radial opacity-30"></div>
+  1267→
+  1268→          <div class="relative p-7 sm:p-10 lg:p-14 text-center">
+  1269→            <!-- Icono grande -->
+  1270→            <div class="inline-flex items-center justify-center h-20 w-20 rounded-3xl bg-gradient-to-br from-whatsapp-green to-primary-teal mb-6 shadow-[0_0_50px_rgba(37,211,102,0.6)] animate-glow-pulse">
+  1271→              <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+  1272→                <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.473-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/>
+  1273→              </svg>
+  1274→            </div>
+  1275→
+  1276→            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-whatsapp-green/15 border border-whatsapp-green/30 text-whatsapp-green text-sm font-semibold mb-5">
+  1277→              <span class="h-1.5 w-1.5 rounded-full bg-whatsapp-green animate-ping"></span>
+  1278→              Comunidad Oficial · Gratis
+  1279→            </span>
+  1280→
+  1281→            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-5">
+  1282→              Accede a los <span class="text-gradient-orange">Prompts, Plantillas</span><br />
+  1283→              y <span class="text-gradient-cyanteal">Código</span> de los Repositorios
+  1284→            </h2>
+  1285→
+  1286→            <p class="text-base lg:text-lg text-white/75 max-w-2xl mx-auto leading-relaxed mb-8">
+  1287→              Únete gratis a nuestro canal oficial de WhatsApp para recibir las actualizaciones de los scripts, directos y soporte para tus proyectos locales.
+  1288→            </p>
+  1289→
+  1290→            <!-- Lista de beneficios -->
+  1291→            <ul class="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto mb-10 text-left">
+  1292→              <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+  1293→                <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-whatsapp-green/20 border border-whatsapp-green/50 flex items-center justify-center">
+  1294→                  <svg class="w-3.5 h-3.5 text-whatsapp-green" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1295→                </span>
+  1296→                <span class="text-sm text-white/85 font-medium">Prompts de IA probados en producción</span>
+  1297→              </li>
+  1298→              <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+  1299→                <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-whatsapp-green/20 border border-whatsapp-green/50 flex items-center justify-center">
+  1300→                  <svg class="w-3.5 h-3.5 text-whatsapp-green" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1301→                </span>
+  1302→                <span class="text-sm text-white/85 font-medium">Plantillas de Google Business Profile</span>
+  1303→              </li>
+  1304→              <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+  1305→                <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-whatsapp-green/20 border border-whatsapp-green/50 flex items-center justify-center">
+  1306→                  <svg class="w-3.5 h-3.5 text-whatsapp-green" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1307→                </span>
+  1308→                <span class="text-sm text-white/85 font-medium">Código de repositorios públicos</span>
+  1309→              </li>
+  1310→              <li class="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+  1311→                <span class="mt-0.5 flex-shrink-0 h-6 w-6 rounded-full bg-whatsapp-green/20 border border-whatsapp-green/50 flex items-center justify-center">
+  1312→                  <svg class="w-3.5 h-3.5 text-whatsapp-green" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1313→                </span>
+  1314→                <span class="text-sm text-white/85 font-medium">Directos y soporte entre miembros</span>
+  1315→              </li>
+  1316→            </ul>
+  1317→
+  1318→            <!-- Botón gigante -->
+  1319→            <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-3 px-8 py-5 lg:px-12 lg:py-6 rounded-full bg-whatsapp-green text-white font-extrabold text-base lg:text-lg shadow-[0_15px_40px_-8px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-transform animate-pulse-slow w-full sm:w-auto">
+  1320→              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+  1321→                <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/>
+  1322→              </svg>
+  1323→              ENTRAR AL CANAL DE WHATSAPP AHORA
+  1324→              <svg class="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  1325→            </a>
+  1326→
+  1327→            <p class="mt-5 text-xs text-white/50">
+  1328→              Sin spam · Notificaciones de nuevos videos, scripts y directos · Salir cuando quieras
+  1329→            </p>
+  1330→          </div>
+  1331→        </div>
+  1332→      </div>
+  1333→    </div>
+  1334→  </section>
+  1335→
+  1336→  <!-- ==================== SERVICIOS 360 SOLUCIONES ==================== -->
+  1337→  <section id="contacto" class="bg-dark-navy py-20 lg:py-28">
+  1338→    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+  1339→      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+  1340→        <div data-reveal>
+  1341→          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-orange/10 text-accent-orange-light text-sm font-semibold mb-4">
+  1342→            <span class="h-1.5 w-1.5 rounded-full bg-accent-orange"></span>
+  1343→            Servicios Empresariales
+  1344→          </span>
+  1345→          <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight mb-5">
+  1346→            ¿Quieres que <span class="text-gradient-orange">Edward y su equipo</span> implementen la Malla Local en tu negocio?
+  1347→          </h2>
+  1348→          <p class="text-base lg:text-lg text-white/70 leading-relaxed mb-6">
+  1349→            360 Soluciones se encarga del despliegue completo: auditoría inicial, optimización de Google Business Profile, construcción de web serverless, malla territorial de landings por comuna y circuito de reseñas. Todo el sistema MML aplicado a tu negocio por el equipo que lo creó.
+  1350→          </p>
+  1351→          <ul class="space-y-3 mb-8">
+  1352→            <li class="flex items-start gap-3">
+  1353→              <span class="mt-0.5 flex-shrink-0 h-5 w-5 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+  1354→                <svg class="w-3 h-3 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1355→              </span>
+  1356→              <span class="text-sm text-white/85">Auditoría SEO Local completa y plan de acción</span>
+  1357→            </li>
+  1358→            <li class="flex items-start gap-3">
+  1359→              <span class="mt-0.5 flex-shrink-0 h-5 w-5 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+  1360→                <svg class="w-3 h-3 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1361→              </span>
+  1362→              <span class="text-sm text-white/85">Implementación del Método MML de la A a la Z</span>
+  1363→            </li>
+  1364→            <li class="flex items-start gap-3">
+  1365→              <span class="mt-0.5 flex-shrink-0 h-5 w-5 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+  1366→                <svg class="w-3 h-3 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1367→              </span>
+  1368→              <span class="text-sm text-white/85">Web ultrarrápida + malla territorial incluida</span>
+  1369→            </li>
+  1370→            <li class="flex items-start gap-3">
+  1371→              <span class="mt-0.5 flex-shrink-0 h-5 w-5 rounded-full bg-accent-orange/20 border border-accent-orange/40 flex items-center justify-center">
+  1372→                <svg class="w-3 h-3 text-accent-orange-light" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+  1373→              </span>
+  1374→              <span class="text-sm text-white/85">Sistema de reseñas y reporting mensual</span>
+  1375→            </li>
+  1376→          </ul>
+  1377→        </div>
+  1378→
+  1379→        <!-- Card de contacto -->
+  1380→        <div data-reveal>
+  1381→          <div class="relative">
+  1382→            <div class="absolute -inset-1 bg-gradient-to-br from-accent-orange/30 to-primary-cyan/30 rounded-3xl blur-2xl" aria-hidden="true"></div>
+  1383→            <div class="relative bg-dark-navy-alt border border-white/10 rounded-3xl p-7 lg:p-8 shadow-2xl">
+  1384→              <div class="flex items-center gap-3 mb-5">
+  1385→                <div class="h-12 w-12 rounded-xl bg-gradient-to-br from-accent-orange to-accent-orange-light flex items-center justify-center shadow-[0_0_30px_rgba(255,107,0,0.5)]">
+  1386→                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+  1387→                    <path d="M21 16.42v3.536a1 1 0 01-1.093.998c-.493-.057-1.06-.083-1.692-.083-5.523 0-10.586-2.24-14.18-5.836C.526 11.443-1.714 6.38 1.18 1.093A1 1 0 012.176.5H5.71a1 1 0 01.97.757l1.31 4.367a1 1 0 01-.495 1.158L5.43 7.93a13.34 13.34 0 006.64 6.64l1.149-2.065a1 1 0 011.158-.495l4.367 1.31a1 1 0 01.757.97V16.42z"/>
+  1388→                  </svg>
+  1389→                </div>
+  1390→                <div>
+  1391→                  <h3 class="text-white font-bold text-lg leading-tight">Consultoría directa</h3>
+  1392→                  <p class="text-white/60 text-sm">Respuesta en menos de 24h</p>
+  1393→                </div>
+  1394→              </div>
+  1395→
+  1396→              <p class="text-sm text-white/75 mb-5">Agenda una consulta con el equipo de <strong class="text-white">360 Soluciones</strong> para evaluar tu negocio y aplicar el Método MML.</p>
+  1397→
+  1398→              <!-- Datos de contacto -->
+  1399→              <div class="space-y-3 mb-6">
+  1400→                <a href="https://wa.me/584167775771?text=Hola%20Edward%20,%20vi%20el%20M%C3%A9todo%20Malla%20Local%20en%20YouTube%20y%20quiero%20que%20me%20implementen%20la%20MML%20en%20mi%20negocio%20con%20360%20Soluciones." target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-whatsapp-green/10 hover:border-whatsapp-green/40 transition-colors group">
+  1401→                  <span class="h-9 w-9 rounded-lg bg-whatsapp-green/20 border border-whatsapp-green/40 flex items-center justify-center flex-shrink-0">
+  1402→                    <svg class="w-4 h-4 text-whatsapp-green" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+  1403→                  </span>
+  1404→                  <div class="flex-1 min-w-0">
+  1405→                    <p class="text-[10px] text-white/50 uppercase tracking-wide">WhatsApp directo</p>
+  1406→                    <p class="text-sm font-bold text-white">+58 416-777-5771</p>
+  1407→                  </div>
+  1408→                  <svg class="w-4 h-4 text-white/40 group-hover:text-whatsapp-green transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  1409→                </a>
+  1410→
+  1411→                <a href="tel:+584167775771" class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-primary-cyan/10 hover:border-primary-cyan/40 transition-colors group">
+  1412→                  <span class="h-9 w-9 rounded-lg bg-primary-cyan/20 border border-primary-cyan/40 flex items-center justify-center flex-shrink-0">
+  1413→                    <svg class="w-4 h-4 text-primary-cyan" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.46 15.46 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/></svg>
+  1414→                  </span>
+  1415→                  <div class="flex-1 min-w-0">
+  1416→                    <p class="text-[10px] text-white/50 uppercase tracking-wide">Llamadas</p>
+  1417→                    <p class="text-sm font-bold text-white">+58 416-777-5771</p>
+  1418→                  </div>
+  1419→                  <svg class="w-4 h-4 text-white/40 group-hover:text-primary-cyan transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  1420→                </a>
+  1421→              </div>
+  1422→
+  1423→              <!-- CTA principal -->
+  1424→              <a href="https://wa.me/584167775771?text=Hola%20Edward%20,%20vi%20el%20M%C3%A9todo%20Malla%20Local%20en%20YouTube%20y%20quiero%20que%20me%20implementen%20la%20MML%20en%20mi%20negocio%20con%20360%20Soluciones." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white text-sm font-bold shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] hover:scale-[1.02] active:scale-95 transition-transform">
+  1425→                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+  1426→                Solicitar consulta gratis
+  1427→              </a>
+  1428→            </div>
+  1429→          </div>
+  1430→        </div>
+  1431→      </div>
+  1432→    </div>
+  1433→  </section>
+  1434→
+  1435→  <!-- ==================== BOTS IA (BotWA) ==================== -->
+  1436→  <section id="bots-ia" class="bg-dark-navy-alt py-16 lg:py-20 relative overflow-hidden">
+  1437→    <div class="absolute -top-32 -right-32 w-96 h-96 bg-whatsapp-green/15 rounded-full blur-3xl" aria-hidden="true"></div>
+  1438→    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl" aria-hidden="true"></div>
+  1439→
+  1440→    <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+  1441→      <div class="grid lg:grid-cols-2 gap-10 items-center">
+  1442→        <!-- Columna izquierda: info -->
+  1443→        <div data-reveal>
+  1444→          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-whatsapp-green/15 border border-whatsapp-green/40 text-sm font-semibold mb-4" style="color: #25D366;">
+  1445→            <span class="h-1.5 w-1.5 rounded-full bg-whatsapp-green animate-ping" style="background: #25D366;"></span>
+  1446→            IA · WhatsApp 24/7
+  1447→          </span>
+  1448→          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+  1449→            Tu negocio atendido por <span class="text-gradient-cyanteal">IA en WhatsApp</span>
+  1450→          </h2>
+  1451→          <p class="text-base lg:text-lg text-white/75 leading-relaxed mb-6">
+  1452→            <strong class="text-white">BotWA</strong> conversa con tus clientes, agenda citas automáticamente y solo tú apruebas. Funciona con tu número actual, sin cambiar nada. Setup en 5 minutos.
+  1453→          </p>
+  1454→          <div class="grid grid-cols-2 gap-3 mb-6">
+  1455→            <div class="flex items-center gap-2 text-sm text-white/80"><svg class="w-4 h-4 text-whatsapp-green flex-shrink-0" style="color: #25D366;" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Sin cambiar de número</div>
+  1456→            <div class="flex items-center gap-2 text-sm text-white/80"><svg class="w-4 h-4 text-whatsapp-green flex-shrink-0" style="color: #25D366;" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Setup en 5 min</div>
+  1457→            <div class="flex items-center gap-2 text-sm text-white/80"><svg class="w-4 h-4 text-whatsapp-green flex-shrink-0" style="color: #25D366;" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> IA 24/7 sin descanso</div>
+  1458→            <div class="flex items-center gap-2 text-sm text-white/80"><svg class="w-4 h-4 text-whatsapp-green flex-shrink-0" style="color: #25D366;" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Cancelas cuando quieras</div>
+  1459→          </div>
+  1460→          <div class="flex flex-col sm:flex-row gap-3">
+  1461→            <button id="open-bots-modal" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-whatsapp-green to-primary-teal text-white font-bold text-sm hover:scale-105 active:scale-95 transition-transform" style="background: linear-gradient(135deg, #25D366, #00838F);">
+  1462→              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+  1463→              Ver bots disponibles
+  1464→            </button>
+  1465→            <a href="https://sgc-saas.pages.dev" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-sm hover:bg-white/15 transition-colors">
+  1466→              Probar BotWA gratis
+  1467→              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  1468→            </a>
+  1469→          </div>
+  1470→        </div>
+  1471→
+  1472→        <!-- Columna derecha: mockup chat -->
+  1473→        <div data-reveal>
+  1474→          <div class="relative max-w-sm mx-auto">
+  1475→            <div class="absolute -inset-2 bg-gradient-to-br from-whatsapp-green/30 to-primary-cyan/30 rounded-3xl blur-xl" style="background: linear-gradient(135deg, rgba(37,211,102,0.3), rgba(0,188,212,0.3));" aria-hidden="true"></div>
+  1476→            <div class="relative bg-dark-navy border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+  1477→              <!-- Header del chat -->
+  1478→              <div class="bg-gradient-to-r from-whatsapp-green/20 to-primary-teal/20 p-4 flex items-center gap-3 border-b border-white/10" style="background: linear-gradient(90deg, rgba(37,211,102,0.15), rgba(0,131,143,0.15));">
+  1479→                <div class="h-10 w-10 rounded-full bg-gradient-to-br from-whatsapp-green to-primary-teal flex items-center justify-center font-extrabold text-white" style="background: linear-gradient(135deg, #25D366, #00838F);">B</div>
+  1480→                <div>
+  1481→                  <p class="text-white font-bold text-sm">BotWA</p>
+  1482→                  <p class="text-xs" style="color: #6ee7b7;">● En línea</p>
+  1483→                </div>
+  1484→              </div>
+  1485→              <!-- Mensajes -->
+  1486→              <div class="p-4 space-y-3 bg-dark-navy-alt/50" style="min-height: 280px;">
+  1487→                <div class="bg-white/10 rounded-xl rounded-bl-sm p-3 max-w-[80%]">
+  1488→                  <p class="text-xs text-white/90">Hola, ¿podría agendar una cita para el lunes?</p>
+  1489→                </div>
+  1490→                <div class="ml-auto bg-whatsapp-green/20 rounded-xl rounded-br-sm p-3 max-w-[80%] border border-whatsapp-green/30" style="background: rgba(37,211,102,0.15); border-color: rgba(37,211,102,0.3);">
+  1491→                  <p class="text-xs text-white/90">¡Hola! 👋 Tengo disponible lunes a las 10:00 o 15:00. ¿Cuál prefieres?</p>
+  1492→                </div>
+  1493→                <div class="bg-white/10 rounded-xl rounded-bl-sm p-3 max-w-[80%]">
+  1494→                  <p class="text-xs text-white/90">A las 15:00 está perfecto</p>
+  1495→                </div>
+  1496→                <div class="ml-auto bg-whatsapp-green/20 rounded-xl rounded-br-sm p-3 max-w-[80%] border border-whatsapp-green/30" style="background: rgba(37,211,102,0.15); border-color: rgba(37,211,102,0.3);">
+  1497→                  <p class="text-xs text-white/90">¡Listo! Te agendé para lunes 15:00 📅 Te paso la confirmación en cuanto el negocio lo apruebe.</p>
+  1498→                </div>
+  1499→              </div>
+  1500→            </div>
+  1501→          </div>
+  1502→        </div>
+  1503→      </div>
+  1504→    </div>
+  1505→  </section>
+  1506→
+  1507→  <!-- Modal de Bots IA -->
+  1508→  <div id="bots-modal" class="hidden fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm items-center justify-center p-4">
+  1509→    <div class="relative bg-dark-navy border border-white/10 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+  1510→      <!-- Close -->
+  1511→      <button id="close-bots-modal" class="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center z-10 transition-colors" aria-label="Cerrar">
+  1512→        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+  1513→      </button>
+  1514→
+  1515→      <!-- Contenido del modal -->
+  1516→      <div class="p-6 lg:p-8">
+  1517→        <!-- Header -->
+  1518→        <div class="text-center mb-6">
+  1519→          <div class="inline-flex items-center justify-center h-16 w-16 rounded-2xl bg-gradient-to-br from-whatsapp-green to-primary-teal mb-4 shadow-lg" style="background: linear-gradient(135deg, #25D366, #00838F);">
+  1520→            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+  1521→          </div>
+  1522→          <h3 class="text-2xl font-extrabold text-white">Bots IA para tu Negocio</h3>
+  1523→          <p class="text-sm text-white/60 mt-1">Automatiza tu atención al cliente con inteligencia artificial</p>
+  1524→        </div>
+  1525→
+  1526→        <!-- BotWA card -->
+  1527→        <div class="bg-dark-navy-alt/60 border border-whatsapp-green/30 rounded-2xl p-5 mb-4">
+  1528→          <div class="flex items-start gap-4 mb-4">
+  1529→            <div class="flex-shrink-0 h-12 w-12 rounded-xl bg-gradient-to-br from-whatsapp-green to-primary-teal flex items-center justify-center font-extrabold text-white" style="background: linear-gradient(135deg, #25D366, #00838F);">B</div>
+  1530→            <div class="flex-1">
+  1531→              <h4 class="text-lg font-bold text-white">BotWA <span class="text-xs font-normal text-whatsapp-green" style="color: #25D366;">● Activo</span></h4>
+  1532→              <p class="text-xs text-white/60">Asistente de WhatsApp con IA 24/7</p>
+  1533→            </div>
+  1534→          </div>
+  1535→          <p class="text-sm text-white/80 leading-relaxed mb-4">
+  1536→            BotWA conversa con tus clientes, agenda citas automáticamente y solo tú apruebas. Funciona con tu número actual de WhatsApp, sin cambiar nada.
+  1537→          </p>
+  1538→          <!-- Features -->
+  1539→          <div class="grid grid-cols-2 gap-2 mb-4">
+  1540→            <div class="flex items-center gap-2 text-xs text-white/80"><svg class="w-3.5 h-3.5 text-whatsapp-green flex-shrink-0" style="color: #25D366;" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Agenda citas automática</div>
+  1541→            <div class="flex items-center gap-2 text-xs text-white/80"><svg class="w-3.5 h-3.5 text-whatsapp-green flex-shrink-0" style="color: #25D366;" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Sin cambiar de número</div>
+  1542→            <div class="flex items-center gap-2 text-xs text-white/80"><svg class="w-3.5 h-3.5 text-whatsapp-green flex-shrink-0" style="color: #25D366;" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Panel admin multi-tenant</div>
+  1543→            <div class="flex items-center gap-2 text-xs text-white/80"><svg class="w-3.5 h-3.5 text-whatsapp-green flex-shrink-0" style="color: #25D366;" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Recordatorios automáticos</div>
+  1544→            <div class="flex items-center gap-2 text-xs text-white/80"><svg class="w-3.5 h-3.5 text-whatsapp-green flex-shrink-0" style="color: #25D366;" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Setup en 5 minutos</div>
+  1545→            <div class="flex items-center gap-2 text-xs text-white/80"><svg class="w-3.5 h-3.5 text-whatsapp-green flex-shrink-0" style="color: #25D366;" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Funciona 24/7 sin descanso</div>
+  1546→          </div>
+  1547→          <!-- Rubros -->
+  1548→          <div class="mb-4">
+  1549→            <p class="text-xs font-semibold text-white/60 mb-2">Rubros compatibles:</p>
+  1550→            <div class="flex flex-wrap gap-1.5">
+  1551→              <span class="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-[10px]">🔧 Taller mecánico</span>
+  1552→              <span class="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-[10px]">💈 Barbería</span>
+  1553→              <span class="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-[10px]">🦷 Clínica dental</span>
+  1554→              <span class="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-[10px]">💅 Salón de belleza</span>
+  1555→              <span class="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-[10px]">🐾 Veterinaria</span>
+  1556→              <span class="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-[10px]">💆 Spa</span>
+  1557→              <span class="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-[10px]">📸 Fotografía</span>
+  1558→              <span class="px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-[10px]">⚖️ Abogados</span>
+  1559→            </div>
+  1560→          </div>
+  1561→          <!-- Precios -->
+  1562→          <div class="grid grid-cols-3 gap-2 mb-4">
+  1563→            <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+  1564→              <p class="text-xs text-white/50">Gratis</p>
+  1565→              <p class="text-xl font-extrabold text-white">$0<span class="text-xs text-white/40">/mes</span></p>
+  1566→              <p class="text-[10px] text-white/40">100 citas/mes</p>
+  1567→            </div>
+  1568→            <div class="bg-whatsapp-green/10 border border-whatsapp-green/30 rounded-xl p-3 text-center" style="background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.3);">
+  1569→              <p class="text-xs" style="color: #6ee7b7;">⭐ Pro</p>
+  1570→              <p class="text-xl font-extrabold text-white">$29<span class="text-xs text-white/40">/mes</span></p>
+  1571→              <p class="text-[10px] text-white/40">Citas ilimitadas</p>
+  1572→            </div>
+  1573→            <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+  1574→              <p class="text-xs text-white/50">Business</p>
+  1575→              <p class="text-xl font-extrabold text-white">$99<span class="text-xs text-white/40">/mes</span></p>
+  1576→              <p class="text-[10px] text-white/40">Multi-sucursal</p>
+  1577→            </div>
+  1578→          </div>
+  1579→          <!-- CTA -->
+  1580→          <a href="https://sgc-saas.pages.dev" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full bg-gradient-to-r from-whatsapp-green to-primary-teal text-white font-bold text-sm hover:scale-[1.02] active:scale-95 transition-transform" style="background: linear-gradient(135deg, #25D366, #00838F);">
+  1581→            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+  1582→            Probar BotWA gratis ahora
+  1583→          </a>
+  1584→          <p class="text-center text-[10px] text-white/40 mt-2">100% gratis para empezar · Sin tarjeta de crédito</p>
+  1585→        </div>
+  1586→
+  1587→        <!-- Próximamente -->
+  1588→        <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+  1589→          <p class="text-xs font-semibold text-white/60 mb-2">🚀 Próximamente más bots:</p>
+  1590→          <div class="flex flex-wrap gap-2">
+  1591→            <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/50 text-xs">🤖 Bot de Reseñas (WhatsApp)</span>
+  1592→            <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/50 text-xs">📈 Bot de Reportes (Telegram)</span>
+  1593→            <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/50 text-xs">🔔 Bot de Notificaciones</span>
+  1594→          </div>
+  1595→        </div>
+  1596→      </div>
+  1597→    </div>
+  1598→  </div>
+  1599→
+  1600→  <script>
+  1601→    // Modal de Bots IA
+  1602→    (function() {
+  1603→      var modal = document.getElementById('bots-modal');
+  1604→      var openBtn = document.getElementById('open-bots-modal');
+  1605→      var closeBtn = document.getElementById('close-bots-modal');
+  1606→      if (openBtn) openBtn.addEventListener('click', function() { modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.style.overflow = 'hidden'; });
+  1607→      if (closeBtn) closeBtn.addEventListener('click', function() { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; });
+  1608→      if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; } });
+  1609→      document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && !modal.classList.contains('hidden')) { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; } });
+  1610→    })();
+  1611→  </script>
+  1612→
+  1613→  <!-- ==================== NUESTROS CLIENTES ==================== -->
+  1614→  <section id="clientes" class="bg-dark-navy py-20 lg:py-28 relative overflow-hidden">
+  1615→    <div class="absolute -top-32 -right-32 w-96 h-96 bg-primary-cyan/10 rounded-full blur-3xl" aria-hidden="true"></div>
+  1616→    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-accent-orange/10 rounded-full blur-3xl" aria-hidden="true"></div>
+  1617→
+  1618→    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  1619→      <div class="text-center mb-14" data-reveal>
+  1620→        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-whatsapp-green/10 text-sm font-semibold mb-4" style="color: #25D366;">
+  1621→          <span class="h-1.5 w-1.5 rounded-full" style="background: #25D366;"></span>
+  1622→          Resultados Reales
+  1623→        </span>
+  1624→        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+  1625→          Nuestros <span class="text-gradient-cyanteal">Clientes</span>
+  1626→        </h2>
+  1627→        <p class="mt-5 text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+  1628→          Negocios posicionados en Google Maps con el Método MML. Estos perfiles están activos y recibiendo clientes diarios.
+  1629→        </p>
+  1630→      </div>
+  1631→
+  1632→      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-reveal>
+  1633→        <!-- 1 -->
+  1634→        <a href="https://share.google/u5uhajp7ysG70Bq6w" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1635→          <div class="flex items-center gap-2 mb-1"><span class="text-base">💈</span><h3 class="font-bold text-white text-sm">KLEAR STUDIO</h3></div>
+  1636→          <p class="text-xs text-white/60">Top Barber Shop · Barbero a Domicilio</p>
+  1637→        </a>
+  1638→        <!-- 2 -->
+  1639→        <a href="https://share.google/d60jH6JP5PxiWAqId" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1640→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🚘</span><h3 class="font-bold text-white text-sm">OKINNOVATION PE</h3></div>
+  1641→          <p class="text-xs text-white/60">Fabricación & Accesorios Off-Road 4x4</p>
+  1642→        </a>
+  1643→        <!-- OKINNOVATION CL -->
+  1644→        <a href="https://share.google/BBRNKtZKRIDBgTzAI" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1645→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🚘</span><h3 class="font-bold text-white text-sm">OKINNOVATION CL</h3></div>
+  1646→          <p class="text-xs text-white/60">Fabricación & Accesorios Off-Road 4x4 · Santiago de Chile</p>
+  1647→        </a>
+  1648→
+  1649→        <!-- 3 -->
+  1650→        <a href="https://share.google/eRgELPwSvISGWd9ZB" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1651→          <div class="flex items-center gap-2 mb-1"><span class="text-base">⚙️</span><h3 class="font-bold text-white text-sm">CEMIVAZ</h3></div>
+  1652→          <p class="text-xs text-white/60">Diseño Mecánico, Fabricación y Mantenimiento Industrial</p>
+  1653→        </a>
+  1654→        <!-- 4 -->
+  1655→        <a href="https://share.google/WQLzrL87MGzTNMB4t" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1656→          <div class="flex items-center gap-2 mb-1"><span class="text-base">❄️</span><h3 class="font-bold text-white text-sm">Alexandro Refrigeration</h3></div>
+  1657→          <p class="text-xs text-white/60">H.V.A.C.R. Parts & Repair Services</p>
+  1658→        </a>
+  1659→        <!-- 5 -->
+  1660→        <a href="https://share.google/2mOzXghFssRyQZYVa" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1661→          <div class="flex items-center gap-2 mb-1"><span class="text-base">📍</span><h3 class="font-bold text-white text-sm">En Santiago</h3></div>
+  1662→          <p class="text-xs text-white/60">Directorio comercial · SEO · Diseño web</p>
+  1663→        </a>
+  1664→        <!-- 6 -->
+  1665→        <a href="https://share.google/V0zQRJoLFsdpRAF53" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1666→          <div class="flex items-center gap-2 mb-1"><span class="text-base">⚡</span><h3 class="font-bold text-white text-sm">ELECTROMECANICO</h3></div>
+  1667→          <p class="text-xs text-white/60">Servicio a Domicilio en Santiago</p>
+  1668→        </a>
+  1669→        <!-- 7 -->
+  1670→        <a href="https://share.google/nQWDxX41oFLPqHRrd" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1671→          <div class="flex items-center gap-2 mb-1"><span class="text-base">👕</span><h3 class="font-bold text-white text-sm">GRADO33</h3></div>
+  1672→          <p class="text-xs text-white/60">Tienda de Personalizados · Camisetas · Hoodies · Regalos</p>
+  1673→        </a>
+  1674→        <!-- 8 -->
+  1675→        <a href="https://share.google/t752PmcyBGKRilClj" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1676→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🎨</span><h3 class="font-bold text-white text-sm">SAMSARA TATTOO STUDIO</h3></div>
+  1677→          <p class="text-xs text-white/60">Artista Corporal de Alto Nivel · Santiago CL</p>
+  1678→        </a>
+  1679→        <!-- 9 -->
+  1680→        <a href="https://share.google/Q8hWPBpKy1LxzCiAa" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1681→          <div class="flex items-center gap-2 mb-1"><span class="text-base">💻</span><h3 class="font-bold text-white text-sm">360 SOLUCIONES</h3></div>
+  1682→          <p class="text-xs text-white/60">Marketing Digital y Diseño de Páginas Web · Barinas</p>
+  1683→        </a>
+  1684→        <!-- 10 -->
+  1685→        <a href="https://share.google/G0146W06Y693u2Yde" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1686→          <div class="flex items-center gap-2 mb-1"><span class="text-base">📣</span><h3 class="font-bold text-white text-sm">CHRISTIAN MOLINA</h3></div>
+  1687→          <p class="text-xs text-white/60">Agencia de Publicidad · Expertos en Artes Gráficas · Barinas</p>
+  1688→        </a>
+  1689→        <!-- 11 -->
+  1690→        <a href="https://share.google/v8ankSL3GUTIY9izs" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1691→          <div class="flex items-center gap-2 mb-1"><span class="text-base">💅</span><h3 class="font-bold text-white text-sm">AMYSTUDIO</h3></div>
+  1692→          <p class="text-xs text-white/60">Uñas · Manicure · Pedicure · Masajes Terapéuticos</p>
+  1693→        </a>
+  1694→        <!-- 12 -->
+  1695→        <a href="https://share.google/op6snKES6TrmypxE4" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1696→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🍽️</span><h3 class="font-bold text-white text-sm">LA CACHAMITA DE ORO</h3></div>
+  1697→          <p class="text-xs text-white/60">Restaurant · Comida Criolla · Cachama Frita · Marisquería</p>
+  1698→        </a>
+  1699→        <!-- 13 -->
+  1700→        <a href="https://share.google/sucxSUn3fRya6ZmNs" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1701→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🔧</span><h3 class="font-bold text-white text-sm">LLANOCAR CL</h3></div>
+  1702→          <p class="text-xs text-white/60">Mecánico a Domicilio · Embragues · Tren Delantero</p>
+  1703→        </a>
+  1704→        <!-- 14 -->
+  1705→        <a href="https://share.google/n9YadKi2RtI3QfiBn" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1706→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🏢</span><h3 class="font-bold text-white text-sm">HolaX Venezuela</h3></div>
+  1707→          <p class="text-xs text-white/60">Directorio de Negocios</p>
+  1708→        </a>
+  1709→        <!-- 15 -->
+  1710→        <a href="https://share.google/xbO4pTtwCjClt38XA" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1711→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🧹</span><h3 class="font-bold text-white text-sm">Limpieza a Domicilio 24/7</h3></div>
+  1712→          <p class="text-xs text-white/60">Limpiamos tu espacio en Santiago · Todo queda limpio y reluciente</p>
+  1713→        </a>
+  1714→        <!-- 16 -->
+  1715→        <a href="https://share.google/HS2d43G9LksOezuBR" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1716→          <div class="flex items-center gap-2 mb-1"><span class="text-base">💡</span><h3 class="font-bold text-white text-sm">EMISOR</h3></div>
+  1717→          <p class="text-xs text-white/60">Global Solutions · Clothing Shops · Texas</p>
+  1718→        </a>
+  1719→        <!-- 17 -->
+  1720→        <a href="https://share.google/kbobtwYucU3vbaslN" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1721→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🚧</span><h3 class="font-bold text-white text-sm">La Conquista #1</h3></div>
+  1722→          <p class="text-xs text-white/60">Asociación Cooperativa</p>
+  1723→        </a>
+  1724→        <!-- 18 -->
+  1725→        <a href="https://share.google/bFEPv74FsvmNgxt2R" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1726→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🧥</span><h3 class="font-bold text-white text-sm">Estilosgrado33</h3></div>
+  1727→          <p class="text-xs text-white/60">Buzos Personalizados · Estampados · Serigrafía · DTF · Rionegro</p>
+  1728→        </a>
+  1729→        <!-- 19 -->
+  1730→        <a href="https://share.google/p5u62sR3JfyXtH97J" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1731→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🏡</span><h3 class="font-bold text-white text-sm">Alianza 58</h3></div>
+  1732→          <p class="text-xs text-white/60">Bienes Raices · Asesoría Inmobiliaria Integral</p>
+  1733→        </a>
+  1734→        <!-- 20 -->
+  1735→        <a href="https://share.google/h91rZJWb0s9FVtS0o" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1736→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🏅</span><h3 class="font-bold text-white text-sm">CLARO SERVICIOS</h3></div>
+  1737→          <p class="text-xs text-white/60">Servicio Técnico · Hogar · Móvil · Rionegro · La Ceja</p>
+  1738→        </a>
+  1739→        <!-- 21 -->
+  1740→        <a href="https://share.google/cFiuM0YRfAtEpG7BE" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1741→          <div class="flex items-center gap-2 mb-1"><span class="text-base">⚖️</span><h3 class="font-bold text-white text-sm">Abogados Valencia</h3></div>
+  1742→          <p class="text-xs text-white/60">Trámites de Notaría y Registro · Civil y Familia · Barinas</p>
+  1743→        </a>
+  1744→        <!-- 22 -->
+  1745→        <a href="https://share.google/H7gApIC14AQNacmEc" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1746→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🔧</span><h3 class="font-bold text-white text-sm">REGASA</h3></div>
+  1747→          <p class="text-xs text-white/60">Rectificadora de Cámaras y Culatas · Tu motor en las mejores manos</p>
+  1748→        </a>
+  1749→        <!-- 23 -->
+  1750→        <a href="https://share.google/lpbpPplVZu65yoxZb" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1751→          <div class="flex items-center gap-2 mb-1"><span class="text-base">👕</span><h3 class="font-bold text-white text-sm">JF GOD'S COMPANY</h3></div>
+  1752→          <p class="text-xs text-white/60">Personalizados · Arreglos · Poleras · Baby Shower · Santiago</p>
+  1753→        </a>
+  1754→        <!-- 24 -->
+  1755→        <a href="https://share.google/6CFkPplosaNLfFkOX" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1756→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🥇</span><h3 class="font-bold text-white text-sm">DR.AUTOMOTRIZ</h3></div>
+  1757→          <p class="text-xs text-white/60">Mecánico a Domicilio en Santiago · Frenos · Electricidad · Mantención</p>
+  1758→        </a>
+  1759→        <!-- 25 -->
+  1760→        <a href="https://share.google/zCexQKf5hvZVBMG92" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1761→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🚗</span><h3 class="font-bold text-white text-sm">GLOBAL PRO Automotriz</h3></div>
+  1762→          <p class="text-xs text-white/60">Mecánico a Domicilio 24/7 · Motor · Frenos · Electricidad</p>
+  1763→        </a>
+  1764→        <!-- 26 -->
+  1765→        <a href="https://share.google/G6AQc0w12UrtVpOVo" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1766→          <div class="flex items-center gap-2 mb-1"><span class="text-base">📹</span><h3 class="font-bold text-white text-sm">MUNDONET</h3></div>
+  1767→          <p class="text-xs text-white/60">Cámaras de Seguridad y Desarrollo de Software</p>
+  1768→        </a>
+  1769→        <!-- 27 -->
+  1770→        <a href="https://share.google/QZVACOSo7JTa55lOx" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1771→          <div class="flex items-center gap-2 mb-1"><span class="text-base">✨</span><h3 class="font-bold text-white text-sm">Dubraskalash.art</h3></div>
+  1772→          <p class="text-xs text-white/60">Insumos para Pestañas TopLine · Speaker y Judge Internacional</p>
+  1773→        </a>
+  1774→        <!-- 28 -->
+  1775→        <a href="https://share.google/7BhqsrZk1vLjJAVMR" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1776→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🚘</span><h3 class="font-bold text-white text-sm">Optimus Cars SPA</h3></div>
+  1777→          <p class="text-xs text-white/60">Car Wash Premium · Láminas de Seguridad Certificadas</p>
+  1778→        </a>
+  1779→        <!-- 29 -->
+  1780→        <a href="https://share.google/1CXpOCbOR8eijO4Yb" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+  1781→          <div class="flex items-center gap-2 mb-1"><span class="text-base">🪡</span><h3 class="font-bold text-white text-sm">TAPIZADO DE VOLANTES</h3></div>
+  1782→          <p class="text-xs text-white/60">Tapizados Personalizados · Polerones · Santiago</p>
+  1783→        </a>
+  1784→      </div>
+  1785→
+  1786→      <div class="mt-12 text-center" data-reveal>
+  1787→        <p class="text-white/60 mb-4">¿Quieres que tu negocio aparezca aquí?</p>
+  1788→        <a href="https://wa.me/584167775771?text=Hola%20Edward,%20quiero%20posicionar%20mi%20negocio%20en%20Google%20Maps%20con%20el%20M%C3%A9todo%20MML" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-whatsapp-green text-white font-bold text-sm hover:scale-105 active:scale-95 transition-transform" style="background: #25D366;">
+  1789→          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+  1790→          Quiero posicionar mi negocio
+  1791→        </a>
+  1792→      </div>
+  1793→    </div>
+  1794→  </section>
+  1795→
+  1796→  <!-- ==================== DIRECTORIOS COMERCIALES ==================== -->
+  1797→  <section id="directorios" class="bg-dark-navy-alt py-20 lg:py-24 relative overflow-hidden">
+  1798→    <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl" aria-hidden="true"></div>
+  1799→    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-accent-orange/15 rounded-full blur-3xl" aria-hidden="true"></div>
+  1800→
+  1801→    <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+  1802→      <div class="text-center mb-12" data-reveal>
+  1803→        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-primary-cyan text-sm font-semibold mb-4">
+  1804→          <span class="h-1.5 w-1.5 rounded-full bg-primary-cyan"></span>
+  1805→          Directorios Comerciales
+  1806→        </span>
+  1807→        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+  1808→          Contamos con <span class="text-gradient-cyanteal">2 Directorios</span> Comerciales
+  1809→        </h2>
+  1810→        <p class="mt-5 text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+  1811→          Plataformas donde los negocios se inscriben y aparecen en los primeros resultados de Google. Cobertura en Venezuela y Chile.
+  1812→        </p>
+  1813→      </div>
+  1814→
+  1815→      <div class="grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto" data-reveal>
+  1816→        <!-- HolaX Venezuela -->
+  1817→        <a href="https://holax.com.ve/" target="_blank" rel="noopener noreferrer" class="group relative bg-white rounded-3xl p-8 flex flex-col items-center justify-center gap-4 hover:scale-105 hover:shadow-2xl transition-all">
+  1818→          <div class="absolute inset-0 bg-gradient-to-br from-primary-cyan/5 to-transparent rounded-3xl pointer-events-none"></div>
+  1819→          <div class="relative">
+  1820→            <div class="h-28 w-28 lg:h-36 lg:w-36 flex items-center justify-center mb-2">
+  1821→              <img src="/images/platforms/holax-logo.jpeg" alt="HolaX Venezuela - Directorio de Negocios" width="144" height="144" class="w-full h-full object-contain rounded-2xl" loading="lazy" />
+  1822→            </div>
+  1823→          </div>
+  1824→          <div class="text-center relative">
+  1825→            <h3 class="text-lg lg:text-xl font-bold text-gray-900">HolaX Venezuela</h3>
+  1826→            <p class="text-sm text-gray-500 mt-1">Directorio de Negocios · Barinas, Venezuela 🇻🇪</p>
+  1827→          </div>
+  1828→          <div class="flex items-center gap-1.5 text-sm font-semibold text-primary-teal group-hover:text-primary-cyan transition-colors">
+  1829→            Visitar directorio
+  1830→            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  1831→          </div>
+  1832→        </a>
+  1833→
+  1834→        <!-- En Santiago -->
+  1835→        <a href="https://en-santiago.com" target="_blank" rel="noopener noreferrer" class="group relative bg-white rounded-3xl p-8 flex flex-col items-center justify-center gap-4 hover:scale-105 hover:shadow-2xl transition-all">
+  1836→          <div class="absolute inset-0 bg-gradient-to-br from-accent-orange/5 to-transparent rounded-3xl pointer-events-none"></div>
+  1837→          <div class="relative">
+  1838→            <div class="h-20 w-20 lg:h-24 lg:w-24 flex items-center justify-center mb-2">
+  1839→              <img src="/images/platforms/en-santiago-logo.png" alt="En Santiago - Directorio Comercial de Santiago Chile" width="96" height="36" class="w-full h-full object-contain" loading="lazy" />
+  1840→            </div>
+  1841→          </div>
+  1842→          <div class="text-center relative">
+  1843→            <h3 class="text-lg lg:text-xl font-bold text-gray-900">En Santiago</h3>
+  1844→            <p class="text-sm text-gray-500 mt-1">Directorio Comercial · Santiago, Chile 🇨🇱</p>
+  1845→          </div>
+  1846→          <div class="flex items-center gap-1.5 text-sm font-semibold text-accent-orange group-hover:text-accent-orange-light transition-colors">
+  1847→            Visitar directorio
+  1848→            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  1849→          </div>
+  1850→        </a>
+  1851→      </div>
+  1852→
+  1853→      <div class="mt-10 text-center" data-reveal>
+  1854→        <p class="text-sm text-white/50">
+  1855→          ¿Tienes un negocio? <a href="https://wa.me/584167775771?text=Hola%20Edward,%20quiero%20inscribir%20mi%20negocio%20en%20los%20directorios%20comerciales" target="_blank" rel="noopener noreferrer" class="text-primary-cyan hover:underline font-semibold">Inscríbelo gratis →</a>
+  1856→        </p>
+  1857→      </div>
+  1858→    </div>
+  1859→  </section>
+  1860→
+  1861→  <!-- ==================== BLOG SEO — CAPA DE CONTENIDO ==================== -->
+  1862→  <section id="blog-seo" class="bg-white py-20 lg:py-28" style="color: #1a1a1a;">
+  1863→    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+  1864→
+  1865→      <div class="text-center mb-12" data-reveal>
+  1866→        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-sm font-semibold mb-4" style="color: #00838F;">
+  1867→          <span class="h-1.5 w-1.5 rounded-full" style="background: #00BCD4;"></span>
+  1868→          Blog SEO · Recursos
+  1869→        </span>
+  1870→        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" style="color: #1a1a1a;">
+  1871→          Marketing Digital, SEO y Páginas Web con el MML
+  1872→        </h2>
+  1873→        <p class="mt-4 text-lg max-w-2xl mx-auto" style="color: #5b6475;">
+  1874→          Guías prácticas sobre posicionamiento en Google, diseño web serverless y marketing digital para negocios locales en Venezuela, Chile y Latam.
+  1875→        </p>
+  1876→      </div>
+  1877→
+  1878→      <!-- Artículo 1: SEO Local -->
+  1879→      <article class="mb-12" data-reveal>
+  1880→        <h2 class="text-2xl lg:text-3xl font-bold mb-4" style="color: #1a1a1a;">
+  1881→          <span style="color: #00BCD4;">SEO Local en Google Maps:</span> Cómo posicionar tu negocio sin pagar publicidad
+  1882→        </h2>
+  1883→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1884→          El <strong>SEO Local</strong> es la estrategia más rentable para negocios que atienden clientes en una zona específica. A diferencia del <em>posicionamiento SEO</em> tradicional que compite a nivel nacional, el SEO local te permite aparecer en los primeros resultados de <strong>Google Maps</strong> cuando alguien busca tu servicio cerca. Con el Método Malla Local (MML) de Edward Valencia, logramos que negocios de <strong>marketing digital en Barinas, Venezuela</strong> y <strong>Santiago de Chile</strong> aparezcan en el top 3 de Google sin pagar un solo bolívar ni peso en publicidad.
+  1885→        </p>
+  1886→
+  1887→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">¿Qué es el posicionamiento SEO local?</h3>
+  1888→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1889→          El <strong>posicionamiento SEO local</strong> es la optimización de tu presencia digital para que aparezcas en búsquedas geolocalizadas. Cuando alguien busca "mecánico a domicilio en Santiago" o "agencia de marketing en Barinas", Google muestra primero los negocios cercanos con mejores fichas de Google Business Profile. El MML domina este proceso con 3 pilares: ficha maestra NAP, web serverless y malla territorial.
+  1890→        </p>
+  1891→
+  1892→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">SEO Google: por qué el MML funciona mejor que WordPress</h3>
+  1893→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1894→          El <strong>SEO en Google</strong> premia la velocidad. Las páginas web hechas con WordPress y plugins pesados tardan 3-5 segundos en cargar, lo que aumenta la tasa de rebote. Con el MML, tus páginas web cargan en menos de 1 segundo porque usamos código estático en <strong>Cloudflare Pages</strong> con CDN global. Google mide esto con los Core Web Vitals, y nuestros sitios puntúan 100/100. Esto significa más impresiones, más clics y más clientes sin pagar <strong>Google Ads</strong>.
+  1895→        </p>
+  1896→
+  1897→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Posicionamiento web: la importancia del Google Business Profile</h3>
+  1898→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1899→          El <strong>posicionamiento web</strong> local empieza con tu ficha de Google Business Profile. Si tu NAP (Nombre, Dirección, Teléfono) no es consistente en todos los directorios, Google baja tu ranking. El MML configura tu perfil como SAB (Service Area Business) para operar sin local físico, selecciona categorías estratégicas y coordina citaciones locales. Esto dispara tus impresiones en Google Maps y genera llamadas reales de clientes que buscan tu servicio en este momento.
+  1900→        </p>
+  1901→      </article>
+  1902→
+  1903→      <!-- Artículo 2: Páginas Web -->
+  1904→      <article class="mb-12" data-reveal>
+  1905→        <h2 class="text-2xl lg:text-3xl font-bold mb-4" style="color: #1a1a1a;">
+  1906→          <span style="color: #ff6b00;">Crear Página Web Gratis:</span> Cómo hacer tu sitio web con $0 hosting
+  1907→        </h2>
+  1908→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1909→          Si buscas <strong>crear página web gratis</strong> para tu negocio, el MML te enseña cómo hacerlo sin WordPress, sin pagar hosting mensual y sin saber programar. Usando <strong>GitHub</strong> como repositorio gratuito, <strong>Cloudflare Pages</strong> como hosting con SSL automático y CDN global, e <strong>IA como Chat Z</strong> para generar el código, puedes tener tu sitio web profesional funcionando en 5 minutos desde tu teléfono móvil.
+  1910→        </p>
+  1911→
+  1912→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Crear sitio web gratis vs. WordPress: ventajas del MML</h3>
+  1913→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1914→          Cuando decides <strong>crear sitio web gratis</strong>, la mayoría piensa en WordPress con plugins gratuitos. El problema: el hosting cuesta $5-20/mes, los plugins se rompen, y la velocidad es lenta. Con el MML, tu <strong>página web gratis</strong> carga en menos de 1 segundo, tiene certificado SSL automático, y se despliega globalmente desde Cloudflare. Además, puedes <strong>crear página web con dominio propio</strong> conectando un dominio gratis o barato. Las agencias de marketing digital cobran $500-2000 por esto; el MML te enseña a hacerlo gratis.
+  1915→        </p>
+  1916→
+  1917→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Diseño de páginas web con IA desde el móvil</h3>
+  1918→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1919→          El <strong>diseño de páginas web</strong> ya no requiere un desarrollador. Con el Master Prompt MML, le pides a la IA que genere tu <strong>página web para tu negocio</strong> con todos los elementos de conversión: botones flotantes de WhatsApp, formularios, galerías, mapas interactivos y SEO local completo. Puedes <strong>crear tu página web</strong> para vender productos, agendar citas o captar leads. El <strong>creador de páginas web</strong> que usamos es la IA misma, guiada por el prompt estructurado del MML.
+  1920→        </p>
+  1921→
+  1922→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Página web para mi negocio: ¿por dónde empezar?</h3>
+  1923→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1924→          Para <strong>crear una página web para tu negocio</strong> con el MML: 1) Copia el Master Prompt de esta página, 2) Pégalo en Chat Z (chat.z.ai), 3) Personaliza con tu nicho y ciudad, 4) La IA genera el código completo, 5) Súbelo a GitHub, 6) Conecta Cloudflare Pages. En menos de 30 minutos tienes tu <strong>sitio web gratis</strong> funcionando, indexado en Google y optimizado para conversión móvil. Sin código, sin costos, sin técnicos.
+  1925→        </p>
+  1926→      </article>
+  1927→
+  1928→      <!-- Artículo 3: Marketing Digital -->
+  1929→      <article class="mb-12" data-reveal>
+  1930→        <h2 class="text-2xl lg:text-3xl font-bold mb-4" style="color: #1a1a1a;">
+  1931→          <span style="color: #25D366;">Marketing Digital para Negocios Locales:</span> La estrategia del MML
+  1932→        </h2>
+  1933→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1934→          El <strong>marketing digital</strong> para negocios locales no se trata de publicar en Instagram o pagar Facebook Ads. Se trata de aparecer cuando alguien busca tu servicio en Google Maps. Edward Valencia, a través de 360 Soluciones, ha implementado el MML en más de 30 negocios entre <strong>Venezuela y Chile</strong>, desde barberías y mecánicos a domicilio hasta restaurantes y abogados. La estrategia: ficha de Google optimizada + web ultrarrápida + malla territorial = clientes diarios sin publicidad paga.
+  1935→        </p>
+  1936→
+  1937→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Agencia de marketing digital vs. MML: diferencia de costo</h3>
+  1938→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1939→          Una <strong>agencia de marketing digital</strong> tradicional cobra $500-3000/mes por SEO, gestión de redes y mantenimiento web. Con el MML, el costo de servidores es $0. Las <strong>empresas de marketing digital</strong> te venden paquetes mensuales; el MML te enseña a independizarte. Una vez que aprendes el método, puedes posicionar tu negocio tú mismo desde el móvil, o contratar a un Agente Certificado de la MakeSEO Academy para que lo implemente por ti a un fracción del costo.
+  1940→        </p>
+  1941→
+  1942→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Marketing online sin publicidad: el poder del SEO local</h3>
+  1943→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1944→          El <strong>marketing online</strong> convencional te hace depender de anuncios pagos. Cuando dejas de pagar, dejas de aparecer. El <strong>posicionamiento SEO</strong> es diferente: una vez que tu negocio está bien posicionado en Google Maps, sigue apareciendo gratis durante meses o años. El MML combina la ficha de Google Business Profile optimizada con citaciones locales coordinadas y un circuito de reseñas de 5 estrellas por WhatsApp. Esto crea un efecto bola de nieve: más reseñas → mejor ranking → más clientes → más reseñas.
+  1945→        </p>
+  1946→
+  1947→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Agencia SEO vs. Método MML: transparencia total</h3>
+  1948→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1949→          Las <strong>agencias SEO</strong> suelen ser cajas negras: pagas mes a mes sin saber qué hacen. Con el MML, todo es transparente. El código está en GitHub (público), el hosting está en Cloudflare (gratis), y las métricas están en Google Search Console (gratis). Si una <strong>agencia de publicidad</strong> te cobra $1000/mes por "SEO", pregúntale: ¿estás usando Cloudflare Pages? ¿Tienes la malla territorial desplegada? ¿Las citaciones están coordinadas? Si no sabe qué es eso, necesita el MML.
+  1950→        </p>
+  1951→      </article>
+  1952→
+  1953→      <!-- Artículo 4: Directorios y Citaciones -->
+  1954→      <article class="mb-12" data-reveal>
+  1955→        <h2 class="text-2xl lg:text-3xl font-bold mb-4" style="color: #1a1a1a;">
+  1956→          <span style="color: #00BCD4;">Directorios Comerciales y Citaciones:</span> Cómo multiplicar tu presencia en Google
+  1957→        </h2>
+  1958→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1959→          Los <strong>directorios comerciales</strong> son fundamentales para el SEO local. Cada vez que tu negocio aparece listado en un directorio con su NAP consistente, Google lo interpreta como una señal de confianza. Por eso, Edward Valencia opera dos directorios: <strong>HolaX Venezuela</strong> (holax.com.ve) para negocios en Barinas y todo el país, y <strong>En Santiago</strong> (en-santiago.com) para la Región Metropolitana de Chile. Inscribir tu negocio en estos directorios es gratis y mejora tu posicionamiento en Google Maps.
+  1960→        </p>
+  1961→
+  1962→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">¿Cómo inscribir tu negocio en los directorios?</h3>
+  1963→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1964→          Para inscribir tu negocio en <strong>HolaX Venezuela</strong> o <strong>En Santiago</strong>, solo necesitas tu ficha de Google Business Profile activa y tu información NAP lista. El equipo de 360 Soluciones coordina las citaciones en ambos directorios más redes sociales y otros directorios locales. Esto crea un ecosistema de autoridad que Google premia con mejor ranking. <a href="https://wa.me/584167775771?text=Hola%20Edward,%20quiero%20inscribir%20mi%20negocio%20en%20los%20directorios" style="color: #00838F; font-weight: 600;">Inscríbelo gratis por WhatsApp →</a>
+  1965→        </p>
+  1966→
+  1967→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Malla territorial: landings SEO por comuna</h3>
+  1968→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1969→          La malla territorial es el Pilar 3 del MML. En lugar de tener una sola página web genérica, desplegamos landings SEO específicas para cada comuna o municipio que tu negocio atiende. Cada landing tiene su propio título, meta description, Schema.org JSON-LD y contenido único con el nombre de la comuna. Esto multiplica las Keywords por las que Google te indexa. Si atiendes 10 comunas, tienes 10 puertas de entrada en Google, no una sola. Las <strong>páginas web para negocios</strong> creadas con el MML incluyen esta malla automáticamente.
+  1970→        </p>
+  1971→      </article>
+  1972→
+  1973→      <!-- Artículo 5: Herramientas -->
+  1974→      <article class="mb-8" data-reveal>
+  1975→        <h2 class="text-2xl lg:text-3xl font-bold mb-4" style="color: #1a1a1a;">
+  1976→          <span style="color: #ff6b00;">Herramientas del MML:</span> GitHub, Cloudflare y Chat Z
+  1977→        </h2>
+  1978→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1979→          El MML utiliza tres herramientas gratuitas que juntas reemplazan cualquier stack de pago. <strong>GitHub</strong> funciona como tu CMS (sistema de gestión de contenido) — cada cambio se versiona y se despliega automáticamente. <strong>Cloudflare Pages</strong> es tu hosting con CDN global, SSL automático y protección DDoS incluida — todo gratis. <strong>Chat Z</strong> (chat.z.ai) es la IA que genera el código — le das el Master Prompt MML y ella construye tu página web completa con SEO, schemas, mapa interactivo y botones de conversión.
+  1980→        </p>
+  1981→
+  1982→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Google Search Console: mide tu posicionamiento</h3>
+  1983→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1984→          Una vez que tu <strong>página web está activa</strong>, la registras en <strong>Google Search Console</strong> (gratis). Allí ves qué Keywords te traen impresiones, en qué posición apareces, y qué páginas indexa Google. El MML incluye la verificación de sitio, el sitemap.xml y los schemas JSON-LD necesarios para que Google entienda tu contenido. También integramos <strong>Google Tag Manager</strong> para medir conversiones: llamadas, clics en WhatsApp y formularios enviados.
+  1985→        </p>
+  1986→
+  1987→        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">BotWA: automatiza tu WhatsApp con IA</h3>
+  1988→        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+  1989→          Como complemento al MML, ofrecemos <strong>BotWA</strong>, un asistente con IA que atiende tu WhatsApp 24/7, agenda citas automáticamente y solo tú apruebas. Funciona con tu número actual, sin cambiar nada. Setup en 5 minutos. Ideal para talleres mecánicos, barberías, clínicas dentales, salones de belleza, veterinarias y cualquier negocio basado en citas. <a href="https://sgc-saas.pages.dev" style="color: #ff6b00; font-weight: 600;">Probar BotWA gratis →</a>
+  1990→        </p>
+  1991→      </article>
+  1992→
+  1993→    </div>
+  1994→  </section>
+  1995→
+  1996→  <!-- ==================== FOOTER ==================== -->
+  1997→  <footer class="bg-dark-navy-alt border-t border-white/10 py-12">
+  1998→    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  1999→      <div class="grid md:grid-cols-3 gap-8 mb-10">
+  2000→        <!-- Marca -->
+
+[showing lines 1-2000 of 2888; use offset=2001 with limit to continue reading]
