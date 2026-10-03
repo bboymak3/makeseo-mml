@@ -1,0 +1,1381 @@
+<!doctype html>
+<html lang="es-VE" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png" />
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="AO8x2D5digAhJVNmj0wVdeJx60EpOc56vELa9rh_CmY" />
+
+  <!-- SEO Primary -->
+  <title>Blog SEO · Marketing Digital, SEO y Páginas Web con el MML | MakeSEO</title>
+  <meta name="description" content="Blog SEO del Método Malla Local (MML): guías sobre posicionamiento en Google Maps, crear páginas web gratis, marketing digital para negocios locales en Venezuela y Chile." />
+  <meta name="author" content="Edward Valencia" />
+  <meta name="keywords" content="Método Malla Local, MML, SEO Local, Google Maps, Google Business Profile, Cloudflare Pages, Astro, $0 hosting, makeseo, Edward Valencia, 360 Soluciones, malla territorial, serverless, SAB, NAP, academia online, agente digital, partner digital, certificado, Google Business Profile, GBP, recarga gas, SEO Venezuela, SEO Latam" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  <!-- Geo Tags (Venezuela / Latam) -->
+  <meta name="geo.region" content="VE" />
+  <meta name="geo.placename" content="Venezuela" />
+  <meta name="geo.position" content="10.4806;-66.9036" />
+  <meta name="ICBM" content="10.4806, -66.9036" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog SEO · Marketing Digital, SEO y Páginas Web con el MML | MakeSEO" />
+  <meta property="og:description" content="Aprende el Método Malla Local (MML): posicionar negocios en Google Maps, webs ultrarrápidas con IA y $0 hosting, llamadas reales sin publicidad. Canal @makeseo en YouTube." />
+  <meta property="og:locale" content="es_VE" />
+  <meta property="og:site_name" content="Edward Valencia | MML" />
+  <meta property="og:url" content="https://makeseo-mml.pages.dev/blog.html" />
+  <meta property="og:image" content="https://makeseo-mml.pages.dev/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MakeSEO - Edward Valencia - Método Malla Local (MML) - SEO Local + $0 Hosting" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Edward Valencia | Método Malla Local (MML) · SEO Local + $0 Hosting" />
+  <meta name="twitter:description" content="Sistema paso a paso para posicionar negocios en Google Maps, construir webs ultrarrápidas con IA y $0 hosting." />
+  <meta name="twitter:image" content="https://makeseo-mml.pages.dev/og-image.jpg" />
+
+  <link rel="canonical" href="https://makeseo-mml.pages.dev/blog.html" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-navy': '#0b1020',
+            'dark-navy-alt': '#121a33',
+            'primary-cyan': '#00BCD4',
+            'primary-teal': '#00838F',
+            'accent-orange': '#ff6b00',
+            'accent-orange-light': '#ff8c33',
+            'whatsapp-green': '#25D366',
+            'youtube-red': '#FF0000',
+            'ink-dark': '#1a1a1a',
+            'text-muted': '#5b6475',
+          },
+          fontFamily: {
+            sans: ['Inter', 'Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulseSlow 2.5s ease-in-out infinite',
+            'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate',
+            'float': 'float 4s ease-in-out infinite',
+          },
+          keyframes: {
+            pulseSlow: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.85' } },
+            glowPulse: { '0%': { boxShadow: '0 0 20px rgba(0, 188, 212, 0.45)' }, '100%': { boxShadow: '0 0 38px rgba(0, 188, 212, 0.75)' } },
+            float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Fonts: Inter + Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD Schema.org: Person + EducationalOrganization + Course + FAQPage + VideoCourse -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Person", "EducationalOrganization"],
+    "@id": "https://makeseo-mml.pages.dev/#person",
+    "name": "Edward Valencia",
+    "alternateName": "@makeseo",
+    "url": "https://makeseo-mml.pages.dev",
+    "image": "https://i.ytimg.com/vi/MGcITnwpgCo/maxresdefault.jpg",
+    "jobTitle": "Especialista en SEO Local y Arquitectura Serverless",
+    "description": "Creador del Método Malla Local (MML). Formación de agentes digitales certificados en SEO Local, arquitectura serverless y malla territorial georreferenciada.",
+    "knowsAbout": ["SEO Local", "Google Business Profile", "Google Maps", "Cloudflare Pages", "Astro", "Arquitectura Serverless", "Malla Territorial", "Citaciones Locales", "Google Tag Manager", "WebP", "Cloudflare D1", "GitHub"],
+    "nationality": "Venezuelan",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "360 Soluciones",
+      "url": "https://makeseo-mml.pages.dev",
+      "telephone": "+58 416-777-5771"
+    },
+    "sameAs": [
+      "https://youtube.com/@makeseo",
+      "https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w"
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+58 416-777-5771",
+      "contactType": "customer support",
+      "areaServed": "Latam",
+      "availableLanguage": ["Spanish"]
+    }],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "MakeSEO Academy",
+      "description": "Academia online del Método Malla Local (MML). Formación de agentes digitales certificados con $0 hosting.",
+      "url": "https://makeseo-mml.pages.dev/academia/"
+    }
+  }
+  </script>
+
+  <!-- Schema: Course (Serie MML) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Método Malla Local (MML) - Serie Completa",
+    "description": "Curso gratuito sobre SEO Local, Google Business Profile, web serverless, malla territorial y automatización con IA. 6 episodios + examen final + certificado de Partner Digital.",
+    "provider": {
+      "@type": "Organization",
+      "name": "MakeSEO Academy",
+      "sameAs": "https://youtube.com/@makeseo",
+      "url": "https://makeseo-mml.pages.dev/academia/"
+    },
+    "inLanguage": "es",
+    "educationalLevel": "Beginner to Intermediate",
+    "courseCode": "MML-001",
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "Online",
+      "courseWorkload": "PT6H",
+      "instructor": {
+        "@type": "Person",
+        "name": "Edward Valencia",
+        "sameAs": "https://youtube.com/@makeseo"
+      }
+    }
+  }
+  </script>
+
+  <!-- Schema: FAQPage (Rich Snippets) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es el Método Malla Local (MML)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El Método Malla Local (MML) es una metodología práctica de posicionamiento digital y captación de clientes de alta intención desarrollada por Edward Valencia (@makeseo). Su objetivo es dominar las búsquedas en Google Maps y los resultados orgánicos locales sin depender de WordPress, sin pagar mensualidades de hosting y ejecutando la infraestructura técnica desde un teléfono celular."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuáles son los 3 pilares del Método MML?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El Trinomio de Autoridad: Pilar 1 - Google Business Profile Semántico (Ficha Maestra NAP + SAB), Pilar 2 - Web Serverless Ultrarrápida (Astro/HTML + Cloudflare Pages a $0), Pilar 3 - Malla Territorial y Ecosistema de Autoridad (landings por comuna + citaciones + circuito de reseñas)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta el hosting con el MML?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "$0. El MML reemplaza el hosting tradicional y CMS pesados (WordPress/Elementor) por código estático ultraligero montado en GitHub y desplegado en Cloudflare Pages. Cero costo mensual, SSL automático y CDN perimetral global."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo aprender el MML desde el móvil?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Todo el desarrollo (prompts de arquitectura, generación de código con agentes de IA como Chat Z/Gemini, creación de tokens y despliegues) se realiza directamente desde el smartphone. El MML está diseñado 100% para ejecución móvil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo me certifico como Partner Digital?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Entra gratis a la MakeSEO Academy, completa las 6 clases de la serie MML, aprueba el examen final con 80% o más, y recibirás tu certificado PDF de Partner Digital. También un admin puede graduarte directamente desde el panel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es la Malla Territorial?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No se posiciona una sola página genérica, sino una malla de páginas y citaciones que cubren todas las comunas, sectores o municipios donde opera el negocio. Cada comuna tiene su propia landing SEO interconectada, multiplicando la presencia territorial."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito saber programar para usar el MML?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. El MML usa IA (Chat Z, Gemini) para generar el código automáticamente. Solo necesitas saber qué pedirle a la IA usando los prompts del Master Prompt MML, que está disponible gratis en el sitio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo contacto a Edward Valencia o 360 Soluciones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Puedes contactar por WhatsApp al +58 416-777-5771, unirte al canal oficial de WhatsApp (whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w), o suscribirte al canal de YouTube youtube.com/@makeseo."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema: VideoObject (Videos YouTube) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "De 0 a Clientes Diarios con SEO Local y Google Business - MML Ep.1",
+    "description": "Edward Valencia demuestra cómo el Método Malla Local permite recibir llamadas reales de clientes solo con Google Maps optimizado.",
+    "thumbnailUrl": "https://i.ytimg.com/vi/MGcITnwpgCo/maxresdefault.jpg",
+    "uploadDate": "2026-09-29",
+    "contentUrl": "https://www.youtube.com/watch?v=MGcITnwpgCo",
+    "embedUrl": "https://www.youtube.com/embed/MGcITnwpgCo",
+    "inLanguage": "es",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MakeSEO Academy",
+      "url": "https://makeseo-mml.pages.dev"
+    }
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://makeseo-mml.pages.dev" },
+      { "@type": "ListItem", "position": 2, "name": "Academia MML", "item": "https://makeseo-mml.pages.dev/academia/" },
+      { "@type": "ListItem", "position": 3, "name": "Master Prompt", "item": "https://makeseo-mml.pages.dev/master-prompt" }
+    ]
+  }
+  </script>
+
+  <!-- Global CSS tweaks -->
+  <style>
+    html { scroll-padding-top: 90px; }
+    body { background-color: #0b1020; }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: #0b1020; }
+    ::-webkit-scrollbar-thumb { background: #00838f; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #00bcd4; }
+    :focus-visible { outline: 2px solid #00BCD4; outline-offset: 2px; border-radius: 4px; }
+    [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; transition: none; }
+      .animate-pulse-slow, .animate-glow-pulse, .animate-float { animation: none !important; }
+      html { scroll-behavior: auto; }
+    }
+    /* Gradient text helper */
+    .text-gradient-cyanteal { background: linear-gradient(135deg, #00BCD4, #00838F); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .text-gradient-orange { background: linear-gradient(135deg, #ff6b00, #ff8c33); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    /* Hero radial bg */
+    .hero-radial { background-image: radial-gradient(circle at 30% 20%, rgba(0, 188, 212, 0.22), transparent 45%), radial-gradient(circle at 80% 0%, rgba(255, 107, 0, 0.18), transparent 35%); }
+    /* YT iframe ratio */
+    .yt-frame { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .yt-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    /* Markdown render for generated prompt */
+    .prompt-block h1, .prompt-block h2, .prompt-block h3 { color: #00BCD4; font-weight: 700; margin-top: 1.2em; margin-bottom: 0.4em; }
+    .prompt-block h1 { font-size: 1.4rem; }
+    .prompt-block h2 { font-size: 1.1rem; }
+    .prompt-block h3 { font-size: 0.95rem; }
+    .prompt-block code { background: rgba(0, 188, 212, 0.15); color: #00BCD4; padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.85em; }
+    .prompt-block pre { background: rgba(0, 0, 0, 0.4); padding: 1em; border-radius: 8px; overflow-x: auto; margin: 0.8em 0; border: 1px solid rgba(0, 188, 212, 0.2); }
+    .prompt-block pre code { background: transparent; color: #ff8c33; padding: 0; }
+    .prompt-block strong { color: #ff8c33; font-weight: 700; }
+    .prompt-block em { color: #ffffff; font-style: italic; }
+    .prompt-block ul, .prompt-block ol { padding-left: 1.4em; margin: 0.6em 0; }
+    .prompt-block li { margin: 0.3em 0; }
+    .prompt-block p { margin: 0.6em 0; }
+    .prompt-block a { color: #00BCD4; text-decoration: underline; }
+    .prompt-block hr { border: none; border-top: 1px solid rgba(0, 188, 212, 0.2); margin: 1.5em 0; }
+    .prompt-block blockquote { border-left: 3px solid #ff6b00; padding-left: 1em; color: rgba(255,255,255,0.7); margin: 1em 0; }
+    .prompt-block table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+    .prompt-block th, .prompt-block td { border: 1px solid rgba(0, 188, 212, 0.2); padding: 0.5em 0.8em; text-align: left; }
+    .prompt-block th { background: rgba(0, 188, 212, 0.1); color: #00BCD4; }
+
+    /* Niche card selected state */
+    .niche-card { cursor: pointer; transition: all 0.2s; }
+    .niche-card.is-selected { background: linear-gradient(135deg, rgba(255,107,0,0.2), rgba(255,140,51,0.1)) !important; border-color: #ff6b00 !important; transform: scale(1.03); }
+    .niche-card.is-selected .niche-icon { background: linear-gradient(135deg, #ff6b00, #ff8c33) !important; color: #fff !important; }
+  </style>
+</head>
+<body class="font-sans text-white antialiased">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-dark-navy/80 border-b border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 lg:h-20 items-center justify-between">
+        <a href="/index.html" class="flex items-center gap-2.5 group" aria-label="Edward Valencia MML - Inicio">
+          <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center shadow-[0_0_30px_rgba(0,188,212,0.45)] group-hover:shadow-[0_0_30px_rgba(255,107,0,0.45)] transition-shadow">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/>
+            </svg>
+          </div>
+          <div class="leading-none">
+            <span class="block text-white font-extrabold text-sm sm:text-base tracking-tight">EDWARD VALENCIA</span>
+            <span class="block text-primary-cyan text-[10px] sm:text-xs font-medium tracking-widest">MÉTODO MALLA LOCAL · MML</span>
+          </div>
+        </a>
+        <div class="hidden lg:flex items-center gap-1">
+          <a href="/index.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Inicio</a>
+          <a href="/servicios.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Servicios</a>
+          <a href="/quienes-somos.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Quiénes Somos</a>
+          <a href="/clientes.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Clientes</a>
+          <a href="/blog.html" class="px-4 py-2 text-sm font-medium text-accent-orange-light hover:text-white hover:bg-white/5 rounded-lg transition-colors">Blog</a>
+          <a href="/contacto.html" class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Contacto</a>
+        </div>
+        <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-whatsapp-green text-white text-sm font-semibold shadow-[0_10px_30px_-6px_rgba(37,211,102,0.5)] hover:scale-105 active:scale-95 transition-transform">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.473-.607z"/></svg>
+          Comunidad
+        </a>
+        <a href="/academia/login.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-accent-orange to-accent-orange-light text-white text-sm font-semibold shadow-[0_10px_30px_-6px_rgba(255,107,0,0.5)] hover:scale-105 active:scale-95 transition-transform">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+          Academia
+        </a>
+        <button type="button" id="mobile-menu-button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition-colors" aria-label="Abrir menú" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-20">
+  <!-- ==================== BLOG SEO — CAPA DE CONTENIDO ==================== -->
+  <section id="blog-seo" class="bg-white py-20 lg:py-28" style="color: #1a1a1a;">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-12" data-reveal>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-cyan/10 text-sm font-semibold mb-4" style="color: #00838F;">
+          <span class="h-1.5 w-1.5 rounded-full" style="background: #00BCD4;"></span>
+          Blog SEO · Recursos
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" style="color: #1a1a1a;">
+          Marketing Digital, SEO y Páginas Web con el MML
+        </h2>
+        <p class="mt-4 text-lg max-w-2xl mx-auto" style="color: #5b6475;">
+          Guías prácticas sobre posicionamiento en Google, diseño web serverless y marketing digital para negocios locales en Venezuela, Chile y Latam.
+        </p>
+      </div>
+
+      <!-- Artículo 1: SEO Local -->
+      <article class="mb-12" data-reveal>
+        <h2 class="text-2xl lg:text-3xl font-bold mb-4" style="color: #1a1a1a;">
+          <span style="color: #00BCD4;">SEO Local en Google Maps:</span> Cómo posicionar tu negocio sin pagar publicidad
+        </h2>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          El <strong>SEO Local</strong> es la estrategia más rentable para negocios que atienden clientes en una zona específica. A diferencia del <em>posicionamiento SEO</em> tradicional que compite a nivel nacional, el SEO local te permite aparecer en los primeros resultados de <strong>Google Maps</strong> cuando alguien busca tu servicio cerca. Con el Método Malla Local (MML) de Edward Valencia, logramos que negocios de <strong>marketing digital en Barinas, Venezuela</strong> y <strong>Santiago de Chile</strong> aparezcan en el top 3 de Google sin pagar un solo bolívar ni peso en publicidad.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">¿Qué es el posicionamiento SEO local?</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          El <strong>posicionamiento SEO local</strong> es la optimización de tu presencia digital para que aparezcas en búsquedas geolocalizadas. Cuando alguien busca "mecánico a domicilio en Santiago" o "agencia de marketing en Barinas", Google muestra primero los negocios cercanos con mejores fichas de Google Business Profile. El MML domina este proceso con 3 pilares: ficha maestra NAP, web serverless y malla territorial.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">SEO Google: por qué el MML funciona mejor que WordPress</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          El <strong>SEO en Google</strong> premia la velocidad. Las páginas web hechas con WordPress y plugins pesados tardan 3-5 segundos en cargar, lo que aumenta la tasa de rebote. Con el MML, tus páginas web cargan en menos de 1 segundo porque usamos código estático en <strong>Cloudflare Pages</strong> con CDN global. Google mide esto con los Core Web Vitals, y nuestros sitios puntúan 100/100. Esto significa más impresiones, más clics y más clientes sin pagar <strong>Google Ads</strong>.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Posicionamiento web: la importancia del Google Business Profile</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          El <strong>posicionamiento web</strong> local empieza con tu ficha de Google Business Profile. Si tu NAP (Nombre, Dirección, Teléfono) no es consistente en todos los directorios, Google baja tu ranking. El MML configura tu perfil como SAB (Service Area Business) para operar sin local físico, selecciona categorías estratégicas y coordina citaciones locales. Esto dispara tus impresiones en Google Maps y genera llamadas reales de clientes que buscan tu servicio en este momento.
+        </p>
+      </article>
+
+      <!-- Artículo 2: Páginas Web -->
+      <article class="mb-12" data-reveal>
+        <h2 class="text-2xl lg:text-3xl font-bold mb-4" style="color: #1a1a1a;">
+          <span style="color: #ff6b00;">Crear Página Web Gratis:</span> Cómo hacer tu sitio web con $0 hosting
+        </h2>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          Si buscas <strong>crear página web gratis</strong> para tu negocio, el MML te enseña cómo hacerlo sin WordPress, sin pagar hosting mensual y sin saber programar. Usando <strong>GitHub</strong> como repositorio gratuito, <strong>Cloudflare Pages</strong> como hosting con SSL automático y CDN global, e <strong>IA como Chat Z</strong> para generar el código, puedes tener tu sitio web profesional funcionando en 5 minutos desde tu teléfono móvil.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Crear sitio web gratis vs. WordPress: ventajas del MML</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          Cuando decides <strong>crear sitio web gratis</strong>, la mayoría piensa en WordPress con plugins gratuitos. El problema: el hosting cuesta $5-20/mes, los plugins se rompen, y la velocidad es lenta. Con el MML, tu <strong>página web gratis</strong> carga en menos de 1 segundo, tiene certificado SSL automático, y se despliega globalmente desde Cloudflare. Además, puedes <strong>crear página web con dominio propio</strong> conectando un dominio gratis o barato. Las agencias de marketing digital cobran $500-2000 por esto; el MML te enseña a hacerlo gratis.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Diseño de páginas web con IA desde el móvil</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          El <strong>diseño de páginas web</strong> ya no requiere un desarrollador. Con el Master Prompt MML, le pides a la IA que genere tu <strong>página web para tu negocio</strong> con todos los elementos de conversión: botones flotantes de WhatsApp, formularios, galerías, mapas interactivos y SEO local completo. Puedes <strong>crear tu página web</strong> para vender productos, agendar citas o captar leads. El <strong>creador de páginas web</strong> que usamos es la IA misma, guiada por el prompt estructurado del MML.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Página web para mi negocio: ¿por dónde empezar?</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          Para <strong>crear una página web para tu negocio</strong> con el MML: 1) Copia el Master Prompt de esta página, 2) Pégalo en Chat Z (chat.z.ai), 3) Personaliza con tu nicho y ciudad, 4) La IA genera el código completo, 5) Súbelo a GitHub, 6) Conecta Cloudflare Pages. En menos de 30 minutos tienes tu <strong>sitio web gratis</strong> funcionando, indexado en Google y optimizado para conversión móvil. Sin código, sin costos, sin técnicos.
+        </p>
+      </article>
+
+      <!-- Artículo 3: Marketing Digital -->
+      <article class="mb-12" data-reveal>
+        <h2 class="text-2xl lg:text-3xl font-bold mb-4" style="color: #1a1a1a;">
+          <span style="color: #25D366;">Marketing Digital para Negocios Locales:</span> La estrategia del MML
+        </h2>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          El <strong>marketing digital</strong> para negocios locales no se trata de publicar en Instagram o pagar Facebook Ads. Se trata de aparecer cuando alguien busca tu servicio en Google Maps. Edward Valencia, a través de 360 Soluciones, ha implementado el MML en más de 30 negocios entre <strong>Venezuela y Chile</strong>, desde barberías y mecánicos a domicilio hasta restaurantes y abogados. La estrategia: ficha de Google optimizada + web ultrarrápida + malla territorial = clientes diarios sin publicidad paga.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Agencia de marketing digital vs. MML: diferencia de costo</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          Una <strong>agencia de marketing digital</strong> tradicional cobra $500-3000/mes por SEO, gestión de redes y mantenimiento web. Con el MML, el costo de servidores es $0. Las <strong>empresas de marketing digital</strong> te venden paquetes mensuales; el MML te enseña a independizarte. Una vez que aprendes el método, puedes posicionar tu negocio tú mismo desde el móvil, o contratar a un Agente Certificado de la MakeSEO Academy para que lo implemente por ti a un fracción del costo.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Marketing online sin publicidad: el poder del SEO local</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          El <strong>marketing online</strong> convencional te hace depender de anuncios pagos. Cuando dejas de pagar, dejas de aparecer. El <strong>posicionamiento SEO</strong> es diferente: una vez que tu negocio está bien posicionado en Google Maps, sigue apareciendo gratis durante meses o años. El MML combina la ficha de Google Business Profile optimizada con citaciones locales coordinadas y un circuito de reseñas de 5 estrellas por WhatsApp. Esto crea un efecto bola de nieve: más reseñas → mejor ranking → más clientes → más reseñas.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Agencia SEO vs. Método MML: transparencia total</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          Las <strong>agencias SEO</strong> suelen ser cajas negras: pagas mes a mes sin saber qué hacen. Con el MML, todo es transparente. El código está en GitHub (público), el hosting está en Cloudflare (gratis), y las métricas están en Google Search Console (gratis). Si una <strong>agencia de publicidad</strong> te cobra $1000/mes por "SEO", pregúntale: ¿estás usando Cloudflare Pages? ¿Tienes la malla territorial desplegada? ¿Las citaciones están coordinadas? Si no sabe qué es eso, necesita el MML.
+        </p>
+      </article>
+
+      <!-- Artículo 4: Directorios y Citaciones -->
+      <article class="mb-12" data-reveal>
+        <h2 class="text-2xl lg:text-3xl font-bold mb-4" style="color: #1a1a1a;">
+          <span style="color: #00BCD4;">Directorios Comerciales y Citaciones:</span> Cómo multiplicar tu presencia en Google
+        </h2>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          Los <strong>directorios comerciales</strong> son fundamentales para el SEO local. Cada vez que tu negocio aparece listado en un directorio con su NAP consistente, Google lo interpreta como una señal de confianza. Por eso, Edward Valencia opera dos directorios: <strong>HolaX Venezuela</strong> (holax.com.ve) para negocios en Barinas y todo el país, y <strong>En Santiago</strong> (en-santiago.com) para la Región Metropolitana de Chile. Inscribir tu negocio en estos directorios es gratis y mejora tu posicionamiento en Google Maps.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">¿Cómo inscribir tu negocio en los directorios?</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          Para inscribir tu negocio en <strong>HolaX Venezuela</strong> o <strong>En Santiago</strong>, solo necesitas tu ficha de Google Business Profile activa y tu información NAP lista. El equipo de 360 Soluciones coordina las citaciones en ambos directorios más redes sociales y otros directorios locales. Esto crea un ecosistema de autoridad que Google premia con mejor ranking. <a href="https://wa.me/584167775771?text=Hola%20Edward,%20quiero%20inscribir%20mi%20negocio%20en%20los%20directorios" style="color: #00838F; font-weight: 600;">Inscríbelo gratis por WhatsApp →</a>
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Malla territorial: landings SEO por comuna</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          La malla territorial es el Pilar 3 del MML. En lugar de tener una sola página web genérica, desplegamos landings SEO específicas para cada comuna o municipio que tu negocio atiende. Cada landing tiene su propio título, meta description, Schema.org JSON-LD y contenido único con el nombre de la comuna. Esto multiplica las Keywords por las que Google te indexa. Si atiendes 10 comunas, tienes 10 puertas de entrada en Google, no una sola. Las <strong>páginas web para negocios</strong> creadas con el MML incluyen esta malla automáticamente.
+        </p>
+      </article>
+
+      <!-- Artículo 5: Herramientas -->
+      <article class="mb-8" data-reveal>
+        <h2 class="text-2xl lg:text-3xl font-bold mb-4" style="color: #1a1a1a;">
+          <span style="color: #ff6b00;">Herramientas del MML:</span> GitHub, Cloudflare y Chat Z
+        </h2>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          El MML utiliza tres herramientas gratuitas que juntas reemplazan cualquier stack de pago. <strong>GitHub</strong> funciona como tu CMS (sistema de gestión de contenido) — cada cambio se versiona y se despliega automáticamente. <strong>Cloudflare Pages</strong> es tu hosting con CDN global, SSL automático y protección DDoS incluida — todo gratis. <strong>Chat Z</strong> (chat.z.ai) es la IA que genera el código — le das el Master Prompt MML y ella construye tu página web completa con SEO, schemas, mapa interactivo y botones de conversión.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">Google Search Console: mide tu posicionamiento</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          Una vez que tu <strong>página web está activa</strong>, la registras en <strong>Google Search Console</strong> (gratis). Allí ves qué Keywords te traen impresiones, en qué posición apareces, y qué páginas indexa Google. El MML incluye la verificación de sitio, el sitemap.xml y los schemas JSON-LD necesarios para que Google entienda tu contenido. También integramos <strong>Google Tag Manager</strong> para medir conversiones: llamadas, clics en WhatsApp y formularios enviados.
+        </p>
+
+        <h3 class="text-xl font-bold mt-6 mb-3" style="color: #00838F;">BotWA: automatiza tu WhatsApp con IA</h3>
+        <p class="text-base mb-4 leading-relaxed" style="color: #5b6475;">
+          Como complemento al MML, ofrecemos <strong>BotWA</strong>, un asistente con IA que atiende tu WhatsApp 24/7, agenda citas automáticamente y solo tú apruebas. Funciona con tu número actual, sin cambiar nada. Setup en 5 minutos. Ideal para talleres mecánicos, barberías, clínicas dentales, salones de belleza, veterinarias y cualquier negocio basado en citas. <a href="https://sgc-saas.pages.dev" style="color: #ff6b00; font-weight: 600;">Probar BotWA gratis →</a>
+        </p>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-dark-navy-alt border-t border-white/10 py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8 mb-10">
+        <!-- Marca -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-primary-cyan to-primary-teal flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/>
+              </svg>
+            </div>
+            <div>
+              <span class="block text-white font-extrabold text-sm tracking-tight">EDWARD VALENCIA</span>
+              <span class="block text-primary-cyan text-[10px] font-medium tracking-widest">MML · @makeseo</span>
+            </div>
+          </div>
+          <p class="text-sm text-white/60 leading-relaxed mb-4">
+            Creador del Método Malla Local (MML). Especialista en SEO Local y arquitectura serverless. Educar y construir sistemas de captación de clientes a costo cero para PYMES de Latam.
+          </p>
+          <p class="text-xs text-white/40">
+            Agencia: <span class="text-white/70 font-semibold">360 Soluciones</span>
+          </p>
+        </div>
+
+        <!-- Enlaces -->
+        <div>
+          <h3 class="text-white font-bold text-sm uppercase tracking-wide mb-4">Navegación</h3>
+          <ul class="space-y-2.5">
+            <li><a href="#inicio" class="text-sm text-white/60 hover:text-primary-cyan transition-colors">Inicio</a></li>
+            <li><a href="#metodo" class="text-sm text-white/60 hover:text-primary-cyan transition-colors">Método MML</a></li>
+            <li><a href="#tutoriales" class="text-sm text-white/60 hover:text-primary-cyan transition-colors">Tutoriales YouTube</a></li>
+            <li><a href="#comunidad" class="text-sm text-white/60 hover:text-primary-cyan transition-colors">Comunidad WhatsApp</a></li>
+            <li><a href="#contacto" class="text-sm text-white/60 hover:text-primary-cyan transition-colors">Servicios 360 Soluciones</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div>
+          <h3 class="text-white font-bold text-sm uppercase tracking-wide mb-4">Conecta</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-white/70 hover:text-red-400 transition-colors">
+                <span class="h-8 w-8 rounded-lg bg-youtube-red/15 border border-youtube-red/30 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </span>
+                <div>
+                  <span class="block">YouTube</span>
+                  <span class="block text-[10px] text-white/40">@makeseo</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-white/70 hover:text-whatsapp-green transition-colors">
+                <span class="h-8 w-8 rounded-lg bg-whatsapp-green/15 border border-whatsapp-green/30 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-whatsapp-green" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+                </span>
+                <div>
+                  <span class="block">Canal de WhatsApp</span>
+                  <span class="block text-[10px] text-white/40">Comunidad oficial MML</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/584167775771" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm text-white/70 hover:text-primary-cyan transition-colors">
+                <span class="h-8 w-8 rounded-lg bg-primary-cyan/15 border border-primary-cyan/30 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-primary-cyan" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.46 15.46 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/></svg>
+                </span>
+                <div>
+                  <span class="block">+58 416-777-5771</span>
+                  <span class="block text-[10px] text-white/40">WhatsApp / Llamadas</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-xs text-white/40 text-center sm:text-left">
+          © <span id="current-year">2026</span> Edward Valencia · 360 Soluciones · Método Malla Local (MML). Todos los derechos reservados.
+        </p>
+        <p class="text-xs text-white/40">
+          Hecho con Astro + Tailwind + Cloudflare Pages · $0 hosting
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== BOTONES FLOTANTES ==================== -->
+  <!-- WhatsApp flotante (derecha) -->
+  <a href="https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w" target="_blank" rel="noopener noreferrer" aria-label="Unirse al canal de WhatsApp" class="fixed bottom-6 right-4 md:right-6 z-40 inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-whatsapp-green text-white shadow-[0_10px_30px_-6px_rgba(37,211,102,0.6)] hover:scale-110 active:scale-95 transition-transform">
+    <span class="absolute inset-0 rounded-full bg-whatsapp-green animate-ping opacity-20" aria-hidden="true"></span>
+    <svg class="relative w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.473-.607z"/>
+    </svg>
+  </a>
+
+  <!-- YouTube flotante (izquierda) -->
+  <a href="https://youtube.com/@makeseo" target="_blank" rel="noopener noreferrer" aria-label="Ver canal en YouTube" class="fixed bottom-6 left-4 md:left-6 z-40 inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-youtube-red text-white shadow-[0_10px_30px_-6px_rgba(255,0,0,0.5)] hover:scale-110 active:scale-95 transition-transform">
+    <span class="absolute inset-0 rounded-full bg-youtube-red animate-ping opacity-20" aria-hidden="true"></span>
+    <svg class="relative w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </svg>
+  </a>
+
+  <!-- ==================== JS Vanilla ==================== -->
+  <script>
+    // Año dinámico en footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Menú móvil hamburguesa
+    const mobileButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = document.getElementById('menu-open-icon');
+    const closeIcon = document.getElementById('menu-close-icon');
+
+    const toggleMenu = (force) => {
+      const willOpen = force ?? mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden', !willOpen);
+      openIcon.classList.toggle('hidden', willOpen);
+      closeIcon.classList.toggle('hidden', !willOpen);
+      mobileButton.setAttribute('aria-expanded', String(willOpen));
+      document.body.style.overflow = willOpen ? 'hidden' : '';
+    };
+
+    mobileButton.addEventListener('click', () => toggleMenu());
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) toggleMenu(false);
+    });
+
+    // Navbar sombra dinámica al hacer scroll
+    const navbar = document.querySelector('nav');
+    const onScroll = () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('shadow-2xl', 'bg-dark-navy/95');
+        navbar.classList.remove('bg-dark-navy/80');
+      } else {
+        navbar.classList.remove('shadow-2xl', 'bg-dark-navy/95');
+        navbar.classList.add('bg-dark-navy/80');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // ====== GENERADOR DE MASTER PROMPT POR NICHO ======
+    const NICHES = [
+      { id: 'automotriz', label: 'Automotriz a Domicilio', icon: 'M5 11l1.5-4.5A3 3 0 019.4 4h5.2a3 3 0 012.9 2.5L19 11h.5a1.5 1.5 0 011.5 1.5v5a1.5 1.5 0 01-1.5 1.5H18a1 1 0 01-1-1v-1H7v1a1 1 0 01-1 1H4.5A1.5 1.5 0 013 17.5v-5A1.5 1.5 0 014.5 11H5z', schema: 'AutomotiveBusiness', servicios: ['Recarga de Gas Aire Acondicionado','Diagnóstico Electrónico','Cambio de Aceite','Frenos','Alineación y Balanceo'], keywords: 'mecánico a domicilio, recarga gas aire acondicionado automotriz, diagnóstico automotriz, servicio móvil automotriz' },
+      { id: 'plomeria', label: 'Plomería', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z', schema: 'Plumber', servicios: ['Destapación de Cañerías','Reparación de Filtraciones','Instalación de Baños','Calefones y Termos','Emergencias 24/7'], keywords: 'plomero a domicilio, destapación cañerías, reparación filtraciones, plomería urgente' },
+      { id: 'electricista', label: 'Electricista', icon: 'M13 10V3L4 14h7v7l9-11h-7z', schema: 'Electrician', servicios: ['Instalaciones Eléctricas','Reparación de Cortocircuitos','Tableros Eléctricos','Iluminación LED','Emergencias 24/7'], keywords: 'electricista a domicilio, instalación eléctrica, cortocircuito, tablero eléctrico' },
+      { id: 'cerrajero', label: 'Cerrajero', icon: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z', schema: 'Locksmith', servicios: ['Apertura de Puertas','Duplicado de Llaves','Cerraduras de Seguridad','Cajas Fuertes','Emergencias 24/7'], keywords: 'cerrajero a domicilio, apertura puertas, cerraduras seguridad, duplicado llaves' },
+      { id: 'limpieza', label: 'Limpieza Profesional', icon: 'M19 6h-1V4h-2v2H8V4H6v2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2z', schema: 'HousePainter', servicios: ['Limpieza de Hogares','Limpieza de Oficinas','Limpieza Post Obra','Tapices y Muebles','Limpieza Profunda'], keywords: 'servicio de limpieza, limpieza de oficinas, limpieza post obra, limpieza profesional' },
+      { id: 'climatizacion', label: 'Climatización / AC', icon: 'M12 2v20M2 12h20M5 5l14 14M19 5L5 19', schema: 'HVACBusiness', servicios: ['Instalación de Split','Mantención de A/C','Recarga de Gas','Limpieza de Conductos','Reparación de Equipos'], keywords: 'climatización a domicilio, instalación split, mantención aire acondicionado, recarga gas refrigerante' },
+      { id: 'mascotas', label: 'Veterinaria / Mascotas', icon: 'M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm5 3a2 2 0 100 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4z', schema: 'VeterinaryCare', servicios: ['Consulta Veterinaria','Vacunación','Peluquería Canina','Emergencias Veterinarias','Visita a Domicilio'], keywords: 'veterinario a domicilio, vacunación mascotas, peluquería canina, urgencias veterinarias' },
+      { id: 'belleza', label: 'Belleza / Barbería', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18a8 8 0 01-8-8 8 8 0 018-8 8 8 0 018 8 8 8 0 01-8 8z', schema: 'HairSalon', servicios: ['Corte de Cabello','Tintura y Peinados','Barbería','Tratamientos Capilares','Servicio a Domicilio'], keywords: 'barbería a domicilio, peluquería, corte de cabello, tintura, estilista móvil' },
+      { id: 'jardineria', label: 'Jardinería / Paisajismo', icon: 'M12 2C7 2 3 6 3 11c0 5 4 9 9 9s9-4 9-9c0-5-4-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z', schema: 'LandscapingBusiness', servicios: ['Mantenimiento de Jardines','Poda de Árboles','Diseño de Paisajes','Riego Automático','Limpieza de Terrenos'], keywords: 'jardinería a domicilio, mantenimiento jardines, paisajismo, poda árboles' },
+      { id: 'mudanzas', label: 'Mudanzas', icon: 'M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10', schema: 'MovingCompany', servicios: ['Mudanzas Residenciales','Mudanzas de Oficinas','Embalaje Profesional','Guardamuebles','Fletes Express'], keywords: 'mudanzas, fletes, servicio de embalaje, mudanzas oficinas' },
+      { id: 'abogados', label: 'Abogados / Legal', icon: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5', schema: 'LegalService', servicios: ['Consultoría Legal','Derecho Civil','Derecho Laboral','Derecho de Familia','Herencias y Testamentos'], keywords: 'abogado, consultoría legal, derecho civil, derecho laboral, abogado de familia' },
+      { id: 'salud', label: 'Doctor a Domicilio', icon: 'M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3V8zM5 8h2v8H5V8zm4 0h2v8H9V8z', schema: 'MedicalBusiness', servicios: ['Consulta Médica Domicilio','Control de Adulto Mayor','Toma de Muestras','Terapias Domiciliarias','Enfermería a Domicilio'], keywords: 'doctor a domicilio, consulta médica domicilio, enfermería domicilio, toma muestras' },
+    ];
+
+    let selectedNiche = null;
+    let generatedPromptText = '';
+
+    // Renderizar grid de nichos
+    const nicheGrid = document.getElementById('niche-grid');
+    NICHES.forEach(n => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'niche-card flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-dark-navy-alt/60 border border-white/10 hover:border-accent-orange/50 hover:bg-white/5 transition-all';
+      card.dataset.niche = n.id;
+      card.innerHTML = `
+        <span class="niche-icon h-10 w-10 rounded-xl bg-primary-cyan/15 border border-primary-cyan/30 flex items-center justify-center text-primary-cyan">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="${n.icon}"/></svg>
+        </span>
+        <span class="text-xs sm:text-sm text-white/80 font-medium text-center leading-tight">${n.label}</span>
+      `;
+      card.addEventListener('click', () => selectNiche(n.id));
+      nicheGrid.appendChild(card);
+    });
+
+    const customNicheInput = document.getElementById('custom-niche');
+    const generateBtn = document.getElementById('generate-prompt-btn');
+    const generateHint = document.getElementById('generate-hint');
+
+    function selectNiche(nicheId) {
+      selectedNiche = NICHES.find(n => n.id === nicheId) || null;
+      // Quitar selección visual de todas
+      document.querySelectorAll('.niche-card').forEach(c => c.classList.remove('is-selected'));
+      // Marcar la seleccionada
+      const card = document.querySelector(`.niche-card[data-niche="${nicheId}"]`);
+      if (card) card.classList.add('is-selected');
+      // Limpiar input custom si seleccionaron uno preset
+      if (customNicheInput.value) customNicheInput.value = '';
+      // Actualizar hint
+      if (selectedNiche) {
+        generateHint.textContent = `Nicho seleccionado: ${selectedNiche.label} — listo para generar`;
+        generateHint.style.color = '#25D366';
+      }
+    }
+
+    customNicheInput.addEventListener('input', (e) => {
+      const v = e.target.value.trim();
+      if (v) {
+        // Crear nicho custom en runtime
+        selectedNiche = {
+          id: 'custom',
+          label: v,
+          icon: 'M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z',
+          schema: 'LocalBusiness',
+          servicios: ['Servicio Principal','Servicio Secundario','Servicio Premium','Consulta y Cotización','Atención de Emergencias'],
+          keywords: `${v.toLowerCase()} a domicilio, servicio de ${v.toLowerCase()}, ${v.toLowerCase()} profesional`,
+        };
+        // Qitar selección visual de presets
+        document.querySelectorAll('.niche-card').forEach(c => c.classList.remove('is-selected'));
+        generateHint.textContent = `Nicho personalizado: "${v}" — listo para generar`;
+        generateHint.style.color = '#25D366';
+      } else if (selectedNiche && selectedNiche.id === 'custom') {
+        selectedNiche = null;
+        generateHint.textContent = 'Selecciona un nicho o escribe el tuyo para activar el botón';
+        generateHint.style.color = '';
+      }
+    });
+
+    generateBtn.addEventListener('click', () => {
+      if (!selectedNiche) {
+        generateHint.textContent = '⚠ Primero selecciona un nicho de la lista o escribe el tuyo arriba';
+        generateHint.style.color = '#ff6b00';
+        return;
+      }
+      generatePromptForNiche(selectedNiche);
+    });
+
+    function generatePromptForNiche(niche) {
+      // Slug del nicho en mayúsculas para el nombre del archivo
+      var nicheSlug = niche.label.toUpperCase().replace(/[^A-Z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+      var nicheLower = niche.label.toLowerCase();
+      var servicios = niche.servicios.map(function(s, i) { return (i + 1) + '. **' + s + '**'; }).join('\n');
+      var keywordsFirst = niche.keywords.split(',')[0].trim();
+
+      // Construir el prompt con array.join (sin template literals anidados)
+      var lines = [
+        '# MASTER PROMPT — Landing SEO Local para ' + niche.label,
+        '',
+        '> Versión personalizada del Master Prompt MML generado automáticamente para el nicho **' + niche.label + '**. Pégalo completo en un nuevo chat con tu IA para construir una landing optimizada para SEO Local.',
+        '',
+        '---',
+        '',
+        '## 1. ROL Y OBJETIVO',
+        '',
+        'Actúa como **Desarrollador Web Full Stack Senior + Especialista en SEO Local y CRO**, experto en **Astro, Tailwind CSS, Git/GitHub y Cloudflare Pages**.',
+        '',
+        '**Objetivo:** Construir una landing page de servicios de **' + nicheLower + '** a domicilio, lista para producción, optimizada para:',
+        '- Conversión móvil',
+        '- Core Web Vitals (95+ en PageSpeed mobile)',
+        '- SEO Local / Geo-SEO (city-level landing pages)',
+        '- Rich snippets via Schema.org JSON-LD',
+        '',
+        '**Metodología:** Método Malla Local (MML) — sistema creado por Edward Valencia (@makeseo) para posicionar negocios en Google Maps, construir webs ultrarrápidas serverless con $0 hosting, y desplegar mallas territoriales de landings por comuna/municipio.',
+        '',
+        '---',
+        '',
+        '## 2. STACK TÉCNICO OBLIGATORIO',
+        '',
+        '| Capa | Tecnología | Razón |',
+        '|------|------------|-------|',
+        '| Framework | **Astro 4.x** (SSG / static output) | HTML estático = máxima velocidad |',
+        '| Estilos | **Tailwind CSS 3.x** con tokens custom | Design system consistente |',
+        '| Interactividad | **Vanilla JS** en `<script>` (sin React/Vue) | Mínimo JS = mejor INP |',
+        '| Mapas | **Leaflet 1.9.4** + tiles OpenStreetMap con filtro CSS | Ver sección 11 |',
+        '| Imágenes | **Sharp** (Node) para optimizar a WebP + JPG | ~50% de ahorro de peso |',
+        '| Hosting | **Cloudflare Pages** | CDN global gratis, $0 hosting |',
+        '',
+        '**Prohibido:** React, Vue, Svelte, jQuery, Bootstrap, frameworks CSS pesados, WordPress.',
+        '',
+        '---',
+        '',
+        '## 3. SISTEMA DE DISEÑO — TOKENS TAILWIND (Dark Tech)',
+        '',
+        '```js',
+        'colors: {',
+        "  'primary-cyan':       '#00BCD4',",
+        "  'primary-teal':       '#00838F',",
+        "  'accent-orange':      '#ff6b00',",
+        "  'accent-orange-light':'#ff8c33',",
+        "  'dark-navy':          '#0b1020',",
+        "  'dark-navy-alt':      '#121a33',",
+        "  'whatsapp-green':     '#25D366',",
+        '},',
+        "fontFamily: { sans: ['Inter', 'Poppins', 'sans-serif'] }",
+        '```',
+        '',
+        '**Fuentes:** Inter + Poppins desde Google Fonts con `preconnect` + `display=swap`.',
+        '',
+        '---',
+        '',
+        '## 4. ARQUITECTURA DE CARPETAS',
+        '',
+        '```',
+        'proyecto/',
+        '├── astro.config.mjs          # SSG, site URL, @astrojs/tailwind',
+        '├── tailwind.config.mjs       # Tokens + animaciones',
+        '├── public/',
+        '│   ├── favicon.svg',
+        '│   ├── robots.txt            # Con Sitemap',
+        '│   ├── manifest.webmanifest  # PWA',
+        '│   └── images/',
+        '│       ├── logo.svg',
+        '│       ├── og/               # Open Graph 1200×630',
+        '│       ├── icons/            # icon-192.png, icon-512.png, apple-touch-icon.png',
+        '│       ├── gallery/          # Fotos renombradas con keywords SEO',
+        '│       └── services/         # Fotos por servicio',
+        '└── src/',
+        '    ├── data/',
+        '    │   └── ubicaciones.ts    # Data centralizada (slug, nombre, zona, lat/lng, FAQ)',
+        '    ├── layouts/',
+        '    │   └── Layout.astro      # Head + SEO + Geo-tags + Schema JSON-LD',
+        '    ├── components/',
+        '    │   ├── Navbar.astro',
+        '    │   ├── Hero.astro',
+        '    │   ├── TrustBar.astro',
+        '    │   ├── ServicesGrid.astro',
+        '    │   ├── ProcessSteps.astro',
+        '    │   ├── PricingSection.astro',
+        '    │   ├── CoverageMap.astro',
+        '    │   ├── LeafletMap.astro',
+        '    │   ├── Gallery.astro',
+        '    │   ├── FaqSection.astro',
+        '    │   ├── FloatingActions.astro',
+        '    │   └── Footer.astro',
+        '    └── pages/',
+        '        ├── index.astro              # Home',
+        '        ├── ubicaciones.astro        # Hub + mapa amplio',
+        '        ├── ubicacion/[slug].astro   # N landings dinámicas',
+        '        ├── faq.astro                # FAQ global',
+        '        ├── galeria.astro            # Galería completa',
+        '        ├── privacidad.astro         # Política de privacidad',
+        '        └── sitemap.xml.ts           # Sitemap dinámico',
+        '```',
+        '',
+        '---',
+        '',
+        '## 5. SERVICIOS DEL NICHO ' + niche.label.toUpperCase() + ' (SERVICESGRID)',
+        '',
+        'Configurar las tarjetas de servicios con EXACTAMENTE estos servicios típicos del nicho:',
+        '',
+        servicios,
+        '',
+        'Cada servicio debe tener:',
+        '- Imagen optimizada (WebP + JPG, `loading="lazy"`, `width`+`height` explícitos)',
+        '- Título con keyword + ubicación',
+        '- Descripción persuasiva de 2-3 líneas',
+        '- Lista de inclusiones (4-5 items)',
+        '- Precio en moneda local',
+        '- Botón CTA WhatsApp con mensaje pre-rellenado mencionando el servicio',
+        '',
+        '---',
+        '',
+        '## 6. PÁGINA DINÁMICA POR UBICACIÓN — `[slug].astro`',
+        '',
+        'Generar una landing SEO por cada comuna/municipio/barrio que el negocio cubre.',
+        '',
+        '### Data source: `src/data/ubicaciones.ts`',
+        '```ts',
+        'export interface Ubicacion {',
+        "  slug: string;",
+        "  nombre: string;",
+        "  zona: 'Centro'|'Oriente'|'Norte'|'Sur'|'Oeste'|'Rural';",
+        "  descripcion: string;",
+        "  barrios?: string[];",
+        "  lat: number;",
+        "  lng: number;",
+        "  tiempoRespuesta: string;",
+        "  faqs: UbicacionFAQ[];",
+        '}',
+        '```',
+        '',
+        '### `getStaticPaths()`',
+        '```astro',
+        'export function getStaticPaths() {',
+        '  return ubicaciones.map((ubi) => ({',
+        '    params: { slug: ubi.slug },',
+        '    props: { ubi },',
+        '  }));',
+        '}',
+        '```',
+        '',
+        '### Estructura de cada landing por ubicación',
+        '- **Hero específico:** H1 con "' + niche.servicios[0] + ' a Domicilio en {ubicacion.nombre}"',
+        '- Breadcrumb: Inicio › Cobertura › {ubicacion.nombre}',
+        '- Badge: "Desde $X · Atención hoy en {ubicacion.nombre}"',
+        '- Barrios atendidos como chips',
+        '- CTA WhatsApp con mensaje pre-rellenado mencionando la ubicación',
+        '- TrustBar + ServicesGrid + ProcessSteps + PricingSection (componentes compartidos)',
+        '- **FAQ específico de la ubicación** (5 preguntas con nombre de la ubicación)',
+        '- Gallery compacta',
+        '- **Ubicaciones vecinas** como chips clickeables',
+        '',
+        '### Schemas por ubicación (4 en total)',
+        '1. `' + niche.schema + '` (LocalBusiness subtipo) con `areaServed` = City + `geo` con lat/lng específicos',
+        '2. `Service` con `areaServed` = City + `Offer` en moneda local',
+        '3. `FAQPage` con 5 FAQs únicas',
+        '4. `BreadcrumbList` con Inicio › Cobertura › {ubicacion}',
+        '',
+        '---',
+        '',
+        '## 7. SCHEMA.ORG JSON-LD — PATRONES',
+        '',
+        '### 7.1 ' + niche.schema + ' (en Layout principal)',
+        '```json',
+        '{',
+        '  "@context": "https://schema.org",',
+        '  "@type": ["LocalBusiness", "' + niche.schema + '"],',
+        '  "@id": "https://dominio.com/#business",',
+        '  "name": "Nombre del negocio de ' + nicheLower + '",',
+        '  "telephone": "+XX-XXXX-XXXX",',
+        '  "image": ".../og-image.jpg",',
+        '  "logo": ".../logo.svg",',
+        '  "priceRange": "$$",',
+        '  "currenciesAccepted": "USD",',
+        '  "paymentAccepted": "Efectivo, Transferencia, Tarjeta",',
+        '  "address": { "@type": "PostalAddress", "addressLocality": "Ciudad", "addressRegion": "Región", "addressCountry": "XX" },',
+        '  "geo": { "@type": "GeoCoordinates", "latitude": 0, "longitude": 0 },',
+        '  "areaServed": [ /* array de { "@type": "City", "name": "..." } */ ],',
+        '  "openingHoursSpecification": [',
+        '    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "22:00" },',
+        '    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "09:00", "closes": "21:00" }',
+        '  ],',
+        '  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "327" }',
+        '}',
+        '```',
+        '',
+        '### 7.2 Service',
+        '```json',
+        '{',
+        '  "@context": "https://schema.org",',
+        '  "@type": "Service",',
+        '  "serviceType": "' + niche.servicios[0] + '",',
+        '  "provider": { "@id": ".../#business" },',
+        '  "areaServed": { "@type": "AdministrativeArea", "name": "Región" },',
+        '  "offers": { "@type": "Offer", "price": "X", "priceCurrency": "USD", "availability": "InStock" }',
+        '}',
+        '```',
+        '',
+        '### 7.3 FAQPage',
+        '```json',
+        '{',
+        '  "@context": "https://schema.org",',
+        '  "@type": "FAQPage",',
+        '  "mainEntity": [',
+        '    { "@type": "Question", "name": "...", "acceptedAnswer": { "@type": "Answer", "text": "..." } }',
+        '  ]',
+        '}',
+        '```',
+        '',
+        '---',
+        '',
+        '## 8. SEO ON-PAGE CHECKLIST',
+        '',
+        '- [ ] Un único `<h1>` con keyword transaccional: "' + niche.servicios[0] + ' a Domicilio en {Ciudad}"',
+        '- [ ] `<title>` 50–60 chars: "' + niche.servicios[0] + ' a Domicilio en {Ciudad} | {Marca}"',
+        '- [ ] `<meta description>` 150–160 chars con precio + tiempo + CTA',
+        '- [ ] Geo-tags: `geo.region`, `geo.placename`, `geo.position`, `ICBM`',
+        '- [ ] Open Graph completo con `og:locale`',
+        '- [ ] Twitter Cards `summary_large_image`',
+        '- [ ] `<link rel="canonical">`',
+        '- [ ] `robots.txt` con `Sitemap: https://dominio.com/sitemap.xml`',
+        '- [ ] `sitemap.xml` dinámico con todas las URLs',
+        '- [ ] Imágenes: `alt` descriptivo con keywords (' + niche.keywords + '), `width`+`height`, `loading="lazy"`',
+        '- [ ] `prefers-reduced-motion` respetado',
+        '- [ ] `lang="es-XX"` en `<html>`',
+        '',
+        '### Keywords principales del nicho ' + niche.label + ':',
+        niche.keywords,
+        '',
+        '---',
+        '',
+        '## 9. PWA — WEB MANIFEST',
+        '',
+        '```json',
+        '{',
+        '  "name": "Negocio de ' + niche.label + ' - Servicio a Domicilio",',
+        '  "short_name": "' + niche.label + '",',
+        '  "description": "Servicio de ' + nicheLower + ' a domicilio en tu ciudad.",',
+        '  "start_url": "/",',
+        '  "display": "standalone",',
+        '  "background_color": "#0b1020",',
+        '  "theme_color": "#00838F",',
+        '  "icons": [',
+        '    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },',
+        '    { "src": "/images/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },',
+        '    { "src": "/images/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }',
+        '  ]',
+        '}',
+        '```',
+        '',
+        'Generar iconos PNG con sharp desde el favicon.svg (densidad 384, tamaños 192/512/180).',
+        '',
+        '---',
+        '',
+        '## 10. IMÁGENES — CONVENCIONES',
+        '',
+        '### Renombrado SEO (kebab-case con keywords del nicho ' + nicheLower + ')',
+        '- ✅ `' + niche.id + '-a-domicilio-en-ciudad-1.jpg`',
+        '- ✅ `tecnico-' + niche.id + '-profesional-domicilio-3.webp`',
+        '- ❌ `IMG-20260929-WA0132.jpg`',
+        '',
+        '### Optimización con sharp',
+        '```js',
+        'await sharp(input).resize({ width: 1200, height: 1200, fit: "inside", withoutEnlargement: true })',
+        '  .jpeg({ quality: 78, progressive: true, mozjpeg: true }).toBuffer();',
+        'await sharp(input).resize({...}).webp({ quality: 75 }).toFile(output);',
+        '```',
+        '',
+        '### Uso en HTML',
+        '```html',
+        '<picture>',
+        '  <source srcset="/images/gallery/foto.webp" type="image/webp" />',
+        '  <img src="/images/gallery/foto.jpg" alt="' + keywordsFirst + ' en {Ciudad}"',
+        '       width="900" height="1200" loading="lazy" decoding="async" />',
+        '</picture>',
+        '```',
+        '',
+        '**Excepción:** Hero principal usa `fetchpriority="high"` (no lazy).',
+        '',
+        '---',
+        '',
+        '## 11. MAPA INTERACTIVO — LECCIONES CRÍTICAS',
+        '',
+        '### ❌ NO USES SVG CUSTOM',
+        'SVG con 50+ markers animados + transforms JS = lag severo en mobile.',
+        '',
+        '### ❌ NO USES CARTODB TILES',
+        'Requiere API key ahora. Muestra "API KEY REQUIRED" tapando el mapa.',
+        '',
+        '### ✅ SOLUCIÓN: Leaflet + OpenStreetMap + Filtro CSS',
+        '',
+        '```js',
+        'L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {',
+        '  attribution: "&copy; OpenStreetMap",',
+        '  subdomains: "abc",',
+        '  maxZoom: 19,',
+        '  className: "osm-dark-tiles",',
+        '}).addTo(map);',
+        '```',
+        '',
+        '```css',
+        '.osm-dark-tiles {',
+        '  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.7);',
+        '}',
+        '```',
+        '',
+        '### Carga vía CDN con SRI',
+        '```html',
+        '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"',
+        '      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="',
+        '      crossorigin="" />',
+        '<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"',
+        '        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="',
+        '        crossorigin=""><\\/script>',
+        '```',
+        '',
+        '### Configuración',
+        '```js',
+        'var map = L.map("leaflet-map", {',
+        '  center: [LAT, LNG],  // centro de tu zona',
+        '  zoom: 10,',
+        '  minZoom: 9,',
+        '  maxZoom: 16,',
+        '  zoomControl: true,',
+        '  scrollWheelZoom: true,',
+        '});',
+        '```',
+        '',
+        '---',
+        '',
+        '## 12. SITEMAP DINÁMICO',
+        '',
+        '```ts',
+        'import type { APIRoute } from "astro";',
+        'import { ubicaciones } from "../data/ubicaciones.ts";',
+        '',
+        'const SITE_URL = "https://dominio.com";',
+        '',
+        'export const GET: APIRoute = () => {',
+        '  var pages = [',
+        '    { url: "/", priority: "1.0", changefreq: "weekly" },',
+        '    { url: "/faq", priority: "0.8", changefreq: "monthly" },',
+        '    { url: "/galeria", priority: "0.7", changefreq: "monthly" },',
+        '    { url: "/ubicaciones", priority: "0.9", changefreq: "monthly" },',
+        '    { url: "/privacidad", priority: "0.3", changefreq: "yearly" },',
+        '  ].concat(ubicaciones.map(function(u) { return { url: "/ubicacion/" + u.slug, priority: "0.9", changefreq: "monthly" }; }));',
+        '  var xml = "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>\n<urlset xmlns=\\"http://www.sitemaps.org/schemas/sitemap/0.9\\">\n";',
+        '  xml += pages.map(function(p) {',
+        '    return "  <url>\n    <loc>" + SITE_URL + p.url + "</loc>\n    <lastmod>" + new Date().toISOString().split("T")[0] + "</lastmod>\n    <changefreq>" + p.changefreq + "</changefreq>\n    <priority>" + p.priority + "</priority>\n  </url>";',
+        '  }).join("\n");',
+        '  xml += "\n</urlset>";',
+        '  return new Response(xml, { headers: { "Content-Type": "application/xml; charset=utf-8" } });',
+        '};',
+        '```',
+        '',
+        '---',
+        '',
+        '## 13. WORKFLOW DE DESPLIEGUE',
+        '',
+        '### 13.1 Git init + commit',
+        '```bash',
+        'cd proyecto',
+        'git init -b main',
+        'git add .',
+        'git commit -m "feat: landing ' + nicheLower + ' - MML"',
+        '```',
+        '',
+        '### 13.2 GitHub',
+        '```bash',
+        'gh auth login',
+        'gh repo create nombre-repo --private --source=. --push',
+        '```',
+        '',
+        '### 13.3 Cloudflare Pages',
+        '1. dash.cloudflare.com → Workers & Pages → Create → Pages → Connect to Git',
+        '2. Seleccionar repo',
+        '3. Config: Framework preset `Astro`, Build command `npm run build`, Build output `dist`',
+        '4. Save and Deploy',
+        '',
+        'O vía Wrangler CLI:',
+        '```bash',
+        'npm install -g wrangler',
+        'wrangler login',
+        'wrangler pages project create nombre-proyecto',
+        'npm run build',
+        'wrangler pages deploy dist --project-name=nombre-proyecto --branch=main',
+        '```',
+        '',
+        '---',
+        '',
+        '## 14. SEGURIDAD — REGLAS CRÍTICAS',
+        '',
+        '### ⚠️ NUNCA compartas tokens en chat',
+        'Si el usuario pega tokens de GitHub (`ghp_...`) o Cloudflare (`cfat_...`):',
+        '1. Advertir inmediatamente que los revoque',
+        '2. No usar los tokens sin confirmación explícita',
+        '3. Recomendar rotación en github.com/settings/tokens y dash.cloudflare.com/profile/api-tokens',
+        '',
+        '### `.gitignore` obligatorio',
+        '```',
+        'node_modules/',
+        'dist/',
+        '.env',
+        '.env.local',
+        '.env.production',
+        '.astro/',
+        '.DS_Store',
+        '```',
+        '',
+        '---',
+        '',
+        '## 15. CALIDAD — CHECKLIST FINAL',
+        '',
+        '### Build',
+        '- [ ] `npm run build` compila sin errores',
+        '- [ ] Total de páginas = 1 home + N landings por ubicación + páginas auxiliares',
+        '',
+        '### SEO',
+        '- [ ] Un único `<h1>` por página',
+        '- [ ] Schemas JSON-LD válidos (probar en search.google.com/test/rich-results)',
+        '- [ ] Sitemap accessible en `/sitemap.xml`',
+        '- [ ] Geo-tags presentes',
+        '- [ ] canonical URL correcta',
+        '',
+        '### Performance',
+        '- [ ] Sin React/Vue/jQuery',
+        '- [ ] Imágenes en WebP + JPG con `<picture>`',
+        '- [ ] `loading="lazy"` en imágenes bajo el fold',
+        '- [ ] `fetchpriority="high"` en imagen del Hero',
+        '- [ ] `width`+`height` en todas las imágenes (evita CLS)',
+        '- [ ] Fuentes con `preconnect` + `display=swap`',
+        '',
+        '### Accesibilidad',
+        '- [ ] `lang="es-XX"` en `<html>`',
+        '- [ ] `aria-label` en botones de iconos',
+        '- [ ] `aria-expanded` en dropdowns y acordeones',
+        '- [ ] `prefers-reduced-motion` respetado',
+        '',
+        '### PWA',
+        '- [ ] `manifest.webmanifest` válido',
+        '- [ ] Iconos 192, 512, apple-touch-icon 180',
+        '',
+        '### Mapa',
+        '- [ ] Leaflet 1.9.4 vía CDN con SRI',
+        '- [ ] Tiles OpenStreetMap (NO CartoDB)',
+        '- [ ] Filtro CSS `invert(1) hue-rotate(180deg)` para dark theme',
+        '',
+        '---',
+        '',
+        '## 16. LECCIONES APRENDIDAS — ERRORES A EVITAR',
+        '',
+        '### 16.1 Foto del Hero como background',
+        '❌ No uses foto como `background` absoluto del Hero con `object-cover` (zoom/recorte + mala legibilidad).',
+        '✅ Patrón correcto: Hero sin foto de fondo (solo glow), texto directo sobre dark-navy, foto como `<figure>` bloque independiente debajo con `object-contain` y `max-h-[70vh]`.',
+        '',
+        '### 16.2 Tarjeta "Servicio Garantizado" en columna derecha del Hero',
+        '❌ No la pongas como columna derecha del Hero (compite con foto de fondo).',
+        '✅ Sección independiente debajo del Hero.',
+        '',
+        '### 16.3 SVG custom para mapas',
+        '❌ No uses SVG con 50+ markers animados (lag severo).',
+        '✅ Leaflet + tiles OSM rasterizados.',
+        '',
+        '### 16.4 CartoDB tiles',
+        '❌ No uses `basemaps.cartocdn.com/dark_all` (requiere API key).',
+        '✅ `tile.openstreetmap.org/{z}/{x}/{y}.png` + filtro CSS.',
+        '',
+        '### 16.5 Tokens en el chat',
+        '❌ Nunca aceptes tokens pegados en el chat sin advertir al usuario que los revoque.',
+        '',
+        '### 16.6 Hard refresh',
+        'Después de cada deploy, recordar al usuario hacer hard refresh:',
+        '- Windows/Linux: `Ctrl + Shift + R`',
+        '- Mac: `Cmd + Shift + R`',
+        '',
+        '---',
+        '',
+        '## 17. PROMPT INICIAL SUGERIDO',
+        '',
+        '```',
+        'Actúa como Desarrollador Web Full Stack Senior + Especialista en SEO Local.',
+        '',
+        'Construye una landing page de ' + niche.label + ' a domicilio en [CIUDAD/REGIÓN] siguiendo',
+        'EXACTAMENTE el master prompt adjunto (Método MML). Ciudad: [nombre].',
+        'Comunas/sectores a cubrir: [N] ubicaciones.',
+        '',
+        'Stack: Astro 4 + Tailwind CSS + Vanilla JS + Leaflet + Cloudflare Pages.',
+        '',
+        'Entregar:',
+        '1. Repo local con git init + commit inicial',
+        '2. Build SSG que genere [N + 5] páginas',
+        '3. SEO on-page completo con Schema.org JSON-LD (' + niche.schema + ' + Service + FAQPage + BreadcrumbList)',
+        '4. Webmanifest PWA + iconos',
+        '5. Sitemap dinámico',
+        '6. Mapa Leaflet con tiles OSM + filtro CSS dark',
+        '7. Galería con lightbox',
+        '8. Deploy a GitHub + Cloudflare Pages',
+        '```',
+        '',
+        '---',
+        '',
+        '## 18. ARCHIVOS DE REFERENCIA',
+        '',
+        '```',
+        'Páginas HTML totales:',
+        '├── /                          # Home',
+        '├── /ubicaciones               # Hub + mapa amplio',
+        '├── /ubicacion/[slug]          # N landings',
+        '├── /faq                       # FAQ global',
+        '├── /galeria                   # Galería completa',
+        '├── /privacidad                # Política de privacidad',
+        '└── /sitemap.xml               # Sitemap dinámico',
+        '',
+        'Componentes clave:',
+        '├── Layout.astro              # Head + SEO + Schema',
+        '├── Navbar.astro              # Sticky + mega-dropdown Ubicaciones',
+        '├── Hero.astro                # Sin foto de fondo (solo glow)',
+        '├── LeafletMap.astro          # Leaflet + OSM + filtro CSS',
+        '├── Gallery.astro             # Lightbox accesible',
+        '└── Footer.astro              # Datos fiscales + listado SEO ubicaciones',
+        '',
+        'Data:',
+        '└── src/data/ubicaciones.ts   # N ubicaciones con slug, nombre, zona, lat/lng, FAQ único',
+        '```',
+        '',
+        '---',
+        '',
+        '**Fin del Master Prompt MML para ' + niche.label + '.** Pega esto completo en un nuevo chat para construir tu landing SEO Local.',
+        '',
+        '*Método Malla Local (MML) · Edward Valencia · @makeseo · 360 Soluciones*'
+      ];
+
+      var promptText = lines.join('\n');
+
+      generatedPromptText = promptText;
+
+      // Renderizar markdown a HTML con marked (si está cargado) o mostrar como texto
+      const contentEl = document.getElementById('generated-prompt-content');
+      if (typeof marked !== 'undefined') {
+        contentEl.innerHTML = marked.parse(promptText);
+      } else {
+        // Fallback: cargar marked dinámicamente
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js';
+        script.onload = () => {
+          contentEl.innerHTML = marked.parse(promptText);
+        };
+        document.head.appendChild(script);
+        contentEl.innerHTML = '<p class="text-white/60">Cargando renderizador...</p>';
+      }
+
+      // Actualizar header
+      document.getElementById('result-niche-tag').textContent = nicheSlug;
+      const lineCount = promptText.split('\n').length;
+      document.getElementById('result-stats').textContent = `${lineCount} líneas · ${(promptText.length / 1024).toFixed(1)}KB`;
+
+      // Mostrar resultado
+      const resultDiv = document.getElementById('prompt-result');
+      resultDiv.classList.remove('hidden');
+      resultDiv.classList.add('is-visible');
+      // Scroll al resultado
+      setTimeout(() => {
+        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 200);
+    }
+
+    // Botón copiar generado
+    document.getElementById('copy-generated-btn').addEventListener('click', async (e) => {
+      if (!generatedPromptText) return;
+      const btn = e.currentTarget;
+      const span = btn.querySelector('span');
+      const originalText = span.textContent;
+      try {
+        await navigator.clipboard.writeText(generatedPromptText);
+        span.textContent = '¡Copiado!';
+        btn.style.background = '#25D366';
+        const feedback = document.getElementById('copy-generated-feedback');
+        feedback.classList.remove('hidden');
+        // Scroll al botón de Z.ai después de copiar
+        setTimeout(() => {
+          const zaiCta = feedback.parentElement.parentElement.parentElement.querySelector('.mt-8.text-center');
+          if (zaiCta) zaiCta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 400);
+        setTimeout(() => {
+          span.textContent = originalText;
+          btn.style.background = '';
+          feedback.classList.add('hidden');
+        }, 3500);
+      } catch (err) {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = generatedPromptText;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        span.textContent = '¡Copiado!';
+        setTimeout(() => { span.textContent = originalText; }, 2500);
+      }
+    });
+
+    // Botón descargar generado
+    document.getElementById('download-generated-btn').addEventListener('click', () => {
+      if (!generatedPromptText) return;
+      const blob = new Blob([generatedPromptText], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `MASTER_PROMPT_MML_${selectedNiche.id}.md`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    // Botón regenerar
+    document.getElementById('regenerate-btn').addEventListener('click', () => {
+      document.getElementById('prompt-result').classList.add('hidden');
+      document.getElementById('prompt-generador').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</body>
+</html>
