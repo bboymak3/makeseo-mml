@@ -309,7 +309,27 @@
     .niche-card { cursor: pointer; transition: all 0.2s; }
     .niche-card.is-selected { background: linear-gradient(135deg, rgba(255,107,0,0.2), rgba(255,140,51,0.1)) !important; border-color: #ff6b00 !important; transform: scale(1.03); }
     .niche-card.is-selected .niche-icon { background: linear-gradient(135deg, #ff6b00, #ff8c33) !important; color: #fff !important; }
-  </style>
+  
+/* === MODAL DE CLIENTE (perfil Google + web) === */
+.client-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(6px);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
+.client-modal-overlay.active{display:flex;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.client-modal{background:#0f1729;border:1px solid rgba(34,197,94,.3);border-radius:16px;padding:28px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5);text-align:center;animation:slideUp .3s ease;position:relative}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.client-modal-icon{font-size:3rem;margin-bottom:12px}
+.client-modal-title{font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:6px}
+.client-modal-desc{font-size:.85rem;color:#94a3b8;margin-bottom:20px;line-height:1.4}
+.client-modal-btns{display:flex;flex-direction:column;gap:10px}
+.client-modal-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;border:none;text-decoration:none;transition:all .15s;font-family:inherit}
+.client-modal-btn-google{background:#22c55e;color:#042713}
+.client-modal-btn-google:hover{background:#16a34a;transform:translateY(-1px)}
+.client-modal-btn-web{background:transparent;border:1px solid rgba(255,255,255,.2);color:#fff}
+.client-modal-btn-web:hover{border-color:#22c55e;color:#22c55e}
+.client-modal-btn-web.disabled{opacity:.4;cursor:not-allowed}
+.client-modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:#94a3b8;font-size:1.5rem;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all .15s}
+.client-modal-close:hover{background:rgba(255,255,255,.1);color:#fff}
+
+</style>
 </head>
 
 <body class="font-sans text-white antialiased">
@@ -396,10 +416,10 @@
           Comunidad WhatsApp
         </a>
         <!-- SOPREVER -->
-        <a href="https://share.google/AfpzW5tvS7FOt4Ug2" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/AfpzW5tvS7FOt4Ug2', 'https://www.google.com/maps/search/SOPREVER', 'SOPREVER')" data-share-url="https://share.google/AfpzW5tvS7FOt4Ug2" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🌳</span><h3 class="font-bold text-white text-sm">SOPREVER</h3></div>
           <p class="text-xs text-white/60">Soluciones y Prevenciones Verdes · Tala y poda de árboles · Santiago CL</p>
-        </a>
+        </div>
       </div>
     </div>
   </nav>
@@ -1637,156 +1657,156 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-reveal>
         <!-- 1 -->
-        <a href="https://share.google/u5uhajp7ysG70Bq6w" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/u5uhajp7ysG70Bq6w', 'https://www.google.com/maps/search/KLEAR%20STUDIO', 'KLEAR STUDIO')" data-share-url="https://share.google/u5uhajp7ysG70Bq6w" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">💈</span><h3 class="font-bold text-white text-sm">KLEAR STUDIO</h3></div>
           <p class="text-xs text-white/60">Top Barber Shop · Barbero a Domicilio</p>
-        </a>
+        </div>
         <!-- 2 -->
-        <a href="https://share.google/d60jH6JP5PxiWAqId" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/d60jH6JP5PxiWAqId', 'https://www.google.com/maps/search/OKINNOVATION%20PE', 'OKINNOVATION PE')" data-share-url="https://share.google/d60jH6JP5PxiWAqId" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🚘</span><h3 class="font-bold text-white text-sm">OKINNOVATION PE</h3></div>
           <p class="text-xs text-white/60">Fabricación & Accesorios Off-Road 4x4</p>
-        </a>
+        </div>
         <!-- OKINNOVATION CL -->
-        <a href="https://share.google/BBRNKtZKRIDBgTzAI" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/BBRNKtZKRIDBgTzAI', 'https://www.google.com/maps/search/OKINNOVATION%20CL', 'OKINNOVATION CL')" data-share-url="https://share.google/BBRNKtZKRIDBgTzAI" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🚘</span><h3 class="font-bold text-white text-sm">OKINNOVATION CL</h3></div>
           <p class="text-xs text-white/60">Fabricación & Accesorios Off-Road 4x4 · Santiago de Chile</p>
-        </a>
+        </div>
 
         <!-- 3 -->
-        <a href="https://share.google/eRgELPwSvISGWd9ZB" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/eRgELPwSvISGWd9ZB', 'https://www.google.com/maps/search/CEMIVAZ', 'CEMIVAZ')" data-share-url="https://share.google/eRgELPwSvISGWd9ZB" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">⚙️</span><h3 class="font-bold text-white text-sm">CEMIVAZ</h3></div>
           <p class="text-xs text-white/60">Diseño Mecánico, Fabricación y Mantenimiento Industrial</p>
-        </a>
+        </div>
         <!-- 4 -->
-        <a href="https://share.google/WQLzrL87MGzTNMB4t" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/WQLzrL87MGzTNMB4t', 'https://www.google.com/maps/search/Alexandro%20Refrigeration', 'Alexandro Refrigeration')" data-share-url="https://share.google/WQLzrL87MGzTNMB4t" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">❄️</span><h3 class="font-bold text-white text-sm">Alexandro Refrigeration</h3></div>
           <p class="text-xs text-white/60">H.V.A.C.R. Parts & Repair Services</p>
-        </a>
+        </div>
         <!-- 5 -->
-        <a href="https://share.google/2mOzXghFssRyQZYVa" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/2mOzXghFssRyQZYVa', 'https://www.google.com/maps/search/En%20Santiago', 'En Santiago')" data-share-url="https://share.google/2mOzXghFssRyQZYVa" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">📍</span><h3 class="font-bold text-white text-sm">En Santiago</h3></div>
           <p class="text-xs text-white/60">Directorio comercial · SEO · Diseño web</p>
-        </a>
+        </div>
         <!-- 6 -->
-        <a href="https://share.google/V0zQRJoLFsdpRAF53" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/V0zQRJoLFsdpRAF53', 'https://www.google.com/maps/search/ELECTROMECANICO', 'ELECTROMECANICO')" data-share-url="https://share.google/V0zQRJoLFsdpRAF53" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">⚡</span><h3 class="font-bold text-white text-sm">ELECTROMECANICO</h3></div>
           <p class="text-xs text-white/60">Servicio a Domicilio en Santiago</p>
-        </a>
+        </div>
         <!-- 7 -->
-        <a href="https://share.google/nQWDxX41oFLPqHRrd" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/nQWDxX41oFLPqHRrd', 'https://www.google.com/maps/search/GRADO33', 'GRADO33')" data-share-url="https://share.google/nQWDxX41oFLPqHRrd" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">👕</span><h3 class="font-bold text-white text-sm">GRADO33</h3></div>
           <p class="text-xs text-white/60">Tienda de Personalizados · Camisetas · Hoodies · Regalos</p>
-        </a>
+        </div>
         <!-- 8 -->
-        <a href="https://share.google/t752PmcyBGKRilClj" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/t752PmcyBGKRilClj', 'https://www.google.com/maps/search/SAMSARA%20TATTOO%20STUDIO', 'SAMSARA TATTOO STUDIO')" data-share-url="https://share.google/t752PmcyBGKRilClj" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🎨</span><h3 class="font-bold text-white text-sm">SAMSARA TATTOO STUDIO</h3></div>
           <p class="text-xs text-white/60">Artista Corporal de Alto Nivel · Santiago CL</p>
-        </a>
+        </div>
         <!-- 9 -->
-        <a href="https://share.google/Q8hWPBpKy1LxzCiAa" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/Q8hWPBpKy1LxzCiAa', 'https://www.google.com/maps/search/360%20SOLUCIONES', '360 SOLUCIONES')" data-share-url="https://share.google/Q8hWPBpKy1LxzCiAa" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">💻</span><h3 class="font-bold text-white text-sm">360 SOLUCIONES</h3></div>
           <p class="text-xs text-white/60">Marketing Digital y Diseño de Páginas Web · Barinas</p>
-        </a>
+        </div>
         <!-- 10 -->
-        <a href="https://share.google/G0146W06Y693u2Yde" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/G0146W06Y693u2Yde', 'https://www.google.com/maps/search/CHRISTIAN%20MOLINA', 'CHRISTIAN MOLINA')" data-share-url="https://share.google/G0146W06Y693u2Yde" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">📣</span><h3 class="font-bold text-white text-sm">CHRISTIAN MOLINA</h3></div>
           <p class="text-xs text-white/60">Agencia de Publicidad · Expertos en Artes Gráficas · Barinas</p>
-        </a>
+        </div>
         <!-- 11 -->
-        <a href="https://share.google/v8ankSL3GUTIY9izs" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/v8ankSL3GUTIY9izs', 'https://www.google.com/maps/search/AMYSTUDIO', 'AMYSTUDIO')" data-share-url="https://share.google/v8ankSL3GUTIY9izs" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">💅</span><h3 class="font-bold text-white text-sm">AMYSTUDIO</h3></div>
           <p class="text-xs text-white/60">Uñas · Manicure · Pedicure · Masajes Terapéuticos</p>
-        </a>
+        </div>
         <!-- 12 -->
-        <a href="https://share.google/op6snKES6TrmypxE4" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/op6snKES6TrmypxE4', 'https://www.google.com/maps/search/LA%20CACHAMITA%20DE%20ORO', 'LA CACHAMITA DE ORO')" data-share-url="https://share.google/op6snKES6TrmypxE4" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🍽️</span><h3 class="font-bold text-white text-sm">LA CACHAMITA DE ORO</h3></div>
           <p class="text-xs text-white/60">Restaurant · Comida Criolla · Cachama Frita · Marisquería</p>
-        </a>
+        </div>
         <!-- 13 -->
-        <a href="https://share.google/sucxSUn3fRya6ZmNs" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/sucxSUn3fRya6ZmNs', 'https://www.google.com/maps/search/LLANOCAR%20CL', 'LLANOCAR CL')" data-share-url="https://share.google/sucxSUn3fRya6ZmNs" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🔧</span><h3 class="font-bold text-white text-sm">LLANOCAR CL</h3></div>
           <p class="text-xs text-white/60">Mecánico a Domicilio · Embragues · Tren Delantero</p>
-        </a>
+        </div>
         <!-- 14 -->
-        <a href="https://share.google/n9YadKi2RtI3QfiBn" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/n9YadKi2RtI3QfiBn', 'https://www.google.com/maps/search/HolaX%20Venezuela', 'HolaX Venezuela')" data-share-url="https://share.google/n9YadKi2RtI3QfiBn" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🏢</span><h3 class="font-bold text-white text-sm">HolaX Venezuela</h3></div>
           <p class="text-xs text-white/60">Directorio de Negocios</p>
-        </a>
+        </div>
         <!-- 15 -->
-        <a href="https://share.google/xbO4pTtwCjClt38XA" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/xbO4pTtwCjClt38XA', 'https://www.google.com/maps/search/Limpieza%20a%20Domicilio%2024/7', 'Limpieza a Domicilio 24/7')" data-share-url="https://share.google/xbO4pTtwCjClt38XA" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🧹</span><h3 class="font-bold text-white text-sm">Limpieza a Domicilio 24/7</h3></div>
           <p class="text-xs text-white/60">Limpiamos tu espacio en Santiago · Todo queda limpio y reluciente</p>
-        </a>
+        </div>
         <!-- 16 -->
-        <a href="https://share.google/HS2d43G9LksOezuBR" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/HS2d43G9LksOezuBR', 'https://www.google.com/maps/search/EMISOR', 'EMISOR')" data-share-url="https://share.google/HS2d43G9LksOezuBR" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">💡</span><h3 class="font-bold text-white text-sm">EMISOR</h3></div>
           <p class="text-xs text-white/60">Global Solutions · Clothing Shops · Texas</p>
-        </a>
+        </div>
         <!-- 17 -->
-        <a href="https://share.google/kbobtwYucU3vbaslN" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/kbobtwYucU3vbaslN', 'https://www.google.com/maps/search/La%20Conquista%20#1', 'La Conquista #1')" data-share-url="https://share.google/kbobtwYucU3vbaslN" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🚧</span><h3 class="font-bold text-white text-sm">La Conquista #1</h3></div>
           <p class="text-xs text-white/60">Asociación Cooperativa</p>
-        </a>
+        </div>
         <!-- 18 -->
-        <a href="https://share.google/bFEPv74FsvmNgxt2R" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/bFEPv74FsvmNgxt2R', 'https://www.google.com/maps/search/Estilosgrado33', 'Estilosgrado33')" data-share-url="https://share.google/bFEPv74FsvmNgxt2R" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🧥</span><h3 class="font-bold text-white text-sm">Estilosgrado33</h3></div>
           <p class="text-xs text-white/60">Buzos Personalizados · Estampados · Serigrafía · DTF · Rionegro</p>
-        </a>
+        </div>
         <!-- 19 -->
-        <a href="https://share.google/p5u62sR3JfyXtH97J" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/p5u62sR3JfyXtH97J', 'https://www.google.com/maps/search/Alianza%2058', 'Alianza 58')" data-share-url="https://share.google/p5u62sR3JfyXtH97J" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🏡</span><h3 class="font-bold text-white text-sm">Alianza 58</h3></div>
           <p class="text-xs text-white/60">Bienes Raices · Asesoría Inmobiliaria Integral</p>
-        </a>
+        </div>
         <!-- 20 -->
-        <a href="https://share.google/h91rZJWb0s9FVtS0o" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/h91rZJWb0s9FVtS0o', 'https://www.google.com/maps/search/CLARO%20SERVICIOS', 'CLARO SERVICIOS')" data-share-url="https://share.google/h91rZJWb0s9FVtS0o" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🏅</span><h3 class="font-bold text-white text-sm">CLARO SERVICIOS</h3></div>
           <p class="text-xs text-white/60">Servicio Técnico · Hogar · Móvil · Rionegro · La Ceja</p>
-        </a>
+        </div>
         <!-- 21 -->
-        <a href="https://share.google/cFiuM0YRfAtEpG7BE" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/cFiuM0YRfAtEpG7BE', 'https://www.google.com/maps/search/Abogados%20Valencia', 'Abogados Valencia')" data-share-url="https://share.google/cFiuM0YRfAtEpG7BE" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">⚖️</span><h3 class="font-bold text-white text-sm">Abogados Valencia</h3></div>
           <p class="text-xs text-white/60">Trámites de Notaría y Registro · Civil y Familia · Barinas</p>
-        </a>
+        </div>
         <!-- 22 -->
-        <a href="https://share.google/H7gApIC14AQNacmEc" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/H7gApIC14AQNacmEc', 'https://www.google.com/maps/search/REGASA', 'REGASA')" data-share-url="https://share.google/H7gApIC14AQNacmEc" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🔧</span><h3 class="font-bold text-white text-sm">REGASA</h3></div>
           <p class="text-xs text-white/60">Rectificadora de Cámaras y Culatas · Tu motor en las mejores manos</p>
-        </a>
+        </div>
         <!-- 23 -->
-        <a href="https://share.google/lpbpPplVZu65yoxZb" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/lpbpPplVZu65yoxZb', 'https://www.google.com/maps/search/JF%20GOD'S%20COMPANY', 'JF GODS COMPANY')" data-share-url="https://share.google/lpbpPplVZu65yoxZb" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">👕</span><h3 class="font-bold text-white text-sm">JF GOD'S COMPANY</h3></div>
           <p class="text-xs text-white/60">Personalizados · Arreglos · Poleras · Baby Shower · Santiago</p>
-        </a>
+        </div>
         <!-- 24 -->
-        <a href="https://share.google/6CFkPplosaNLfFkOX" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/6CFkPplosaNLfFkOX', 'https://www.google.com/maps/search/DR.AUTOMOTRIZ', 'DR.AUTOMOTRIZ')" data-share-url="https://share.google/6CFkPplosaNLfFkOX" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🥇</span><h3 class="font-bold text-white text-sm">DR.AUTOMOTRIZ</h3></div>
           <p class="text-xs text-white/60">Mecánico a Domicilio en Santiago · Frenos · Electricidad · Mantención</p>
-        </a>
+        </div>
         <!-- 25 -->
-        <a href="https://share.google/zCexQKf5hvZVBMG92" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/zCexQKf5hvZVBMG92', 'https://www.google.com/maps/search/GLOBAL%20PRO%20Automotriz', 'GLOBAL PRO Automotriz')" data-share-url="https://share.google/zCexQKf5hvZVBMG92" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🚗</span><h3 class="font-bold text-white text-sm">GLOBAL PRO Automotriz</h3></div>
           <p class="text-xs text-white/60">Mecánico a Domicilio 24/7 · Motor · Frenos · Electricidad</p>
-        </a>
+        </div>
         <!-- 26 -->
-        <a href="https://share.google/G6AQc0w12UrtVpOVo" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/G6AQc0w12UrtVpOVo', 'https://www.google.com/maps/search/MUNDONET', 'MUNDONET')" data-share-url="https://share.google/G6AQc0w12UrtVpOVo" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">📹</span><h3 class="font-bold text-white text-sm">MUNDONET</h3></div>
           <p class="text-xs text-white/60">Cámaras de Seguridad y Desarrollo de Software</p>
-        </a>
+        </div>
         <!-- 27 -->
-        <a href="https://share.google/QZVACOSo7JTa55lOx" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/QZVACOSo7JTa55lOx', 'https://www.google.com/maps/search/Dubraskalash.art', 'Dubraskalash.art')" data-share-url="https://share.google/QZVACOSo7JTa55lOx" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">✨</span><h3 class="font-bold text-white text-sm">Dubraskalash.art</h3></div>
           <p class="text-xs text-white/60">Insumos para Pestañas TopLine · Speaker y Judge Internacional</p>
-        </a>
+        </div>
         <!-- 28 -->
-        <a href="https://share.google/7BhqsrZk1vLjJAVMR" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/7BhqsrZk1vLjJAVMR', 'https://www.google.com/maps/search/Optimus%20Cars%20SPA', 'Optimus Cars SPA')" data-share-url="https://share.google/7BhqsrZk1vLjJAVMR" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🚘</span><h3 class="font-bold text-white text-sm">Optimus Cars SPA</h3></div>
           <p class="text-xs text-white/60">Car Wash Premium · Láminas de Seguridad Certificadas</p>
-        </a>
+        </div>
         <!-- 29 -->
-        <a href="https://share.google/1CXpOCbOR8eijO4Yb" target="_blank" rel="noopener noreferrer" class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
+        <div onclick="openClientModal('https://share.google/1CXpOCbOR8eijO4Yb', 'https://www.google.com/maps/search/TAPIZADO%20DE%20VOLANTES', 'TAPIZADO DE VOLANTES')" data-share-url="https://share.google/1CXpOCbOR8eijO4Yb" "   class="bg-dark-navy-alt/60 border border-white/10 rounded-xl p-4 hover:border-primary-cyan/40 hover:-translate-y-0.5 transition-all block">
           <div class="flex items-center gap-2 mb-1"><span class="text-base">🪡</span><h3 class="font-bold text-white text-sm">TAPIZADO DE VOLANTES</h3></div>
           <p class="text-xs text-white/60">Tapizados Personalizados · Polerones · Santiago</p>
-        </a>
+        </div>
       </div>
 
       <div class="mt-12 text-center" data-reveal>
@@ -2859,5 +2879,64 @@
       document.getElementById('prompt-generador').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   </script>
+
+<!-- === MODAL DE CLIENTE === -->
+<div class="client-modal-overlay" id="clientModalOverlay" onclick="closeClientModal(event)">
+  <div class="client-modal" onclick="event.stopPropagation()">
+    <button class="client-modal-close" onclick="closeClientModal()">×</button>
+    <div class="client-modal-icon" id="clientModalIcon"></div>
+    <h3 class="client-modal-title" id="clientModalTitle"></h3>
+    <p class="client-modal-desc" id="clientModalDesc"></p>
+    <div class="client-modal-btns">
+      <a href="#" id="clientModalGoogleBtn" target="_blank" rel="noopener" class="client-modal-btn client-modal-btn-google">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        Ir a perfil de Google
+      </a>
+      <a href="#" id="clientModalWebBtn" class="client-modal-btn client-modal-btn-web disabled">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+        <span>Página web (próximamente)</span>
+      </a>
+    </div>
+  </div>
+</div>
+<script>
+function openClientModal(shareUrl, mapsUrl, nombre) {
+  var overlay = document.getElementById('clientModalOverlay');
+  var cards = document.querySelectorAll('[data-share-url]');
+  var clickedCard = null;
+  for (var i = 0; i < cards.length; i++) {
+    if (cards[i].getAttribute('data-share-url') === shareUrl) {
+      clickedCard = cards[i];
+      break;
+    }
+  }
+  var icon = '📍';
+  var desc = '';
+  if (clickedCard) {
+    var iconEl = clickedCard.querySelector('span');
+    var descEl = clickedCard.querySelector('p');
+    if (iconEl) icon = iconEl.textContent;
+    if (descEl) desc = descEl.textContent;
+  }
+  document.getElementById('clientModalIcon').textContent = icon;
+  document.getElementById('clientModalTitle').textContent = nombre;
+  document.getElementById('clientModalDesc').textContent = desc;
+  document.getElementById('clientModalGoogleBtn').href = mapsUrl;
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeClientModal(event) {
+  if (event && event.target && event.target.id !== 'clientModalOverlay' && event.target.textContent !== '×' && event.type === 'click') return;
+  document.getElementById('clientModalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.getElementById('clientModalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
+</script>
+
 </body>
 </html>
