@@ -6,28 +6,33 @@ Proyecto completo de la marca personal y academia de **Edward Valencia (@makeseo
 
 | Recurso | URL |
 |---------|-----|
-| **Landing principal** | https://makeseo-mml.pages.dev |
-| **Login academia** | https://makeseo-mml.pages.dev/academia/login.html |
-| **Dashboard agente** | https://makeseo-mml.pages.dev/academia/ |
-| **Panel admin** | https://makeseo-mml.pages.dev/academia/admin.html |
-| **Master Prompt MML** | https://makeseo-mml.pages.dev/master-prompt |
-| **Archivo .md descargable** | https://makeseo-mml.pages.dev/master-prompt.md |
-| **PDF plantilla certificado** | https://makeseo-mml.pages.dev/partnerdigimon.pdf |
+| **Landing principal** | https://makeseo.app/ |
+| **Clientes** | https://makeseo.app/clientes |
+| **Login academia** | https://makeseo.app/academia/login.html |
+| **Dashboard agente** | https://makeseo.app/academia/ |
+| **Panel admin** | https://makeseo.app/academia/admin.html (no enlazado desde la web, `noindex`) |
+| **Master Prompt MML** | https://makeseo.app/master-prompt/ |
+| **Archivo .md descargable** | https://makeseo.app/master-prompt.md |
+| **PDF plantilla certificado** | https://makeseo.app/partnerdigimon.pdf |
 
-## 🔐 Credenciales por defecto (CAMBIAR)
+Dominio oficial: **makeseo.app** (el proyecto también responde en `makeseo-mml.pages.dev`, pero todas las
+URLs canónicas, el sitemap y `robots.txt` apuntan a makeseo.app).
 
-- **Email:** `admin@makeseo.local`
-- **Contraseña:** `admin123`
+## 🔐 Cuenta admin
 
-⚠️ Entra al panel admin y crea tu propia cuenta admin, luego elimina la default.
+Si la base de datos se creó con la cuenta admin por defecto del seed, entra al panel admin, crea tu
+propia cuenta admin y elimina la de por defecto. No escribas contraseñas en este README.
 
 ## 📐 Estructura del proyecto
 
 ```
 makeseo-mml-comunidad/
 ├── public/                              # Estáticos
-│   ├── index.html                       # Landing principal (Hero + MML + 3 Pilares + Agentes + Generador Prompt + Comunidad + 360 Soluciones)
-│   ├── favicon.svg
+│   ├── index.html                       # Landing principal (ver "Landing principal" abajo)
+│   ├── clientes.html, servicios.html, quienes-somos.html, blog.html, faq.html, contacto.html
+│   ├── css/tailwind.css                 # Tailwind compilado (generado con scripts/tailwind en la raíz del repo)
+│   ├── sitemap.xml, robots.txt          # SEO (dominio makeseo.app, URLs sin .html)
+│   ├── favicon-32.png
 │   ├── partnerdigimon.pdf               # Plantilla del certificado PDF (203KB)
 │   ├── master-prompt.md                 # Master prompt descargable
 │   ├── academia/
@@ -72,7 +77,7 @@ makeseo-mml-comunidad/
 ├── schema_mml_academia.sql              # Schema D1 (8 tablas con prefijo mml_)
 ├── seed_clases_mml.sql                  # 6 clases de la serie MML + preguntas
 ├── seed_complete_classes.sql            # Marcar clases como completadas (test)
-├── wrangler.toml                        # Config Cloudflare (D1 + JWT_SECRET)
+├── wrangler.toml                        # Config Cloudflare (D1 + variables públicas). JWT_SECRET va como secreto en el panel
 └── README.md                            # Este archivo
 ```
 
@@ -121,23 +126,33 @@ Usa la base de datos existente `generico_db` (ID: `38dd85ba-03dc-4937-af19-4d1c4
 
 ## 🎨 Landing principal
 
-Secciones en orden:
-1. **Hero** — Badge, H1, definición MML, 4 diferenciadores clave, botones YouTube + WhatsApp
-2. **CTA Academia** — Botón gigante "IR A LA ACADEMIA"
-3. **Agentes Certificados** — 4 perfiles (Edward Valencia, Carlos Mendoza, María Fernández, José Rodríguez)
-4. **Generador de Master Prompt** — 12 nichos + input custom + botón copiar + link a chat.z.ai
-5. **¿Qué es el MML?** — Definición oficial + 4 diferenciadores explicados
-6. **3 Pilares (Trinomio de Autoridad)** — Diagrama: Pilar 1 (GBP) arriba, Pilar 2 (Web Serverless) + Pilar 3 (Malla Territorial) abajo
-7. **Tutoriales YouTube** — 6 episodios (3 con embed real, 3 placeholder)
-8. **Master Prompt card** — Preview tipo terminal + botones ver/descargar
-9. **Comunidad WhatsApp** — CTA masivo con borde gradiente
-10. **Servicios 360 Soluciones** — Bloque empresarial + contacto +58 416-777-5771
-11. **Footer** — Datos fiscales + links + comunas
-12. **Botones flotantes** — WhatsApp (derecha) + YouTube (izquierda)
+Secciones en orden (`public/index.html`):
+1. **Hero** — H1 "Método Malla Local", botones **Quiero posicionar mi negocio** (WhatsApp), YouTube y Canal WhatsApp
+2. **Nuestros Clientes** — 6 destacados con ★ dorada + botón "Ver los 31 clientes" (desplegable). Cada ficha abre un modal con perfil de Google y "Visitar página web" si la tarjeta tiene `data-web-url`
+3. **CTA Academia** — Botón gigante "IR A LA ACADEMIA"
+4. **Agentes Certificados**
+5. **Master Prompt MML** — dos desplegables: generador por nicho (12 nichos + input custom) y playbook completo (ver/descargar)
+6. **¿Qué es el MML?**
+7. **3 Pilares (Trinomio de Autoridad)**
+8. **Tutoriales YouTube**
+9. **Comunidad WhatsApp**
+10. **Servicios 360 Soluciones**
+11. **Bots IA (BotWA)**
+12. **Directorios comerciales** — HolaX y En Santiago
+13. **FAQ**
+14. **Footer** + botones flotantes (WhatsApp derecha, YouTube izquierda)
+
+**Menú:** enlaces + botones de colores **Clientes** (rojo), **Comunidad** (verde) y **Academia** (naranja).
+Entre 1024 y 1279 px los tres botones muestran solo el ícono para que el menú quepa.
+
+### Clientes destacados y webs
+Destacados (orden fijo, borde dorado y ★): Optimus Cars SPA, GLOBAL PRO Automotriz, ELECTROMECANICO,
+TAPIZADO DE VOLANTES, LLANOCAR CL, DR.AUTOMOTRIZ. 21 clientes tienen web (`data-web-url`); el resto muestra
+"Página web (próximamente)". Las tarjetas están duplicadas en `index.html` y `clientes.html`: cambia ambas.
 
 ## 🔧 Stack técnico
 
-- **Frontend:** HTML estático + Tailwind CSS (CDN) + Vanilla JS
+- **Frontend:** HTML estático + Tailwind CSS compilado (`public/css/tailwind.css`) + Vanilla JS
 - **Backend:** Cloudflare Pages Functions (Workers)
 - **Base de datos:** Cloudflare D1 (SQLite)
 - **Auth:** JWT (HMAC-SHA256) + Google OAuth (opcional)
@@ -147,14 +162,20 @@ Secciones en orden:
 
 ## ⚙️ Variables de entorno
 
-Configuradas en `wrangler.toml`:
+| Variable | Dónde | Notas |
+|----------|-------|-------|
+| `JWT_SECRET` | **Secreto** en Cloudflare (proyecto → Configuración → Variables y secretos) | Obligatoria. Sin ella el login falla (ya no hay clave por defecto en el código). Cambiarla cierra las sesiones abiertas. |
+| `APP_URL` | `wrangler.toml` `[vars]` | `https://makeseo.app` |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | Secretos en Cloudflare | Solo si usas Google OAuth |
 
-```toml
-[vars]
-JWT_SECRET = "mml_academia_secret_2026_super_seguro_..."
-APP_URL = "https://makeseo-mml.pages.dev"
-# GOOGLE_CLIENT_ID = "configurar-si-usas-google-oauth"
-# GOOGLE_CLIENT_SECRET = "configurar-si-usas-google-oauth"
+### Despliegue en Cloudflare Pages
+Directorio raíz del proyecto: `makeseo-mml-comunidad` · comando de compilación vacío · salida `public`
+(se lee de `wrangler.toml`). Se despliega solo con cada push a `main`.
+
+### Regenerar el CSS
+Si agregas clases de Tailwind que no existían en el HTML:
+```bash
+cd ../scripts/tailwind && npm install && npm run build
 ```
 
 ## 📊 Endpoints API
@@ -218,7 +239,7 @@ npx wrangler d1 execute generico_db --remote --command="SELECT * FROM mml_agent_
 npx wrangler d1 execute generico_db --remote --command="SELECT * FROM mml_agent_profiles"
 
 # Migración (crear tablas faltantes)
-# Visita: https://makeseo-mml.pages.dev/api/migrate/agent-academy
+# Visita: https://makeseo.app/api/migrate/agent-academy
 ```
 
 ## 🔒 Seguridad
@@ -228,7 +249,7 @@ npx wrangler d1 execute generico_db --remote --command="SELECT * FROM mml_agent_
 - ✅ Middleware `requireAdmin` en endpoints admin
 - ✅ No se pueden eliminar usuarios admin
 - ✅ No se puede eliminar la propia cuenta
-- ✅ Variables de entorno en wrangler.toml (no en código)
+- ✅ `JWT_SECRET` como secreto de Cloudflare, sin valores por defecto en el código
 - ✅ Todas las tablas con prefijo `mml_` (sin conflictos)
 
 ## ✅ Bugs corregidos (auditoría final)
@@ -249,15 +270,17 @@ npx wrangler d1 execute generico_db --remote --command="SELECT * FROM mml_agent_
 ## ⚠️ Configuración pendiente (TÚ)
 
 1. **Cambiar contraseña admin** — crea tu cuenta admin y elimina `admin@makeseo.local`
-2. **Google OAuth** (opcional) — configura `GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` en Cloudflare Pages → Settings → Environment variables
-3. **Videos de clases 4, 5, 6** — cuando Edward suba los videos a YouTube, actualiza el campo `video_url` en la DB
-4. **Personalizar agentes certificados** — los 4 perfiles en la landing son de ejemplo, reemplaza con agentes reales
+2. **JWT_SECRET** — guárdalo como secreto en Cloudflare y quita la línea de `wrangler.toml`
+3. **Google OAuth** (opcional) — configura `GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` como secretos en Cloudflare
+4. **Videos de clases 4, 5, 6** — cuando Edward suba los videos a YouTube, actualiza el campo `video_url` en la DB
+5. **Personalizar agentes certificados** — los 4 perfiles en la landing son de ejemplo, reemplaza con agentes reales
 
 ## 📞 Contacto
 
 - **YouTube:** https://youtube.com/@makeseo
 - **WhatsApp:** https://whatsapp.com/channel/0029VbDhWAHLo4hmIWhEhI1w
 - **Servicios:** 360 Soluciones · +58 416-777-5771
+- **Correo:** correo36000@gmail.com
 
 ---
 

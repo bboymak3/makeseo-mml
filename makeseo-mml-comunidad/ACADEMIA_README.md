@@ -6,17 +6,15 @@ Sistema completo de academia online para el Método Malla Local (MML), con login
 
 | Recurso | URL |
 |---------|-----|
-| **Login agentes** | https://makeseo-mml.pages.dev/academia/login.html |
-| **Panel admin** | https://makeseo-mml.pages.dev/academia/admin.html |
-| **Dashboard academia** | https://makeseo-mml.pages.dev/academia/ |
-| **Sitio principal** | https://makeseo-mml.pages.dev |
+| **Login agentes** | https://makeseo.app/academia/login.html |
+| **Panel admin** | https://makeseo.app/academia/admin.html |
+| **Dashboard academia** | https://makeseo.app/academia/ |
+| **Sitio principal** | https://makeseo.app/ |
 
-## 🔐 Credenciales por defecto (¡CAMBIAR!)
+## 🔐 Cuenta admin
 
-- **Email:** `admin@makeseo.local`
-- **Contraseña:** `admin123`
-
-⚠️ **Importante:** Entra al panel admin y crea un usuario nuevo con rol admin y tu email real. Luego elimina el usuario `admin@makeseo.local` por seguridad.
+Si la base de datos se creó con la cuenta admin por defecto del seed, entra al panel admin, crea un
+usuario con rol admin y tu email real, y elimina la cuenta por defecto. No escribas contraseñas en este archivo.
 
 ## 🗄️ Base de datos D1
 
@@ -41,8 +39,8 @@ Para activar el login con Google:
 3. Habilita la API de Google+ o People API
 4. Ve a "Credenciales" → "Crear credenciales" → "ID de cliente OAuth"
 5. Tipo: Aplicación web
-6. Orímenes autorizados: `https://makeseo-mml.pages.dev`
-7. URIs de redirección autorizados: `https://makeseo-mml.pages.dev/api/auth/google`
+6. Orígenes autorizados: `https://makeseo.app` (y `https://makeseo-mml.pages.dev` si también se usa)
+7. URIs de redirección autorizados: `https://makeseo.app/api/auth/google` (el login usa el dominio desde el que se abre la página)
 8. Copia el Client ID y Client Secret
 9. En Cloudflare Pages → Settings → Environment variables, agrega:
    - `GOOGLE_CLIENT_ID` = tu-client-id
@@ -104,17 +102,14 @@ npx wrangler d1 execute generico_db --remote --command="SELECT * FROM mml_users"
 npx wrangler pages deploy public --project-name=makeseo-mml --branch=main --commit-dirty=true
 
 # Ejecutar migración de academia (crear tablas faltantes)
-# Visita: https://makeseo-mml.pages.dev/api/migrate/agent-academy
+# Visita: https://makeseo.app/api/migrate/agent-academy
 ```
 
 ## 🔧 Variables de entorno
 
-Configuradas en `wrangler.toml`:
-
-- `JWT_SECRET` — secreto para firmar JWT (ya configurado, no lo cambies sin avisar)
-- `APP_URL` — `https://makeseo-mml.pages.dev`
-- `GOOGLE_CLIENT_ID` — (vacío por defecto, configurar si usas Google OAuth)
-- `GOOGLE_CLIENT_SECRET` — (vacío por defecto)
+- `JWT_SECRET` — **secreto** en Cloudflare (proyecto → Configuración → Variables y secretos). Obligatorio: el código ya no tiene clave por defecto. Cambiarlo cierra las sesiones abiertas.
+- `APP_URL` — `https://makeseo.app` (en `wrangler.toml`)
+- `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` — secretos en Cloudflare, solo si usas Google OAuth
 
 ## 📊 Endpoints API
 
