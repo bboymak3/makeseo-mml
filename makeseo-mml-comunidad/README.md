@@ -37,7 +37,7 @@ makeseo-mml-comunidad/
 │   ├── master-prompt.md                 # Master prompt descargable
 │   ├── academia/
 │   │   ├── index.html                   # Dashboard del agente (clases, examen, certificado)
-│   │   ├── login.html                   # Login (email/password + Google OAuth)
+│   │   ├── login.html                   # Login (email/password)
 │   │   └── admin.html                   # Panel admin (usuarios, agentes, clases, preguntas, certificados)
 │   ├── master-prompt/
 │   │   └── index.html                   # Landing del master prompt con botón copiar
@@ -52,12 +52,10 @@ makeseo-mml-comunidad/
 │   │   ├── academy-path.js              # Ruta de aprendizaje y bloqueos
 │   │   └── academy-video.js             # Helper de videos YouTube
 │   └── api/
-│       ├── auth/                        # Login, register, me, google OAuth
+│       ├── auth/                        # Login, register, me
 │       │   ├── login.js
 │       │   ├── register.js
-│       │   ├── me.js
-│       │   ├── google.js
-│       │   └── google-config.js
+│       │   └── me.js
 │       ├── user-profile/                # GET/PUT perfil del agente
 │       ├── upload/                      # POST subir avatar (base64)
 │       ├── agent-classes/               # CRUD clases + preguntas
@@ -155,7 +153,7 @@ TAPIZADO DE VOLANTES, LLANOCAR CL, DR.AUTOMOTRIZ. 21 clientes tienen web (`data-
 - **Frontend:** HTML estático + Tailwind CSS compilado (`public/css/tailwind.css`) + Vanilla JS
 - **Backend:** Cloudflare Pages Functions (Workers)
 - **Base de datos:** Cloudflare D1 (SQLite)
-- **Auth:** JWT (HMAC-SHA256) + Google OAuth (opcional)
+- **Auth:** JWT (HMAC-SHA256), solo email y contraseña
 - **PDF:** pdf-lib + jsPDF + pdf.js
 - **Hosting:** Cloudflare Pages ($0)
 - **Fonts:** Inter + Poppins (Google Fonts)
@@ -166,7 +164,6 @@ TAPIZADO DE VOLANTES, LLANOCAR CL, DR.AUTOMOTRIZ. 21 clientes tienen web (`data-
 |----------|-------|-------|
 | `JWT_SECRET` | **Secreto** en Cloudflare (proyecto → Configuración → Variables y secretos) | Obligatoria. Sin ella el login falla (ya no hay clave por defecto en el código). Cambiarla cierra las sesiones abiertas. |
 | `APP_URL` | `wrangler.toml` `[vars]` | `https://makeseo.app` |
-| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | Secretos en Cloudflare | Solo si usas Google OAuth |
 
 ### Despliegue en Cloudflare Pages
 Directorio raíz del proyecto: `makeseo-mml-comunidad` · comando de compilación vacío · salida `public`
@@ -186,8 +183,6 @@ cd ../scripts/tailwind && npm install && npm run build
 | `/api/auth/login` | POST | Login email/password → JWT |
 | `/api/auth/register` | POST | Registro público |
 | `/api/auth/me` | GET | Datos del usuario autenticado |
-| `/api/auth/google` | GET | Callback Google OAuth |
-| `/api/auth/google-config` | GET | Config Google OAuth |
 
 ### Agente (requiere auth)
 | Endpoint | Método | Función |
@@ -271,9 +266,8 @@ npx wrangler d1 execute generico_db --remote --command="SELECT * FROM mml_agent_
 
 1. **Cambiar contraseña admin** — crea tu cuenta admin y elimina `admin@makeseo.local`
 2. **JWT_SECRET** — guárdalo como secreto en Cloudflare y quita la línea de `wrangler.toml`
-3. **Google OAuth** (opcional) — configura `GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` como secretos en Cloudflare
-4. **Videos de clases 4, 5, 6** — cuando Edward suba los videos a YouTube, actualiza el campo `video_url` en la DB
-5. **Personalizar agentes certificados** — los 4 perfiles en la landing son de ejemplo, reemplaza con agentes reales
+3. **Videos de clases 4, 5, 6** — cuando Edward suba los videos a YouTube, actualiza el campo `video_url` en la DB
+4. **Personalizar agentes certificados** — los 4 perfiles en la landing son de ejemplo, reemplaza con agentes reales
 
 ## 📞 Contacto
 

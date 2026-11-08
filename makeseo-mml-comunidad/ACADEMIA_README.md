@@ -30,22 +30,9 @@ Se usa la base de datos existente `generico_db` (ID: `38dd85ba-03dc-4937-af19-4d
 - `mml_academy_config` — configuración clave-valor
 - `mml_exam_attempts` — intentos de examen final
 
-## ⚙️ Configuración de Google OAuth (OPCIONAL)
+## 🔑 Inicio de sesión
 
-Para activar el login con Google:
-
-1. Ve a https://console.cloud.google.com/
-2. Crea un proyecto (o usa uno existente)
-3. Habilita la API de Google+ o People API
-4. Ve a "Credenciales" → "Crear credenciales" → "ID de cliente OAuth"
-5. Tipo: Aplicación web
-6. Orígenes autorizados: `https://makeseo.app` (y `https://makeseo-mml.pages.dev` si también se usa)
-7. URIs de redirección autorizados: `https://makeseo.app/api/auth/google` (el login usa el dominio desde el que se abre la página)
-8. Copia el Client ID y Client Secret
-9. En Cloudflare Pages → Settings → Environment variables, agrega:
-   - `GOOGLE_CLIENT_ID` = tu-client-id
-   - `GOOGLE_CLIENT_SECRET` = tu-client-secret
-10. Haz un nuevo deploy
+La academia usa solo **email y contraseña**. El login con Google se quitó (botón y endpoints `/api/auth/google*`).
 
 ## 📂 Estructura del proyecto
 
@@ -55,7 +42,7 @@ makeseo-mml-comunidad/
 │   ├── index.html                   # Landing principal MML
 │   ├── academia/
 │   │   ├── index.html               # Dashboard del agente (de meridaunclick)
-│   │   ├── login.html               # Login (email/password + Google OAuth)
+│   │   ├── login.html               # Login (email/password)
 │   │   └── admin.html               # Panel admin para crear usuarios
 │   ├── js/
 │   │   ├── academia-admin.js        # JS del dashboard
@@ -73,8 +60,6 @@ makeseo-mml-comunidad/
 │       │   ├── login.js             # POST /api/auth/login
 │       │   ├── register.js          # POST /api/auth/register
 │       │   ├── me.js                # GET /api/auth/me
-│       │   ├── google.js            # GET /api/auth/google (OAuth callback)
-│       │   └── google-config.js     # GET /api/auth/google-config
 │       ├── admin/
 │       │   ├── create-user.js       # POST /api/admin/create-user
 │       │   ├── users/index.js       # GET /api/admin/users
@@ -109,7 +94,6 @@ npx wrangler pages deploy public --project-name=makeseo-mml --branch=main --comm
 
 - `JWT_SECRET` — **secreto** en Cloudflare (proyecto → Configuración → Variables y secretos). Obligatorio: el código ya no tiene clave por defecto. Cambiarlo cierra las sesiones abiertas.
 - `APP_URL` — `https://makeseo.app` (en `wrangler.toml`)
-- `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` — secretos en Cloudflare, solo si usas Google OAuth
 
 ## 📊 Endpoints API
 
@@ -117,8 +101,6 @@ npx wrangler pages deploy public --project-name=makeseo-mml --branch=main --comm
 - `POST /api/auth/login` — login con email/password
 - `POST /api/auth/register` — registro público (si está habilitado)
 - `GET /api/auth/me` — datos del usuario autenticado
-- `GET /api/auth/google-config` — configuración Google OAuth
-- `GET /api/auth/google` — callback de Google OAuth
 
 ### Admin (requiere rol admin)
 - `POST /api/admin/create-user` — crear usuario
@@ -138,7 +120,6 @@ npx wrangler pages deploy public --project-name=makeseo-mml --branch=main --comm
 ## ⚠️ Lo que falta configurar TÚ
 
 1. **Cambiar contraseña del admin default** — entra al panel admin y crea tu propia cuenta admin, luego elimina `admin@makeseo.local`
-2. **Google OAuth** (opcional) — sigue los pasos de arriba si quieres login con Google
 3. **Crear clases y preguntas** — desde el panel admin o vía API
 4. **Personalizar el dashboard** — `public/academia/index.html` tiene el branding de AunClick, adaptarlo a MML
 

@@ -88,7 +88,7 @@ Las destacadas llevan borde dorado y `★`. En la portada solo se ven las 6 prim
 - Certificado PDF automático
 - Niveles y XP (gamificación)
 - Canal YouTube configurable (máx. 3)
-- Login con email o Google OAuth
+- Login con email y contraseña (sin login con Google)
 
 ### SEO
 - Dominio único `https://makeseo.app/` en canonical, Open Graph, JSON-LD, `robots.txt` y sitemap.
