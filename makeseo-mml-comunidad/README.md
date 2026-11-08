@@ -126,21 +126,21 @@ Usa la base de datos existente `generico_db` (ID: `38dd85ba-03dc-4937-af19-4d1c4
 
 ## 🎨 Landing principal
 
-Secciones en orden (`public/index.html`):
-1. **Hero** — H1 "Método Malla Local", botones **Quiero posicionar mi negocio** (WhatsApp), YouTube y Canal WhatsApp
-2. **Nuestros Clientes** — 6 destacados con ★ dorada + botón "Ver los 31 clientes" (desplegable). Cada ficha abre un modal con perfil de Google y "Visitar página web" si la tarjeta tiene `data-web-url`
-3. **CTA Academia** — Botón gigante "IR A LA ACADEMIA"
-4. **Agentes Certificados**
-5. **Master Prompt MML** — dos desplegables: generador por nicho (12 nichos + input custom) y playbook completo (ver/descargar)
-6. **¿Qué es el MML?**
-7. **3 Pilares (Trinomio de Autoridad)**
-8. **Tutoriales YouTube**
-9. **Comunidad WhatsApp**
-10. **Servicios 360 Soluciones**
-11. **Bots IA (BotWA)**
-12. **Directorios comerciales** — HolaX y En Santiago
-13. **FAQ**
-14. **Footer** + botones flotantes (WhatsApp derecha, YouTube izquierda)
+Secciones en orden (`public/index.html`). La portada está orientada al **portafolio de clientes**;
+el contenido educativo queda dentro de dos botones gigantes desplegables (`<details class="mega">`):
+
+1. **Hero** — H1 "Método Malla Local", botones **Quiero posicionar mi negocio** (WhatsApp), **Ver nuestros clientes**, YouTube y Canal WhatsApp
+2. **Nuestros Clientes** (`#clientes`) — 6 destacados con ★ dorada + "Ver los 31 clientes". Cada ficha abre un modal con perfil de Google y "Visitar página web" si tiene `data-web-url`
+3. **Servicios 360 Soluciones** (`#contacto`)
+4. **Bots IA (BotWA)** (`#bots-ia`)
+5. **Directorios comerciales** (`#directorios`) — HolaX y En Santiago
+6. **🎓 ACADEMIA** (botón gigante naranja, `#grupo-academia`) — al abrirlo: CTA Academia, Agentes Certificados, ¿Qué es el MML?, 3 Pilares (`#metodo`), Tutoriales YouTube, Comunidad WhatsApp
+7. **🤖 MASTER PROMPT** (botón gigante celeste, `#grupo-master-prompt`) — al abrirlo: generador por nicho (`#prompt-generador`) y playbook completo (`#master-prompt`)
+8. **FAQ** (`#faq-index`)
+9. **Footer** + botones flotantes (WhatsApp derecha, YouTube izquierda)
+
+Los enlaces a una sección que está dentro de un botón gigante (por ejemplo `#metodo` en el menú o `/#comunidad`
+desde otra página) abren el desplegable automáticamente (`mmlOpenHash` en el JS de la portada).
 
 **Menú:** enlaces + botones de colores **Clientes** (rojo), **Comunidad** (verde) y **Academia** (naranja).
 Entre 1024 y 1279 px los tres botones muestran solo el ícono para que el menú quepa.

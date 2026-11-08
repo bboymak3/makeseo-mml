@@ -70,12 +70,12 @@ Los colores y animaciones propios (`dark-navy`, `primary-cyan`, `accent-orange`,
 ## 📋 Características
 
 ### Landing
-- Portada: hero con botón **"Quiero posicionar mi negocio"** (WhatsApp) → **Nuestros Clientes** justo después.
+- Portada: hero con botones **"Quiero posicionar mi negocio"** (WhatsApp) y **"Ver nuestros clientes"** → **Nuestros Clientes** justo después.
 - **31 fichas de clientes**: 6 destacadas con estrella dorada (Optimus Cars, Global Pro, Electromecánico,
   Tapizado de Volantes, Llanocar, Dr. Automotriz) y el resto en un desplegable "Ver los 31 clientes".
 - Cada ficha abre un modal con **perfil de Google** y, si tiene, **"Visitar página web"** (`data-web-url` en la tarjeta).
 - Botón rojo **Clientes** en el menú de todas las páginas.
-- Master Prompt: generador por nicho + playbook completo, en dos desplegables.
+- Orientada al portafolio: Clientes → Servicios → Bots IA → Directorios. Lo educativo va en dos **botones gigantes desplegables**: **ACADEMIA** (academia, agentes, método, tutoriales, comunidad) y **MASTER PROMPT** (generador + playbook).
 - Canal @makeseo, Comunidad WhatsApp, Bots IA (BotWA + Bot de Tienda), directorios HolaX y En Santiago.
 
 #### Agregar o editar un cliente
