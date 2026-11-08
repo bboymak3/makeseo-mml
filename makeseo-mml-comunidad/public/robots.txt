@@ -4,7 +4,6 @@ Allow: /
 # Permitir indexación completa
 Allow: /academia/
 Allow: /academia/login.html
-Allow: /academia/admin.html
 Allow: /master-prompt
 Allow: /master-prompt.md
 Allow: /og-image.jpg
@@ -12,8 +11,8 @@ Allow: /favicon-32.png
 Allow: /partnerdigimon.pdf
 Allow: /sitemap.xml
 
-# Bloquear APIs (no indexar)
+# Bloquear APIs (no indexar). El panel admin usa <meta robots noindex>.
 Disallow: /api/
 
 # Sitemap
-Sitemap: https://makeseo-mml.pages.dev/sitemap.xml
+Sitemap: https://makeseo.app/sitemap.xml

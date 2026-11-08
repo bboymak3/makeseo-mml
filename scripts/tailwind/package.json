@@ -1,0 +1,10 @@
+{
+  "name": "makeseo-mml-tailwind-build",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -c tailwind.config.js -i input.css -o ../../makeseo-mml-comunidad/public/css/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

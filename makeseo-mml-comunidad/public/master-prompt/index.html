@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es-VE" class="scroll-smooth">
+<html lang="es-CL" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -14,46 +14,18 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Master Prompt MML · Landing SEO Local con Método Malla Local" />
   <meta property="og:description" content="Playbook reproducible para construir landings SEO Local con Astro + Tailwind + Leaflet. Botón copiar + paso a paso." />
-  <meta property="og:locale" content="es_VE" />
+  <meta property="og:locale" content="es_CL" />
   <meta property="og:site_name" content="Edward Valencia | MML" />
-  <meta property="og:url" content="https://makeseo-mml.pages.dev/master-prompt" />
+  <meta property="og:url" content="https://makeseo.app/master-prompt/" />
   <meta property="og:image" content="https://i.ytimg.com/vi/MGcITnwpgCo/maxresdefault.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Master Prompt MML · Edward Valencia" />
   <meta name="twitter:description" content="Playbook reproducible para construir landings SEO Local." />
 
-  <link rel="canonical" href="https://makeseo-mml.pages.dev/master-prompt" />
+  <link rel="canonical" href="https://makeseo.app/master-prompt/" />
 
   <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'dark-navy': '#0b1020',
-            'dark-navy-alt': '#121a33',
-            'primary-cyan': '#00BCD4',
-            'primary-teal': '#00838F',
-            'accent-orange': '#ff6b00',
-            'accent-orange-light': '#ff8c33',
-            'whatsapp-green': '#25D366',
-            'youtube-red': '#FF0000',
-          },
-          fontFamily: { sans: ['Inter', 'Poppins', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-          animation: {
-            'pulse-slow': 'pulseSlow 2.5s ease-in-out infinite',
-            'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate',
-          },
-          keyframes: {
-            pulseSlow: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.85' } },
-            glowPulse: { '0%': { boxShadow: '0 0 20px rgba(0, 188, 212, 0.45)' }, '100%': { boxShadow: '0 0 38px rgba(0, 188, 212, 0.75)' } },
-          },
-        },
-      },
-    };
-  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -99,6 +71,8 @@
     .prompt-block th, .prompt-block td { border: 1px solid rgba(0, 188, 212, 0.2); padding: 0.5em 0.8em; text-align: left; }
     .prompt-block th { background: rgba(0, 188, 212, 0.1); color: #00BCD4; }
   </style>
+  <!-- Tailwind compilado (ver scripts/tailwind en la raíz del repo) -->
+  <link rel="stylesheet" href="/css/tailwind.css" />
 </head>
 
 <body class="font-sans text-white antialiased">

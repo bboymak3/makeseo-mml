@@ -23,6 +23,6 @@ database_id = "38dd85ba-03dc-4937-af19-4d1c41a18f27"
 # ============================================================
 [vars]
 JWT_SECRET = "mml_academia_secret_2026_super_seguro_9f8a7b2c4e1d3a6f5b8c2e7d9a4f1b6c"
-APP_URL = "https://makeseo-mml.pages.dev"
+APP_URL = "https://makeseo.app"
 # GOOGLE_CLIENT_ID = "configurar-en-dashboard-si-usas-google-oauth"
 # GOOGLE_CLIENT_SECRET = "configurar-en-dashboard-si-usas-google-oauth"
