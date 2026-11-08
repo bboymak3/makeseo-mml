@@ -62,7 +62,7 @@ export async function onRequestPost(context) {
       });
     }
 
-    const jwtSecret = env.JWT_SECRET || 'makeseo_default_secret_2026';
+    const jwtSecret = env.JWT_SECRET;
 
     // Auto-migrate schema
     await ensureSchema(env);
